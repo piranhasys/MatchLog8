@@ -1,0 +1,1651 @@
+Option Explicit
+Dim strTempData As String
+Dim strLogText As String
+Dim strMatchTimeHalf As String
+Dim strActionAreaHalf(3) As String
+Dim strInPlayHalf As String
+Dim dtStartTime(3) As Date
+Dim iCurrentTeam As Integer
+Dim strStatName(30) As String
+Dim strShortStatName(30) As String
+Dim iSportType As Integer
+Dim iCurrentLanguage As Integer
+Dim LatestData As String
+Dim LastData(4) As String
+Dim HomeStat(30) As Integer
+Dim AwayStat(30) As Integer
+Dim TeamName(2) As String
+Dim InPlay#(2), LastInPlay#(2), FirstHalf#(2), SecondHalf#(2)
+Dim Area#(4)
+Dim AreaPercent#(4)
+Dim Logging As Boolean
+Dim LastChange#, LastAreaChange#
+Dim CurrentArea%, LastArea%
+Dim Period As Integer
+Dim FirstDuration#
+Dim StartTime#
+Dim HomePercent#, AwayPercent#
+Dim FirstHome$, FirstAway$
+Dim Possession%, LastPossession%
+Dim LastLog%
+Dim Resources() As String
+Dim RootFolder As String
+Public strMatchBuilderIPAddress As String
+Public strTeamLogIPAddress As String
+Public strPlayerLog1IPAddress As String
+Public strPlayerLog2IPAddress As String
+Public strEthosIPAddress As String
+Public strMottoIPAddress As String
+
+Public Sub ReadIniData(mTxt As String, mKey As String, mData As String)
+    Dim iFound As Integer
+    Dim iFoundCR As Integer
+    mData = ""
+    iFound = InStr(UCase(mTxt), UCase(mKey))    'force both to uppercase for check
+    If iFound > 0 Then
+        iFoundCR = InStr(iFound, mTxt, Chr(13))
+        If iFoundCR > iFound Then
+            mData = Mid(mTxt, iFound + Len(mKey) + 1, iFoundCR - (iFound + (Len(mKey) + 1)))
+        End If
+    End If
+End Sub
+
+Function ReadSetup() As Boolean
+    Dim inc As Integer
+    Dim strTempString As String
+    Dim strIniString As String
+    Dim Temp As String
+    
+    On Local Error GoTo ErrorCheck
+    ReadSetup = True    'default, gets modded on way
+
+    Open App.Path & "\MatchBuilder.ini" For Input As 22
+    Do
+        Line Input #22, strTempString
+        strIniString = strIniString & strTempString & vbCrLf
+    Loop Until EOF(22)
+    
+    ReadIniData strIniString, "MatchBuilderIPAddress", Temp
+    If Temp = "" Then
+        ReadSetup = False
+    Else
+        strMatchBuilderIPAddress = Temp
+    End If
+    ReadIniData strIniString, "TeamLogIPAddress", Temp
+    If Temp = "" Then
+        ReadSetup = False
+    Else
+        strTeamLogIPAddress = Temp
+    End If
+'    ReadIniData strIniString, "PlayerLog1IPAddress", Temp
+'    If Temp = "" Then
+'        ReadSetup = False
+'    Else
+'        strPlayerLog1IPAddress = Temp
+'    End If
+'    ReadIniData strIniString, "PlayerLog2IPAddress", Temp
+'    If Temp = "" Then
+'        ReadSetup = False
+'    Else
+'        strPlayerLog2IPAddress = Temp
+'    End If
+'    ReadIniData strIniString, "EthosIPAddress", Temp
+'    If Temp = "" Then
+'        ReadSetup = False
+'    Else
+'        strEthosIPAddress = Temp
+'    End If
+'    ReadIniData strIniString, "MottoIPAddress", Temp
+'    If Temp = "" Then
+'        ReadSetup = False
+'    Else
+'        strMottoIPAddress = Temp
+'    End If
+    ReadIniData strIniString, "DataFolder", Temp
+    If Temp = "" Then
+        ReadSetup = False
+    Else
+        'remove any trailing \
+        While Right(Temp, 1) = "\"
+            Temp = Left(Temp, Len(Temp) - 1)
+        Wend
+        RootFolder = Temp
+
+    End If
+    
+    Close #22
+
+    Exit Function
+ErrorCheck:
+    ReadSetup = False
+'    MsgBox Err.Description
+    Close #22
+    Exit Function
+
+
+    
+End Function
+Sub CommaSep2(TempData$, DataIn$())
+    On Local Error GoTo getOutComma
+    Dim S%, LastE%, N%, E%
+    
+    S% = InStr(TempData$, ",")
+    If S% <> 0 Then
+        DataIn$(1) = Left$(TempData$, S% - 1)
+        LastE% = S%  'drop out of do loop if only 2 entries
+        N% = 2
+        Do
+            E% = InStr(S% + 1, TempData$, ",")
+            If E% = 0 Then Exit Do
+            DataIn$(N%) = Mid$(TempData$, S% + 1, (E% - 1) - S%)
+            LastE% = E%
+            S% = E%
+            N% = N% + 1
+        Loop
+
+        S% = LastE%
+        E% = Len(TempData$)
+        DataIn$(N%) = Mid$(TempData$, S% + 1, E% - S%)
+
+    End If
+    Exit Sub
+getOutComma:
+    Exit Sub
+    Resume
+
+End Sub
+
+Sub ReadResources()
+    Dim strTemp As String, strData(3) As String, iEntry As Integer, strFileName As String
+    On Local Error GoTo ErrorCheck
+    ReDim Resources(1, 1)
+    '0=english, 1=arabic
+'    Open RootFolder & "\Resources.TXT" For Input As 22
+    If iSportType = 1 Then
+        strFileName = "TeamStatNamesH.TXT"
+    Else
+        strFileName = "TeamStatNamesF.TXT"
+    End If
+    Open strFileName For Input As 22
+    Do Until EOF(22)
+        Line Input #22, strTemp
+        CommaSep2 strTemp, strData()
+        iEntry = Val(strData(1))
+        strStatName(iEntry) = strData(2)
+        strShortStatName(iEntry) = strData(3)
+    Loop
+
+    Close #22
+    
+    
+    Exit Sub
+ErrorCheck:
+    MsgBox "Error reading resources", , Err.Description
+    Close #22
+    Exit Sub
+
+
+End Sub
+
+Sub LoadResources(iLanguage As Integer)
+    Dim inc As Integer, strText(30) As String, Team As Integer
+    With FormMain
+'        .MenuFileHeader.Caption = Resources(iCurrentLanguage, 43)
+'        .MenuLoadData.Caption = Resources(iCurrentLanguage, 401)
+'        .MenuLogHeader.Caption = Resources(iCurrentLanguage, 402)
+'        .MenuStart(1).Caption = Resources(iCurrentLanguage, 403)
+'        .MenuStart(2).Caption = Resources(iCurrentLanguage, 404)
+'        .MenuStop.Caption = Resources(iCurrentLanguage, 405)
+'        .MenuZero.Caption = Resources(iCurrentLanguage, 406)
+'        .MenuExit.Caption = Resources(iCurrentLanguage, 72)
+'        .MenuHomeDummy.Caption = Resources(iCurrentLanguage, 407)
+'        .MenuAwayDummy.Caption = Resources(iCurrentLanguage, 408)
+        For inc = 1 To 30
+'            If iSportType = 1 Then
+'                strStatName(inc) = "Hurling Stat Name " & CStr(inc)
+'                strShortStatName(inc) = "H Stat " & CStr(inc)
+'            Else
+'                strStatName(inc) = "Football Stat Name " & CStr(inc)
+'                strShortStatName(inc) = "F Stat " & CStr(inc)
+'            End If
+            Select Case iSportType
+                Case 0, 1
+                    strText(inc) = strStatName(inc)
+                Case 2, 3
+                Case 4
+                    strText(1) = "Attempts at Goal"
+                    strText(2) = "Attempts On Target"
+                    strText(3) = "Fouls Committed"
+                    strText(4) = "Corners Won"
+                    strText(5) = "Caught Offside"
+                    strText(6) = "Yellow Cards"
+                    strText(7) = "Red Cards"
+            End Select
+'            .MenuHomeLog(inc).Caption = strText(inc)
+'            .MenuAwayLog(inc).Caption = strText(inc)
+            .LablStat(inc).Caption = strText(inc)
+        Next inc
+'        For inc = 0 To 3
+'            .MenuPossession(inc).Caption = Resources(iCurrentLanguage, inc + 409)
+'        Next inc
+'        For inc = 1 To 3
+'            .MenuArea(inc).Caption = Resources(iCurrentLanguage, inc + 412)
+'        Next inc
+'        For inc = 1 To 2
+'            .LablPossession(inc).Caption = Resources(iCurrentLanguage, inc + 415)
+'            .LablMatchTimes(inc).Caption = Resources(iCurrentLanguage, inc + 417)
+'        Next inc
+    End With
+End Sub
+
+Sub SendPeriodData()
+    Dim H%, A%, L%, C%, R%, D$, T%
+    Dim MatchTotal#
+    On Local Error GoTo Abort
+    
+    MatchTotal = Now - StartTime
+    If MatchTotal = 0 Then Exit Sub
+    
+    
+    If Period = 2 Then
+        H = Second(InPlay(1)) + (Minute(InPlay(1)) * 60) + Second(FirstHalf(1)) + (Minute(FirstHalf(1)) * 60)
+        A = Second(InPlay(2)) + (Minute(InPlay(2)) * 60) + Second(FirstHalf(2)) + (Minute(FirstHalf(2)) * 60)
+        T = Minute(MatchTotal) + 45
+    Else
+        H = Second(InPlay(1)) + (Minute(InPlay(1)) * 60)
+        A = Second(InPlay(2)) + (Minute(InPlay(2)) * 60)
+        T = Minute(MatchTotal)
+    End If
+    L = Second(Area(1)) + (Minute(Area(1)) * 60)
+    C = Second(Area(2)) + (Minute(Area(2)) * 60)
+    R = Second(Area(3)) + (Minute(Area(3)) * 60)
+    
+    
+    D = "P," & Trim(Str(T)) & "," & Trim(Str(H)) & "," & Trim(Str(A)) & "," & Trim(Str(L)) & "," & Trim(Str(C)) & "," & Trim(Str(R)) & "//" & Chr(13)
+    
+'    Comm1.Output = D
+    FormMain.WnSkTransfer.SendData D
+Abort:
+
+End Sub
+Sub CalcActionAreas(LastArea%)
+    Dim Duration#, TotalArea#
+    
+    If Logging = False Then Exit Sub
+    If LastArea = 0 Then Exit Sub
+    
+    Duration = Now - LastAreaChange
+    Area(LastArea) = Area(LastArea) + Duration
+    TotalArea = Area(1) + Area(2) + Area(3)
+    If TotalArea > 0 Then
+        AreaPercent(1) = Area(1) / TotalArea
+        AreaPercent(2) = Area(2) / TotalArea
+        AreaPercent(3) = 1 - (AreaPercent(1) + AreaPercent(2))
+    End If
+    LastAreaChange = Now
+    
+    
+End Sub
+
+
+Sub CalcTimes(LastTeam%, Change As Boolean)
+    Dim Duration#
+    If StartTime = 0 Then Exit Sub
+    Duration = Now - LastChange
+    InPlay(LastTeam) = LastInPlay(LastTeam) + Duration
+    If Change = True Then
+        LastInPlay(LastTeam) = InPlay(LastTeam)
+    End If
+End Sub
+
+Sub LogArea(A%)
+End Sub
+
+
+Function PadLen$(T$, L%)
+    Dim X%
+    
+    For X% = Len(T$) To L% - 1
+        PadLen = PadLen & " "
+    Next X%
+    PadLen = PadLen & T$
+End Function
+
+Sub ReadConfig()
+    TeamName(1) = GetSetting(App.Title, "Config", "Team1", "Home")
+    TeamName(2) = GetSetting(App.Title, "Config", "Team2", "Away")
+    iSportType = GetSetting(App.Title, "Config", "Sport", 4)
+    SetMenuChecks
+End Sub
+Sub SetMenuChecks()
+    Dim inc As Integer
+    For inc = 0 To 4
+        MenuSportType(inc).Checked = False
+    Next inc
+    MenuSportType(iSportType).Checked = True
+End Sub
+Sub ReadData()
+    Dim T%, S%
+    
+    On Local Error GoTo GetOutRead
+    
+'    Open RootFolder & "\TeamData.dat" For Input As #22
+    Open "TeamLogData.dat" For Input As #22
+    For S% = 1 To 30
+        Input #22, HomeStat(S%)
+    Next S%
+    For S% = 1 To 30
+        Input #22, AwayStat(S%)
+    Next S%
+
+
+
+
+
+
+GetOutRead:
+    Close #22
+    Exit Sub
+    
+
+End Sub
+
+
+Sub ResetAreas()
+    Dim X%
+    For X% = 1 To 4
+        Area(X) = 0
+        AreaPercent(X) = 0
+    Next X%
+End Sub
+
+Sub SendActionAreas()
+    On Local Error Resume Next
+    Dim T$, AA1$, AA2$, AA3$
+    AA1 = Format(AreaPercent(1) * 100, "00")
+    AA2 = Format(AreaPercent(2) * 100, "00")
+   ' AA3 = Format((1 - (AreaPercent(1) + AreaPercent(2))) * 100, "00")
+    AA3 = Format(100 - (Val(AA1) + Val(AA2)), "00")
+    T$ = "X," & AA1 & "," & AA2 & "," & AA3 & "//"
+'    Comm1.Output = T$
+    FormMain.WnSkTransfer.SendData T
+    'MsgBox T$
+End Sub
+
+Sub SendData(T%)
+    Dim TempData$, S%
+    On Local Error Resume Next
+    TempData = "E" & Trim(Str(T%)) & "/"
+    For S% = 1 To 30
+        If T% = 1 Then
+            TempData = TempData & Trim(Str(HomeStat(S%))) & "/"
+        Else
+            TempData = TempData & Trim(Str(AwayStat(S%))) & "/"
+        End If
+    Next S%
+    TempData = TempData & "/"
+    LatestData = TempData
+    FormMain.WnSkTransfer.SendData TempData
+    
+    AddToLog Time & ", " & ElapsedTime & ", " & TeamName(T) & ", , , " & strLogText
+    AddToOperatorLog Time & ", " & ElapsedTime & ", " & TeamName(T) & vbTab & strLogText & "    " & strTempData
+    WriteSummary
+'    MsgBox TempData
+End Sub
+Function ElapsedTime() As String
+    Dim dtElapsedTime As Date
+    dtElapsedTime = Now - dtStartTime(Period)
+    If Period = 3 Then   'include HT
+        dtElapsedTime = dtElapsedTime + TimeValue("00:35:00")
+    End If
+    If Hour(dtElapsedTime) > 0 Then
+        ElapsedTime = Format(Minute(dtElapsedTime) + 35, "00") & ":" & Format(Second(dtElapsedTime), "00")
+    Else
+        ElapsedTime = Format(Minute(dtElapsedTime), "00") & ":" & Format(Second(dtElapsedTime), "00")
+    End If
+End Function
+
+Sub SendHalfTime()
+    Dim T$
+    On Local Error Resume Next
+    
+    T$ = "H=" & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ","
+    T$ = T$ & Left(LablFirstPossession(1), 4) & "," & Left(LablFirstPossession(2), 4)
+    T = T & EnhancedTime
+    T$ = T$ & "//"
+    FormMain.WnSkTransfer.SendData T
+    AddToLog Time & ", " & ElapsedTime & ", Summary, , , Half Time"
+    strMatchTimeHalf = PadLen(LablMatchTime, 6)
+    strInPlayHalf = PadLen(LablInPlay, 6)
+    'MsgBox T$
+    WriteSummary
+
+End Sub
+Sub SendFullTime()
+    Dim T$
+    On Local Error Resume Next
+    
+    T$ = "H=" & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ","
+    T$ = T$ & Left(LablFirstPossession(1), 4) & "," & Left(LablFirstPossession(2), 4)
+    T = T & EnhancedTime
+    T$ = T$ & "//"
+    FormMain.WnSkTransfer.SendData T
+    AddToLog Time & ", " & ElapsedTime & ", Summary, , , Full Time"
+    'MsgBox T$
+    WriteSummary
+
+End Sub
+Sub SendTime()
+    Dim T$
+    On Local Error Resume Next
+    
+    T$ = "C=" & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ","
+    If Period > 2 Then
+        T$ = T$ & Left(LablSecondPossession(1), 4) & "," & Left(LablSecondPossession(2), 4)
+        'lose % sign
+    Else
+        T$ = T$ & Left(LablFirstPossession(1), 4) & "," & Left(LablFirstPossession(2), 4)
+    End If
+    T = T & EnhancedTime
+    T$ = T$ & "//"
+    Debug.Print T
+    FormMain.WnSkTransfer.SendData T
+    'MsgBox T$
+    AddToLog Time & ", " & ElapsedTime & ", Summary, , , Time"
+    WriteSummary
+
+End Sub
+Function EnhancedTime() As String
+    Dim T As String, AA1 As String, AA2 As String, AA3 As String
+    On Local Error Resume Next
+    
+    AA1 = Format(AreaPercent(1) * 100, "00")
+    AA2 = Format(AreaPercent(2) * 100, "00")
+    AA3 = Format(100 - (Val(AA1) + Val(AA2)), "00")
+    
+    If Period > 2 Then
+        T = "," & strMatchTimeHalf & "," & strInPlayHalf & ","
+        T = T & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ","
+        
+        T$ = T$ & Left(LablFirstPossession(1), 4) & "," & Left(LablFirstPossession(2), 4) & ","
+        T$ = T$ & Left(LablSecondPossession(1), 4) & "," & Left(LablSecondPossession(2), 4) & ","
+        
+        T = T & strActionAreaHalf(1) & "," & strActionAreaHalf(2) & "," & strActionAreaHalf(3) & "," & AA1 & "," & AA2 & "," & AA3 & ","
+    Else
+        T = "," & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ", , ,"
+        
+        T$ = T$ & Left(LablFirstPossession(1), 4) & "," & Left(LablFirstPossession(2), 4) & ","
+        T$ = T$ & Left(LablSecondPossession(1), 4) & "," & Left(LablSecondPossession(2), 4) & ","
+        
+        T = T & AA1 & "," & AA2 & "," & AA3 & ", , , ,"
+    End If
+    
+'    MsgBox T
+    EnhancedTime = T
+    
+End Function
+
+Sub ShowData()
+    Dim T%, S%
+    For T% = 1 To 2
+        Me.LablTeamName(T).BackColor = vbWhite
+        Me.LablTeamName(T + 2).BackColor = vbWhite
+        If iCurrentTeam = T Then
+            Me.LablTeamName(T).BackColor = vbGreen
+            Me.LablTeamName(T + 2).BackColor = vbGreen
+        End If
+        For S% = 1 To 30
+            If LastLog > 200 And LastLog Mod 100 = S Then
+                TextAwayNum(S%).BackColor = vbGreen
+'                TextAwayNum(S%).SetFocus
+'                TextAwayNum(S%).SelStart = 0
+            Else
+                TextAwayNum(S%).BackColor = vbWhite
+            End If
+            If LastLog < 200 And LastLog Mod 100 = S Then
+                TextHomeNum(S%).BackColor = vbGreen
+'                TextHomeNum(S%).SetFocus
+'                TextHomeNum(S%).SelStart = 0
+            Else
+                TextHomeNum(S%).BackColor = vbWhite
+            End If
+            TextHomeNum(S%) = HomeStat(S%)
+            TextAwayNum(S%) = AwayStat(S%)
+        Next S%
+    Next T%
+End Sub
+
+Sub ShowLog(Team%, Stat%)
+    Dim Phrase$
+    Phrase = LablMatchTime & ": " & LablTeamName(Team)
+    Phrase = Phrase & " " & Trim(LablStat(Abs(Stat)).Caption)
+    strLogText = Trim(LablStat(Abs(Stat)).Caption)
+    If Stat < 0 Then
+        Phrase = Phrase & " removed"
+        strLogText = strLogText & " removed"
+    Else
+        Phrase = Phrase & " added"
+        strLogText = strLogText & " added"
+    End If
+    strTempData = CStr(HomeStat(Abs(Stat))) & " - " & CStr(AwayStat(Abs(Stat)))
+    Phrase = Phrase & Chr$(13) & Chr(10)
+    LablLastAction(4) = LablLastAction(3)
+    LablLastAction(4).BackColor = LablLastAction(3).BackColor
+    LablLastAction(4).ForeColor = LablLastAction(3).ForeColor
+    LastData(4) = LastData(3)
+    LablLastAction(3) = LablLastAction(2)
+    LablLastAction(3).BackColor = LablLastAction(2).BackColor
+    LablLastAction(3).ForeColor = LablLastAction(2).ForeColor
+    LastData(3) = LastData(2)
+    LablLastAction(2) = LablLastAction(1)
+    LablLastAction(2).BackColor = LablLastAction(1).BackColor
+    LablLastAction(2).ForeColor = LablLastAction(1).ForeColor
+    LastData(2) = LastData(1)
+    LablLastAction(1) = LablLastAction(0)
+    LablLastAction(1).BackColor = LablLastAction(0).BackColor
+    LablLastAction(1).ForeColor = LablLastAction(0).ForeColor
+    LastData(1) = LastData(0)
+    LablLastAction(0) = Phrase
+    Debug.Print "Data: " & LatestData
+    LastData(0) = LatestData
+    LablLastAction(0).BackColor = vbRed
+    LablLastAction(0).ForeColor = vbWhite
+End Sub
+
+Sub ShowStatus()
+
+End Sub
+
+Sub ShowSummary()
+    Select Case Period
+        Case 0
+            FormMain!LablPeriod = "Pre Match"
+            'FormMain!LablPossession(1).BackColor = &H80FFFF
+            'FormMain!LablPossession(2).BackColor = &H80FFFF
+        Case 1
+            FormMain!LablPeriod = "First Half"
+            'FormMain!LablPossession(1).BackColor = vbGreen
+            'FormMain!LablPossession(2).BackColor = &H80FFFF
+        Case 2
+            FormMain!LablPeriod = "Half Time"
+            'FormMain!LablPossession(1).BackColor = &H80FFFF
+            'FormMain!LablPossession(2).BackColor = &H80FFFF
+        Case 3
+            FormMain!LablPeriod = "Second Half"
+            'FormMain!LablPossession(1).BackColor = &H80FFFF
+            'FormMain!LablPossession(2).BackColor = vbGreen
+        Case 4
+            FormMain!LablPeriod = "Full Time"
+            'FormMain!LablPossession(1).BackColor = &H80FFFF
+            'FormMain!LablPossession(2).BackColor = &H80FFFF
+    End Select
+'    FormMain!LablPeriod = Resources(iCurrentLanguage, 61 + Period)
+    Select Case Possession
+        Case 0
+            LablFirstPossession(1).BackColor = vbWhite
+            LablFirstPossession(2).BackColor = vbWhite
+            LablSecondPossession(1).BackColor = vbWhite
+            LablSecondPossession(2).BackColor = vbWhite
+        Case 1
+            If Period = 1 Then
+                LablFirstPossession(1).BackColor = vbGreen
+                LablFirstPossession(2).BackColor = vbWhite
+            Else
+                LablSecondPossession(1).BackColor = vbGreen
+                LablSecondPossession(2).BackColor = vbWhite
+            End If
+        Case 2
+            If Period = 1 Then
+                LablFirstPossession(1).BackColor = vbWhite
+                LablFirstPossession(2).BackColor = vbGreen
+            Else
+                LablSecondPossession(1).BackColor = vbWhite
+                LablSecondPossession(2).BackColor = vbGreen
+            End If
+    End Select
+End Sub
+
+
+Sub ShowTimes()
+    Dim Combined#, MatchTotal#
+    
+    MatchTotal = Now - StartTime
+    If MatchTotal = 0 Then Exit Sub
+    'FormMain!LablMatchTime = MatchTotal
+    FormMain!LablMatchTime = Right(Format(MatchTotal, "hh:mm:ss"), 5)
+    Combined = InPlay(1) + InPlay(2)
+    If Combined = 0 Then
+        'Stop
+        Exit Sub
+     End If
+    FormMain!LablInPlay = Right(Format(Combined, "hh:mm:ss"), 5)
+    HomePercent = InPlay(1) / Combined
+    AwayPercent = InPlay(2) / Combined
+    
+    If Period > 2 Then
+        FormMain!LablSecondPossession(1) = Format(HomePercent, "00.0%")
+        FormMain!LablSecondPossession(2) = Format(AwayPercent, "00.0%")
+    Else
+        FormMain!LablFirstPossession(1) = Format(HomePercent, "00.0%")
+        FormMain!LablFirstPossession(2) = Format(AwayPercent, "00.0%")
+    End If
+    Select Case CurrentArea
+        Case 1
+            FormMain!LablAreas(1).BackColor = vbGreen
+            FormMain!LablAreas(2).BackColor = vbWhite
+            FormMain!LablAreas(3).BackColor = vbWhite
+        Case 2
+            FormMain!LablAreas(1).BackColor = vbWhite
+            FormMain!LablAreas(2).BackColor = vbGreen
+            FormMain!LablAreas(3).BackColor = vbWhite
+        Case 3
+            FormMain!LablAreas(1).BackColor = vbWhite
+            FormMain!LablAreas(2).BackColor = vbWhite
+            FormMain!LablAreas(3).BackColor = vbGreen
+        Case Else
+            FormMain!LablAreas(1).BackColor = vbWhite
+            FormMain!LablAreas(2).BackColor = vbWhite
+            FormMain!LablAreas(3).BackColor = vbWhite
+            
+    End Select
+    FormMain!LablAreas(1) = Format(AreaPercent(1), "0.0%")
+    FormMain!LablAreas(2) = Format(AreaPercent(2), "0.0%")
+    FormMain!LablAreas(3) = Format(AreaPercent(3), "0.0%")
+End Sub
+Sub WriteConfig()
+    SaveSetting App.Title, "Config", "Team1", TeamName(1)
+    SaveSetting App.Title, "Config", "Team2", TeamName(2)
+End Sub
+
+Sub WriteData()
+    Dim T%, S%
+    
+    On Local Error GoTo GetOutWrite
+    
+'    Open RootFolder & "\TeamData.dat" For Output As #22
+    Open "TeamLogData.dat" For Output As #22
+    For S% = 1 To 30
+        Print #22, HomeStat(S%)
+    Next S%
+    For S% = 1 To 30
+        Print #22, AwayStat(S%)
+    Next S%
+
+
+
+
+
+
+GetOutWrite:
+    Close #22
+    Exit Sub
+    
+
+End Sub
+
+Private Sub CmndSave_Click()
+    WriteData
+    WriteConfig
+End Sub
+
+Private Sub CmndLanguage_Click()
+    iCurrentLanguage = 1 - iCurrentLanguage
+    ChangeLanguage iCurrentLanguage
+    SaveSetting App.Title, "Config", "Language", CStr(iCurrentLanguage)
+
+End Sub
+Sub ChangeLanguage(iLanguage As Integer)
+    Dim obj As Object, iRL As Boolean
+    On Local Error Resume Next
+    Select Case iLanguage
+        Case 0
+            'english
+            iRL = False
+        Case 1
+            'arabic
+            iRL = True
+    End Select
+    FormMain.RightToLeft = iRL
+    For Each obj In FormMain
+        obj.RightToLeft = iRL
+    Next obj
+    LoadResources iLanguage
+End Sub
+
+'Private Sub Comm2_OnComm()
+'    Dim NewChar$, Response$
+'    If Comm2.CommEvent = 2 Then
+'        'receive
+'        Do
+'        Loop Until Comm2.InBufferCount <> 0
+'        Do
+'            NewChar = Comm2.Input
+'            Response = Response & NewChar
+'        Loop Until Right(Response, 1) = Chr(13)
+'        Comm1.Output = Response
+'    End If
+'
+'End Sub
+
+Private Sub Command1_Click()
+SendPeriodData
+    
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    Select Case KeyCode
+        Case vbKeyZ
+            iCurrentTeam = 1
+            ShowData
+            KeyCode = 0
+        Case vbKeyX
+            iCurrentTeam = 2
+            ShowData
+            KeyCode = 0
+        Case vbKey1
+            LogData 1
+        Case vbKey2
+            LogData 2
+        Case vbKey3
+            LogData 3
+        Case vbKey4
+            LogData 4
+        Case vbKey5
+            LogData 5
+        Case vbKey6
+            LogData 6
+        Case vbKey7
+            LogData 7
+        Case vbKey8
+            LogData 8
+        Case vbKey9
+            LogData 9
+        Case vbKey0
+            LogData 10
+        Case vbKeyQ
+            LogData 11
+        Case vbKeyW
+            LogData 12
+        Case vbKeyE
+            LogData 13
+        Case vbKeyR
+            LogData 14
+        Case vbKeyT
+            LogData 15
+        Case vbKeyY
+            LogData 16
+        Case vbKeyU
+            LogData 17
+        Case vbKeyI
+            LogData 18
+        Case vbKeyO
+            LogData 19
+        Case vbKeyP
+            LogData 20
+        Case vbKeyA
+            LogData 21
+        Case vbKeyS
+            LogData 22
+        Case vbKeyD
+            LogData 23
+        Case vbKeyF
+            LogData 24
+        Case vbKeyG
+            LogData 25
+        Case vbKeyH
+            LogData 26
+        Case vbKeyJ
+            LogData 27
+        Case vbKeyK
+            LogData 28
+        Case vbKeyL
+            LogData 29
+        Case 186
+            LogData 30
+        
+'        Case vbKeyZ
+'            MenuArea_Click 1
+'            KeyCode = 0
+'        Case vbKeyX
+'            MenuArea_Click 2
+'            KeyCode = 0
+'        Case vbKeyC
+'            MenuArea_Click 3
+'            KeyCode = 0
+        Case vbKeySpace
+            MenuPossession_Click 3
+            KeyCode = 0
+        Case 188    'period
+            MenuPossession_Click 1
+            KeyCode = 0
+        Case 190    'comma
+            MenuPossession_Click 2
+            KeyCode = 0
+        Case 191    'slash
+            MenuPossession_Click 0
+            KeyCode = 0
+       End Select
+End Sub
+Sub LogData(Index As Integer)
+    If iCurrentTeam = 1 Then
+        HomeStat(Index) = HomeStat(Index) + 1
+        LastLog = 100 + Index
+        ShowData
+        SendData 1
+        ShowLog 1, Index
+        WriteData
+    Else
+        AwayStat(Index) = AwayStat(Index) + 1
+        LastLog = 200 + Index
+        ShowData
+        SendData 2
+        ShowLog 2, Index
+        WriteData
+    End If
+    
+End Sub
+Private Sub Form_KeyPress(KeyAscii As Integer)
+    Dim LS%, z As String, oldData As String
+    Select Case KeyAscii
+        Case Asc("0") To Asc("9"), 8
+            'ok
+        Case Asc("-")
+            Select Case LastLog
+                Case Is > 200
+                    LS = LastLog - 200
+                    AwayStat(LS) = AwayStat(LS) - 1
+                    ShowData
+                    SendData 2
+                    ShowLog 2, -LS
+                    WriteData
+                Case Is > 100
+                    LS = LastLog - 100
+                    HomeStat(LS) = HomeStat(LS) - 1
+                    ShowData
+                    SendData 1
+                    ShowLog 1, -LS
+                    WriteData
+            End Select
+            KeyAscii = 0
+        Case Asc("+"), Asc("=")
+            Select Case LastLog
+                Case Is > 200
+                    LS = LastLog - 200
+                    AwayStat(LS) = AwayStat(LS) + 1
+                    ShowData
+                    SendData 2
+                    ShowLog 2, LS
+                    WriteData
+                Case Is > 100
+                    LS = LastLog - 100
+                    HomeStat(LS) = HomeStat(LS) + 1
+                    ShowData
+                    SendData 1
+                    ShowLog 1, LS
+                    WriteData
+            End Select
+            KeyAscii = 0
+        Case Asc("#")
+            Select Case LastLog
+                Case Is > 200
+                    LS = LastLog - 200
+                    oldData = AwayStat(LS)
+                Case Is > 100
+                    LS = LastLog - 100
+                    oldData = HomeStat(LS)
+            End Select
+            z = InputBox("Enter number", LablStat(LS).Caption, oldData)
+            If z <> "" Then
+            Select Case LastLog
+                Case Is > 200
+                    LS = LastLog - 200
+                    AwayStat(LS) = Val(z)
+                    ShowData
+                    SendData 2
+                    ShowLog 2, LS
+                    WriteData
+                Case Is > 100
+                    LS = LastLog - 100
+                    HomeStat(LS) = Val(z)
+                    ShowData
+                    SendData 1
+                    ShowLog 1, LS
+                    WriteData
+            End Select
+            End If
+            ShowData
+            SendData 1
+            WriteData
+        Case Else
+            'kill
+            KeyAscii = 0
+    End Select
+End Sub
+
+Private Sub Form_Load()
+
+    On Local Error GoTo StartError
+    Dim Dummy$, CaptionText$, KillPort%
+    DoEvents
+    CaptionText$ = App.Title & " v" & App.Major & "." & App.Minor & "." & App.Revision
+    FormMain.Caption = CaptionText$ + "        PIRANHA Systems   01920 444240"
+    Me.Left = (Screen.Width - Me.Width) / 2
+    Me.Top = (Screen.Height - Me.Height) / 2
+    If ReadSetup = False Then
+        MsgBox "Error reading ini file, cannot continue"
+        End
+    End If
+    iCurrentLanguage = 1
+'    ChangeLanguage iCurrentLanguage
+    KillPort% = False
+Reopen:
+'    If KillPort% = False Then
+'        Comm2.PortOpen = True
+'        Do
+'           Dummy$ = FormMain!Comm2.Input 'dummy
+'        Loop Until FormMain!Comm2.InBufferCount = 0
+'    Else
+'        MsgBox "Can't find second serial port"
+'    End If
+    
+'    Comm1.PortOpen = True
+    'FormMain.KeyStat1.Value = False
+    ReadConfig
+    iCurrentTeam = 1
+    LablTeamName(1) = TeamName(1)
+    LablTeamName(2) = TeamName(2)
+    LablTeamName(3) = TeamName(1)
+    LablTeamName(4) = TeamName(2)
+    LoadResources 0
+    SetupDataTransfer
+    ReadData
+    ReadResources
+    LoadResources 0
+    ShowData
+    FormMain.WnSkTransfer.SendData "* Test Data from TeamLog at " & Time$ & " *"
+    
+    If Screen.Width < 9700 Then FormMain.WindowState = 2    'max
+Exit Sub
+
+StartError:
+    Select Case Err
+        Case 8002
+            'no port
+            KillPort% = True
+            Resume Reopen
+        Case Else
+            MsgBox Error(Err)
+            Resume Next
+    End Select
+
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    End
+End Sub
+
+Private Sub Label1_Click(Index As Integer)
+    MenuPossession_Click 0
+End Sub
+
+Private Sub LablFirstPossession_Click(Index As Integer)
+    MenuPossession_Click Index
+End Sub
+
+Private Sub LablSecondPossession_Click(Index As Integer)
+    MenuPossession_Click Index
+
+End Sub
+
+Private Sub MenuArea_Click(Index As Integer)
+    If CurrentArea <> Index Then
+        CalcActionAreas CurrentArea
+        CurrentArea = Index
+        'LastAreaChange = Now
+        'showtimes
+        ShowTimes
+    End If
+
+End Sub
+
+Private Sub MenuAwayLog_Click(Index As Integer)
+    AwayStat(Index) = AwayStat(Index) + 1
+    LastLog = 200 + Index
+    ShowData
+    SendData 2
+    ShowLog 2, Index
+    WriteData
+End Sub
+
+'Private Sub menuEnterNames_Click()
+'    TeamName(1) = InputBox("Home Team Name")
+'    TeamName(2) = InputBox("Away Team Name")
+'    LablTeamName(1) = TeamName(1)
+'    LablTeamName(2) = TeamName(2)
+'    WriteData
+'End Sub
+
+Private Sub MenuExit_Click()
+    Unload Me
+End Sub
+
+Private Sub MenuHomeLog_Click(Index As Integer)
+    HomeStat(Index) = HomeStat(Index) + 1
+    LastLog = 100 + Index
+    ShowData
+    SendData 1
+    ShowLog 1, Index
+    WriteData
+End Sub
+
+
+Private Sub MenuLoadData_Click()
+    ReadNetworkData 1
+End Sub
+
+Private Sub MenuNames_Click()
+    Dim z$
+    z = InputBox("Enter new Home Team name", , TeamName(1))
+    If z <> "" Then
+        TeamName(1) = z
+    End If
+    z = InputBox("Enter new Away Team name", , TeamName(2))
+    If z <> "" Then
+        TeamName(2) = z
+    End If
+    WriteConfig
+    LablTeamName(1) = TeamName(1)
+    LablTeamName(2) = TeamName(2)
+    LablTeamName(3) = TeamName(1)
+    LablTeamName(4) = TeamName(2)
+End Sub
+
+Private Sub MenuPossession_Click(Index As Integer)
+    Select Case Index
+        Case 0
+            CalcTimes Possession, True
+            If Possession <> 0 Then
+                LastPossession = Possession
+            End If
+            Possession = 0
+            LastChange = Now
+            CalcActionAreas CurrentArea
+            LastArea = CurrentArea
+            CurrentArea = 4
+            'LastAreaChange = Now
+            ShowSummary
+        Case 1
+            CalcTimes Possession, True
+            Possession = 1
+            iCurrentTeam = Possession
+            ShowData
+            LastChange = Now
+            If LastArea <> 0 Then
+                'restart after out of play
+                MenuArea_Click LastArea
+                LastArea = 0
+            End If
+            ShowSummary
+        Case 2
+            CalcTimes Possession, True
+            Possession = 2
+            iCurrentTeam = Possession
+            ShowData
+            LastChange = Now
+            If LastArea <> 0 Then
+                'restart after out of play
+                MenuArea_Click LastArea
+                LastArea = 0
+            End If
+            ShowSummary
+        Case 3
+            If Possession = 0 Then Exit Sub 'start of match
+            CalcTimes Possession, True
+            If Possession = 0 Then
+                Possession = 3 - LastPossession
+            Else
+                Possession = 3 - Possession
+            End If
+            iCurrentTeam = Possession
+            ShowData
+            LastChange = Now
+            If LastArea <> 0 Then
+                'restart after out of play
+                MenuArea_Click LastArea
+                LastArea = 0
+            End If
+            ShowSummary
+    End Select
+End Sub
+
+Private Sub menuResetPeriod_Click()
+    Dim z As Integer
+    z = MsgBox("Do you want to Reset the Match Clock to Pre-Match ?" & vbLf & "All Possession and InPlay Data will be cleared.", vbYesNo + vbDefaultButton2)
+    If z <> vbYes Then Exit Sub
+    
+    FirstDuration = 0
+    FirstHalf(1) = 0
+    FirstHalf(2) = 0
+    StartTime = 0
+    LastChange = 0
+    LastAreaChange = 0
+    InPlay(1) = 0
+    InPlay(2) = 0
+    LastInPlay(1) = 0
+    LastInPlay(2) = 0
+    Period = 0
+    CurrentArea = 0
+    Logging = False
+    TimrShow.Enabled = False
+    TimrSend.Enabled = True
+    LablFirstPossession(1) = ""
+    LablFirstPossession(2) = ""
+    LablSecondPossession(1) = ""
+    LablSecondPossession(2) = ""
+    LablAreas(1) = ""
+    LablAreas(2) = ""
+    LablAreas(3) = ""
+    LablMatchTime = ""
+    LablInPlay = ""
+    ShowData
+    ShowSummary
+    WriteData
+    SendData 1
+    SendData 2
+
+End Sub
+
+Private Sub MenuSportType_Click(Index As Integer)
+    iSportType = Index
+    SaveSetting App.Title, "Config", "Sport", iSportType
+    SetMenuChecks
+    ReadResources
+    LoadResources 0
+End Sub
+
+Private Sub MenuStart_Click(Index As Integer)
+    Dim z%
+    Select Case Index
+        Case 1
+            Select Case Period
+                Case 0, 1
+                    'start, restart
+                    If Period = 1 Then
+                        z% = MsgBox("Do you want to restart the match clock ?", vbYesNo + vbDefaultButton2)
+                        If z% <> vbYes Then Exit Sub
+                    End If
+                    FirstDuration = 0
+                    FirstHalf(1) = 0
+                    FirstHalf(2) = 0
+                    InPlay(1) = 0
+                    InPlay(2) = 0
+                    LastInPlay(1) = 0
+                    LastInPlay(2) = 0
+                    strActionAreaHalf(1) = ""
+                    strActionAreaHalf(2) = ""
+                    strActionAreaHalf(3) = ""
+                    dtStartTime(1) = Now
+                    StartTime = Now
+                    LastChange = Now
+                    Period = 1
+                    ShowTimes
+                    ShowStatus
+                    ShowSummary
+                    TimrSend.Enabled = False
+                    TimrShow.Enabled = True
+'                Case 3
+'                    'correct wrong half start
+'                    Period = 3
+'                    ShowStatus
+'                    ShowSummary
+'                    TimrSend.Enabled = True
+'                    TimrShow.Enabled = True
+            End Select
+        Case 2
+            Select Case Period
+'                Case 1
+'                    'correct wrong half start
+'                    Period = 3
+'                    ShowStatus
+'                    ShowSummary
+'                    TimrSend.Enabled = True
+'                    TimrShow.Enabled = True
+                Case 2, 3
+                    'only allow after 1st half is played
+                    'start, restart
+                    If Period = 3 Then
+                        z% = MsgBox("Do you want to restart the second half ?", vbYesNo + vbDefaultButton2)
+                        If z% <> vbYes Then Exit Sub
+                    End If
+                    InPlay(1) = 0
+                    InPlay(2) = 0
+                    LastInPlay(1) = 0
+                    LastInPlay(2) = 0
+                    
+                    StartTime = Now
+                    dtStartTime(3) = Now
+                    LastChange = Now
+                    Period = 3
+                    ShowTimes
+                    ShowStatus
+                    ShowSummary
+                    TimrSend.Enabled = False
+                    TimrShow.Enabled = True
+            End Select
+    End Select
+    If Logging = False Then
+        ResetAreas
+        LastAreaChange = Now
+        Logging = True
+    End If
+
+
+End Sub
+
+Private Sub MenuStop_Click()
+    Dim AA1 As String, AA2 As String, AA3 As String
+    Select Case Period
+        Case 1
+            TimrSend.Enabled = True
+            TimrShow.Enabled = False
+            FirstDuration = Now - StartTime
+            FirstHalf(1) = HomePercent
+            FirstHalf(2) = AwayPercent
+            FirstHome = Format(FirstHalf(1), "#0.0")
+            FirstAway = Format(FirstHalf(2), "#0.0")
+            strActionAreaHalf(1) = Format(AreaPercent(1) * 100, "00")
+            strActionAreaHalf(2) = Format(AreaPercent(2) * 100, "00")
+            strActionAreaHalf(3) = Format(100 - (Val(AA1) + Val(AA2)), "00")
+            CalcTimes Possession, False
+            CalcActionAreas CurrentArea
+            ShowTimes
+            SendHalfTime
+            TimrDelay.Enabled = True 'waits, then sends areas
+            'OK to send after halftime, as Matchbuilder stores to halftime data
+            Period = 2
+            Possession = 0
+            CurrentArea = 0
+            'LastAreaChange = Now
+            Logging = False
+            ShowStatus
+            ShowSummary
+            ShowTimes
+        Case 3
+            TimrSend.Enabled = True
+            TimrShow.Enabled = False
+            CalcTimes Possession, False
+            CalcActionAreas CurrentArea
+            SendTime
+            SendFullTime
+            TimrDelay.Enabled = True 'waits, then sends areas
+            Period = 4
+            CurrentArea = 0
+            Possession = 0
+            'LastAreaChange = Now
+            Logging = False
+            'TimrSend.Enabled = True
+            ShowStatus
+            ShowSummary
+            ShowTimes
+    End Select
+End Sub
+
+
+Private Sub MenuZero_Click()
+    Dim X%, z%
+    z% = MsgBox("Do you want to zero all data and reset Match Clock ?", vbYesNo + vbDefaultButton2)
+    If z% <> vbYes Then Exit Sub
+    
+    For X = 1 To 30
+        HomeStat(X) = 0
+        AwayStat(X) = 0
+    Next X
+    FirstDuration = 0
+    FirstHalf(1) = 0
+    FirstHalf(2) = 0
+    StartTime = 0
+    LastChange = 0
+    LastAreaChange = 0
+    InPlay(1) = 0
+    InPlay(2) = 0
+    LastInPlay(1) = 0
+    LastInPlay(2) = 0
+    Period = 0
+    CurrentArea = 0
+    Logging = False
+    TimrShow.Enabled = False
+    TimrSend.Enabled = True
+    LablFirstPossession(1) = ""
+    LablFirstPossession(2) = ""
+    LablSecondPossession(1) = ""
+    LablSecondPossession(2) = ""
+    LablAreas(1) = ""
+    LablAreas(2) = ""
+    LablAreas(3) = ""
+    LablMatchTime = ""
+    LablInPlay = ""
+    ShowData
+    ShowSummary
+    WriteData
+    SendData 1
+    SendData 2
+    z = MsgBox("Do you want to Clear the Log File?", vbYesNo, App.Title)
+    If z = vbYes Then
+        ClearLog
+    End If
+
+    
+End Sub
+
+'Private Sub TextAwayNum_Change(index As Integer)
+'    If index < 8 Then
+'        AwayStat(index) = Val(TextAwayNum(index))
+'    End If
+'End Sub
+
+Private Sub TextAwayNum_KeyDown(Index As Integer, KeyCode As Integer, Shift As Integer)
+'    Dim z$
+'    Select Case KeyCode
+'        Case vbKeyUp
+'            If Index > 1 Then
+'                LastLog = 200 + (Index - 1)
+'                ShowData
+'            End If
+'        Case vbKeyDown
+'            If Index < 7 Then
+'                LastLog = 200 + (Index + 1)
+'                ShowData
+'            End If
+'        Case vbKeyLeft
+'            LastLog = LastLog - 100
+'            ShowData
+'            KeyCode = 0
+'        Case 13
+'            z = InputBox("Enter new number, or Esc to cancel", "Edit Data")
+'            If z <> "" Then
+''                TextAwayNum(index) = Z
+'                AwayStat(Index) = Val(z)
+'            End If
+'            ShowData
+'            SendData 2
+'            WriteData
+'    End Select
+
+End Sub
+
+Private Sub TextAwayNum_KeyPress(Index As Integer, KeyAscii As Integer)
+    Select Case KeyAscii
+        Case 48 To 57
+            KeyAscii = 0
+    End Select
+
+End Sub
+
+'Private Sub TextHomeNum_Change(index As Integer)
+'    If index < 8 Then
+'        HomeStat(index) = Val(TextHomeNum(index))
+'    End If
+'End Sub
+
+
+
+
+Private Sub TextHomeNum_KeyDown(Index As Integer, KeyCode As Integer, Shift As Integer)
+    Dim z$
+'    Stop
+'    Select Case KeyCode
+'        Case vbKeyUp
+'            If Index > 1 Then
+'                LastLog = 100 + (Index - 1)
+'                ShowData
+'            End If
+'        Case vbKeyDown
+'            If Index < 7 Then
+'                LastLog = 100 + (Index + 1)
+'                ShowData
+'            End If
+'        Case vbKeyRight
+'            LastLog = LastLog + 100
+'            ShowData
+'            KeyCode = 0
+'        Case 13
+'            Z = InputBox("Enter new number, or Esc to cancel", "Edit Data")
+'            If Z <> "" Then
+'                'TextHomeNum(index) = Z
+'                HomeStat(Index) = Val(Z)
+'            End If
+'            ShowData
+'            SendData 1
+'            WriteData
+'    End Select
+End Sub
+
+Private Sub TextHomeNum_KeyPress(Index As Integer, KeyAscii As Integer)
+    
+    Select Case KeyAscii
+        Case 48 To 57
+            KeyAscii = 0
+    End Select
+End Sub
+
+Private Sub TextAwayNum_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    
+    If Button = 1 Then
+        AwayStat(Index) = AwayStat(Index) + 1
+        ShowLog 2, Index    'create log text
+        SendData 2
+    Else
+        AwayStat(Index) = AwayStat(Index) - 1
+        ShowLog 2, -Index
+        SendData 2
+    End If
+    LastLog = 200 + Index
+    ShowData
+    WriteData
+
+End Sub
+
+Private Sub TextHomeNum_Click(Index As Integer)
+'    LastLog = 100 + Index
+'    ShowData
+End Sub
+
+Private Sub TextHomeNum_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = 1 Then
+        HomeStat(Index) = HomeStat(Index) + 1
+        ShowLog 1, Index    'creates log text
+        SendData 1
+    Else
+        HomeStat(Index) = HomeStat(Index) - 1
+        ShowLog 1, -Index
+        SendData 1
+    End If
+    LastLog = 100 + Index
+    ShowData
+    WriteData
+
+End Sub
+
+Private Sub TimrDelay_Timer()
+    SendActionAreas
+    TimrDelay.Enabled = False
+    'turn itself off
+End Sub
+
+Private Sub TimrSend_Timer()
+'    Comm1.Output = "Z" & Time$ & Chr$(13)
+    On Local Error Resume Next
+    FormMain.WnSkTransfer.SendData "* Test Data from TeamLog at " & Time$ & "*"
+
+    'MsgBox "Z" & Time$ & Chr$(13)
+    
+End Sub
+
+Private Sub TimrShow_Timer()
+    Static LastSec%
+    Dim ThisSec%
+    
+    CalcTimes Possession, False
+    CalcActionAreas CurrentArea
+    ShowTimes
+    ThisSec% = Val(Right(LablMatchTime, 2))
+    Select Case ThisSec%
+        Case 0, 15, 30, 45
+            If ThisSec <> LastSec Then
+                'can get called within same second
+                'so only send once
+                SendTime
+                TimrDelay.Enabled = True
+                LastSec = ThisSec
+            End If
+        Case 5
+            If ThisSec <> LastSec Then
+                SendPeriodData
+                LastSec = ThisSec
+            End If
+            
+'        Case 10, 25, 40, 55
+'            If ThisSec <> LastSec Then
+'                SendActionAreas
+'                LastSec = ThisSec
+'            End If
+    End Select
+End Sub
+
+Private Sub WnSkTransfer_DataArrival(ByVal bytesTotal As Long)
+    Dim strData As String
+    On Local Error Resume Next
+    WnSkTransfer.GetData strData, vbString
+    Debug.Print "Received: " & strData
+    'ShowStatusMessage strData
+    Select Case Left(strData, 1)
+        Case "#"
+            AllocateNames strData
+        Case Else
+            CompareData strData
+    End Select
+End Sub
+Sub ReadNetworkData(Index As Integer)
+    On Local Error GoTo errhandler
+    Select Case Index
+        Case 1
+            FormMain.WnSkTransfer.SendData "#Request PlayerNames"
+'        Case 2
+    End Select
+    Exit Sub
+errhandler:
+    Debug.Print Err.Description
+    
+End Sub
+
+Sub CompareData(D As String)
+    Dim X As Integer
+    
+    For X = 0 To 4
+        If LastData(X) = D Then
+            LablLastAction(X).BackColor = vbButtonFace
+            LablLastAction(X).ForeColor = vbBlack
+        End If
+    Next X
+End Sub
+Sub SetupDataTransfer()
+    FormMain.WnSkTransfer.RemoteHost = strMatchBuilderIPAddress
+    FormMain.WnSkTransfer.RemotePort = 1001
+    FormMain.WnSkTransfer.LocalPort = 1001
+    FormMain.WnSkTransfer.Bind
+
+End Sub
+Sub AllocateNames(strD As String)
+    'todo
+    Dim strExtract(64) As String
+    Dim inc As Integer
+    CommaSep2 strD, strExtract()
+    TeamName(1) = strExtract(3)
+    TeamName(2) = strExtract(4)
+    LablTeamName(1) = TeamName(1)
+    LablTeamName(2) = TeamName(2)
+    LablTeamName(3) = TeamName(1)
+    LablTeamName(4) = TeamName(2)
+    WriteConfig
+End Sub
+Sub ClearLog()
+    Dim strFileName As String
+    strFileName = RootFolder & "\" & Format(Date, "yyyy-mm-dd ") & TeamName(1) & " v " & TeamName(2) & " TeamData.txt"
+    Open strFileName For Output As #21
+    Close #21
+    strFileName = RootFolder & "\" & Format(Date, "yyyy-mm-dd ") & TeamName(1) & " v " & TeamName(2) & " Log.txt"
+    Open strFileName For Output As #21
+    Close #21
+
+End Sub
+Sub AddToLog(strText As String)
+    Dim strFileName As String
+    Dim strStats(2) As String
+    Dim inc As Integer, p As Integer, T As String
+    For inc = 1 To 2
+        strStats(inc) = ""
+        For p = 1 To 30
+            If inc = 1 Then
+                strStats(inc) = strStats(inc) & "," & HomeStat(p)
+            Else
+                strStats(inc) = strStats(inc) & "," & AwayStat(p)
+            End If
+        Next p
+    Next inc
+    If Period = 1 Then
+        T$ = "," & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ", 00:00, 00:00,"
+    Else
+        T$ = "," & strMatchTimeHalf & "," & strInPlayHalf & ", " & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ","
+    End If
+    T$ = T$ & Left(LablFirstPossession(1), 4) & "," & Left(LablFirstPossession(2), 4) & ","
+    T$ = T$ & Left(LablSecondPossession(1), 4) & "," & Left(LablSecondPossession(2), 4)
+    'lose % sign
+    
+    strFileName = RootFolder & "\" & Format(Date, "yyyy-mm-dd ") & TeamName(1) & " v " & TeamName(2) & " TeamData.txt"
+    Open strFileName For Append As #21
+        Print #21, strText & T & strStats(1) & strStats(2)
+    Close #21
+End Sub
+Sub AddToOperatorLog(strText As String)
+    Dim strFileName As String
+    
+    strFileName = RootFolder & "\" & Format(Date, "yyyy-mm-dd ") & TeamName(1) & " v " & TeamName(2) & " Log.txt"
+    Open strFileName For Append As #21
+        Print #21, strText
+    Close #21
+End Sub
+
+Sub WriteSummary()
+    Dim strFileName As String
+    Dim strStats(2) As String, strHeading As String
+    Dim inc As Integer, p As Integer, T As String
+    For inc = 1 To 2
+        strStats(inc) = ""
+        strHeading = "Team Name"
+        For p = 1 To 30
+            strHeading = strHeading & "," & strStatName(p)
+            If inc = 1 Then
+                strStats(inc) = strStats(inc) & "," & HomeStat(p)
+            Else
+                strStats(inc) = strStats(inc) & "," & AwayStat(p)
+            End If
+        Next p
+        strStats(inc) = strStats(inc) & "," & LablFirstPossession(inc) & "," & LablSecondPossession(inc)
+    Next inc
+    strHeading = strHeading & ",First Half Possession,Second Half Possession"
+'    If Period = 1 Then
+'        T$ = "," & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ", 00:00, 00:00,"
+'    Else
+'        T$ = "," & strMatchTimeHalf & "," & strInPlayHalf & ", " & PadLen(LablMatchTime, 6) & "," & PadLen(LablInPlay, 6) & ","
+'    End If
+'    T$ = T$ & Left(LablSecondPossession(1), 4) & "," & Left(LablSecondPossession(2), 4)
+    'lose % sign
+    
+    strFileName = RootFolder & "\" & Format(Date, "yyyy-mm-dd ") & TeamName(1) & " v " & TeamName(2) & " Summary.txt"
+    Open strFileName For Output As #21
+        Print #21, strHeading
+        Print #21, TeamName(1) & strStats(1)
+        Print #21, TeamName(2) & strStats(2)
+    Close #21
+End Sub
+

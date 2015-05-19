@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="LiveMatchID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="LiveMatchHomeShortName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Home Short</Value>
+    </Setting>
+    <Setting Name="LiveMatchAwayShortName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Away Short</Value>
+    </Setting>
+    <Setting Name="LiveMatchHomeLongName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Home Long</Value>
+    </Setting>
+    <Setting Name="LiveMatchAwayLongName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Away Long</Value>
+    </Setting>
+    <Setting Name="LiveMatchHomeColour" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LiveMatchAwayColour" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LiveMatchHomeColour2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LiveMatchAwayColour2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
