@@ -33,7 +33,6 @@
             Dim d As New ShowDataCallback(AddressOf ShowData)
             Me.Invoke(d, New Object() {})
         Else
-
             Dim inc As Integer
             If (iMatchID > -1) And (Config.AllowDeleteData = True) Then
                 Me.lablLiveHomeTeam.Text = LiveMatch.HomeShortName

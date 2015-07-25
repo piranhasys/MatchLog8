@@ -7,8 +7,7 @@
     <ProjectGuid>{6B9DF510-6C76-44C8-B35B-00F820F83E3F}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>MLIcon.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>MatchLog8</AssemblyName>
@@ -194,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TV32010 Cork GK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MLIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

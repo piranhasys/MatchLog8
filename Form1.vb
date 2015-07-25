@@ -324,7 +324,6 @@ Public Class Form1
     Friend WithEvents radioLog4565 As System.Windows.Forms.RadioButton
     Friend WithEvents radioLogFrees As System.Windows.Forms.RadioButton
     Friend WithEvents radioLogKickouts As System.Windows.Forms.RadioButton
-    Friend WithEvents btnPitchShotGood As System.Windows.Forms.Button
     Friend WithEvents btnPitchShotWide As System.Windows.Forms.Button
     Friend WithEvents lablPitchHomeName As System.Windows.Forms.Label
     Friend WithEvents lablPitchAwayName As System.Windows.Forms.Label
@@ -370,6 +369,8 @@ Public Class Form1
     Friend WithEvents btnPitchShotGood2 As System.Windows.Forms.Button
     Friend WithEvents btnPitchShotGood3 As System.Windows.Forms.Button
     Friend WithEvents btnPitchShotGood4 As System.Windows.Forms.Button
+    Friend WithEvents btnPitchShotWide2 As System.Windows.Forms.Button
+    Friend WithEvents btnPitchShotGood As System.Windows.Forms.Button
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -551,515 +552,516 @@ Public Class Form1
     Friend WithEvents btnAreaS1 As System.Windows.Forms.Button
 #End Region
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.lablHeading01 = New System.Windows.Forms.Label
-        Me.lablStat01H = New System.Windows.Forms.Label
-        Me.lablStat01A = New System.Windows.Forms.Label
-        Me.lablStat02A = New System.Windows.Forms.Label
-        Me.lablStat02H = New System.Windows.Forms.Label
-        Me.lablHeading02 = New System.Windows.Forms.Label
-        Me.lablStat03A = New System.Windows.Forms.Label
-        Me.lablStat03H = New System.Windows.Forms.Label
-        Me.lablHeading03 = New System.Windows.Forms.Label
-        Me.lablStat04A = New System.Windows.Forms.Label
-        Me.lablStat04H = New System.Windows.Forms.Label
-        Me.lablHeading04 = New System.Windows.Forms.Label
-        Me.lablStat05A = New System.Windows.Forms.Label
-        Me.lablStat05H = New System.Windows.Forms.Label
-        Me.lablHeading05 = New System.Windows.Forms.Label
-        Me.lablStat10A = New System.Windows.Forms.Label
-        Me.lablStat10H = New System.Windows.Forms.Label
-        Me.lablHeading10 = New System.Windows.Forms.Label
-        Me.lablStat09A = New System.Windows.Forms.Label
-        Me.lablStat09H = New System.Windows.Forms.Label
-        Me.lablHeading09 = New System.Windows.Forms.Label
-        Me.lablStat08A = New System.Windows.Forms.Label
-        Me.lablStat08H = New System.Windows.Forms.Label
-        Me.lablHeading08 = New System.Windows.Forms.Label
-        Me.lablStat07A = New System.Windows.Forms.Label
-        Me.lablStat07H = New System.Windows.Forms.Label
-        Me.lablHeading07 = New System.Windows.Forms.Label
-        Me.lablStat06A = New System.Windows.Forms.Label
-        Me.lablStat06H = New System.Windows.Forms.Label
-        Me.lablHeading06 = New System.Windows.Forms.Label
-        Me.lablStat30A = New System.Windows.Forms.Label
-        Me.lablStat30H = New System.Windows.Forms.Label
-        Me.lablHeading30 = New System.Windows.Forms.Label
-        Me.lablStat29A = New System.Windows.Forms.Label
-        Me.lablStat29H = New System.Windows.Forms.Label
-        Me.lablHeading29 = New System.Windows.Forms.Label
-        Me.lablStat28A = New System.Windows.Forms.Label
-        Me.lablStat28H = New System.Windows.Forms.Label
-        Me.lablHeading28 = New System.Windows.Forms.Label
-        Me.lablStat27A = New System.Windows.Forms.Label
-        Me.lablStat27H = New System.Windows.Forms.Label
-        Me.lablHeading27 = New System.Windows.Forms.Label
-        Me.lablStat26A = New System.Windows.Forms.Label
-        Me.lablStat26H = New System.Windows.Forms.Label
-        Me.lablHeading26 = New System.Windows.Forms.Label
-        Me.lablStat15A = New System.Windows.Forms.Label
-        Me.lablStat15H = New System.Windows.Forms.Label
-        Me.lablHeading15 = New System.Windows.Forms.Label
-        Me.lablStat14A = New System.Windows.Forms.Label
-        Me.lablStat14H = New System.Windows.Forms.Label
-        Me.lablHeading14 = New System.Windows.Forms.Label
-        Me.lablStat13A = New System.Windows.Forms.Label
-        Me.lablStat13H = New System.Windows.Forms.Label
-        Me.lablHeading13 = New System.Windows.Forms.Label
-        Me.lablStat12A = New System.Windows.Forms.Label
-        Me.lablStat12H = New System.Windows.Forms.Label
-        Me.lablHeading12 = New System.Windows.Forms.Label
-        Me.lablStat11A = New System.Windows.Forms.Label
-        Me.lablStat11H = New System.Windows.Forms.Label
-        Me.lablHeading11 = New System.Windows.Forms.Label
-        Me.lablStat25A = New System.Windows.Forms.Label
-        Me.lablStat25H = New System.Windows.Forms.Label
-        Me.lablHeading25 = New System.Windows.Forms.Label
-        Me.lablStat24A = New System.Windows.Forms.Label
-        Me.lablStat24H = New System.Windows.Forms.Label
-        Me.lablHeading24 = New System.Windows.Forms.Label
-        Me.lablStat23A = New System.Windows.Forms.Label
-        Me.lablStat23H = New System.Windows.Forms.Label
-        Me.lablHeading23 = New System.Windows.Forms.Label
-        Me.lablStat22A = New System.Windows.Forms.Label
-        Me.lablStat22H = New System.Windows.Forms.Label
-        Me.lablHeading22 = New System.Windows.Forms.Label
-        Me.lablStat21A = New System.Windows.Forms.Label
-        Me.lablStat21H = New System.Windows.Forms.Label
-        Me.lablHeading21 = New System.Windows.Forms.Label
-        Me.lablStat20A = New System.Windows.Forms.Label
-        Me.lablStat20H = New System.Windows.Forms.Label
-        Me.lablHeading20 = New System.Windows.Forms.Label
-        Me.lablStat19A = New System.Windows.Forms.Label
-        Me.lablStat19H = New System.Windows.Forms.Label
-        Me.lablHeading19 = New System.Windows.Forms.Label
-        Me.lablStat18A = New System.Windows.Forms.Label
-        Me.lablStat18H = New System.Windows.Forms.Label
-        Me.lablHeading18 = New System.Windows.Forms.Label
-        Me.lablStat17A = New System.Windows.Forms.Label
-        Me.lablStat17H = New System.Windows.Forms.Label
-        Me.lablHeading17 = New System.Windows.Forms.Label
-        Me.lablStat16A = New System.Windows.Forms.Label
-        Me.lablStat16H = New System.Windows.Forms.Label
-        Me.lablHeading16 = New System.Windows.Forms.Label
-        Me.lablAwayName = New System.Windows.Forms.Label
-        Me.lablHomeName = New System.Windows.Forms.Label
-        Me.Label93 = New System.Windows.Forms.Label
-        Me.Label94 = New System.Windows.Forms.Label
-        Me.lablMatchTime2 = New System.Windows.Forms.Label
-        Me.lablInPlay = New System.Windows.Forms.Label
-        Me.lablPossessionA = New System.Windows.Forms.Label
-        Me.lablPossessionH = New System.Windows.Forms.Label
-        Me.lablAreaS1 = New System.Windows.Forms.Label
-        Me.lablAreaS2 = New System.Windows.Forms.Label
-        Me.lablAreaS3 = New System.Windows.Forms.Label
-        Me.groupClock = New System.Windows.Forms.GroupBox
-        Me.btnPeriod0 = New System.Windows.Forms.Button
-        Me.btnPeriod8 = New System.Windows.Forms.Button
-        Me.btnPeriod7 = New System.Windows.Forms.Button
-        Me.btnPeriod6 = New System.Windows.Forms.Button
-        Me.btnPeriod5 = New System.Windows.Forms.Button
-        Me.btnPeriod4 = New System.Windows.Forms.Button
-        Me.btnPeriod3 = New System.Windows.Forms.Button
-        Me.btnPeriod2 = New System.Windows.Forms.Button
-        Me.btnPeriod1 = New System.Windows.Forms.Button
-        Me.btnPeriodEnable = New System.Windows.Forms.Button
-        Me.btnPossessionH = New System.Windows.Forms.Button
-        Me.btnPossessionA = New System.Windows.Forms.Button
-        Me.btnPossessionOOP = New System.Windows.Forms.Button
-        Me.btnAreaS3 = New System.Windows.Forms.Button
-        Me.btnAreaS2 = New System.Windows.Forms.Button
-        Me.btnAreaS1 = New System.Windows.Forms.Button
-        Me.lablHomeName2 = New System.Windows.Forms.Label
-        Me.lablAwayName2 = New System.Windows.Forms.Label
-        Me.lablAwayName3 = New System.Windows.Forms.Label
-        Me.lablHomeName3 = New System.Windows.Forms.Label
-        Me.lablPeriod = New System.Windows.Forms.Label
-        Me.groupViewTime = New System.Windows.Forms.GroupBox
-        Me.btnSwapDirection = New System.Windows.Forms.Button
-        Me.lablMatchTime = New System.Windows.Forms.Label
-        Me.btnClockNudgeDown = New System.Windows.Forms.Button
-        Me.btnClockNudgeUp = New System.Windows.Forms.Button
-        Me.lablTotalPossA = New System.Windows.Forms.Label
-        Me.lablTotalPossH = New System.Windows.Forms.Label
-        Me.btnLogGoal = New System.Windows.Forms.Button
-        Me.btnLogYC = New System.Windows.Forms.Button
-        Me.btnLogRC = New System.Windows.Forms.Button
-        Me.groupActionAreasSoccer = New System.Windows.Forms.GroupBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.lablViewS3 = New System.Windows.Forms.Label
-        Me.lablViewS1 = New System.Windows.Forms.Label
-        Me.lablViewS2 = New System.Windows.Forms.Label
-        Me.groupPossession = New System.Windows.Forms.GroupBox
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.lablViewOOP = New System.Windows.Forms.Label
-        Me.lablViewA = New System.Windows.Forms.Label
-        Me.lablViewH = New System.Windows.Forms.Label
-        Me.lablArrowHomeLR = New System.Windows.Forms.Label
-        Me.lablArrowHomeRL = New System.Windows.Forms.Label
-        Me.btnSetup = New System.Windows.Forms.Button
-        Me.btnExit = New System.Windows.Forms.Button
-        Me.lablArrowAwayRL = New System.Windows.Forms.Label
-        Me.lablArrowAwayLR = New System.Windows.Forms.Label
-        Me.btnConnect = New System.Windows.Forms.Button
-        Me.LablConnected = New System.Windows.Forms.Label
-        Me.btnRemove = New System.Windows.Forms.Button
-        Me.lablRemove = New System.Windows.Forms.Label
+        Me.lablHeading01 = New System.Windows.Forms.Label()
+        Me.lablStat01H = New System.Windows.Forms.Label()
+        Me.lablStat01A = New System.Windows.Forms.Label()
+        Me.lablStat02A = New System.Windows.Forms.Label()
+        Me.lablStat02H = New System.Windows.Forms.Label()
+        Me.lablHeading02 = New System.Windows.Forms.Label()
+        Me.lablStat03A = New System.Windows.Forms.Label()
+        Me.lablStat03H = New System.Windows.Forms.Label()
+        Me.lablHeading03 = New System.Windows.Forms.Label()
+        Me.lablStat04A = New System.Windows.Forms.Label()
+        Me.lablStat04H = New System.Windows.Forms.Label()
+        Me.lablHeading04 = New System.Windows.Forms.Label()
+        Me.lablStat05A = New System.Windows.Forms.Label()
+        Me.lablStat05H = New System.Windows.Forms.Label()
+        Me.lablHeading05 = New System.Windows.Forms.Label()
+        Me.lablStat10A = New System.Windows.Forms.Label()
+        Me.lablStat10H = New System.Windows.Forms.Label()
+        Me.lablHeading10 = New System.Windows.Forms.Label()
+        Me.lablStat09A = New System.Windows.Forms.Label()
+        Me.lablStat09H = New System.Windows.Forms.Label()
+        Me.lablHeading09 = New System.Windows.Forms.Label()
+        Me.lablStat08A = New System.Windows.Forms.Label()
+        Me.lablStat08H = New System.Windows.Forms.Label()
+        Me.lablHeading08 = New System.Windows.Forms.Label()
+        Me.lablStat07A = New System.Windows.Forms.Label()
+        Me.lablStat07H = New System.Windows.Forms.Label()
+        Me.lablHeading07 = New System.Windows.Forms.Label()
+        Me.lablStat06A = New System.Windows.Forms.Label()
+        Me.lablStat06H = New System.Windows.Forms.Label()
+        Me.lablHeading06 = New System.Windows.Forms.Label()
+        Me.lablStat30A = New System.Windows.Forms.Label()
+        Me.lablStat30H = New System.Windows.Forms.Label()
+        Me.lablHeading30 = New System.Windows.Forms.Label()
+        Me.lablStat29A = New System.Windows.Forms.Label()
+        Me.lablStat29H = New System.Windows.Forms.Label()
+        Me.lablHeading29 = New System.Windows.Forms.Label()
+        Me.lablStat28A = New System.Windows.Forms.Label()
+        Me.lablStat28H = New System.Windows.Forms.Label()
+        Me.lablHeading28 = New System.Windows.Forms.Label()
+        Me.lablStat27A = New System.Windows.Forms.Label()
+        Me.lablStat27H = New System.Windows.Forms.Label()
+        Me.lablHeading27 = New System.Windows.Forms.Label()
+        Me.lablStat26A = New System.Windows.Forms.Label()
+        Me.lablStat26H = New System.Windows.Forms.Label()
+        Me.lablHeading26 = New System.Windows.Forms.Label()
+        Me.lablStat15A = New System.Windows.Forms.Label()
+        Me.lablStat15H = New System.Windows.Forms.Label()
+        Me.lablHeading15 = New System.Windows.Forms.Label()
+        Me.lablStat14A = New System.Windows.Forms.Label()
+        Me.lablStat14H = New System.Windows.Forms.Label()
+        Me.lablHeading14 = New System.Windows.Forms.Label()
+        Me.lablStat13A = New System.Windows.Forms.Label()
+        Me.lablStat13H = New System.Windows.Forms.Label()
+        Me.lablHeading13 = New System.Windows.Forms.Label()
+        Me.lablStat12A = New System.Windows.Forms.Label()
+        Me.lablStat12H = New System.Windows.Forms.Label()
+        Me.lablHeading12 = New System.Windows.Forms.Label()
+        Me.lablStat11A = New System.Windows.Forms.Label()
+        Me.lablStat11H = New System.Windows.Forms.Label()
+        Me.lablHeading11 = New System.Windows.Forms.Label()
+        Me.lablStat25A = New System.Windows.Forms.Label()
+        Me.lablStat25H = New System.Windows.Forms.Label()
+        Me.lablHeading25 = New System.Windows.Forms.Label()
+        Me.lablStat24A = New System.Windows.Forms.Label()
+        Me.lablStat24H = New System.Windows.Forms.Label()
+        Me.lablHeading24 = New System.Windows.Forms.Label()
+        Me.lablStat23A = New System.Windows.Forms.Label()
+        Me.lablStat23H = New System.Windows.Forms.Label()
+        Me.lablHeading23 = New System.Windows.Forms.Label()
+        Me.lablStat22A = New System.Windows.Forms.Label()
+        Me.lablStat22H = New System.Windows.Forms.Label()
+        Me.lablHeading22 = New System.Windows.Forms.Label()
+        Me.lablStat21A = New System.Windows.Forms.Label()
+        Me.lablStat21H = New System.Windows.Forms.Label()
+        Me.lablHeading21 = New System.Windows.Forms.Label()
+        Me.lablStat20A = New System.Windows.Forms.Label()
+        Me.lablStat20H = New System.Windows.Forms.Label()
+        Me.lablHeading20 = New System.Windows.Forms.Label()
+        Me.lablStat19A = New System.Windows.Forms.Label()
+        Me.lablStat19H = New System.Windows.Forms.Label()
+        Me.lablHeading19 = New System.Windows.Forms.Label()
+        Me.lablStat18A = New System.Windows.Forms.Label()
+        Me.lablStat18H = New System.Windows.Forms.Label()
+        Me.lablHeading18 = New System.Windows.Forms.Label()
+        Me.lablStat17A = New System.Windows.Forms.Label()
+        Me.lablStat17H = New System.Windows.Forms.Label()
+        Me.lablHeading17 = New System.Windows.Forms.Label()
+        Me.lablStat16A = New System.Windows.Forms.Label()
+        Me.lablStat16H = New System.Windows.Forms.Label()
+        Me.lablHeading16 = New System.Windows.Forms.Label()
+        Me.lablAwayName = New System.Windows.Forms.Label()
+        Me.lablHomeName = New System.Windows.Forms.Label()
+        Me.Label93 = New System.Windows.Forms.Label()
+        Me.Label94 = New System.Windows.Forms.Label()
+        Me.lablMatchTime2 = New System.Windows.Forms.Label()
+        Me.lablInPlay = New System.Windows.Forms.Label()
+        Me.lablPossessionA = New System.Windows.Forms.Label()
+        Me.lablPossessionH = New System.Windows.Forms.Label()
+        Me.lablAreaS1 = New System.Windows.Forms.Label()
+        Me.lablAreaS2 = New System.Windows.Forms.Label()
+        Me.lablAreaS3 = New System.Windows.Forms.Label()
+        Me.groupClock = New System.Windows.Forms.GroupBox()
+        Me.btnPeriod0 = New System.Windows.Forms.Button()
+        Me.btnPeriod8 = New System.Windows.Forms.Button()
+        Me.btnPeriod7 = New System.Windows.Forms.Button()
+        Me.btnPeriod6 = New System.Windows.Forms.Button()
+        Me.btnPeriod5 = New System.Windows.Forms.Button()
+        Me.btnPeriod4 = New System.Windows.Forms.Button()
+        Me.btnPeriod3 = New System.Windows.Forms.Button()
+        Me.btnPeriod2 = New System.Windows.Forms.Button()
+        Me.btnPeriod1 = New System.Windows.Forms.Button()
+        Me.btnPeriodEnable = New System.Windows.Forms.Button()
+        Me.btnPossessionH = New System.Windows.Forms.Button()
+        Me.btnPossessionA = New System.Windows.Forms.Button()
+        Me.btnPossessionOOP = New System.Windows.Forms.Button()
+        Me.btnAreaS3 = New System.Windows.Forms.Button()
+        Me.btnAreaS2 = New System.Windows.Forms.Button()
+        Me.btnAreaS1 = New System.Windows.Forms.Button()
+        Me.lablHomeName2 = New System.Windows.Forms.Label()
+        Me.lablAwayName2 = New System.Windows.Forms.Label()
+        Me.lablAwayName3 = New System.Windows.Forms.Label()
+        Me.lablHomeName3 = New System.Windows.Forms.Label()
+        Me.lablPeriod = New System.Windows.Forms.Label()
+        Me.groupViewTime = New System.Windows.Forms.GroupBox()
+        Me.btnSwapDirection = New System.Windows.Forms.Button()
+        Me.lablMatchTime = New System.Windows.Forms.Label()
+        Me.btnClockNudgeDown = New System.Windows.Forms.Button()
+        Me.btnClockNudgeUp = New System.Windows.Forms.Button()
+        Me.lablTotalPossA = New System.Windows.Forms.Label()
+        Me.lablTotalPossH = New System.Windows.Forms.Label()
+        Me.btnLogGoal = New System.Windows.Forms.Button()
+        Me.btnLogYC = New System.Windows.Forms.Button()
+        Me.btnLogRC = New System.Windows.Forms.Button()
+        Me.groupActionAreasSoccer = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lablViewS3 = New System.Windows.Forms.Label()
+        Me.lablViewS1 = New System.Windows.Forms.Label()
+        Me.lablViewS2 = New System.Windows.Forms.Label()
+        Me.groupPossession = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lablViewOOP = New System.Windows.Forms.Label()
+        Me.lablViewA = New System.Windows.Forms.Label()
+        Me.lablViewH = New System.Windows.Forms.Label()
+        Me.lablArrowHomeLR = New System.Windows.Forms.Label()
+        Me.lablArrowHomeRL = New System.Windows.Forms.Label()
+        Me.btnSetup = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.lablArrowAwayRL = New System.Windows.Forms.Label()
+        Me.lablArrowAwayLR = New System.Windows.Forms.Label()
+        Me.btnConnect = New System.Windows.Forms.Button()
+        Me.LablConnected = New System.Windows.Forms.Label()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.lablRemove = New System.Windows.Forms.Label()
         Me.timerCheckClock = New System.Windows.Forms.Timer(Me.components)
-        Me.TabControl1 = New System.Windows.Forms.TabControl
-        Me.TabPage1 = New System.Windows.Forms.TabPage
-        Me.btnClearAllTeam = New System.Windows.Forms.Button
-        Me.btnResendTeam = New System.Windows.Forms.Button
-        Me.TabPage2 = New System.Windows.Forms.TabPage
-        Me.btnClearPlayerHome = New System.Windows.Forms.Button
-        Me.btnResendPlayerHome = New System.Windows.Forms.Button
-        Me.btnPlayer25H = New System.Windows.Forms.Button
-        Me.lablPlayerStatHeading15 = New System.Windows.Forms.Label
-        Me.lablPlayerStat15H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading14 = New System.Windows.Forms.Label
-        Me.lablPlayerStat14H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading13 = New System.Windows.Forms.Label
-        Me.lablPlayerStat13H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading12 = New System.Windows.Forms.Label
-        Me.lablPlayerStat12H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading11 = New System.Windows.Forms.Label
-        Me.lablPlayerStat11H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading10 = New System.Windows.Forms.Label
-        Me.lablPlayerStat10H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading09 = New System.Windows.Forms.Label
-        Me.lablPlayerStat09H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading08 = New System.Windows.Forms.Label
-        Me.lablPlayerStat08H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading07 = New System.Windows.Forms.Label
-        Me.lablPlayerStat07H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading06 = New System.Windows.Forms.Label
-        Me.lablPlayerStat06H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading05 = New System.Windows.Forms.Label
-        Me.lablPlayerStat05H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading04 = New System.Windows.Forms.Label
-        Me.lablPlayerStat04H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading03 = New System.Windows.Forms.Label
-        Me.lablPlayerStat03H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading02 = New System.Windows.Forms.Label
-        Me.lablPlayerStat02H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading01 = New System.Windows.Forms.Label
-        Me.lablPlayerStat01H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading30 = New System.Windows.Forms.Label
-        Me.lablPlayerStat30H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading29 = New System.Windows.Forms.Label
-        Me.lablPlayerStat29H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading28 = New System.Windows.Forms.Label
-        Me.lablPlayerStat28H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading27 = New System.Windows.Forms.Label
-        Me.lablPlayerStat27H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading26 = New System.Windows.Forms.Label
-        Me.lablPlayerStat26H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading25 = New System.Windows.Forms.Label
-        Me.lablPlayerStat25H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading24 = New System.Windows.Forms.Label
-        Me.lablPlayerStat24H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading23 = New System.Windows.Forms.Label
-        Me.lablPlayerStat23H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading22 = New System.Windows.Forms.Label
-        Me.lablPlayerStat22H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading21 = New System.Windows.Forms.Label
-        Me.lablPlayerStat21H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading20 = New System.Windows.Forms.Label
-        Me.lablPlayerStat20H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading19 = New System.Windows.Forms.Label
-        Me.lablPlayerStat19H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading18 = New System.Windows.Forms.Label
-        Me.lablPlayerStat18H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading17 = New System.Windows.Forms.Label
-        Me.lablPlayerStat17H = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading16 = New System.Windows.Forms.Label
-        Me.lablPlayerStat16H = New System.Windows.Forms.Label
-        Me.btnPlayer24H = New System.Windows.Forms.Button
-        Me.btnPlayer23H = New System.Windows.Forms.Button
-        Me.btnPlayer22H = New System.Windows.Forms.Button
-        Me.btnPlayer21H = New System.Windows.Forms.Button
-        Me.btnPlayer20H = New System.Windows.Forms.Button
-        Me.btnPlayer19H = New System.Windows.Forms.Button
-        Me.btnPlayer18H = New System.Windows.Forms.Button
-        Me.btnPlayer17H = New System.Windows.Forms.Button
-        Me.btnPlayer16H = New System.Windows.Forms.Button
-        Me.btnPlayer15H = New System.Windows.Forms.Button
-        Me.btnPlayer14H = New System.Windows.Forms.Button
-        Me.btnPlayer13H = New System.Windows.Forms.Button
-        Me.btnPlayer12H = New System.Windows.Forms.Button
-        Me.btnPlayer11H = New System.Windows.Forms.Button
-        Me.btnPlayer10H = New System.Windows.Forms.Button
-        Me.btnPlayer09H = New System.Windows.Forms.Button
-        Me.btnPlayer08H = New System.Windows.Forms.Button
-        Me.btnPlayer07H = New System.Windows.Forms.Button
-        Me.btnPlayer06H = New System.Windows.Forms.Button
-        Me.btnPlayer05H = New System.Windows.Forms.Button
-        Me.btnPlayer04H = New System.Windows.Forms.Button
-        Me.btnPlayer03H = New System.Windows.Forms.Button
-        Me.btnPlayer02H = New System.Windows.Forms.Button
-        Me.btnPlayer01H = New System.Windows.Forms.Button
-        Me.TabPage3 = New System.Windows.Forms.TabPage
-        Me.btnClearPlayerAway = New System.Windows.Forms.Button
-        Me.btnResendPlayerAway = New System.Windows.Forms.Button
-        Me.btnPlayer25A = New System.Windows.Forms.Button
-        Me.lablPlayerStatHeading15A = New System.Windows.Forms.Label
-        Me.lablPlayerStat15A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading14A = New System.Windows.Forms.Label
-        Me.lablPlayerStat14A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading13A = New System.Windows.Forms.Label
-        Me.lablPlayerStat13A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading12A = New System.Windows.Forms.Label
-        Me.lablPlayerStat12A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading11A = New System.Windows.Forms.Label
-        Me.lablPlayerStat11A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading10A = New System.Windows.Forms.Label
-        Me.lablPlayerStat10A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading09A = New System.Windows.Forms.Label
-        Me.lablPlayerStat09A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading08A = New System.Windows.Forms.Label
-        Me.lablPlayerStat08A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading07A = New System.Windows.Forms.Label
-        Me.lablPlayerStat07A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading06A = New System.Windows.Forms.Label
-        Me.lablPlayerStat06A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading05A = New System.Windows.Forms.Label
-        Me.lablPlayerStat05A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading04A = New System.Windows.Forms.Label
-        Me.lablPlayerStat04A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading03A = New System.Windows.Forms.Label
-        Me.lablPlayerStat03A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading02A = New System.Windows.Forms.Label
-        Me.lablPlayerStat02A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading01A = New System.Windows.Forms.Label
-        Me.lablPlayerStat01A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading30A = New System.Windows.Forms.Label
-        Me.lablPlayerStat30A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading29A = New System.Windows.Forms.Label
-        Me.lablPlayerStat29A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading28A = New System.Windows.Forms.Label
-        Me.lablPlayerStat28A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading27A = New System.Windows.Forms.Label
-        Me.lablPlayerStat27A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading26A = New System.Windows.Forms.Label
-        Me.lablPlayerStat26A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading25A = New System.Windows.Forms.Label
-        Me.lablPlayerStat25A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading24A = New System.Windows.Forms.Label
-        Me.lablPlayerStat24A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading23A = New System.Windows.Forms.Label
-        Me.lablPlayerStat23A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading22A = New System.Windows.Forms.Label
-        Me.lablPlayerStat22A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading21A = New System.Windows.Forms.Label
-        Me.lablPlayerStat21A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading20A = New System.Windows.Forms.Label
-        Me.lablPlayerStat20A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading19A = New System.Windows.Forms.Label
-        Me.lablPlayerStat19A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading18A = New System.Windows.Forms.Label
-        Me.lablPlayerStat18A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading17A = New System.Windows.Forms.Label
-        Me.lablPlayerStat17A = New System.Windows.Forms.Label
-        Me.lablPlayerStatHeading16A = New System.Windows.Forms.Label
-        Me.lablPlayerStat16A = New System.Windows.Forms.Label
-        Me.btnPlayer24A = New System.Windows.Forms.Button
-        Me.btnPlayer23A = New System.Windows.Forms.Button
-        Me.btnPlayer22A = New System.Windows.Forms.Button
-        Me.btnPlayer21A = New System.Windows.Forms.Button
-        Me.btnPlayer20A = New System.Windows.Forms.Button
-        Me.btnPlayer19A = New System.Windows.Forms.Button
-        Me.btnPlayer18A = New System.Windows.Forms.Button
-        Me.btnPlayer17A = New System.Windows.Forms.Button
-        Me.btnPlayer16A = New System.Windows.Forms.Button
-        Me.btnPlayer15A = New System.Windows.Forms.Button
-        Me.btnPlayer14A = New System.Windows.Forms.Button
-        Me.btnPlayer13A = New System.Windows.Forms.Button
-        Me.btnPlayer12A = New System.Windows.Forms.Button
-        Me.btnPlayer11A = New System.Windows.Forms.Button
-        Me.btnPlayer10A = New System.Windows.Forms.Button
-        Me.btnPlayer09A = New System.Windows.Forms.Button
-        Me.btnPlayer08A = New System.Windows.Forms.Button
-        Me.btnPlayer07A = New System.Windows.Forms.Button
-        Me.btnPlayer06A = New System.Windows.Forms.Button
-        Me.btnPlayer05A = New System.Windows.Forms.Button
-        Me.btnPlayer04A = New System.Windows.Forms.Button
-        Me.btnPlayer03A = New System.Windows.Forms.Button
-        Me.btnPlayer02A = New System.Windows.Forms.Button
-        Me.btnPlayer01A = New System.Windows.Forms.Button
-        Me.TabPage4 = New System.Windows.Forms.TabPage
-        Me.listViewSummaryHome = New System.Windows.Forms.ListView
-        Me.ColumnHeader1 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader2 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader3 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader4 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader5 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader6 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader7 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader8 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader9 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader10 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader11 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader12 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader13 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader14 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader15 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader16 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader17 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader18 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader19 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader20 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader21 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader22 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader23 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader24 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader25 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader26 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader27 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader28 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader29 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader30 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader31 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader32 = New System.Windows.Forms.ColumnHeader
-        Me.TabPage5 = New System.Windows.Forms.TabPage
-        Me.listViewsummaryAway = New System.Windows.Forms.ListView
-        Me.ColumnHeader33 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader34 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader35 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader36 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader37 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader38 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader39 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader40 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader41 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader42 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader43 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader44 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader45 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader46 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader47 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader48 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader49 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader50 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader51 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader52 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader53 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader54 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader55 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader56 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader57 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader58 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader59 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader60 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader61 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader62 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader63 = New System.Windows.Forms.ColumnHeader
-        Me.ColumnHeader64 = New System.Windows.Forms.ColumnHeader
-        Me.tabKickouts = New System.Windows.Forms.TabPage
-        Me.btnPitchShotGood2 = New System.Windows.Forms.Button
-        Me.lablPitchLogHeading3 = New System.Windows.Forms.Label
-        Me.lablPitchAway3 = New System.Windows.Forms.Label
-        Me.lablPitchHome3 = New System.Windows.Forms.Label
-        Me.btnPitchShotWide = New System.Windows.Forms.Button
-        Me.btnPitchShotGood = New System.Windows.Forms.Button
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.radioLog4565 = New System.Windows.Forms.RadioButton
-        Me.radioLogFrees = New System.Windows.Forms.RadioButton
-        Me.radioLogKickouts = New System.Windows.Forms.RadioButton
-        Me.lablStepKickoutNum = New System.Windows.Forms.Label
-        Me.lablPitchLogHeading2 = New System.Windows.Forms.Label
-        Me.lablPitchLogHeading1 = New System.Windows.Forms.Label
-        Me.btnDeleteKickout = New System.Windows.Forms.Button
-        Me.btnStepKickouts = New System.Windows.Forms.Button
-        Me.lablPitchKickoutPrompt = New System.Windows.Forms.Label
-        Me.lablPitchRLArrow = New System.Windows.Forms.Label
-        Me.lablPitchAway1 = New System.Windows.Forms.Label
-        Me.lablPitchRLTeamName = New System.Windows.Forms.Label
-        Me.lablPitchHome1 = New System.Windows.Forms.Label
-        Me.lablPitchLRArrow = New System.Windows.Forms.Label
-        Me.lablPitchAway2 = New System.Windows.Forms.Label
-        Me.lablPitchLRTeamName = New System.Windows.Forms.Label
-        Me.lablPitchHome2 = New System.Windows.Forms.Label
-        Me.picBoxPitch = New System.Windows.Forms.PictureBox
-        Me.btnPitchAwayWin = New System.Windows.Forms.Button
-        Me.btnPitchHomeWin = New System.Windows.Forms.Button
-        Me.lablPitchAwayName = New System.Windows.Forms.Label
-        Me.lablPitchHomeName = New System.Windows.Forms.Label
-        Me.tabPenalties = New System.Windows.Forms.TabPage
-        Me.btnAdvantageClear = New System.Windows.Forms.Button
-        Me.btnAdvantageAway = New System.Windows.Forms.Button
-        Me.btnAdvantageHome = New System.Windows.Forms.Button
-        Me.btnPenaltyClear = New System.Windows.Forms.Button
-        Me.btnPenaltyDisplay = New System.Windows.Forms.Button
-        Me.btnPenaltyName30 = New System.Windows.Forms.Button
-        Me.btnPenaltyName29 = New System.Windows.Forms.Button
-        Me.btnPenaltyName28 = New System.Windows.Forms.Button
-        Me.btnPenaltyName27 = New System.Windows.Forms.Button
-        Me.btnPenaltyName26 = New System.Windows.Forms.Button
-        Me.btnPenaltyName25 = New System.Windows.Forms.Button
-        Me.btnPenaltyName24 = New System.Windows.Forms.Button
-        Me.btnPenaltyName12 = New System.Windows.Forms.Button
-        Me.btnPenaltyName23 = New System.Windows.Forms.Button
-        Me.btnPenaltyName11 = New System.Windows.Forms.Button
-        Me.btnPenaltyName22 = New System.Windows.Forms.Button
-        Me.btnPenaltyName10 = New System.Windows.Forms.Button
-        Me.btnPenaltyName21 = New System.Windows.Forms.Button
-        Me.btnPenaltyName09 = New System.Windows.Forms.Button
-        Me.btnPenaltyName20 = New System.Windows.Forms.Button
-        Me.btnPenaltyName08 = New System.Windows.Forms.Button
-        Me.btnPenaltyName19 = New System.Windows.Forms.Button
-        Me.btnPenaltyName07 = New System.Windows.Forms.Button
-        Me.btnPenaltyName18 = New System.Windows.Forms.Button
-        Me.btnPenaltyName06 = New System.Windows.Forms.Button
-        Me.btnPenaltyName17 = New System.Windows.Forms.Button
-        Me.btnPenaltyName05 = New System.Windows.Forms.Button
-        Me.btnPenaltyName16 = New System.Windows.Forms.Button
-        Me.btnPenaltyName04 = New System.Windows.Forms.Button
-        Me.btnPenaltyName15 = New System.Windows.Forms.Button
-        Me.btnPenaltyName03 = New System.Windows.Forms.Button
-        Me.btnPenaltyName14 = New System.Windows.Forms.Button
-        Me.btnPenaltyName02 = New System.Windows.Forms.Button
-        Me.btnPenaltyName13 = New System.Windows.Forms.Button
-        Me.btnPenaltyName01 = New System.Windows.Forms.Button
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.btnLock = New System.Windows.Forms.Button
-        Me.Label11 = New System.Windows.Forms.Label
-        Me.Label10 = New System.Windows.Forms.Label
-        Me.groupRemotePossession = New System.Windows.Forms.GroupBox
-        Me.lablRemoteAreaR3 = New System.Windows.Forms.Label
-        Me.lablRemoteAreaR2 = New System.Windows.Forms.Label
-        Me.lablRemoteAreaR1 = New System.Windows.Forms.Label
-        Me.lablRemoteAreaR4 = New System.Windows.Forms.Label
-        Me.Label13 = New System.Windows.Forms.Label
-        Me.Label12 = New System.Windows.Forms.Label
-        Me.Label19 = New System.Windows.Forms.Label
-        Me.Label20 = New System.Windows.Forms.Label
-        Me.lablRemoteInPlay = New System.Windows.Forms.Label
-        Me.lablRemoteMatchTime = New System.Windows.Forms.Label
-        Me.lablRemoteAwayTeam = New System.Windows.Forms.Label
-        Me.lablRemoteHomeTeam = New System.Windows.Forms.Label
-        Me.lablRemoteAreaS1 = New System.Windows.Forms.Label
-        Me.lablRemoteAreaS2 = New System.Windows.Forms.Label
-        Me.lablRemoteAreaS3 = New System.Windows.Forms.Label
-        Me.lablRemoteAwayPossession = New System.Windows.Forms.Label
-        Me.lablRemoteHomePossession = New System.Windows.Forms.Label
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.btnClearAllTeam = New System.Windows.Forms.Button()
+        Me.btnResendTeam = New System.Windows.Forms.Button()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btnClearPlayerHome = New System.Windows.Forms.Button()
+        Me.btnResendPlayerHome = New System.Windows.Forms.Button()
+        Me.btnPlayer25H = New System.Windows.Forms.Button()
+        Me.lablPlayerStatHeading15 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat15H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading14 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat14H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading13 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat13H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading12 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat12H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading11 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat11H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading10 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat10H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading09 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat09H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading08 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat08H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading07 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat07H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading06 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat06H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading05 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat05H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading04 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat04H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading03 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat03H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading02 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat02H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading01 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat01H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading30 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat30H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading29 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat29H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading28 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat28H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading27 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat27H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading26 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat26H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading25 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat25H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading24 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat24H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading23 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat23H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading22 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat22H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading21 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat21H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading20 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat20H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading19 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat19H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading18 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat18H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading17 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat17H = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading16 = New System.Windows.Forms.Label()
+        Me.lablPlayerStat16H = New System.Windows.Forms.Label()
+        Me.btnPlayer24H = New System.Windows.Forms.Button()
+        Me.btnPlayer23H = New System.Windows.Forms.Button()
+        Me.btnPlayer22H = New System.Windows.Forms.Button()
+        Me.btnPlayer21H = New System.Windows.Forms.Button()
+        Me.btnPlayer20H = New System.Windows.Forms.Button()
+        Me.btnPlayer19H = New System.Windows.Forms.Button()
+        Me.btnPlayer18H = New System.Windows.Forms.Button()
+        Me.btnPlayer17H = New System.Windows.Forms.Button()
+        Me.btnPlayer16H = New System.Windows.Forms.Button()
+        Me.btnPlayer15H = New System.Windows.Forms.Button()
+        Me.btnPlayer14H = New System.Windows.Forms.Button()
+        Me.btnPlayer13H = New System.Windows.Forms.Button()
+        Me.btnPlayer12H = New System.Windows.Forms.Button()
+        Me.btnPlayer11H = New System.Windows.Forms.Button()
+        Me.btnPlayer10H = New System.Windows.Forms.Button()
+        Me.btnPlayer09H = New System.Windows.Forms.Button()
+        Me.btnPlayer08H = New System.Windows.Forms.Button()
+        Me.btnPlayer07H = New System.Windows.Forms.Button()
+        Me.btnPlayer06H = New System.Windows.Forms.Button()
+        Me.btnPlayer05H = New System.Windows.Forms.Button()
+        Me.btnPlayer04H = New System.Windows.Forms.Button()
+        Me.btnPlayer03H = New System.Windows.Forms.Button()
+        Me.btnPlayer02H = New System.Windows.Forms.Button()
+        Me.btnPlayer01H = New System.Windows.Forms.Button()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.btnClearPlayerAway = New System.Windows.Forms.Button()
+        Me.btnResendPlayerAway = New System.Windows.Forms.Button()
+        Me.btnPlayer25A = New System.Windows.Forms.Button()
+        Me.lablPlayerStatHeading15A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat15A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading14A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat14A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading13A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat13A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading12A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat12A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading11A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat11A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading10A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat10A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading09A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat09A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading08A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat08A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading07A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat07A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading06A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat06A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading05A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat05A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading04A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat04A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading03A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat03A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading02A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat02A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading01A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat01A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading30A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat30A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading29A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat29A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading28A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat28A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading27A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat27A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading26A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat26A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading25A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat25A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading24A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat24A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading23A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat23A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading22A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat22A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading21A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat21A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading20A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat20A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading19A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat19A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading18A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat18A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading17A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat17A = New System.Windows.Forms.Label()
+        Me.lablPlayerStatHeading16A = New System.Windows.Forms.Label()
+        Me.lablPlayerStat16A = New System.Windows.Forms.Label()
+        Me.btnPlayer24A = New System.Windows.Forms.Button()
+        Me.btnPlayer23A = New System.Windows.Forms.Button()
+        Me.btnPlayer22A = New System.Windows.Forms.Button()
+        Me.btnPlayer21A = New System.Windows.Forms.Button()
+        Me.btnPlayer20A = New System.Windows.Forms.Button()
+        Me.btnPlayer19A = New System.Windows.Forms.Button()
+        Me.btnPlayer18A = New System.Windows.Forms.Button()
+        Me.btnPlayer17A = New System.Windows.Forms.Button()
+        Me.btnPlayer16A = New System.Windows.Forms.Button()
+        Me.btnPlayer15A = New System.Windows.Forms.Button()
+        Me.btnPlayer14A = New System.Windows.Forms.Button()
+        Me.btnPlayer13A = New System.Windows.Forms.Button()
+        Me.btnPlayer12A = New System.Windows.Forms.Button()
+        Me.btnPlayer11A = New System.Windows.Forms.Button()
+        Me.btnPlayer10A = New System.Windows.Forms.Button()
+        Me.btnPlayer09A = New System.Windows.Forms.Button()
+        Me.btnPlayer08A = New System.Windows.Forms.Button()
+        Me.btnPlayer07A = New System.Windows.Forms.Button()
+        Me.btnPlayer06A = New System.Windows.Forms.Button()
+        Me.btnPlayer05A = New System.Windows.Forms.Button()
+        Me.btnPlayer04A = New System.Windows.Forms.Button()
+        Me.btnPlayer03A = New System.Windows.Forms.Button()
+        Me.btnPlayer02A = New System.Windows.Forms.Button()
+        Me.btnPlayer01A = New System.Windows.Forms.Button()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.listViewSummaryHome = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader23 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader24 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader25 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader26 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader27 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader28 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader29 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader30 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader31 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader32 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.listViewsummaryAway = New System.Windows.Forms.ListView()
+        Me.ColumnHeader33 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader34 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader35 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader36 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader37 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader38 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader39 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader40 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader41 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader42 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader43 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader44 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader45 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader46 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader47 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader48 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader49 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader50 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader51 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader52 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader53 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader54 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader55 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader56 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader57 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader58 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader59 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader60 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader61 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader62 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader63 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader64 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tabKickouts = New System.Windows.Forms.TabPage()
+        Me.btnPitchShotWide2 = New System.Windows.Forms.Button()
+        Me.btnPitchShotGood3 = New System.Windows.Forms.Button()
+        Me.btnPitchShotGood4 = New System.Windows.Forms.Button()
+        Me.btnPitchShotGood2 = New System.Windows.Forms.Button()
+        Me.lablPitchLogHeading3 = New System.Windows.Forms.Label()
+        Me.lablPitchAway3 = New System.Windows.Forms.Label()
+        Me.lablPitchHome3 = New System.Windows.Forms.Label()
+        Me.btnPitchShotWide = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.radioLog4565 = New System.Windows.Forms.RadioButton()
+        Me.radioLogFrees = New System.Windows.Forms.RadioButton()
+        Me.radioLogKickouts = New System.Windows.Forms.RadioButton()
+        Me.lablStepKickoutNum = New System.Windows.Forms.Label()
+        Me.lablPitchLogHeading2 = New System.Windows.Forms.Label()
+        Me.lablPitchLogHeading1 = New System.Windows.Forms.Label()
+        Me.btnDeleteKickout = New System.Windows.Forms.Button()
+        Me.btnStepKickouts = New System.Windows.Forms.Button()
+        Me.lablPitchKickoutPrompt = New System.Windows.Forms.Label()
+        Me.lablPitchRLArrow = New System.Windows.Forms.Label()
+        Me.lablPitchAway1 = New System.Windows.Forms.Label()
+        Me.lablPitchRLTeamName = New System.Windows.Forms.Label()
+        Me.lablPitchHome1 = New System.Windows.Forms.Label()
+        Me.lablPitchLRArrow = New System.Windows.Forms.Label()
+        Me.lablPitchAway2 = New System.Windows.Forms.Label()
+        Me.lablPitchLRTeamName = New System.Windows.Forms.Label()
+        Me.lablPitchHome2 = New System.Windows.Forms.Label()
+        Me.picBoxPitch = New System.Windows.Forms.PictureBox()
+        Me.btnPitchAwayWin = New System.Windows.Forms.Button()
+        Me.btnPitchHomeWin = New System.Windows.Forms.Button()
+        Me.lablPitchAwayName = New System.Windows.Forms.Label()
+        Me.lablPitchHomeName = New System.Windows.Forms.Label()
+        Me.tabPenalties = New System.Windows.Forms.TabPage()
+        Me.btnAdvantageClear = New System.Windows.Forms.Button()
+        Me.btnAdvantageAway = New System.Windows.Forms.Button()
+        Me.btnAdvantageHome = New System.Windows.Forms.Button()
+        Me.btnPenaltyClear = New System.Windows.Forms.Button()
+        Me.btnPenaltyDisplay = New System.Windows.Forms.Button()
+        Me.btnPenaltyName30 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName29 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName28 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName27 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName26 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName25 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName24 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName12 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName23 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName11 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName22 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName10 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName21 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName09 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName20 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName08 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName19 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName07 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName18 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName06 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName17 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName05 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName16 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName04 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName15 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName03 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName14 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName02 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName13 = New System.Windows.Forms.Button()
+        Me.btnPenaltyName01 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnLock = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.groupRemotePossession = New System.Windows.Forms.GroupBox()
+        Me.lablRemoteAreaR3 = New System.Windows.Forms.Label()
+        Me.lablRemoteAreaR2 = New System.Windows.Forms.Label()
+        Me.lablRemoteAreaR1 = New System.Windows.Forms.Label()
+        Me.lablRemoteAreaR4 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.lablRemoteInPlay = New System.Windows.Forms.Label()
+        Me.lablRemoteMatchTime = New System.Windows.Forms.Label()
+        Me.lablRemoteAwayTeam = New System.Windows.Forms.Label()
+        Me.lablRemoteHomeTeam = New System.Windows.Forms.Label()
+        Me.lablRemoteAreaS1 = New System.Windows.Forms.Label()
+        Me.lablRemoteAreaS2 = New System.Windows.Forms.Label()
+        Me.lablRemoteAreaS3 = New System.Windows.Forms.Label()
+        Me.lablRemoteAwayPossession = New System.Windows.Forms.Label()
+        Me.lablRemoteHomePossession = New System.Windows.Forms.Label()
         Me.timerCheckConnection = New System.Windows.Forms.Timer(Me.components)
-        Me.groupActionAreasRugby = New System.Windows.Forms.GroupBox
-        Me.lablViewR4 = New System.Windows.Forms.Label
-        Me.lablAreaR4 = New System.Windows.Forms.Label
-        Me.btnAreaR4 = New System.Windows.Forms.Button
-        Me.lablAreaR1 = New System.Windows.Forms.Label
-        Me.lablViewR3 = New System.Windows.Forms.Label
-        Me.btnAreaR3 = New System.Windows.Forms.Button
-        Me.lablAreaR2 = New System.Windows.Forms.Label
-        Me.lablAreaR3 = New System.Windows.Forms.Label
-        Me.lablViewR1 = New System.Windows.Forms.Label
-        Me.btnAreaR1 = New System.Windows.Forms.Button
-        Me.lablViewR2 = New System.Windows.Forms.Label
-        Me.btnAreaR2 = New System.Windows.Forms.Button
-        Me.btnPitchShotGood3 = New System.Windows.Forms.Button
-        Me.btnPitchShotGood4 = New System.Windows.Forms.Button
+        Me.groupActionAreasRugby = New System.Windows.Forms.GroupBox()
+        Me.lablViewR4 = New System.Windows.Forms.Label()
+        Me.lablAreaR4 = New System.Windows.Forms.Label()
+        Me.btnAreaR4 = New System.Windows.Forms.Button()
+        Me.lablAreaR1 = New System.Windows.Forms.Label()
+        Me.lablViewR3 = New System.Windows.Forms.Label()
+        Me.btnAreaR3 = New System.Windows.Forms.Button()
+        Me.lablAreaR2 = New System.Windows.Forms.Label()
+        Me.lablAreaR3 = New System.Windows.Forms.Label()
+        Me.lablViewR1 = New System.Windows.Forms.Label()
+        Me.btnAreaR1 = New System.Windows.Forms.Button()
+        Me.lablViewR2 = New System.Windows.Forms.Label()
+        Me.btnAreaR2 = New System.Windows.Forms.Button()
+        Me.btnPitchShotGood = New System.Windows.Forms.Button()
         Me.groupClock.SuspendLayout()
         Me.groupViewTime.SuspendLayout()
         Me.groupActionAreasSoccer.SuspendLayout()
@@ -6263,6 +6265,7 @@ Public Class Form1
         'tabKickouts
         '
         Me.tabKickouts.Controls.Add(Me.btnPitchShotGood)
+        Me.tabKickouts.Controls.Add(Me.btnPitchShotWide2)
         Me.tabKickouts.Controls.Add(Me.btnPitchShotGood3)
         Me.tabKickouts.Controls.Add(Me.btnPitchShotGood4)
         Me.tabKickouts.Controls.Add(Me.btnPitchShotGood2)
@@ -6296,14 +6299,50 @@ Public Class Form1
         Me.tabKickouts.TabIndex = 5
         Me.tabKickouts.Text = "PITCH LOGS"
         '
+        'btnPitchShotWide2
+        '
+        Me.btnPitchShotWide2.BackColor = System.Drawing.Color.LightPink
+        Me.btnPitchShotWide2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPitchShotWide2.ForeColor = System.Drawing.Color.Black
+        Me.btnPitchShotWide2.Location = New System.Drawing.Point(287, 642)
+        Me.btnPitchShotWide2.Name = "btnPitchShotWide2"
+        Me.btnPitchShotWide2.Size = New System.Drawing.Size(85, 38)
+        Me.btnPitchShotWide2.TabIndex = 165
+        Me.btnPitchShotWide2.Text = "Log Wide" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Free..."
+        Me.btnPitchShotWide2.UseVisualStyleBackColor = False
+        '
+        'btnPitchShotGood3
+        '
+        Me.btnPitchShotGood3.BackColor = System.Drawing.Color.LawnGreen
+        Me.btnPitchShotGood3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPitchShotGood3.ForeColor = System.Drawing.Color.Black
+        Me.btnPitchShotGood3.Location = New System.Drawing.Point(287, 604)
+        Me.btnPitchShotGood3.Name = "btnPitchShotGood3"
+        Me.btnPitchShotGood3.Size = New System.Drawing.Size(85, 38)
+        Me.btnPitchShotGood3.TabIndex = 164
+        Me.btnPitchShotGood3.Text = "Log Point" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Free..."
+        Me.btnPitchShotGood3.UseVisualStyleBackColor = False
+        '
+        'btnPitchShotGood4
+        '
+        Me.btnPitchShotGood4.BackColor = System.Drawing.Color.LawnGreen
+        Me.btnPitchShotGood4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPitchShotGood4.ForeColor = System.Drawing.Color.Black
+        Me.btnPitchShotGood4.Location = New System.Drawing.Point(200, 604)
+        Me.btnPitchShotGood4.Name = "btnPitchShotGood4"
+        Me.btnPitchShotGood4.Size = New System.Drawing.Size(85, 38)
+        Me.btnPitchShotGood4.TabIndex = 163
+        Me.btnPitchShotGood4.Text = "Log Point" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Play..."
+        Me.btnPitchShotGood4.UseVisualStyleBackColor = False
+        '
         'btnPitchShotGood2
         '
         Me.btnPitchShotGood2.BackColor = System.Drawing.Color.LawnGreen
         Me.btnPitchShotGood2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPitchShotGood2.ForeColor = System.Drawing.Color.Black
-        Me.btnPitchShotGood2.Location = New System.Drawing.Point(246, 568)
+        Me.btnPitchShotGood2.Location = New System.Drawing.Point(200, 567)
         Me.btnPitchShotGood2.Name = "btnPitchShotGood2"
-        Me.btnPitchShotGood2.Size = New System.Drawing.Size(72, 38)
+        Me.btnPitchShotGood2.Size = New System.Drawing.Size(85, 38)
         Me.btnPitchShotGood2.TabIndex = 155
         Me.btnPitchShotGood2.Text = "Log Goal" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Play..."
         Me.btnPitchShotGood2.UseVisualStyleBackColor = False
@@ -6349,26 +6388,14 @@ Public Class Form1
         'btnPitchShotWide
         '
         Me.btnPitchShotWide.BackColor = System.Drawing.Color.LightPink
-        Me.btnPitchShotWide.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPitchShotWide.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPitchShotWide.ForeColor = System.Drawing.Color.Black
-        Me.btnPitchShotWide.Location = New System.Drawing.Point(246, 642)
+        Me.btnPitchShotWide.Location = New System.Drawing.Point(200, 642)
         Me.btnPitchShotWide.Name = "btnPitchShotWide"
-        Me.btnPitchShotWide.Size = New System.Drawing.Size(144, 38)
+        Me.btnPitchShotWide.Size = New System.Drawing.Size(85, 38)
         Me.btnPitchShotWide.TabIndex = 149
-        Me.btnPitchShotWide.Text = "Log Wide..."
+        Me.btnPitchShotWide.Text = "Log Wide" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Play..."
         Me.btnPitchShotWide.UseVisualStyleBackColor = False
-        '
-        'btnPitchShotGood
-        '
-        Me.btnPitchShotGood.BackColor = System.Drawing.Color.LawnGreen
-        Me.btnPitchShotGood.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPitchShotGood.ForeColor = System.Drawing.Color.Black
-        Me.btnPitchShotGood.Location = New System.Drawing.Point(246, 605)
-        Me.btnPitchShotGood.Name = "btnPitchShotGood"
-        Me.btnPitchShotGood.Size = New System.Drawing.Size(144, 38)
-        Me.btnPitchShotGood.TabIndex = 148
-        Me.btnPitchShotGood.Text = "Log Score..."
-        Me.btnPitchShotGood.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -6387,12 +6414,12 @@ Public Class Form1
         '
         Me.radioLog4565.AutoSize = True
         Me.radioLog4565.Checked = True
-        Me.radioLog4565.Location = New System.Drawing.Point(8, 72)
+        Me.radioLog4565.Location = New System.Drawing.Point(8, 61)
         Me.radioLog4565.Name = "radioLog4565"
-        Me.radioLog4565.Size = New System.Drawing.Size(77, 24)
+        Me.radioLog4565.Size = New System.Drawing.Size(69, 24)
         Me.radioLog4565.TabIndex = 2
         Me.radioLog4565.TabStop = True
-        Me.radioLog4565.Text = "Scores"
+        Me.radioLog4565.Text = "Shots"
         Me.radioLog4565.UseVisualStyleBackColor = True
         '
         'radioLogFrees
@@ -6404,11 +6431,12 @@ Public Class Form1
         Me.radioLogFrees.TabIndex = 1
         Me.radioLogFrees.Text = "Frees"
         Me.radioLogFrees.UseVisualStyleBackColor = True
+        Me.radioLogFrees.Visible = False
         '
         'radioLogKickouts
         '
         Me.radioLogKickouts.AutoSize = True
-        Me.radioLogKickouts.Location = New System.Drawing.Point(8, 24)
+        Me.radioLogKickouts.Location = New System.Drawing.Point(8, 31)
         Me.radioLogKickouts.Name = "radioLogKickouts"
         Me.radioLogKickouts.Size = New System.Drawing.Size(87, 24)
         Me.radioLogKickouts.TabIndex = 0
@@ -6418,7 +6446,7 @@ Public Class Form1
         'lablStepKickoutNum
         '
         Me.lablStepKickoutNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lablStepKickoutNum.Location = New System.Drawing.Point(202, 608)
+        Me.lablStepKickoutNum.Location = New System.Drawing.Point(174, 614)
         Me.lablStepKickoutNum.Name = "lablStepKickoutNum"
         Me.lablStepKickoutNum.Size = New System.Drawing.Size(32, 20)
         Me.lablStepKickoutNum.TabIndex = 146
@@ -6448,9 +6476,9 @@ Public Class Form1
         '
         Me.btnDeleteKickout.BackColor = System.Drawing.Color.LightSalmon
         Me.btnDeleteKickout.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteKickout.Location = New System.Drawing.Point(18, 640)
+        Me.btnDeleteKickout.Location = New System.Drawing.Point(8, 640)
         Me.btnDeleteKickout.Name = "btnDeleteKickout"
-        Me.btnDeleteKickout.Size = New System.Drawing.Size(180, 40)
+        Me.btnDeleteKickout.Size = New System.Drawing.Size(160, 40)
         Me.btnDeleteKickout.TabIndex = 143
         Me.btnDeleteKickout.Text = "Delete this item"
         Me.btnDeleteKickout.UseVisualStyleBackColor = False
@@ -6459,9 +6487,9 @@ Public Class Form1
         '
         Me.btnStepKickouts.BackColor = System.Drawing.Color.Orange
         Me.btnStepKickouts.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStepKickouts.Location = New System.Drawing.Point(18, 596)
+        Me.btnStepKickouts.Location = New System.Drawing.Point(8, 602)
         Me.btnStepKickouts.Name = "btnStepKickouts"
-        Me.btnStepKickouts.Size = New System.Drawing.Size(180, 40)
+        Me.btnStepKickouts.Size = New System.Drawing.Size(160, 40)
         Me.btnStepKickouts.TabIndex = 142
         Me.btnStepKickouts.Text = "Step through KILKENNY "
         Me.btnStepKickouts.UseVisualStyleBackColor = False
@@ -7574,29 +7602,17 @@ Public Class Form1
         Me.btnAreaR2.Text = "LEFT2"
         Me.btnAreaR2.UseVisualStyleBackColor = False
         '
-        'btnPitchShotGood3
+        'btnPitchShotGood
         '
-        Me.btnPitchShotGood3.BackColor = System.Drawing.Color.LawnGreen
-        Me.btnPitchShotGood3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPitchShotGood3.ForeColor = System.Drawing.Color.Black
-        Me.btnPitchShotGood3.Location = New System.Drawing.Point(318, 605)
-        Me.btnPitchShotGood3.Name = "btnPitchShotGood3"
-        Me.btnPitchShotGood3.Size = New System.Drawing.Size(72, 38)
-        Me.btnPitchShotGood3.TabIndex = 164
-        Me.btnPitchShotGood3.Text = "Log Point" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Free..."
-        Me.btnPitchShotGood3.UseVisualStyleBackColor = False
-        '
-        'btnPitchShotGood4
-        '
-        Me.btnPitchShotGood4.BackColor = System.Drawing.Color.LawnGreen
-        Me.btnPitchShotGood4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPitchShotGood4.ForeColor = System.Drawing.Color.Black
-        Me.btnPitchShotGood4.Location = New System.Drawing.Point(318, 568)
-        Me.btnPitchShotGood4.Name = "btnPitchShotGood4"
-        Me.btnPitchShotGood4.Size = New System.Drawing.Size(72, 38)
-        Me.btnPitchShotGood4.TabIndex = 163
-        Me.btnPitchShotGood4.Text = "Log Point" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Play..."
-        Me.btnPitchShotGood4.UseVisualStyleBackColor = False
+        Me.btnPitchShotGood.BackColor = System.Drawing.Color.LawnGreen
+        Me.btnPitchShotGood.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPitchShotGood.ForeColor = System.Drawing.Color.Black
+        Me.btnPitchShotGood.Location = New System.Drawing.Point(287, 567)
+        Me.btnPitchShotGood.Name = "btnPitchShotGood"
+        Me.btnPitchShotGood.Size = New System.Drawing.Size(85, 38)
+        Me.btnPitchShotGood.TabIndex = 166
+        Me.btnPitchShotGood.Text = "Log Goal" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Free..."
+        Me.btnPitchShotGood.UseVisualStyleBackColor = False
         '
         'Form1
         '
@@ -7768,6 +7784,7 @@ Public Class Form1
         'ClearMessage()
     End Sub
     Sub ShowLocalMessage(ByVal strText As String)
+        Console.WriteLine(strText)
         'Me.lablStatus.Text = strText
 
     End Sub
@@ -7919,7 +7936,7 @@ Public Class Form1
                 Case Else
             End Select
         Catch ex As Exception
-            'ShowAction(ex.Message & ": " & strMessage)
+            Console.WriteLine(ex.Message & ": " & strMessage)
         End Try
     End Sub
     Sub Disconnect()
@@ -7969,6 +7986,7 @@ Public Class Form1
                     btnPitchShotGood3.Visible = False
                     btnPitchShotGood4.Visible = False
                     btnPitchShotWide.Visible = False
+                    btnPitchShotWide2.Visible = False
                     lablPitchHomeName.Visible = False
                     lablPitchAwayName.Visible = False
                     lablPitchKickoutPrompt.Text = "Viewing " & teamName & " Kickouts"
@@ -8007,191 +8025,198 @@ Public Class Form1
                     btnPitchHomeWin.Visible = False
                     btnPitchAwayWin.Visible = False
                     btnPitchShotGood.Visible = True
-                    btnPitchShotGood.Text = "Log Goal" & vbLf & "from Free..."
-                    btnPitchShotGood.Width = 72 'half size
-                    btnPitchShotGood.Font = New Font("MS SANS SERIF", 8.25)
+                    'btnPitchShotGood.Text = "Log Goal" & vbLf & "from Free..."
+                    'btnPitchShotGood.Width = 72 'half size
+                    'btnPitchShotGood.Font = New Font("MS SANS SERIF", 8.25)
                     btnPitchShotGood2.Visible = True
                     btnPitchShotGood3.Visible = True
                     btnPitchShotGood4.Visible = True
                     btnPitchShotWide.Visible = True
+                    btnPitchShotWide2.Visible = True
                     lablPitchHomeName.Visible = True
                     lablPitchAwayName.Visible = True
                     lablPitchHomeName.Text = .HomeShortName
                     lablPitchAwayName.Text = .AwayShortName
                     lablPitchKickoutPrompt.Text = "Viewing " & teamName & " Scores"
                     btnStepKickouts.Text = "Step through " & teamName & " Scores"
-                    btnDeleteKickout.Text = "Delete this Score"
+                    btnDeleteKickout.Text = "Delete this Shot"
             End Select
 
         End With
 
 
     End Sub
+    Delegate Sub ShowDataCallback()
     Sub ShowMatch()
-        With LiveMatch
-            Me.lablHomeName.Text = .HomeLongName
-            Me.lablHomeName2.Text = .HomeLongName
-            Me.lablHomeName3.Text = .HomeLongName
-            Me.lablAwayName.Text = .AwayLongName
-            Me.lablAwayName2.Text = .AwayLongName
-            Me.lablAwayName3.Text = .AwayLongName
-            Me.btnPossessionH.Text = .HomeShortName & vbLf & "Key ,"
-            Me.btnPossessionA.Text = .AwayShortName & vbLf & "Key ."
-            Me.btnPossessionOOP.Text = "OUT OF PLAY" & vbLf & "Key /"
-            Me.btnAreaS1.Text = "LEFT" & vbLf & "Key z"
-            Me.btnAreaS2.Text = "CENTRE" & vbLf & "Key x"
-            Me.btnAreaS3.Text = "RIGHT" & vbLf & "Key c"
-            Me.btnAreaR1.Text = "LEFT1" & vbLf & "Key z"
-            Me.btnAreaR2.Text = "LEFT2" & vbLf & "Key x"
-            Me.btnAreaR3.Text = "RIGHT1" & vbLf & "Key c"
-            Me.btnAreaR4.Text = "RIGHT2" & vbLf & "Key v"
-            Me.lablPeriod.Text = .StatePhrase
+        If lablHomeName.InvokeRequired Then
+            Dim d As New ShowDataCallback(AddressOf ShowMatch)
+            Me.Invoke(d, New Object() {})
+        Else
+
+            With LiveMatch
+                Me.lablHomeName.Text = .HomeLongName
+                Me.lablHomeName2.Text = .HomeLongName
+                Me.lablHomeName3.Text = .HomeLongName
+                Me.lablAwayName.Text = .AwayLongName
+                Me.lablAwayName2.Text = .AwayLongName
+                Me.lablAwayName3.Text = .AwayLongName
+                Me.btnPossessionH.Text = .HomeShortName & vbLf & "Key ,"
+                Me.btnPossessionA.Text = .AwayShortName & vbLf & "Key ."
+                Me.btnPossessionOOP.Text = "OUT OF PLAY" & vbLf & "Key /"
+                Me.btnAreaS1.Text = "LEFT" & vbLf & "Key z"
+                Me.btnAreaS2.Text = "CENTRE" & vbLf & "Key x"
+                Me.btnAreaS3.Text = "RIGHT" & vbLf & "Key c"
+                Me.btnAreaR1.Text = "LEFT1" & vbLf & "Key z"
+                Me.btnAreaR2.Text = "LEFT2" & vbLf & "Key x"
+                Me.btnAreaR3.Text = "RIGHT1" & vbLf & "Key c"
+                Me.btnAreaR4.Text = "RIGHT2" & vbLf & "Key v"
+                Me.lablPeriod.Text = .StatePhrase
 
 
-            Me.lablHomeName.BackColor = Color.FromArgb(.HomeColour)
-            Me.lablAwayName.BackColor = Color.FromArgb(.AwayColour)
-            Me.lablHomeName.ForeColor = Color.FromArgb(.HomeColour2)
-            Me.lablAwayName.ForeColor = Color.FromArgb(.AwayColour2)
+                Me.lablHomeName.BackColor = Color.FromArgb(.HomeColour)
+                Me.lablAwayName.BackColor = Color.FromArgb(.AwayColour)
+                Me.lablHomeName.ForeColor = Color.FromArgb(.HomeColour2)
+                Me.lablAwayName.ForeColor = Color.FromArgb(.AwayColour2)
 
-            Me.btnPossessionH.BackColor = Color.FromArgb(.HomeColour)
-            Me.btnPossessionA.BackColor = Color.FromArgb(.AwayColour)
-            Me.btnPossessionH.ForeColor = Color.FromArgb(.HomeColour2)
-            Me.btnPossessionA.ForeColor = Color.FromArgb(.AwayColour2)
+                Me.btnPossessionH.BackColor = Color.FromArgb(.HomeColour)
+                Me.btnPossessionA.BackColor = Color.FromArgb(.AwayColour)
+                Me.btnPossessionH.ForeColor = Color.FromArgb(.HomeColour2)
+                Me.btnPossessionA.ForeColor = Color.FromArgb(.AwayColour2)
 
 
-            Dim colTemp As Color
-            colTemp = Color.FromArgb(.HomeColour)
-            Me.lablStat01H.BackColor = colTemp
-            Me.lablStat02H.BackColor = colTemp
-            Me.lablStat03H.BackColor = colTemp
-            Me.lablStat04H.BackColor = colTemp
-            Me.lablStat05H.BackColor = colTemp
-            Me.lablStat06H.BackColor = colTemp
-            Me.lablStat07H.BackColor = colTemp
-            Me.lablStat08H.BackColor = colTemp
-            Me.lablStat09H.BackColor = colTemp
-            Me.lablStat10H.BackColor = colTemp
-            Me.lablStat11H.BackColor = colTemp
-            Me.lablStat12H.BackColor = colTemp
-            Me.lablStat13H.BackColor = colTemp
-            Me.lablStat14H.BackColor = colTemp
-            Me.lablStat15H.BackColor = colTemp
-            Me.lablStat16H.BackColor = colTemp
-            Me.lablStat17H.BackColor = colTemp
-            Me.lablStat18H.BackColor = colTemp
-            Me.lablStat19H.BackColor = colTemp
-            Me.lablStat20H.BackColor = colTemp
-            Me.lablStat21H.BackColor = colTemp
-            Me.lablStat22H.BackColor = colTemp
-            Me.lablStat23H.BackColor = colTemp
-            Me.lablStat24H.BackColor = colTemp
-            Me.lablStat25H.BackColor = colTemp
-            Me.lablStat26H.BackColor = colTemp
-            Me.lablStat27H.BackColor = colTemp
-            Me.lablStat28H.BackColor = colTemp
-            Me.lablStat29H.BackColor = colTemp
-            Me.lablStat30H.BackColor = colTemp
+                Dim colTemp As Color
+                colTemp = Color.FromArgb(.HomeColour)
+                Me.lablStat01H.BackColor = colTemp
+                Me.lablStat02H.BackColor = colTemp
+                Me.lablStat03H.BackColor = colTemp
+                Me.lablStat04H.BackColor = colTemp
+                Me.lablStat05H.BackColor = colTemp
+                Me.lablStat06H.BackColor = colTemp
+                Me.lablStat07H.BackColor = colTemp
+                Me.lablStat08H.BackColor = colTemp
+                Me.lablStat09H.BackColor = colTemp
+                Me.lablStat10H.BackColor = colTemp
+                Me.lablStat11H.BackColor = colTemp
+                Me.lablStat12H.BackColor = colTemp
+                Me.lablStat13H.BackColor = colTemp
+                Me.lablStat14H.BackColor = colTemp
+                Me.lablStat15H.BackColor = colTemp
+                Me.lablStat16H.BackColor = colTemp
+                Me.lablStat17H.BackColor = colTemp
+                Me.lablStat18H.BackColor = colTemp
+                Me.lablStat19H.BackColor = colTemp
+                Me.lablStat20H.BackColor = colTemp
+                Me.lablStat21H.BackColor = colTemp
+                Me.lablStat22H.BackColor = colTemp
+                Me.lablStat23H.BackColor = colTemp
+                Me.lablStat24H.BackColor = colTemp
+                Me.lablStat25H.BackColor = colTemp
+                Me.lablStat26H.BackColor = colTemp
+                Me.lablStat27H.BackColor = colTemp
+                Me.lablStat28H.BackColor = colTemp
+                Me.lablStat29H.BackColor = colTemp
+                Me.lablStat30H.BackColor = colTemp
 
-            colTemp = Color.FromArgb(.AwayColour)
-            Me.lablStat01A.BackColor = colTemp
-            Me.lablStat02A.BackColor = colTemp
-            Me.lablStat03A.BackColor = colTemp
-            Me.lablStat04A.BackColor = colTemp
-            Me.lablStat05A.BackColor = colTemp
-            Me.lablStat06A.BackColor = colTemp
-            Me.lablStat07A.BackColor = colTemp
-            Me.lablStat08A.BackColor = colTemp
-            Me.lablStat09A.BackColor = colTemp
-            Me.lablStat10A.BackColor = colTemp
-            Me.lablStat11A.BackColor = colTemp
-            Me.lablStat12A.BackColor = colTemp
-            Me.lablStat13A.BackColor = colTemp
-            Me.lablStat14A.BackColor = colTemp
-            Me.lablStat15A.BackColor = colTemp
-            Me.lablStat16A.BackColor = colTemp
-            Me.lablStat17A.BackColor = colTemp
-            Me.lablStat18A.BackColor = colTemp
-            Me.lablStat19A.BackColor = colTemp
-            Me.lablStat20A.BackColor = colTemp
-            Me.lablStat21A.BackColor = colTemp
-            Me.lablStat22A.BackColor = colTemp
-            Me.lablStat23A.BackColor = colTemp
-            Me.lablStat24A.BackColor = colTemp
-            Me.lablStat25A.BackColor = colTemp
-            Me.lablStat26A.BackColor = colTemp
-            Me.lablStat27A.BackColor = colTemp
-            Me.lablStat28A.BackColor = colTemp
-            Me.lablStat29A.BackColor = colTemp
-            Me.lablStat30A.BackColor = colTemp
+                colTemp = Color.FromArgb(.AwayColour)
+                Me.lablStat01A.BackColor = colTemp
+                Me.lablStat02A.BackColor = colTemp
+                Me.lablStat03A.BackColor = colTemp
+                Me.lablStat04A.BackColor = colTemp
+                Me.lablStat05A.BackColor = colTemp
+                Me.lablStat06A.BackColor = colTemp
+                Me.lablStat07A.BackColor = colTemp
+                Me.lablStat08A.BackColor = colTemp
+                Me.lablStat09A.BackColor = colTemp
+                Me.lablStat10A.BackColor = colTemp
+                Me.lablStat11A.BackColor = colTemp
+                Me.lablStat12A.BackColor = colTemp
+                Me.lablStat13A.BackColor = colTemp
+                Me.lablStat14A.BackColor = colTemp
+                Me.lablStat15A.BackColor = colTemp
+                Me.lablStat16A.BackColor = colTemp
+                Me.lablStat17A.BackColor = colTemp
+                Me.lablStat18A.BackColor = colTemp
+                Me.lablStat19A.BackColor = colTemp
+                Me.lablStat20A.BackColor = colTemp
+                Me.lablStat21A.BackColor = colTemp
+                Me.lablStat22A.BackColor = colTemp
+                Me.lablStat23A.BackColor = colTemp
+                Me.lablStat24A.BackColor = colTemp
+                Me.lablStat25A.BackColor = colTemp
+                Me.lablStat26A.BackColor = colTemp
+                Me.lablStat27A.BackColor = colTemp
+                Me.lablStat28A.BackColor = colTemp
+                Me.lablStat29A.BackColor = colTemp
+                Me.lablStat30A.BackColor = colTemp
 
-            colTemp = Color.FromArgb(.HomeColour2)
-            Me.lablStat01H.ForeColor = colTemp
-            Me.lablStat02H.ForeColor = colTemp
-            Me.lablStat03H.ForeColor = colTemp
-            Me.lablStat04H.ForeColor = colTemp
-            Me.lablStat05H.ForeColor = colTemp
-            Me.lablStat06H.ForeColor = colTemp
-            Me.lablStat07H.ForeColor = colTemp
-            Me.lablStat08H.ForeColor = colTemp
-            Me.lablStat09H.ForeColor = colTemp
-            Me.lablStat10H.ForeColor = colTemp
-            Me.lablStat11H.ForeColor = colTemp
-            Me.lablStat12H.ForeColor = colTemp
-            Me.lablStat13H.ForeColor = colTemp
-            Me.lablStat14H.ForeColor = colTemp
-            Me.lablStat15H.ForeColor = colTemp
-            Me.lablStat16H.ForeColor = colTemp
-            Me.lablStat17H.ForeColor = colTemp
-            Me.lablStat18H.ForeColor = colTemp
-            Me.lablStat19H.ForeColor = colTemp
-            Me.lablStat20H.ForeColor = colTemp
-            Me.lablStat21H.ForeColor = colTemp
-            Me.lablStat22H.ForeColor = colTemp
-            Me.lablStat23H.ForeColor = colTemp
-            Me.lablStat24H.ForeColor = colTemp
-            Me.lablStat25H.ForeColor = colTemp
-            Me.lablStat26H.ForeColor = colTemp
-            Me.lablStat27H.ForeColor = colTemp
-            Me.lablStat28H.ForeColor = colTemp
-            Me.lablStat29H.ForeColor = colTemp
-            Me.lablStat30H.ForeColor = colTemp
+                colTemp = Color.FromArgb(.HomeColour2)
+                Me.lablStat01H.ForeColor = colTemp
+                Me.lablStat02H.ForeColor = colTemp
+                Me.lablStat03H.ForeColor = colTemp
+                Me.lablStat04H.ForeColor = colTemp
+                Me.lablStat05H.ForeColor = colTemp
+                Me.lablStat06H.ForeColor = colTemp
+                Me.lablStat07H.ForeColor = colTemp
+                Me.lablStat08H.ForeColor = colTemp
+                Me.lablStat09H.ForeColor = colTemp
+                Me.lablStat10H.ForeColor = colTemp
+                Me.lablStat11H.ForeColor = colTemp
+                Me.lablStat12H.ForeColor = colTemp
+                Me.lablStat13H.ForeColor = colTemp
+                Me.lablStat14H.ForeColor = colTemp
+                Me.lablStat15H.ForeColor = colTemp
+                Me.lablStat16H.ForeColor = colTemp
+                Me.lablStat17H.ForeColor = colTemp
+                Me.lablStat18H.ForeColor = colTemp
+                Me.lablStat19H.ForeColor = colTemp
+                Me.lablStat20H.ForeColor = colTemp
+                Me.lablStat21H.ForeColor = colTemp
+                Me.lablStat22H.ForeColor = colTemp
+                Me.lablStat23H.ForeColor = colTemp
+                Me.lablStat24H.ForeColor = colTemp
+                Me.lablStat25H.ForeColor = colTemp
+                Me.lablStat26H.ForeColor = colTemp
+                Me.lablStat27H.ForeColor = colTemp
+                Me.lablStat28H.ForeColor = colTemp
+                Me.lablStat29H.ForeColor = colTemp
+                Me.lablStat30H.ForeColor = colTemp
 
-            colTemp = Color.FromArgb(.AwayColour2)
-            Me.lablStat01A.ForeColor = colTemp
-            Me.lablStat02A.ForeColor = colTemp
-            Me.lablStat03A.ForeColor = colTemp
-            Me.lablStat04A.ForeColor = colTemp
-            Me.lablStat05A.ForeColor = colTemp
-            Me.lablStat06A.ForeColor = colTemp
-            Me.lablStat07A.ForeColor = colTemp
-            Me.lablStat08A.ForeColor = colTemp
-            Me.lablStat09A.ForeColor = colTemp
-            Me.lablStat10A.ForeColor = colTemp
-            Me.lablStat11A.ForeColor = colTemp
-            Me.lablStat12A.ForeColor = colTemp
-            Me.lablStat13A.ForeColor = colTemp
-            Me.lablStat14A.ForeColor = colTemp
-            Me.lablStat15A.ForeColor = colTemp
-            Me.lablStat16A.ForeColor = colTemp
-            Me.lablStat17A.ForeColor = colTemp
-            Me.lablStat18A.ForeColor = colTemp
-            Me.lablStat19A.ForeColor = colTemp
-            Me.lablStat20A.ForeColor = colTemp
-            Me.lablStat21A.ForeColor = colTemp
-            Me.lablStat22A.ForeColor = colTemp
-            Me.lablStat23A.ForeColor = colTemp
-            Me.lablStat24A.ForeColor = colTemp
-            Me.lablStat25A.ForeColor = colTemp
-            Me.lablStat26A.ForeColor = colTemp
-            Me.lablStat27A.ForeColor = colTemp
-            Me.lablStat28A.ForeColor = colTemp
-            Me.lablStat29A.ForeColor = colTemp
-            Me.lablStat30A.ForeColor = colTemp
+                colTemp = Color.FromArgb(.AwayColour2)
+                Me.lablStat01A.ForeColor = colTemp
+                Me.lablStat02A.ForeColor = colTemp
+                Me.lablStat03A.ForeColor = colTemp
+                Me.lablStat04A.ForeColor = colTemp
+                Me.lablStat05A.ForeColor = colTemp
+                Me.lablStat06A.ForeColor = colTemp
+                Me.lablStat07A.ForeColor = colTemp
+                Me.lablStat08A.ForeColor = colTemp
+                Me.lablStat09A.ForeColor = colTemp
+                Me.lablStat10A.ForeColor = colTemp
+                Me.lablStat11A.ForeColor = colTemp
+                Me.lablStat12A.ForeColor = colTemp
+                Me.lablStat13A.ForeColor = colTemp
+                Me.lablStat14A.ForeColor = colTemp
+                Me.lablStat15A.ForeColor = colTemp
+                Me.lablStat16A.ForeColor = colTemp
+                Me.lablStat17A.ForeColor = colTemp
+                Me.lablStat18A.ForeColor = colTemp
+                Me.lablStat19A.ForeColor = colTemp
+                Me.lablStat20A.ForeColor = colTemp
+                Me.lablStat21A.ForeColor = colTemp
+                Me.lablStat22A.ForeColor = colTemp
+                Me.lablStat23A.ForeColor = colTemp
+                Me.lablStat24A.ForeColor = colTemp
+                Me.lablStat25A.ForeColor = colTemp
+                Me.lablStat26A.ForeColor = colTemp
+                Me.lablStat27A.ForeColor = colTemp
+                Me.lablStat28A.ForeColor = colTemp
+                Me.lablStat29A.ForeColor = colTemp
+                Me.lablStat30A.ForeColor = colTemp
 
-            ShowPitchLogLabels()
+                ShowPitchLogLabels()
 
-        End With
-
+            End With
+        End If
     End Sub
     Function AssignLiveMatch(ByVal strFullMessage As String) As clsMatch
         Dim temp As New clsMatch
@@ -8458,7 +8483,7 @@ Public Class Form1
                 Config.NumberOfAreas = 3
             Case "SETANTA2009 RUGBY"
                 Config.NumberOfAreas = 4
-            Case "TV3", "SKY2014 GAA"
+            Case "TV3", "SKY2014 GAA", "GAA STATS"
                 Config.NumberOfAreas = 3
             Case Else
                 MessageBox.Show("Unrecognised User: " & Config.UserName & vbLf & "Cannot continue", "Error starting")
@@ -9306,41 +9331,48 @@ Public Class Form1
                 Me.lablRemoteAreaS3.Text = RemoteData.Area3
         End Select
     End Sub
+    Delegate Sub ShowDirectionCallback()
     Sub ShowDirection()
         'all machines see kickout labels
-        lablPitchLRTeamName.Text = LiveMatch.LRTeamName
-        lablPitchLRTeamName.Tag = LiveMatch.LRTeamID
-        lablPitchRLTeamName.Text = LiveMatch.RLTeamName
-        lablPitchRLTeamName.Tag = LiveMatch.RLTeamID
-
-        If Config.LogPossession = True Then
-            Me.lablArrowHomeLR.Visible = LiveMatch.HomeLR
-            Me.lablArrowHomeRL.Visible = LiveMatch.AwayLR
-            Me.lablArrowAwayLR.Visible = LiveMatch.AwayLR
-            Me.lablArrowAwayRL.Visible = LiveMatch.HomeLR
+        If lablPitchLRTeamName.InvokeRequired Then
+            Dim d As New ShowDirectionCallback(AddressOf ShowDirection)
+            Me.Invoke(d, New Object() {})
         Else
-            'MessageBox.Show(LiveMatch.DisplayDirection.ToString)
-            Select Case RemoteData.CurrentDirection
-                Case 1
-                    Me.lablArrowHomeLR.Visible = True
-                    Me.lablArrowHomeRL.Visible = False
-                    Me.lablArrowAwayLR.Visible = False
-                    Me.lablArrowAwayRL.Visible = True
-                Case 2
-                    Me.lablArrowHomeLR.Visible = False
-                    Me.lablArrowHomeRL.Visible = True
-                    Me.lablArrowAwayLR.Visible = True
-                    Me.lablArrowAwayRL.Visible = False
-                Case Else
-                    Me.lablArrowHomeLR.Visible = False
-                    Me.lablArrowHomeRL.Visible = False
-                    Me.lablArrowAwayLR.Visible = False
-                    Me.lablArrowAwayRL.Visible = False
-            End Select
+
+            lablPitchLRTeamName.Text = LiveMatch.LRTeamName
+            lablPitchLRTeamName.Tag = LiveMatch.LRTeamID
+            lablPitchRLTeamName.Text = LiveMatch.RLTeamName
+            lablPitchRLTeamName.Tag = LiveMatch.RLTeamID
+
+            If Config.LogPossession = True Then
+                Me.lablArrowHomeLR.Visible = LiveMatch.HomeLR
+                Me.lablArrowHomeRL.Visible = LiveMatch.AwayLR
+                Me.lablArrowAwayLR.Visible = LiveMatch.AwayLR
+                Me.lablArrowAwayRL.Visible = LiveMatch.HomeLR
+            Else
+                'MessageBox.Show(LiveMatch.DisplayDirection.ToString)
+                Select Case RemoteData.CurrentDirection
+                    Case 1
+                        Me.lablArrowHomeLR.Visible = True
+                        Me.lablArrowHomeRL.Visible = False
+                        Me.lablArrowAwayLR.Visible = False
+                        Me.lablArrowAwayRL.Visible = True
+                    Case 2
+                        Me.lablArrowHomeLR.Visible = False
+                        Me.lablArrowHomeRL.Visible = True
+                        Me.lablArrowAwayLR.Visible = True
+                        Me.lablArrowAwayRL.Visible = False
+                    Case Else
+                        Me.lablArrowHomeLR.Visible = False
+                        Me.lablArrowHomeRL.Visible = False
+                        Me.lablArrowAwayLR.Visible = False
+                        Me.lablArrowAwayRL.Visible = False
+                End Select
+            End If
+            Me.lablPeriod.Text = Utils.PeriodPhrase(LiveMatch.Period)
+            'currentPitchKickoutTeamID = 0
+            DrawAll() 'dependent on LR direction
         End If
-        Me.lablPeriod.Text = Utils.PeriodPhrase(LiveMatch.Period)
-        'currentPitchKickoutTeamID = 0
-        DrawAll() 'dependent on LR direction
     End Sub
     Private Sub btnRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemove.Click
         bRemove = Not (bRemove)
@@ -9726,16 +9758,49 @@ Public Class Form1
             Case PitchLogType.FortyFive_SixtyFive
                 If winTeamID <> 0 Then
                     'winteamid=currentteamid if successful, -1 if wide
-                    AddPitch4565(e.X, e.Y, currentPitchKickoutTeamID, winTeamID)
-                    DrawAll()
-                    Select Case winTeamID
-                        Case -3
-                            lablPitchKickoutPrompt.Text = "Score from Play logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
-                        Case -2
-                            lablPitchKickoutPrompt.Text = "Score from Free logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
-                        Case Else
-                            lablPitchKickoutPrompt.Text = "Wide logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
+                    Select Case clickStage
+                        Case 1
+                            startX = e.X
+                            startY = e.Y
+                            clickStage = 2
+                            winningPitchKickoutTeamID = winTeamID 're-enable tag setting in Mouse Down
+
+                            Select Case winTeamID
+                                Case -3
+                                    lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " successful Goal end point.  Click here to cancel"
+                                Case -5
+                                    lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " successful Score end point.  Click here to cancel"
+                                Case -2
+                                    lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " successful Score end point.  Click here to cancel"
+                                Case -4
+                                    lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " successful Goal end point.  Click here to cancel"
+                                Case Else
+                                    lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " Wide end point.  Click here to cancel"
+                            End Select
+                        Case 2
+                            AddPitch4565(startX, startY, e.X, e.Y, currentPitchKickoutTeamID, winTeamID)
+                            DrawAll()
+                            Select Case winTeamID
+                                Case -3, -5
+                                    lablPitchKickoutPrompt.Text = "Score from Play logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
+                                Case -2, -4
+                                    lablPitchKickoutPrompt.Text = "Score from Free logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
+                                Case Else
+                                    lablPitchKickoutPrompt.Text = "Wide logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
+                            End Select
+
+                            ''winteamid=currentteamid if successful, -1 if wide
+                            'AddPitchFree(startX, startY, e.X, e.Y, currentPitchKickoutTeamID, winTeamID)
+                            'DrawAll()
+                            'If winTeamID > 0 Then
+                            '    lablPitchKickoutPrompt.Text = "Successful Free logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
+                            'Else
+                            '    lablPitchKickoutPrompt.Text = "Wide Free logged to " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID)
+                            'End If
                     End Select
+
+
+
                 End If
             Case PitchLogType.Frees
                 If winTeamID <> 0 Then
@@ -9782,7 +9847,7 @@ Public Class Form1
         PitchKickouts(newCount) = newPitchKickout
         SendKickout(newPitchKickout)
     End Sub
-    Sub AddPitch4565(ByVal x As Integer, ByVal y As Integer, ByVal kickerTeamID As Integer, ByVal winnerTeamID As Integer)
+    Sub AddPitch4565Old(ByVal x As Integer, ByVal y As Integer, ByVal kickerTeamID As Integer, ByVal winnerTeamID As Integer)
         Dim newPitch4565 As New clsPitchLocationLog
         Dim newCount As Integer = 0
 
@@ -9815,6 +9880,24 @@ Public Class Form1
         ReDim Preserve PitchFrees(newCount)
         PitchFrees(newCount) = newPitchFree
         SendFree(newPitchFree)
+    End Sub
+    Sub AddPitch4565(ByVal xOrigin As Integer, ByVal yOrigin As Integer, ByVal x As Integer, ByVal y As Integer, ByVal kickerTeamID As Integer, ByVal winnerTeamID As Integer)
+        Dim newPitch4565 As New clsPitchLocationLog
+        Dim newCount As Integer = 0
+
+        newPitch4565.MatchID = LiveMatch.MatchID
+        newPitch4565.XSource = xOrigin
+        newPitch4565.YSource = yOrigin
+        newPitch4565.XLocation = x
+        newPitch4565.YLocation = y
+        newPitch4565.KickingTeamID = kickerTeamID
+        newPitch4565.WinningTeamID = winnerTeamID
+        newPitch4565.Direction = LiveMatch.TeamDirection(kickerTeamID)
+        Dim currentCount As Integer = Pitch4565.GetUpperBound(0)
+        newCount = currentCount + 1
+        ReDim Preserve Pitch4565(newCount)
+        Pitch4565(newCount) = newPitch4565
+        Send4565(newPitch4565)
     End Sub
     Sub AddPitchFreeOld(ByVal x As Integer, ByVal y As Integer, ByVal kickerTeamID As Integer, ByVal winnerTeamID As Integer)
         Dim newPitchFree As New clsPitchLocationLog
@@ -9895,6 +9978,7 @@ Public Class Form1
             btnPitchShotGood3.Enabled = True
             btnPitchShotGood4.Enabled = True
             btnPitchShotWide.Enabled = True
+            btnPitchShotWide2.Enabled = True
             If currentPitchKickoutTeamID = lablPitchLRTeamName.Tag Then
                 lablPitchLRTeamName.BackColor = Color.White
                 lablPitchLRArrow.BackColor = Color.White
@@ -9910,13 +9994,14 @@ Public Class Form1
                 lablPitchLRArrow.BackColor = Color.ForestGreen
                 lablPitchRLTeamName.BackColor = Color.ForestGreen
                 lablPitchRLArrow.BackColor = Color.ForestGreen
-                btnPitchHomeWin.Enabled = False
-                btnPitchAwayWin.Enabled = False
-                btnPitchShotGood.Enabled = False
-                btnPitchShotGood2.Enabled = False
-                btnPitchShotGood3.Enabled = False
-                btnPitchShotGood4.Enabled = False
-                btnPitchShotWide.Enabled = False
+                'btnPitchHomeWin.Enabled = False
+                'btnPitchAwayWin.Enabled = False
+                'btnPitchShotGood.Enabled = False
+                'btnPitchShotGood2.Enabled = False
+                'btnPitchShotGood3.Enabled = False
+                'btnPitchShotGood4.Enabled = False
+                'btnPitchShotWide.Enabled = False
+                'btnPitchShotWide2.Enabled = False
             End If
             Select Case currentPitchLogType
                 Case PitchLogType.Kickouts
@@ -10015,18 +10100,18 @@ Public Class Form1
             Select Case Pitch4565(inc).KickingTeamID
                 Case LiveMatch.HomeTeamID
                     Select Case Pitch4565(inc).WinningTeamID
-                        Case -3
+                        Case -3, -5
                             HomeGood += 1
-                        Case -2
+                        Case -2, -4
                             HomeGood2 += 1
                         Case Else
                             HomeWide += 1
                     End Select
                 Case LiveMatch.AwayTeamID
                     Select Case Pitch4565(inc).WinningTeamID
-                        Case -3
+                        Case -3, -5
                             AwayGood += 1
-                        Case -2
+                        Case -2, -4
                             AwayGood2 += 1
                         Case Else
                             AwayWide += 1
@@ -10139,10 +10224,10 @@ Public Class Form1
         Select Case currentPitchLogType
             Case PitchLogType.FortyFive_SixtyFive
                 '                action = "45/65"
-                winningPitchKickoutTeamID = -1
-                action = "Wide"
+                winningPitchKickoutTeamID = -7
+                action = "Wide from Play"
                 clickStage = 1
-                lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " wide .  Click here to cancel"
+                lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " wide from Play .  Click here to cancel"
             Case Else
                 winningPitchKickoutTeamID = -1 'wide flag
                 action = "Free"
@@ -10151,6 +10236,19 @@ Public Class Form1
         End Select
 
     End Sub
+    Private Sub btnPitchShotWide2_Click(sender As Object, e As EventArgs) Handles btnPitchShotWide2.Click
+        Dim action As String = ""
+        Select Case currentPitchLogType
+            Case PitchLogType.FortyFive_SixtyFive
+                '                action = "45/65"
+                winningPitchKickoutTeamID = -6
+                action = "Wide from Free"
+                clickStage = 1
+                lablPitchKickoutPrompt.Text = "Click on pitch to mark " & LiveMatch.TeamNameFromID(currentPitchKickoutTeamID) & " wide from Free .  Click here to cancel"
+            Case Else
+        End Select
+    End Sub
+
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) 
         LoadDummyKickouts()
 
@@ -10317,7 +10415,7 @@ Public Class Form1
                     SendData("DELETEFREE|" & LiveMatch.MatchID.ToString & "|" & PitchFrees(kickoutStepNum).DataString & "|")
                 End If
             Case PitchLogType.FortyFive_SixtyFive
-                If MessageBox.Show("Confirm you want to delete this Score Log", "Delete", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show("Confirm you want to delete this Shot Log", "Delete", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
                     SendData("DELETE4565|" & LiveMatch.MatchID.ToString & "|" & Pitch4565(kickoutStepNum).DataString & "|")
                 End If
         End Select
@@ -10389,4 +10487,5 @@ Public Class Form1
     End Sub
 
  
+
 End Class
