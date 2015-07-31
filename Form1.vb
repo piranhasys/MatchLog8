@@ -8561,88 +8561,94 @@ Public Class Form1
             Next
         Next
     End Sub
+    Delegate Sub ShowTeamStatsCallback()
     Sub ShowTeamStats()
-        Dim inc As Integer, tempLabel As Label
-        Dim colHighlight As Color = Color.Orange
-        Dim colNormal As Color = Color.LightGray
-        Dim colTemp As Color
-        Me.lablStat01H.Text = LiveMatch.Stat01H.ToString
-        Me.lablStat02H.Text = LiveMatch.Stat02H.ToString
-        Me.lablStat03H.Text = LiveMatch.Stat03H.ToString
-        Me.lablStat04H.Text = LiveMatch.Stat04H.ToString
-        Me.lablStat05H.Text = LiveMatch.Stat05H.ToString
-        Me.lablStat06H.Text = LiveMatch.Stat06H.ToString
-        Me.lablStat07H.Text = LiveMatch.Stat07H.ToString
-        Me.lablStat08H.Text = LiveMatch.Stat08H.ToString
-        Me.lablStat09H.Text = LiveMatch.Stat09H.ToString
-        Me.lablStat10H.Text = LiveMatch.Stat10H.ToString
-        Me.lablStat11H.Text = LiveMatch.Stat11H.ToString
-        Me.lablStat12H.Text = LiveMatch.Stat12H.ToString
-        Me.lablStat13H.Text = LiveMatch.Stat13H.ToString
-        Me.lablStat14H.Text = LiveMatch.Stat14H.ToString
-        Me.lablStat15H.Text = LiveMatch.Stat15H.ToString
-        Me.lablStat16H.Text = LiveMatch.Stat16H.ToString
-        Me.lablStat17H.Text = LiveMatch.Stat17H.ToString
-        Me.lablStat18H.Text = LiveMatch.Stat18H.ToString
-        Me.lablStat19H.Text = LiveMatch.Stat19H.ToString
-        Me.lablStat20H.Text = LiveMatch.Stat20H.ToString
-        Me.lablStat21H.Text = LiveMatch.Stat21H.ToString
-        Me.lablStat22H.Text = LiveMatch.Stat22H.ToString
-        Me.lablStat23H.Text = LiveMatch.Stat23H.ToString
-        Me.lablStat24H.Text = LiveMatch.Stat24H.ToString
-        Me.lablStat25H.Text = LiveMatch.Stat25H.ToString
-        Me.lablStat26H.Text = LiveMatch.Stat26H.ToString
-        Me.lablStat27H.Text = LiveMatch.Stat27H.ToString
-        Me.lablStat28H.Text = LiveMatch.Stat28H.ToString
-        Me.lablStat29H.Text = LiveMatch.Stat29H.ToString
-        Me.lablStat30H.Text = LiveMatch.Stat30H.ToString
+        If lablStat01H.InvokeRequired Then
+            Dim d As New ShowTeamStatsCallback(AddressOf ShowTeamStats)
+            Me.Invoke(d, New Object() {})
+        Else
 
-        Me.lablStat01A.Text = LiveMatch.Stat01A.ToString
-        Me.lablStat02A.Text = LiveMatch.Stat02A.ToString
-        Me.lablStat03A.Text = LiveMatch.Stat03A.ToString
-        Me.lablStat04A.Text = LiveMatch.Stat04A.ToString
-        Me.lablStat05A.Text = LiveMatch.Stat05A.ToString
-        Me.lablStat06A.Text = LiveMatch.Stat06A.ToString
-        Me.lablStat07A.Text = LiveMatch.Stat07A.ToString
-        Me.lablStat08A.Text = LiveMatch.Stat08A.ToString
-        Me.lablStat09A.Text = LiveMatch.Stat09A.ToString
-        Me.lablStat10A.Text = LiveMatch.Stat10A.ToString
-        Me.lablStat11A.Text = LiveMatch.Stat11A.ToString
-        Me.lablStat12A.Text = LiveMatch.Stat12A.ToString
-        Me.lablStat13A.Text = LiveMatch.Stat13A.ToString
-        Me.lablStat14A.Text = LiveMatch.Stat14A.ToString
-        Me.lablStat15A.Text = LiveMatch.Stat15A.ToString
-        Me.lablStat16A.Text = LiveMatch.Stat16A.ToString
-        Me.lablStat17A.Text = LiveMatch.Stat17A.ToString
-        Me.lablStat18A.Text = LiveMatch.Stat18A.ToString
-        Me.lablStat19A.Text = LiveMatch.Stat19A.ToString
-        Me.lablStat20A.Text = LiveMatch.Stat20A.ToString
-        Me.lablStat21A.Text = LiveMatch.Stat21A.ToString
-        Me.lablStat22A.Text = LiveMatch.Stat22A.ToString
-        Me.lablStat23A.Text = LiveMatch.Stat23A.ToString
-        Me.lablStat24A.Text = LiveMatch.Stat24A.ToString
-        Me.lablStat25A.Text = LiveMatch.Stat25A.ToString
-        Me.lablStat26A.Text = LiveMatch.Stat26A.ToString
-        Me.lablStat27A.Text = LiveMatch.Stat27A.ToString
-        Me.lablStat28A.Text = LiveMatch.Stat28A.ToString
-        Me.lablStat29A.Text = LiveMatch.Stat29A.ToString
-        Me.lablStat30A.Text = LiveMatch.Stat30A.ToString
+            Dim inc As Integer, tempLabel As Label
+            Dim colHighlight As Color = Color.Orange
+            Dim colNormal As Color = Color.LightGray
+            Dim colTemp As Color
+            Me.lablStat01H.Text = LiveMatch.Stat01H.ToString
+            Me.lablStat02H.Text = LiveMatch.Stat02H.ToString
+            Me.lablStat03H.Text = LiveMatch.Stat03H.ToString
+            Me.lablStat04H.Text = LiveMatch.Stat04H.ToString
+            Me.lablStat05H.Text = LiveMatch.Stat05H.ToString
+            Me.lablStat06H.Text = LiveMatch.Stat06H.ToString
+            Me.lablStat07H.Text = LiveMatch.Stat07H.ToString
+            Me.lablStat08H.Text = LiveMatch.Stat08H.ToString
+            Me.lablStat09H.Text = LiveMatch.Stat09H.ToString
+            Me.lablStat10H.Text = LiveMatch.Stat10H.ToString
+            Me.lablStat11H.Text = LiveMatch.Stat11H.ToString
+            Me.lablStat12H.Text = LiveMatch.Stat12H.ToString
+            Me.lablStat13H.Text = LiveMatch.Stat13H.ToString
+            Me.lablStat14H.Text = LiveMatch.Stat14H.ToString
+            Me.lablStat15H.Text = LiveMatch.Stat15H.ToString
+            Me.lablStat16H.Text = LiveMatch.Stat16H.ToString
+            Me.lablStat17H.Text = LiveMatch.Stat17H.ToString
+            Me.lablStat18H.Text = LiveMatch.Stat18H.ToString
+            Me.lablStat19H.Text = LiveMatch.Stat19H.ToString
+            Me.lablStat20H.Text = LiveMatch.Stat20H.ToString
+            Me.lablStat21H.Text = LiveMatch.Stat21H.ToString
+            Me.lablStat22H.Text = LiveMatch.Stat22H.ToString
+            Me.lablStat23H.Text = LiveMatch.Stat23H.ToString
+            Me.lablStat24H.Text = LiveMatch.Stat24H.ToString
+            Me.lablStat25H.Text = LiveMatch.Stat25H.ToString
+            Me.lablStat26H.Text = LiveMatch.Stat26H.ToString
+            Me.lablStat27H.Text = LiveMatch.Stat27H.ToString
+            Me.lablStat28H.Text = LiveMatch.Stat28H.ToString
+            Me.lablStat29H.Text = LiveMatch.Stat29H.ToString
+            Me.lablStat30H.Text = LiveMatch.Stat30H.ToString
 
-        colTemp = Color.FromArgb(LiveMatch.HomeColour)
-        For inc = 1 To 30
-            tempLabel = FindTeamStatLabel(1, inc)
-            tempLabel.BackColor = colTemp
-        Next
-        colTemp = Color.FromArgb(LiveMatch.AwayColour)
-        For inc = 1 To 30
-            tempLabel = FindTeamStatLabel(2, inc)
-            tempLabel.BackColor = colTemp
-        Next
-        tempLabel = FindTeamStatLabel(iCurrentTeam, iCurrentTeamStat)
-        tempLabel.BackColor = colHighlight
+            Me.lablStat01A.Text = LiveMatch.Stat01A.ToString
+            Me.lablStat02A.Text = LiveMatch.Stat02A.ToString
+            Me.lablStat03A.Text = LiveMatch.Stat03A.ToString
+            Me.lablStat04A.Text = LiveMatch.Stat04A.ToString
+            Me.lablStat05A.Text = LiveMatch.Stat05A.ToString
+            Me.lablStat06A.Text = LiveMatch.Stat06A.ToString
+            Me.lablStat07A.Text = LiveMatch.Stat07A.ToString
+            Me.lablStat08A.Text = LiveMatch.Stat08A.ToString
+            Me.lablStat09A.Text = LiveMatch.Stat09A.ToString
+            Me.lablStat10A.Text = LiveMatch.Stat10A.ToString
+            Me.lablStat11A.Text = LiveMatch.Stat11A.ToString
+            Me.lablStat12A.Text = LiveMatch.Stat12A.ToString
+            Me.lablStat13A.Text = LiveMatch.Stat13A.ToString
+            Me.lablStat14A.Text = LiveMatch.Stat14A.ToString
+            Me.lablStat15A.Text = LiveMatch.Stat15A.ToString
+            Me.lablStat16A.Text = LiveMatch.Stat16A.ToString
+            Me.lablStat17A.Text = LiveMatch.Stat17A.ToString
+            Me.lablStat18A.Text = LiveMatch.Stat18A.ToString
+            Me.lablStat19A.Text = LiveMatch.Stat19A.ToString
+            Me.lablStat20A.Text = LiveMatch.Stat20A.ToString
+            Me.lablStat21A.Text = LiveMatch.Stat21A.ToString
+            Me.lablStat22A.Text = LiveMatch.Stat22A.ToString
+            Me.lablStat23A.Text = LiveMatch.Stat23A.ToString
+            Me.lablStat24A.Text = LiveMatch.Stat24A.ToString
+            Me.lablStat25A.Text = LiveMatch.Stat25A.ToString
+            Me.lablStat26A.Text = LiveMatch.Stat26A.ToString
+            Me.lablStat27A.Text = LiveMatch.Stat27A.ToString
+            Me.lablStat28A.Text = LiveMatch.Stat28A.ToString
+            Me.lablStat29A.Text = LiveMatch.Stat29A.ToString
+            Me.lablStat30A.Text = LiveMatch.Stat30A.ToString
 
-        Me.lablRemove.Visible = bRemove
+            colTemp = Color.FromArgb(LiveMatch.HomeColour)
+            For inc = 1 To 30
+                tempLabel = FindTeamStatLabel(1, inc)
+                tempLabel.BackColor = colTemp
+            Next
+            colTemp = Color.FromArgb(LiveMatch.AwayColour)
+            For inc = 1 To 30
+                tempLabel = FindTeamStatLabel(2, inc)
+                tempLabel.BackColor = colTemp
+            Next
+            tempLabel = FindTeamStatLabel(iCurrentTeam, iCurrentTeamStat)
+            tempLabel.BackColor = colHighlight
 
+            Me.lablRemove.Visible = bRemove
+        End If
     End Sub
     Function FindTeamStatLabel(ByVal iTeam As Integer, ByVal iNum As Integer) As Label
         Dim testLabel As New Control
@@ -9566,16 +9572,23 @@ Public Class Form1
 
         End Try
     End Sub
+    Delegate Sub ShowPlayerNamesCallback(iTeam As Integer)
     Sub ShowPlayerNames(ByVal iTeam As Integer)
-        Dim inc As Integer, tempButton As Button
-        Me.TabPage2.Text = LiveMatch.HomeShortName
-        Me.TabPage3.Text = LiveMatch.AwayShortName
-        Me.TabPage4.Text = "VIEW ALL " & LiveMatch.HomeShortName
-        Me.TabPage5.Text = "VIEW ALL " & LiveMatch.AwayShortName
-        For inc = 1 To 25
-            tempButton = FindPlayerButtonByName(iTeam, inc)
-            tempButton.Text = PlayerStat(iTeam, inc).ButtonText
-        Next
+        If TabPage2.InvokeRequired Then
+            Dim d As New ShowPlayerNamesCallback(AddressOf ShowPlayerNames)
+            Me.Invoke(d, New Object() {iTeam})
+        Else
+
+            Dim inc As Integer, tempButton As Button
+            Me.TabPage2.Text = LiveMatch.HomeShortName
+            Me.TabPage3.Text = LiveMatch.AwayShortName
+            Me.TabPage4.Text = "VIEW ALL " & LiveMatch.HomeShortName
+            Me.TabPage5.Text = "VIEW ALL " & LiveMatch.AwayShortName
+            For inc = 1 To 25
+                tempButton = FindPlayerButtonByName(iTeam, inc)
+                tempButton.Text = PlayerStat(iTeam, inc).ButtonText
+            Next
+        End If
     End Sub
 
     Private Sub listViewSummaryHome_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles listViewSummaryHome.SelectedIndexChanged
@@ -10249,12 +10262,12 @@ Public Class Form1
         End Select
     End Sub
 
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) 
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         LoadDummyKickouts()
 
     End Sub
 
-  
+
     Private Sub lablPitchLRTeamName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lablPitchLRTeamName.Click, lablPitchLRArrow.Click
         currentPitchKickoutTeamID = lablPitchLRTeamName.Tag
         ShowPitchLogLabels()
@@ -10278,7 +10291,7 @@ Public Class Form1
     End Sub
 
     Private Sub TabControl1_TabIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-  
+
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TabControl1.SelectedIndexChanged
@@ -10486,6 +10499,6 @@ Public Class Form1
 
     End Sub
 
- 
+
 
 End Class

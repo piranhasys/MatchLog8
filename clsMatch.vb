@@ -127,7 +127,7 @@
     Public Stat29A As Integer = 0
     Public Stat30A As Integer = 0
 
-  
+
 
     Private iDisplayDirection As Integer
     Public Property DisplayDirection() As Integer
