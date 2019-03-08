@@ -99,6 +99,7 @@
     <Reference Include="System.Drawing">
       <Name>System.Drawing</Name>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms">
       <Name>System.Windows.Forms</Name>
     </Reference>
@@ -122,6 +123,12 @@
     </Compile>
     <Compile Include="clsClock.vb" />
     <Compile Include="clsConfig.vb" />
+    <Compile Include="clsJSONPlayer.vb" />
+    <Compile Include="clsJSONPlayerStat.vb" />
+    <Compile Include="clsJSONPlayerStatGroup.vb" />
+    <Compile Include="clsJSONPlayerStats.vb" />
+    <Compile Include="clsJSONTeamStat.vb" />
+    <Compile Include="clsJSONTeamStats.vb" />
     <Compile Include="clsMatch.vb" />
     <Compile Include="clsPitchKickout.vb" />
     <Compile Include="clsPlayerStat.vb" />

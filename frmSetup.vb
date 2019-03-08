@@ -81,6 +81,7 @@
     Private Sub btnFetchMatch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFetchMatch.Click
         If MessageBox.Show("This will clear all existing data in MatchLog." & vbLf & "Are you sure you want to continue?", "Request new match", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
             iMatchID = Val(Me.listViewData.SelectedItems(0).Text)  'hold to compare incoming broadcast data
+            JSONTeamStats.MatchID = iMatchID.ToString
             RaiseEvent SendData("REQUESTMATCHDETAILS|" & iMatchID.ToString)
         End If
 

@@ -244,6 +244,8 @@ Public Class clsConfig
         Dim strTextLine As String, strFilename As String, iStatNum As Integer
         Dim inputFile As System.IO.StreamReader
         Dim TempArray() As String
+        JSONTeamStats.statList.Clear()
+
         Try
             strFilename = strStatnamesFilename
             If Not System.IO.File.Exists(strFilename) Then
@@ -261,9 +263,22 @@ Public Class clsConfig
                             If TempArray(0).ToUpper.Substring(0, 12) = "TEAMSTATNAME" Then
                                 iStatNum = Val(TempArray(0).Substring(12, 2))
                                 strTeamStatName(iStatNum) = TempArray(1)
+                                If TempArray.GetUpperBound(0) > 2 Then
+                                    'skip short code
+                                    If TempArray(3).Trim <> "" Then
+                                        strTeamStatJSONName(iStatNum) = TempArray(3)
+                                        JSONTeamStats.statList.Add(New clsJSONTeamStat(TempArray(3)))
+                                    End If
+                                End If
                             ElseIf TempArray(0).ToUpper.Substring(0, 14) = "PLAYERSTATNAME" Then
                                 iStatNum = Val(TempArray(0).Substring(14, 2))
                                 strPlayerStatName(iStatNum) = TempArray(1)
+                                If TempArray.GetUpperBound(0) > 2 Then
+                                    'skip short code
+                                    If TempArray(3).Trim <> "" Then
+                                        strPlayerStatJSONName(iStatNum) = TempArray(3)
+                                    End If
+                                End If
                             Else
                                 'Do nothing
                             End If

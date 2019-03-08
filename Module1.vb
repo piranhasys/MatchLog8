@@ -7,8 +7,12 @@
     Public iCurrentPeriod As Integer = 0
     Public Utils As New clsUtils
     Public formSetup As New frmSetup
-    Public strTeamStatName(30) As String
+    Public strTeamStatName(42) As String    'for compatibility with RB stats file. Also change in InitClasses
+    Public strTeamStatJSONName(42) As String    'for compatibility with RB stats file. Also change in InitClasses
+    Public strRBTeamStatJSONName(42) As String    'for compatibility with RB stats file. Also change in InitClasses
     Public strPlayerStatName(30) As String
+    Public strPlayerStatJSONName(30) As String
+    Public strRBPlayerStatJSONName(30) As String
     Public strPenaltyName(30) As String
     Public PlayerStat(2, 25) As clsPlayerStat
     Public iCurrentPlayer As Integer = 1
@@ -23,6 +27,8 @@
     Public PitchKickouts() As clsPitchLocationLog
     Public PitchFrees() As clsPitchLocationLog
     Public Pitch4565() As clsPitchLocationLog
+    Public JSONTeamStats As New clsJSONTeamStats
+    Public JSONPlayerStats As New clsJSONPlayerStats
 
     Enum PitchLogType As Integer
         Kickouts = 1

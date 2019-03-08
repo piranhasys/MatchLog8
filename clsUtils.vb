@@ -218,40 +218,51 @@ Public Class clsUtils
             End Select
             iPlayerID = Val(dataArray(5))
             iPlayer = FindPlayerbyID(iTeam, iPlayerID)
-            'strAction = dataArray(6)
-            Dim strStatArray() As String = dataArray(7).Split("^")
-            PlayerStat(iTeam, iPlayer).Stat01 = Val(strStatArray(0))
-            PlayerStat(iTeam, iPlayer).Stat02 = Val(strStatArray(1))
-            PlayerStat(iTeam, iPlayer).Stat03 = Val(strStatArray(2))
-            PlayerStat(iTeam, iPlayer).Stat04 = Val(strStatArray(3))
-            PlayerStat(iTeam, iPlayer).Stat05 = Val(strStatArray(4))
-            PlayerStat(iTeam, iPlayer).Stat06 = Val(strStatArray(5))
-            PlayerStat(iTeam, iPlayer).Stat07 = Val(strStatArray(6))
-            PlayerStat(iTeam, iPlayer).Stat08 = Val(strStatArray(7))
-            PlayerStat(iTeam, iPlayer).Stat09 = Val(strStatArray(8))
-            PlayerStat(iTeam, iPlayer).Stat10 = Val(strStatArray(9))
-            PlayerStat(iTeam, iPlayer).Stat11 = Val(strStatArray(10))
-            PlayerStat(iTeam, iPlayer).Stat12 = Val(strStatArray(11))
-            PlayerStat(iTeam, iPlayer).Stat13 = Val(strStatArray(12))
-            PlayerStat(iTeam, iPlayer).Stat14 = Val(strStatArray(13))
-            PlayerStat(iTeam, iPlayer).Stat15 = Val(strStatArray(14))
-            PlayerStat(iTeam, iPlayer).Stat16 = Val(strStatArray(15))
-            PlayerStat(iTeam, iPlayer).Stat17 = Val(strStatArray(16))
-            PlayerStat(iTeam, iPlayer).Stat18 = Val(strStatArray(17))
-            PlayerStat(iTeam, iPlayer).Stat19 = Val(strStatArray(18))
-            PlayerStat(iTeam, iPlayer).Stat20 = Val(strStatArray(19))
-            PlayerStat(iTeam, iPlayer).Stat21 = Val(strStatArray(20))
-            PlayerStat(iTeam, iPlayer).Stat22 = Val(strStatArray(21))
-            PlayerStat(iTeam, iPlayer).Stat23 = Val(strStatArray(22))
-            PlayerStat(iTeam, iPlayer).Stat24 = Val(strStatArray(23))
-            PlayerStat(iTeam, iPlayer).Stat25 = Val(strStatArray(24))
-            PlayerStat(iTeam, iPlayer).Stat26 = Val(strStatArray(25))
-            PlayerStat(iTeam, iPlayer).Stat27 = Val(strStatArray(26))
-            PlayerStat(iTeam, iPlayer).Stat28 = Val(strStatArray(27))
-            PlayerStat(iTeam, iPlayer).Stat29 = Val(strStatArray(28))
-            PlayerStat(iTeam, iPlayer).Stat30 = Val(strStatArray(29))
-            iCurrentPlayer = Val(dataArray(9))
-            iCurrentPlayerStat = Val(dataArray(10))
+            If Utils.IsRBPlayerNamesValid Then
+                're-assign order based on incoming are in RB order.
+                Dim strStatArray() As String = dataArray(7).Split("^")
+                For incStat As Integer = 1 To 30
+                    Dim statValue As Integer = Val(strStatArray(incStat - 1))   'zero-based
+                    Dim localStatIndex As Integer = LookupLocalPlayerStatIndexFromRBIndex(incStat)
+                    AssignPlayerStat(iTeam, iPlayer, localStatIndex, statValue)
+                Next
+                iCurrentPlayer = Val(dataArray(9))
+                iCurrentPlayerStat = LookupLocalPlayerStatIndexFromRBIndex(Val(dataArray(10)))
+            Else
+                Dim strStatArray() As String = dataArray(7).Split("^")
+                PlayerStat(iTeam, iPlayer).Stat01 = Val(strStatArray(0))
+                PlayerStat(iTeam, iPlayer).Stat02 = Val(strStatArray(1))
+                PlayerStat(iTeam, iPlayer).Stat03 = Val(strStatArray(2))
+                PlayerStat(iTeam, iPlayer).Stat04 = Val(strStatArray(3))
+                PlayerStat(iTeam, iPlayer).Stat05 = Val(strStatArray(4))
+                PlayerStat(iTeam, iPlayer).Stat06 = Val(strStatArray(5))
+                PlayerStat(iTeam, iPlayer).Stat07 = Val(strStatArray(6))
+                PlayerStat(iTeam, iPlayer).Stat08 = Val(strStatArray(7))
+                PlayerStat(iTeam, iPlayer).Stat09 = Val(strStatArray(8))
+                PlayerStat(iTeam, iPlayer).Stat10 = Val(strStatArray(9))
+                PlayerStat(iTeam, iPlayer).Stat11 = Val(strStatArray(10))
+                PlayerStat(iTeam, iPlayer).Stat12 = Val(strStatArray(11))
+                PlayerStat(iTeam, iPlayer).Stat13 = Val(strStatArray(12))
+                PlayerStat(iTeam, iPlayer).Stat14 = Val(strStatArray(13))
+                PlayerStat(iTeam, iPlayer).Stat15 = Val(strStatArray(14))
+                PlayerStat(iTeam, iPlayer).Stat16 = Val(strStatArray(15))
+                PlayerStat(iTeam, iPlayer).Stat17 = Val(strStatArray(16))
+                PlayerStat(iTeam, iPlayer).Stat18 = Val(strStatArray(17))
+                PlayerStat(iTeam, iPlayer).Stat19 = Val(strStatArray(18))
+                PlayerStat(iTeam, iPlayer).Stat20 = Val(strStatArray(19))
+                PlayerStat(iTeam, iPlayer).Stat21 = Val(strStatArray(20))
+                PlayerStat(iTeam, iPlayer).Stat22 = Val(strStatArray(21))
+                PlayerStat(iTeam, iPlayer).Stat23 = Val(strStatArray(22))
+                PlayerStat(iTeam, iPlayer).Stat24 = Val(strStatArray(23))
+                PlayerStat(iTeam, iPlayer).Stat25 = Val(strStatArray(24))
+                PlayerStat(iTeam, iPlayer).Stat26 = Val(strStatArray(25))
+                PlayerStat(iTeam, iPlayer).Stat27 = Val(strStatArray(26))
+                PlayerStat(iTeam, iPlayer).Stat28 = Val(strStatArray(27))
+                PlayerStat(iTeam, iPlayer).Stat29 = Val(strStatArray(28))
+                PlayerStat(iTeam, iPlayer).Stat30 = Val(strStatArray(29))
+                iCurrentPlayer = Val(dataArray(9))
+                iCurrentPlayerStat = Val(dataArray(10))
+            End If
         End If
     End Sub
     Sub AssignRemoteDataString(ByVal tempString As String)
@@ -276,6 +287,223 @@ Public Class clsUtils
         RemoteData.AwayPossession = strPossessionArray(1)
 
     End Sub
+    Function LookupLocalTeamStatIndexFromRBIndex(thisIndex As Integer) As Integer
+        Dim refName As String = strRBTeamStatJSONName(thisIndex)
+        For incTest As Integer = 1 To strTeamStatJSONName.GetUpperBound(0)
+            If strTeamStatJSONName(incTest) = refName Then
+                Return incTest
+            End If
+        Next
+        Return 0
+    End Function
+    Function LookupLocalPlayerStatIndexFromRBIndex(thisIndex As Integer) As Integer
+        Dim refName As String = strRBPlayerStatJSONName(thisIndex)
+        For incTest As Integer = 1 To strPlayerStatJSONName.GetUpperBound(0)
+            If strPlayerStatJSONName(incTest) = refName Then
+                Return incTest
+            End If
+        Next
+        Return 0
+    End Function
+    Sub AssignHomeTeamStat(thisStatIndex As Integer, thisStatValue As Integer)
+        Select Case thisStatIndex
+            Case 1
+                LiveMatch.Stat01H = thisStatValue
+            Case 2
+                LiveMatch.Stat02H = thisStatValue
+            Case 3
+                LiveMatch.Stat03H = thisStatValue
+            Case 4
+                LiveMatch.Stat04H = thisStatValue
+            Case 5
+                LiveMatch.Stat05H = thisStatValue
+            Case 6
+                LiveMatch.Stat06H = thisStatValue
+            Case 7
+                LiveMatch.Stat07H = thisStatValue
+            Case 8
+                LiveMatch.Stat08H = thisStatValue
+            Case 9
+                LiveMatch.Stat09H = thisStatValue
+            Case 10
+                LiveMatch.Stat10H = thisStatValue
+            Case 11
+                LiveMatch.Stat11H = thisStatValue
+            Case 12
+                LiveMatch.Stat12H = thisStatValue
+            Case 13
+                LiveMatch.Stat13H = thisStatValue
+            Case 14
+                LiveMatch.Stat14H = thisStatValue
+            Case 15
+                LiveMatch.Stat15H = thisStatValue
+            Case 16
+                LiveMatch.Stat16H = thisStatValue
+            Case 17
+                LiveMatch.Stat17H = thisStatValue
+            Case 18
+                LiveMatch.Stat18H = thisStatValue
+            Case 19
+                LiveMatch.Stat19H = thisStatValue
+            Case 20
+                LiveMatch.Stat20H = thisStatValue
+            Case 21
+                LiveMatch.Stat21H = thisStatValue
+            Case 22
+                LiveMatch.Stat22H = thisStatValue
+            Case 23
+                LiveMatch.Stat23H = thisStatValue
+            Case 24
+                LiveMatch.Stat24H = thisStatValue
+            Case 25
+                LiveMatch.Stat25H = thisStatValue
+            Case 26
+                LiveMatch.Stat26H = thisStatValue
+            Case 27
+                LiveMatch.Stat27H = thisStatValue
+            Case 28
+                LiveMatch.Stat28H = thisStatValue
+            Case 29
+                LiveMatch.Stat29H = thisStatValue
+            Case 30
+                LiveMatch.Stat30H = thisStatValue
+            Case Else
+
+        End Select
+    End Sub
+    Sub AssignAwayTeamStat(thisStatIndex As Integer, thisStatValue As Integer)
+        Select Case thisStatIndex
+            Case 1
+                LiveMatch.Stat01A = thisStatValue
+            Case 2
+                LiveMatch.Stat02A = thisStatValue
+            Case 3
+                LiveMatch.Stat03A = thisStatValue
+            Case 4
+                LiveMatch.Stat04A = thisStatValue
+            Case 5
+                LiveMatch.Stat05A = thisStatValue
+            Case 6
+                LiveMatch.Stat06A = thisStatValue
+            Case 7
+                LiveMatch.Stat07A = thisStatValue
+            Case 8
+                LiveMatch.Stat08A = thisStatValue
+            Case 9
+                LiveMatch.Stat09A = thisStatValue
+            Case 10
+                LiveMatch.Stat10A = thisStatValue
+            Case 11
+                LiveMatch.Stat11A = thisStatValue
+            Case 12
+                LiveMatch.Stat12A = thisStatValue
+            Case 13
+                LiveMatch.Stat13A = thisStatValue
+            Case 14
+                LiveMatch.Stat14A = thisStatValue
+            Case 15
+                LiveMatch.Stat15A = thisStatValue
+            Case 16
+                LiveMatch.Stat16A = thisStatValue
+            Case 17
+                LiveMatch.Stat17A = thisStatValue
+            Case 18
+                LiveMatch.Stat18A = thisStatValue
+            Case 19
+                LiveMatch.Stat19A = thisStatValue
+            Case 20
+                LiveMatch.Stat20A = thisStatValue
+            Case 21
+                LiveMatch.Stat21A = thisStatValue
+            Case 22
+                LiveMatch.Stat22A = thisStatValue
+            Case 23
+                LiveMatch.Stat23A = thisStatValue
+            Case 24
+                LiveMatch.Stat24A = thisStatValue
+            Case 25
+                LiveMatch.Stat25A = thisStatValue
+            Case 26
+                LiveMatch.Stat26A = thisStatValue
+            Case 27
+                LiveMatch.Stat27A = thisStatValue
+            Case 28
+                LiveMatch.Stat28A = thisStatValue
+            Case 29
+                LiveMatch.Stat29A = thisStatValue
+            Case 30
+                LiveMatch.Stat30A = thisStatValue
+            Case Else
+
+        End Select
+    End Sub
+    Sub AssignPlayerStat(thisTeamIndex As Integer, thisPlayerIndex As Integer, thisStatIndex As Integer, thisStatValue As Integer)
+        Select Case thisStatIndex
+            Case 1
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat01 = thisStatValue
+            Case 2
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat02 = thisStatValue
+            Case 3
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat03 = thisStatValue
+            Case 4
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat04 = thisStatValue
+            Case 5
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat05 = thisStatValue
+            Case 6
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat06 = thisStatValue
+            Case 7
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat07 = thisStatValue
+            Case 8
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat08 = thisStatValue
+            Case 9
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat09 = thisStatValue
+            Case 10
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat10 = thisStatValue
+            Case 11
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat11 = thisStatValue
+            Case 12
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat12 = thisStatValue
+            Case 13
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat13 = thisStatValue
+            Case 14
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat14 = thisStatValue
+            Case 15
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat15 = thisStatValue
+            Case 16
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat16 = thisStatValue
+            Case 17
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat17 = thisStatValue
+            Case 18
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat18 = thisStatValue
+            Case 19
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat19 = thisStatValue
+            Case 20
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat20 = thisStatValue
+            Case 21
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat21 = thisStatValue
+            Case 22
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat22 = thisStatValue
+            Case 23
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat23 = thisStatValue
+            Case 24
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat24 = thisStatValue
+            Case 25
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat25 = thisStatValue
+            Case 26
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat26 = thisStatValue
+            Case 27
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat27 = thisStatValue
+            Case 28
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat28 = thisStatValue
+            Case 29
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat29 = thisStatValue
+            Case 30
+                PlayerStat(thisTeamIndex, thisPlayerIndex).Stat30 = thisStatValue
+            Case Else
+
+        End Select
+    End Sub
+
     Sub AssignTeamDataString(ByVal tempString As String)
         'MatchData|TeamStats|TimeStamp|MatchID|TeamID|Action|Stat1^Stat2^Stat3^...
         Dim iMatchID As Integer, iTeamID As Integer
@@ -288,77 +516,158 @@ Public Class clsUtils
         If iMatchID = LiveMatch.MatchID Then
             iTeamID = Val(dataArray(4))
             '       strAction = dataArray(5)
-            Select Case iTeamID
-                Case LiveMatch.HomeTeamID
-                    Dim strStatArray() As String = dataArray(6).Split("^")
-                    LiveMatch.Stat01H = Val(strStatArray(0))
-                    LiveMatch.Stat02H = Val(strStatArray(1))
-                    LiveMatch.Stat03H = Val(strStatArray(2))
-                    LiveMatch.Stat04H = Val(strStatArray(3))
-                    LiveMatch.Stat05H = Val(strStatArray(4))
-                    LiveMatch.Stat06H = Val(strStatArray(5))
-                    LiveMatch.Stat07H = Val(strStatArray(6))
-                    LiveMatch.Stat08H = Val(strStatArray(7))
-                    LiveMatch.Stat09H = Val(strStatArray(8))
-                    LiveMatch.Stat10H = Val(strStatArray(9))
-                    LiveMatch.Stat11H = Val(strStatArray(10))
-                    LiveMatch.Stat12H = Val(strStatArray(11))
-                    LiveMatch.Stat13H = Val(strStatArray(12))
-                    LiveMatch.Stat14H = Val(strStatArray(13))
-                    LiveMatch.Stat15H = Val(strStatArray(14))
-                    LiveMatch.Stat16H = Val(strStatArray(15))
-                    LiveMatch.Stat17H = Val(strStatArray(16))
-                    LiveMatch.Stat18H = Val(strStatArray(17))
-                    LiveMatch.Stat19H = Val(strStatArray(18))
-                    LiveMatch.Stat20H = Val(strStatArray(19))
-                    LiveMatch.Stat21H = Val(strStatArray(20))
-                    LiveMatch.Stat22H = Val(strStatArray(21))
-                    LiveMatch.Stat23H = Val(strStatArray(22))
-                    LiveMatch.Stat24H = Val(strStatArray(23))
-                    LiveMatch.Stat25H = Val(strStatArray(24))
-                    LiveMatch.Stat26H = Val(strStatArray(25))
-                    LiveMatch.Stat27H = Val(strStatArray(26))
-                    LiveMatch.Stat28H = Val(strStatArray(27))
-                    LiveMatch.Stat29H = Val(strStatArray(28))
-                    LiveMatch.Stat30H = Val(strStatArray(29))
-                Case LiveMatch.AwayTeamID
-                    Dim strStatArray() As String = dataArray(6).Split("^")
-                    LiveMatch.Stat01A = Val(strStatArray(0))
-                    LiveMatch.Stat02A = Val(strStatArray(1))
-                    LiveMatch.Stat03A = Val(strStatArray(2))
-                    LiveMatch.Stat04A = Val(strStatArray(3))
-                    LiveMatch.Stat05A = Val(strStatArray(4))
-                    LiveMatch.Stat06A = Val(strStatArray(5))
-                    LiveMatch.Stat07A = Val(strStatArray(6))
-                    LiveMatch.Stat08A = Val(strStatArray(7))
-                    LiveMatch.Stat09A = Val(strStatArray(8))
-                    LiveMatch.Stat10A = Val(strStatArray(9))
-                    LiveMatch.Stat11A = Val(strStatArray(10))
-                    LiveMatch.Stat12A = Val(strStatArray(11))
-                    LiveMatch.Stat13A = Val(strStatArray(12))
-                    LiveMatch.Stat14A = Val(strStatArray(13))
-                    LiveMatch.Stat15A = Val(strStatArray(14))
-                    LiveMatch.Stat16A = Val(strStatArray(15))
-                    LiveMatch.Stat17A = Val(strStatArray(16))
-                    LiveMatch.Stat18A = Val(strStatArray(17))
-                    LiveMatch.Stat19A = Val(strStatArray(18))
-                    LiveMatch.Stat20A = Val(strStatArray(19))
-                    LiveMatch.Stat21A = Val(strStatArray(20))
-                    LiveMatch.Stat22A = Val(strStatArray(21))
-                    LiveMatch.Stat23A = Val(strStatArray(22))
-                    LiveMatch.Stat24A = Val(strStatArray(23))
-                    LiveMatch.Stat25A = Val(strStatArray(24))
-                    LiveMatch.Stat26A = Val(strStatArray(25))
-                    LiveMatch.Stat27A = Val(strStatArray(26))
-                    LiveMatch.Stat28A = Val(strStatArray(27))
-                    LiveMatch.Stat29A = Val(strStatArray(28))
-                    LiveMatch.Stat30A = Val(strStatArray(29))
-                Case Else
-            End Select
-            iCurrentTeam = Val(dataArray(7))
-            iCurrentTeamStat = Val(dataArray(8))
+            If Utils.IsRBTeamNamesValid Then
+                're-assign order based on incoming are in RB order.
+                Dim strStatArray() As String = dataArray(6).Split("^")
+                For incStat As Integer = 1 To 30
+                    Dim statValue As Integer = Val(strStatArray(incStat - 1))   'zero-based
+                    Dim localStatIndex As Integer = LookupLocalTeamStatIndexFromRBIndex(incStat)
+                    Select Case iTeamID
+                        Case LiveMatch.HomeTeamID
+                            AssignHomeTeamStat(localStatIndex, statValue)
+                        Case LiveMatch.AwayTeamID
+                            AssignAwayTeamStat(localStatIndex, statValue)
+                    End Select
+                Next
+                iCurrentTeam = Val(dataArray(7))
+                iCurrentTeamStat = LookupLocalTeamStatIndexFromRBIndex(Val(dataArray(8)))
+            Else
+                Select Case iTeamID
+                    Case LiveMatch.HomeTeamID
+                        Dim strStatArray() As String = dataArray(6).Split("^")
+                        LiveMatch.Stat01H = Val(strStatArray(0))
+                        LiveMatch.Stat02H = Val(strStatArray(1))
+                        LiveMatch.Stat03H = Val(strStatArray(2))
+                        LiveMatch.Stat04H = Val(strStatArray(3))
+                        LiveMatch.Stat05H = Val(strStatArray(4))
+                        LiveMatch.Stat06H = Val(strStatArray(5))
+                        LiveMatch.Stat07H = Val(strStatArray(6))
+                        LiveMatch.Stat08H = Val(strStatArray(7))
+                        LiveMatch.Stat09H = Val(strStatArray(8))
+                        LiveMatch.Stat10H = Val(strStatArray(9))
+                        LiveMatch.Stat11H = Val(strStatArray(10))
+                        LiveMatch.Stat12H = Val(strStatArray(11))
+                        LiveMatch.Stat13H = Val(strStatArray(12))
+                        LiveMatch.Stat14H = Val(strStatArray(13))
+                        LiveMatch.Stat15H = Val(strStatArray(14))
+                        LiveMatch.Stat16H = Val(strStatArray(15))
+                        LiveMatch.Stat17H = Val(strStatArray(16))
+                        LiveMatch.Stat18H = Val(strStatArray(17))
+                        LiveMatch.Stat19H = Val(strStatArray(18))
+                        LiveMatch.Stat20H = Val(strStatArray(19))
+                        LiveMatch.Stat21H = Val(strStatArray(20))
+                        LiveMatch.Stat22H = Val(strStatArray(21))
+                        LiveMatch.Stat23H = Val(strStatArray(22))
+                        LiveMatch.Stat24H = Val(strStatArray(23))
+                        LiveMatch.Stat25H = Val(strStatArray(24))
+                        LiveMatch.Stat26H = Val(strStatArray(25))
+                        LiveMatch.Stat27H = Val(strStatArray(26))
+                        LiveMatch.Stat28H = Val(strStatArray(27))
+                        LiveMatch.Stat29H = Val(strStatArray(28))
+                        LiveMatch.Stat30H = Val(strStatArray(29))
+                    Case LiveMatch.AwayTeamID
+                        Dim strStatArray() As String = dataArray(6).Split("^")
+                        LiveMatch.Stat01A = Val(strStatArray(0))
+                        LiveMatch.Stat02A = Val(strStatArray(1))
+                        LiveMatch.Stat03A = Val(strStatArray(2))
+                        LiveMatch.Stat04A = Val(strStatArray(3))
+                        LiveMatch.Stat05A = Val(strStatArray(4))
+                        LiveMatch.Stat06A = Val(strStatArray(5))
+                        LiveMatch.Stat07A = Val(strStatArray(6))
+                        LiveMatch.Stat08A = Val(strStatArray(7))
+                        LiveMatch.Stat09A = Val(strStatArray(8))
+                        LiveMatch.Stat10A = Val(strStatArray(9))
+                        LiveMatch.Stat11A = Val(strStatArray(10))
+                        LiveMatch.Stat12A = Val(strStatArray(11))
+                        LiveMatch.Stat13A = Val(strStatArray(12))
+                        LiveMatch.Stat14A = Val(strStatArray(13))
+                        LiveMatch.Stat15A = Val(strStatArray(14))
+                        LiveMatch.Stat16A = Val(strStatArray(15))
+                        LiveMatch.Stat17A = Val(strStatArray(16))
+                        LiveMatch.Stat18A = Val(strStatArray(17))
+                        LiveMatch.Stat19A = Val(strStatArray(18))
+                        LiveMatch.Stat20A = Val(strStatArray(19))
+                        LiveMatch.Stat21A = Val(strStatArray(20))
+                        LiveMatch.Stat22A = Val(strStatArray(21))
+                        LiveMatch.Stat23A = Val(strStatArray(22))
+                        LiveMatch.Stat24A = Val(strStatArray(23))
+                        LiveMatch.Stat25A = Val(strStatArray(24))
+                        LiveMatch.Stat26A = Val(strStatArray(25))
+                        LiveMatch.Stat27A = Val(strStatArray(26))
+                        LiveMatch.Stat28A = Val(strStatArray(27))
+                        LiveMatch.Stat29A = Val(strStatArray(28))
+                        LiveMatch.Stat30A = Val(strStatArray(29))
+                    Case Else
+                End Select
+                iCurrentTeam = Val(dataArray(7))
+                iCurrentTeamStat = Val(dataArray(8))
+            End If
         End If
-
     End Sub
-
+    Sub AssignAllTeamStatsDataString(ByVal tempString As String)
+        Dim iMatchID As Integer, iTeamID As Integer
+        On Error Resume Next
+        Dim dataArray() As String
+        dataArray = tempString.Split(Chr(124))
+        iMatchID = Val(dataArray(2))
+        If iMatchID = LiveMatch.MatchID Then
+            Dim homeStatArray() As String = dataArray(3).Split("^")
+            For incStat As Integer = 1 To 30
+                Dim statValue As Integer = Val(homeStatArray(incStat))   'one-based
+                Dim localStatIndex As Integer = LookupLocalTeamStatIndexFromRBIndex(incStat)
+                AssignHomeTeamStat(localStatIndex, statValue)
+            Next
+            Dim awayStatArray() As String = dataArray(4).Split("^")
+            For incStat As Integer = 1 To 30
+                Dim statValue As Integer = Val(awayStatArray(incStat))   'one-based
+                Dim localStatIndex As Integer = LookupLocalTeamStatIndexFromRBIndex(incStat)
+                AssignAwayTeamStat(localStatIndex, statValue)
+            Next
+        End If
+    End Sub
+    Function IsTeamJSONValid() As Boolean
+        Dim returnValue As Boolean = False
+        For Each JSONStat As clsJSONTeamStat In JSONTeamStats.statList
+            If JSONStat.n <> "" Then
+                returnValue = True
+            End If
+        Next
+        Return returnValue
+    End Function
+    Function IsRBTeamNamesValid() As Boolean
+        Dim returnValue As Boolean = False
+        For inc As Integer = 1 To strRBTeamStatJSONName.GetUpperBound(0)
+            If strRBTeamStatJSONName(inc) <> "" Then
+                returnValue = True
+            End If
+        Next
+        Return returnValue
+    End Function
+    Function IsRBPlayerNamesValid() As Boolean
+        'Return False '##################
+        Dim returnValue As Boolean = False
+        For inc As Integer = 1 To strRBPlayerStatJSONName.GetUpperBound(0)
+            If strRBPlayerStatJSONName(inc) <> "" Then
+                returnValue = True
+            End If
+        Next
+        Return returnValue
+    End Function
+    Function IsPlayerJSONValid() As Boolean
+        Dim returnValue As Boolean = False
+        Dim inc As Integer = 0
+        For Each JSONPlayer As clsJSONPlayer In JSONPlayerStats.playerList
+            inc += 1
+            For Each JSONStat As clsJSONPlayerStat In JSONPlayer.statList
+                If JSONStat.n <> "" Then
+                    returnValue = True
+                End If
+            Next
+            If inc > 0 Then
+                'only need one player
+                Exit For
+            End If
+        Next
+        Return returnValue
+    End Function
 End Class

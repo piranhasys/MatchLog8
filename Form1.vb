@@ -9,6 +9,8 @@ Imports System.Security.Permissions
 Imports System.Runtime.InteropServices
 Imports System.Xml
 Imports System.Xml.Serialization
+Imports System.Web.Script.Serialization
+
 Public Class Form1
 #Region "Stuff"
 
@@ -371,6 +373,8 @@ Public Class Form1
     Friend WithEvents btnPitchShotGood4 As System.Windows.Forms.Button
     Friend WithEvents btnPitchShotWide2 As System.Windows.Forms.Button
     Friend WithEvents btnPitchShotGood As System.Windows.Forms.Button
+    Friend WithEvents lablSelectedPenalty As System.Windows.Forms.Label
+    Friend WithEvents btnPenaltyDisplay2 As System.Windows.Forms.Button
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -958,6 +962,7 @@ Public Class Form1
         Me.ColumnHeader63 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader64 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabKickouts = New System.Windows.Forms.TabPage()
+        Me.btnPitchShotGood = New System.Windows.Forms.Button()
         Me.btnPitchShotWide2 = New System.Windows.Forms.Button()
         Me.btnPitchShotGood3 = New System.Windows.Forms.Button()
         Me.btnPitchShotGood4 = New System.Windows.Forms.Button()
@@ -990,6 +995,8 @@ Public Class Form1
         Me.lablPitchAwayName = New System.Windows.Forms.Label()
         Me.lablPitchHomeName = New System.Windows.Forms.Label()
         Me.tabPenalties = New System.Windows.Forms.TabPage()
+        Me.lablSelectedPenalty = New System.Windows.Forms.Label()
+        Me.btnPenaltyDisplay2 = New System.Windows.Forms.Button()
         Me.btnAdvantageClear = New System.Windows.Forms.Button()
         Me.btnAdvantageAway = New System.Windows.Forms.Button()
         Me.btnAdvantageHome = New System.Windows.Forms.Button()
@@ -1061,7 +1068,6 @@ Public Class Form1
         Me.btnAreaR1 = New System.Windows.Forms.Button()
         Me.lablViewR2 = New System.Windows.Forms.Label()
         Me.btnAreaR2 = New System.Windows.Forms.Button()
-        Me.btnPitchShotGood = New System.Windows.Forms.Button()
         Me.groupClock.SuspendLayout()
         Me.groupViewTime.SuspendLayout()
         Me.groupActionAreasSoccer.SuspendLayout()
@@ -3066,7 +3072,7 @@ Public Class Form1
         '
         Me.btnSetup.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnSetup.Enabled = False
-        Me.btnSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSetup.ForeColor = System.Drawing.Color.Black
         Me.btnSetup.Location = New System.Drawing.Point(16, 83)
         Me.btnSetup.Name = "btnSetup"
@@ -3078,7 +3084,7 @@ Public Class Form1
         'btnExit
         '
         Me.btnExit.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.ForeColor = System.Drawing.Color.Black
         Me.btnExit.Location = New System.Drawing.Point(16, 26)
         Me.btnExit.Name = "btnExit"
@@ -3117,7 +3123,7 @@ Public Class Form1
         'btnConnect
         '
         Me.btnConnect.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnConnect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConnect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConnect.ForeColor = System.Drawing.Color.Black
         Me.btnConnect.Location = New System.Drawing.Point(16, 168)
         Me.btnConnect.Name = "btnConnect"
@@ -3130,7 +3136,7 @@ Public Class Form1
         '
         Me.LablConnected.BackColor = System.Drawing.Color.Lime
         Me.LablConnected.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LablConnected.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LablConnected.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LablConnected.ForeColor = System.Drawing.Color.Black
         Me.LablConnected.Location = New System.Drawing.Point(16, 208)
         Me.LablConnected.Name = "LablConnected"
@@ -3142,7 +3148,7 @@ Public Class Form1
         'btnRemove
         '
         Me.btnRemove.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemove.ForeColor = System.Drawing.Color.Black
         Me.btnRemove.Location = New System.Drawing.Point(16, 363)
         Me.btnRemove.Name = "btnRemove"
@@ -3155,7 +3161,7 @@ Public Class Form1
         '
         Me.lablRemove.BackColor = System.Drawing.Color.DarkRed
         Me.lablRemove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lablRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablRemove.ForeColor = System.Drawing.Color.White
         Me.lablRemove.Location = New System.Drawing.Point(16, 405)
         Me.lablRemove.Name = "lablRemove"
@@ -3295,7 +3301,7 @@ Public Class Form1
         'btnClearAllTeam
         '
         Me.btnClearAllTeam.BackColor = System.Drawing.Color.DarkRed
-        Me.btnClearAllTeam.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearAllTeam.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearAllTeam.ForeColor = System.Drawing.Color.White
         Me.btnClearAllTeam.Location = New System.Drawing.Point(740, 636)
         Me.btnClearAllTeam.Name = "btnClearAllTeam"
@@ -3308,7 +3314,7 @@ Public Class Form1
         'btnResendTeam
         '
         Me.btnResendTeam.BackColor = System.Drawing.Color.DarkGreen
-        Me.btnResendTeam.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnResendTeam.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnResendTeam.ForeColor = System.Drawing.Color.White
         Me.btnResendTeam.Location = New System.Drawing.Point(740, 592)
         Me.btnResendTeam.Name = "btnResendTeam"
@@ -6299,6 +6305,18 @@ Public Class Form1
         Me.tabKickouts.TabIndex = 5
         Me.tabKickouts.Text = "PITCH LOGS"
         '
+        'btnPitchShotGood
+        '
+        Me.btnPitchShotGood.BackColor = System.Drawing.Color.LawnGreen
+        Me.btnPitchShotGood.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPitchShotGood.ForeColor = System.Drawing.Color.Black
+        Me.btnPitchShotGood.Location = New System.Drawing.Point(287, 567)
+        Me.btnPitchShotGood.Name = "btnPitchShotGood"
+        Me.btnPitchShotGood.Size = New System.Drawing.Size(85, 38)
+        Me.btnPitchShotGood.TabIndex = 166
+        Me.btnPitchShotGood.Text = "Log Goal" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Free..."
+        Me.btnPitchShotGood.UseVisualStyleBackColor = False
+        '
         'btnPitchShotWide2
         '
         Me.btnPitchShotWide2.BackColor = System.Drawing.Color.LightPink
@@ -6672,6 +6690,8 @@ Public Class Form1
         '
         'tabPenalties
         '
+        Me.tabPenalties.Controls.Add(Me.lablSelectedPenalty)
+        Me.tabPenalties.Controls.Add(Me.btnPenaltyDisplay2)
         Me.tabPenalties.Controls.Add(Me.btnAdvantageClear)
         Me.tabPenalties.Controls.Add(Me.btnAdvantageAway)
         Me.tabPenalties.Controls.Add(Me.btnAdvantageHome)
@@ -6712,6 +6732,32 @@ Public Class Form1
         Me.tabPenalties.Size = New System.Drawing.Size(896, 684)
         Me.tabPenalties.TabIndex = 8
         Me.tabPenalties.Text = "PENALTIES"
+        '
+        'lablSelectedPenalty
+        '
+        Me.lablSelectedPenalty.BackColor = System.Drawing.Color.Black
+        Me.lablSelectedPenalty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablSelectedPenalty.ForeColor = System.Drawing.Color.White
+        Me.lablSelectedPenalty.Location = New System.Drawing.Point(30, 616)
+        Me.lablSelectedPenalty.Name = "lablSelectedPenalty"
+        Me.lablSelectedPenalty.Size = New System.Drawing.Size(282, 20)
+        Me.lablSelectedPenalty.TabIndex = 211
+        Me.lablSelectedPenalty.Text = " "
+        Me.lablSelectedPenalty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnPenaltyDisplay2
+        '
+        Me.btnPenaltyDisplay2.BackColor = System.Drawing.Color.Yellow
+        Me.btnPenaltyDisplay2.Enabled = False
+        Me.btnPenaltyDisplay2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPenaltyDisplay2.ForeColor = System.Drawing.Color.Black
+        Me.btnPenaltyDisplay2.Location = New System.Drawing.Point(172, 639)
+        Me.btnPenaltyDisplay2.Name = "btnPenaltyDisplay2"
+        Me.btnPenaltyDisplay2.Size = New System.Drawing.Size(140, 40)
+        Me.btnPenaltyDisplay2.TabIndex = 35
+        Me.btnPenaltyDisplay2.Tag = "30"
+        Me.btnPenaltyDisplay2.Text = " "
+        Me.btnPenaltyDisplay2.UseVisualStyleBackColor = False
         '
         'btnAdvantageClear
         '
@@ -6773,7 +6819,7 @@ Public Class Form1
         Me.btnPenaltyDisplay.ForeColor = System.Drawing.Color.Black
         Me.btnPenaltyDisplay.Location = New System.Drawing.Point(30, 639)
         Me.btnPenaltyDisplay.Name = "btnPenaltyDisplay"
-        Me.btnPenaltyDisplay.Size = New System.Drawing.Size(291, 40)
+        Me.btnPenaltyDisplay.Size = New System.Drawing.Size(140, 40)
         Me.btnPenaltyDisplay.TabIndex = 30
         Me.btnPenaltyDisplay.Tag = "30"
         Me.btnPenaltyDisplay.Text = " "
@@ -6783,7 +6829,7 @@ Public Class Form1
         '
         Me.btnPenaltyName30.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName30.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName30.Location = New System.Drawing.Point(465, 593)
+        Me.btnPenaltyName30.Location = New System.Drawing.Point(465, 565)
         Me.btnPenaltyName30.Name = "btnPenaltyName30"
         Me.btnPenaltyName30.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName30.TabIndex = 29
@@ -6795,7 +6841,7 @@ Public Class Form1
         '
         Me.btnPenaltyName29.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName29.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName29.Location = New System.Drawing.Point(465, 551)
+        Me.btnPenaltyName29.Location = New System.Drawing.Point(465, 525)
         Me.btnPenaltyName29.Name = "btnPenaltyName29"
         Me.btnPenaltyName29.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName29.TabIndex = 28
@@ -6807,7 +6853,7 @@ Public Class Form1
         '
         Me.btnPenaltyName28.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName28.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName28.Location = New System.Drawing.Point(465, 509)
+        Me.btnPenaltyName28.Location = New System.Drawing.Point(465, 485)
         Me.btnPenaltyName28.Name = "btnPenaltyName28"
         Me.btnPenaltyName28.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName28.TabIndex = 27
@@ -6819,7 +6865,7 @@ Public Class Form1
         '
         Me.btnPenaltyName27.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName27.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName27.Location = New System.Drawing.Point(464, 467)
+        Me.btnPenaltyName27.Location = New System.Drawing.Point(464, 445)
         Me.btnPenaltyName27.Name = "btnPenaltyName27"
         Me.btnPenaltyName27.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName27.TabIndex = 26
@@ -6831,7 +6877,7 @@ Public Class Form1
         '
         Me.btnPenaltyName26.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName26.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName26.Location = New System.Drawing.Point(464, 425)
+        Me.btnPenaltyName26.Location = New System.Drawing.Point(464, 405)
         Me.btnPenaltyName26.Name = "btnPenaltyName26"
         Me.btnPenaltyName26.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName26.TabIndex = 25
@@ -6843,7 +6889,7 @@ Public Class Form1
         '
         Me.btnPenaltyName25.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName25.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName25.Location = New System.Drawing.Point(465, 383)
+        Me.btnPenaltyName25.Location = New System.Drawing.Point(465, 365)
         Me.btnPenaltyName25.Name = "btnPenaltyName25"
         Me.btnPenaltyName25.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName25.TabIndex = 24
@@ -6855,7 +6901,7 @@ Public Class Form1
         '
         Me.btnPenaltyName24.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName24.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName24.Location = New System.Drawing.Point(465, 341)
+        Me.btnPenaltyName24.Location = New System.Drawing.Point(465, 325)
         Me.btnPenaltyName24.Name = "btnPenaltyName24"
         Me.btnPenaltyName24.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName24.TabIndex = 23
@@ -6867,7 +6913,7 @@ Public Class Form1
         '
         Me.btnPenaltyName12.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName12.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName12.Location = New System.Drawing.Point(30, 467)
+        Me.btnPenaltyName12.Location = New System.Drawing.Point(30, 445)
         Me.btnPenaltyName12.Name = "btnPenaltyName12"
         Me.btnPenaltyName12.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName12.TabIndex = 22
@@ -6879,7 +6925,7 @@ Public Class Form1
         '
         Me.btnPenaltyName23.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName23.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName23.Location = New System.Drawing.Point(465, 299)
+        Me.btnPenaltyName23.Location = New System.Drawing.Point(465, 285)
         Me.btnPenaltyName23.Name = "btnPenaltyName23"
         Me.btnPenaltyName23.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName23.TabIndex = 21
@@ -6891,7 +6937,7 @@ Public Class Form1
         '
         Me.btnPenaltyName11.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName11.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName11.Location = New System.Drawing.Point(30, 425)
+        Me.btnPenaltyName11.Location = New System.Drawing.Point(30, 405)
         Me.btnPenaltyName11.Name = "btnPenaltyName11"
         Me.btnPenaltyName11.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName11.TabIndex = 20
@@ -6903,7 +6949,7 @@ Public Class Form1
         '
         Me.btnPenaltyName22.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName22.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName22.Location = New System.Drawing.Point(465, 257)
+        Me.btnPenaltyName22.Location = New System.Drawing.Point(465, 245)
         Me.btnPenaltyName22.Name = "btnPenaltyName22"
         Me.btnPenaltyName22.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName22.TabIndex = 19
@@ -6915,7 +6961,7 @@ Public Class Form1
         '
         Me.btnPenaltyName10.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName10.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName10.Location = New System.Drawing.Point(31, 383)
+        Me.btnPenaltyName10.Location = New System.Drawing.Point(31, 365)
         Me.btnPenaltyName10.Name = "btnPenaltyName10"
         Me.btnPenaltyName10.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName10.TabIndex = 18
@@ -6927,7 +6973,7 @@ Public Class Form1
         '
         Me.btnPenaltyName21.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName21.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName21.Location = New System.Drawing.Point(464, 215)
+        Me.btnPenaltyName21.Location = New System.Drawing.Point(464, 205)
         Me.btnPenaltyName21.Name = "btnPenaltyName21"
         Me.btnPenaltyName21.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName21.TabIndex = 17
@@ -6939,7 +6985,7 @@ Public Class Form1
         '
         Me.btnPenaltyName09.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName09.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName09.Location = New System.Drawing.Point(31, 341)
+        Me.btnPenaltyName09.Location = New System.Drawing.Point(31, 325)
         Me.btnPenaltyName09.Name = "btnPenaltyName09"
         Me.btnPenaltyName09.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName09.TabIndex = 16
@@ -6951,7 +6997,7 @@ Public Class Form1
         '
         Me.btnPenaltyName20.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName20.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName20.Location = New System.Drawing.Point(464, 173)
+        Me.btnPenaltyName20.Location = New System.Drawing.Point(464, 165)
         Me.btnPenaltyName20.Name = "btnPenaltyName20"
         Me.btnPenaltyName20.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName20.TabIndex = 15
@@ -6963,7 +7009,7 @@ Public Class Form1
         '
         Me.btnPenaltyName08.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName08.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName08.Location = New System.Drawing.Point(30, 299)
+        Me.btnPenaltyName08.Location = New System.Drawing.Point(30, 285)
         Me.btnPenaltyName08.Name = "btnPenaltyName08"
         Me.btnPenaltyName08.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName08.TabIndex = 14
@@ -6975,7 +7021,7 @@ Public Class Form1
         '
         Me.btnPenaltyName19.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName19.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName19.Location = New System.Drawing.Point(465, 131)
+        Me.btnPenaltyName19.Location = New System.Drawing.Point(465, 125)
         Me.btnPenaltyName19.Name = "btnPenaltyName19"
         Me.btnPenaltyName19.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName19.TabIndex = 13
@@ -6987,7 +7033,7 @@ Public Class Form1
         '
         Me.btnPenaltyName07.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName07.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName07.Location = New System.Drawing.Point(31, 257)
+        Me.btnPenaltyName07.Location = New System.Drawing.Point(31, 245)
         Me.btnPenaltyName07.Name = "btnPenaltyName07"
         Me.btnPenaltyName07.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName07.TabIndex = 12
@@ -6999,7 +7045,7 @@ Public Class Form1
         '
         Me.btnPenaltyName18.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName18.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName18.Location = New System.Drawing.Point(464, 89)
+        Me.btnPenaltyName18.Location = New System.Drawing.Point(464, 85)
         Me.btnPenaltyName18.Name = "btnPenaltyName18"
         Me.btnPenaltyName18.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName18.TabIndex = 11
@@ -7011,7 +7057,7 @@ Public Class Form1
         '
         Me.btnPenaltyName06.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName06.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName06.Location = New System.Drawing.Point(31, 215)
+        Me.btnPenaltyName06.Location = New System.Drawing.Point(31, 205)
         Me.btnPenaltyName06.Name = "btnPenaltyName06"
         Me.btnPenaltyName06.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName06.TabIndex = 10
@@ -7023,7 +7069,7 @@ Public Class Form1
         '
         Me.btnPenaltyName17.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName17.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName17.Location = New System.Drawing.Point(464, 47)
+        Me.btnPenaltyName17.Location = New System.Drawing.Point(464, 45)
         Me.btnPenaltyName17.Name = "btnPenaltyName17"
         Me.btnPenaltyName17.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName17.TabIndex = 9
@@ -7035,7 +7081,7 @@ Public Class Form1
         '
         Me.btnPenaltyName05.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName05.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName05.Location = New System.Drawing.Point(31, 173)
+        Me.btnPenaltyName05.Location = New System.Drawing.Point(31, 165)
         Me.btnPenaltyName05.Name = "btnPenaltyName05"
         Me.btnPenaltyName05.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName05.TabIndex = 8
@@ -7059,7 +7105,7 @@ Public Class Form1
         '
         Me.btnPenaltyName04.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName04.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName04.Location = New System.Drawing.Point(30, 131)
+        Me.btnPenaltyName04.Location = New System.Drawing.Point(30, 125)
         Me.btnPenaltyName04.Name = "btnPenaltyName04"
         Me.btnPenaltyName04.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName04.TabIndex = 6
@@ -7071,7 +7117,7 @@ Public Class Form1
         '
         Me.btnPenaltyName15.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName15.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName15.Location = New System.Drawing.Point(30, 593)
+        Me.btnPenaltyName15.Location = New System.Drawing.Point(30, 565)
         Me.btnPenaltyName15.Name = "btnPenaltyName15"
         Me.btnPenaltyName15.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName15.TabIndex = 5
@@ -7083,7 +7129,7 @@ Public Class Form1
         '
         Me.btnPenaltyName03.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName03.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName03.Location = New System.Drawing.Point(30, 89)
+        Me.btnPenaltyName03.Location = New System.Drawing.Point(30, 85)
         Me.btnPenaltyName03.Name = "btnPenaltyName03"
         Me.btnPenaltyName03.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName03.TabIndex = 4
@@ -7095,7 +7141,7 @@ Public Class Form1
         '
         Me.btnPenaltyName14.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName14.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName14.Location = New System.Drawing.Point(31, 551)
+        Me.btnPenaltyName14.Location = New System.Drawing.Point(31, 525)
         Me.btnPenaltyName14.Name = "btnPenaltyName14"
         Me.btnPenaltyName14.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName14.TabIndex = 3
@@ -7107,7 +7153,7 @@ Public Class Form1
         '
         Me.btnPenaltyName02.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName02.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName02.Location = New System.Drawing.Point(30, 47)
+        Me.btnPenaltyName02.Location = New System.Drawing.Point(30, 45)
         Me.btnPenaltyName02.Name = "btnPenaltyName02"
         Me.btnPenaltyName02.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName02.TabIndex = 2
@@ -7119,7 +7165,7 @@ Public Class Form1
         '
         Me.btnPenaltyName13.BackColor = System.Drawing.Color.DarkTurquoise
         Me.btnPenaltyName13.ForeColor = System.Drawing.Color.Black
-        Me.btnPenaltyName13.Location = New System.Drawing.Point(30, 509)
+        Me.btnPenaltyName13.Location = New System.Drawing.Point(30, 485)
         Me.btnPenaltyName13.Name = "btnPenaltyName13"
         Me.btnPenaltyName13.Size = New System.Drawing.Size(400, 40)
         Me.btnPenaltyName13.TabIndex = 1
@@ -7602,18 +7648,6 @@ Public Class Form1
         Me.btnAreaR2.Text = "LEFT2"
         Me.btnAreaR2.UseVisualStyleBackColor = False
         '
-        'btnPitchShotGood
-        '
-        Me.btnPitchShotGood.BackColor = System.Drawing.Color.LawnGreen
-        Me.btnPitchShotGood.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPitchShotGood.ForeColor = System.Drawing.Color.Black
-        Me.btnPitchShotGood.Location = New System.Drawing.Point(287, 567)
-        Me.btnPitchShotGood.Name = "btnPitchShotGood"
-        Me.btnPitchShotGood.Size = New System.Drawing.Size(85, 38)
-        Me.btnPitchShotGood.TabIndex = 166
-        Me.btnPitchShotGood.Text = "Log Goal" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Free..."
-        Me.btnPitchShotGood.UseVisualStyleBackColor = False
-        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -7798,6 +7832,8 @@ Public Class Form1
             ' dataArray(0) is the command.
             ShowLocalMessage("Received from Server: " & strMessage)
             Select Case dataArray(0)
+                Case "CONNECTED"
+                    SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
                 Case "MATCHLIST"
                     If dataArray(1) = dtSelDate Then
                         MatchList = AssignMatchList(strMessage)
@@ -7829,11 +7865,15 @@ Public Class Form1
                         Case 2
                             'received away team
                             ShowPlayerNames(2)
+                            AssignPlayersToJSON()
+                            SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
                         Case Else
                             'MessageBox.Show("Not live team")
                     End Select
                 Case "MATCHDATA"
                     Select Case dataArray(1).ToUpper
+                        Case "LIVESTATNAMES"
+                            AssignRBOptaStatnames(strMessage)
                         Case "PLAYEREDIT"
                             Utils.AssignPlayerNameString(strMessage)
                             ShowPlayerNames(1)
@@ -7844,6 +7884,10 @@ Public Class Form1
                             ShowPlayerSummaryStats(iCurrentPlayerTeam)
                         Case "TEAMSTATS"
                             Utils.AssignTeamDataString(strMessage)
+                            ShowTeamStats()
+                        Case "ALLTEAMSTATS"
+                            'Index-based only, both teams
+                            Utils.AssignAllTeamStatsDataString(strMessage)
                             ShowTeamStats()
                         Case "POSSESSION"
                             If LiveMatch.MatchID = Val(dataArray(3)) Then
@@ -8344,7 +8388,29 @@ Public Class Form1
         'LiveMatch.AwayColour2 = My.Settings.LiveMatchAwayColour2
         LiveMatch = Utils.DeSerializeMatchfile
         iMatchID = LiveMatch.MatchID
+        JSONTeamStats.MatchID = iMatchID.ToString
+        JSONPlayerStats.MatchID = iMatchID.ToString
         dtSelDate = LiveMatch.MatchDate
+    End Sub
+    Sub AssignPlayersToJSON()
+        'clear existing players
+        'add player team, shirt to players
+        JSONPlayerStats.playerList.Clear()
+        For incTeam As Integer = 1 To 2
+            For incPlayer As Integer = 1 To PlayerStat.GetUpperBound(1)
+                If PlayerStat(incTeam, incPlayer).PlayerNum > 0 Then
+                    Dim newPlayer As New clsJSONPlayer(incTeam, PlayerStat(incTeam, incPlayer).PlayerNum.ToString)
+                    'now add blank stats:
+                    For inc As Integer = 1 To strPlayerStatJSONName.GetUpperBound(0)
+                        If strPlayerStatJSONName(inc) <> "" Then
+                            newPlayer.statList.Add(New clsJSONPlayerStat(strPlayerStatJSONName(inc)))
+                        End If
+                    Next
+                    JSONPlayerStats.playerList.Add(newPlayer)
+                End If
+            Next
+        Next
+        Console.WriteLine(JSONPlayerStats.playerList.Count.ToString)
     End Sub
     Sub LoadDummyKickouts()
         ReDim PitchKickouts(5)
@@ -8458,6 +8524,7 @@ Public Class Form1
         PitchFrees(0) = New clsPitchLocationLog
         currentPitchLogType = PitchLogType.FortyFive_SixtyFive
         ReadPlayerStats()
+        AssignPlayersToJSON()
         ShowConnectionStatus(0)
         SetEnables()
         ShowHeadings()
@@ -8481,7 +8548,7 @@ Public Class Form1
         Select Case Config.UserName
             Case "SETANTA2009"
                 Config.NumberOfAreas = 3
-            Case "SETANTA2009 RUGBY"
+            Case "SETANTA2009 RUGBY", "INPUT TWICKENHAM", "PRO14"
                 Config.NumberOfAreas = 4
             Case "TV3", "SKY2014 GAA", "GAA STATS"
                 Config.NumberOfAreas = 3
@@ -8542,13 +8609,29 @@ Public Class Form1
         For inc = 0 To MatchPossession.GetUpperBound(0)
             MatchPossession(inc) = New clsPossession
         Next
-        ReDim strTeamStatName(30)
+        ReDim strTeamStatName(42)
         For inc = 0 To strTeamStatName.GetUpperBound(0)
             strTeamStatName(inc) = ""
+        Next
+        ReDim strTeamStatJSONName(42)
+        For inc = 0 To strTeamStatJSONName.GetUpperBound(0)
+            strTeamStatJSONName(inc) = ""
+        Next
+        ReDim strRBTeamStatJSONName(42)
+        For inc = 0 To strRBTeamStatJSONName.GetUpperBound(0)
+            strRBTeamStatJSONName(inc) = ""
         Next
         ReDim strPlayerStatName(30)
         For inc = 0 To strPlayerStatName.GetUpperBound(0)
             strPlayerStatName(inc) = ""
+        Next
+        ReDim strPlayerStatJSONName(30)
+        For inc = 0 To strPlayerStatJSONName.GetUpperBound(0)
+            strPlayerStatJSONName(inc) = ""
+        Next
+        ReDim strRBPlayerStatJSONName(30)
+        For inc = 0 To strRBPlayerStatJSONName.GetUpperBound(0)
+            strRBPlayerStatJSONName(inc) = ""
         Next
         ReDim strPenaltyName(30)
         For inc = 0 To strPenaltyName.GetUpperBound(0)
@@ -8672,102 +8755,107 @@ Public Class Form1
         Next
         Return FailLabel
     End Function
+    Delegate Sub ShowPlayerStatsCallback(ByVal iTeam As Integer, ByVal iPlayerNum As Integer)
     Sub ShowPlayerStats(ByVal iTeam As Integer, ByVal iPlayerNum As Integer)
-        Dim tempButton As Button, tempLabel As Label
-        Dim colHighlight As Color = Color.Orange
-        Dim colNormal As Color = Color.LightGray
-        Dim inc As Integer
-        Select Case iTeam
-            Case 1
-                Me.lablPlayerStat01H.Text = PlayerStat(iTeam, iPlayerNum).Stat01
-                Me.lablPlayerStat02H.Text = PlayerStat(iTeam, iPlayerNum).Stat02
-                Me.lablPlayerStat03H.Text = PlayerStat(iTeam, iPlayerNum).Stat03
-                Me.lablPlayerStat04H.Text = PlayerStat(iTeam, iPlayerNum).Stat04
-                Me.lablPlayerStat05H.Text = PlayerStat(iTeam, iPlayerNum).Stat05
-                Me.lablPlayerStat06H.Text = PlayerStat(iTeam, iPlayerNum).Stat06
-                Me.lablPlayerStat07H.Text = PlayerStat(iTeam, iPlayerNum).Stat07
-                Me.lablPlayerStat08H.Text = PlayerStat(iTeam, iPlayerNum).Stat08
-                Me.lablPlayerStat09H.Text = PlayerStat(iTeam, iPlayerNum).Stat09
-                Me.lablPlayerStat10H.Text = PlayerStat(iTeam, iPlayerNum).Stat10
-                Me.lablPlayerStat11H.Text = PlayerStat(iTeam, iPlayerNum).Stat11
-                Me.lablPlayerStat12H.Text = PlayerStat(iTeam, iPlayerNum).Stat12
-                Me.lablPlayerStat13H.Text = PlayerStat(iTeam, iPlayerNum).Stat13
-                Me.lablPlayerStat14H.Text = PlayerStat(iTeam, iPlayerNum).Stat14
-                Me.lablPlayerStat15H.Text = PlayerStat(iTeam, iPlayerNum).Stat15
-                Me.lablPlayerStat16H.Text = PlayerStat(iTeam, iPlayerNum).Stat16
-                Me.lablPlayerStat17H.Text = PlayerStat(iTeam, iPlayerNum).Stat17
-                Me.lablPlayerStat18H.Text = PlayerStat(iTeam, iPlayerNum).Stat18
-                Me.lablPlayerStat19H.Text = PlayerStat(iTeam, iPlayerNum).Stat19
-                Me.lablPlayerStat20H.Text = PlayerStat(iTeam, iPlayerNum).Stat20
-                Me.lablPlayerStat21H.Text = PlayerStat(iTeam, iPlayerNum).Stat21
-                Me.lablPlayerStat22H.Text = PlayerStat(iTeam, iPlayerNum).Stat22
-                Me.lablPlayerStat23H.Text = PlayerStat(iTeam, iPlayerNum).Stat23
-                Me.lablPlayerStat24H.Text = PlayerStat(iTeam, iPlayerNum).Stat24
-                Me.lablPlayerStat25H.Text = PlayerStat(iTeam, iPlayerNum).Stat25
-                Me.lablPlayerStat26H.Text = PlayerStat(iTeam, iPlayerNum).Stat26
-                Me.lablPlayerStat27H.Text = PlayerStat(iTeam, iPlayerNum).Stat27
-                Me.lablPlayerStat28H.Text = PlayerStat(iTeam, iPlayerNum).Stat28
-                Me.lablPlayerStat29H.Text = PlayerStat(iTeam, iPlayerNum).Stat29
-                Me.lablPlayerStat30H.Text = PlayerStat(iTeam, iPlayerNum).Stat30
+        If lablPlayerStat01H.InvokeRequired Then
+            Dim d As New ShowPlayerStatsCallback(AddressOf ShowPlayerStats)
+            Me.Invoke(d, New Object() {iTeam, iPlayerNum})
+        Else
+            Dim tempButton As Button, tempLabel As Label
+            Dim colHighlight As Color = Color.Orange
+            Dim colNormal As Color = Color.LightGray
+            Dim inc As Integer
+            Select Case iTeam
+                Case 1
+                    Me.lablPlayerStat01H.Text = PlayerStat(iTeam, iPlayerNum).Stat01
+                    Me.lablPlayerStat02H.Text = PlayerStat(iTeam, iPlayerNum).Stat02
+                    Me.lablPlayerStat03H.Text = PlayerStat(iTeam, iPlayerNum).Stat03
+                    Me.lablPlayerStat04H.Text = PlayerStat(iTeam, iPlayerNum).Stat04
+                    Me.lablPlayerStat05H.Text = PlayerStat(iTeam, iPlayerNum).Stat05
+                    Me.lablPlayerStat06H.Text = PlayerStat(iTeam, iPlayerNum).Stat06
+                    Me.lablPlayerStat07H.Text = PlayerStat(iTeam, iPlayerNum).Stat07
+                    Me.lablPlayerStat08H.Text = PlayerStat(iTeam, iPlayerNum).Stat08
+                    Me.lablPlayerStat09H.Text = PlayerStat(iTeam, iPlayerNum).Stat09
+                    Me.lablPlayerStat10H.Text = PlayerStat(iTeam, iPlayerNum).Stat10
+                    Me.lablPlayerStat11H.Text = PlayerStat(iTeam, iPlayerNum).Stat11
+                    Me.lablPlayerStat12H.Text = PlayerStat(iTeam, iPlayerNum).Stat12
+                    Me.lablPlayerStat13H.Text = PlayerStat(iTeam, iPlayerNum).Stat13
+                    Me.lablPlayerStat14H.Text = PlayerStat(iTeam, iPlayerNum).Stat14
+                    Me.lablPlayerStat15H.Text = PlayerStat(iTeam, iPlayerNum).Stat15
+                    Me.lablPlayerStat16H.Text = PlayerStat(iTeam, iPlayerNum).Stat16
+                    Me.lablPlayerStat17H.Text = PlayerStat(iTeam, iPlayerNum).Stat17
+                    Me.lablPlayerStat18H.Text = PlayerStat(iTeam, iPlayerNum).Stat18
+                    Me.lablPlayerStat19H.Text = PlayerStat(iTeam, iPlayerNum).Stat19
+                    Me.lablPlayerStat20H.Text = PlayerStat(iTeam, iPlayerNum).Stat20
+                    Me.lablPlayerStat21H.Text = PlayerStat(iTeam, iPlayerNum).Stat21
+                    Me.lablPlayerStat22H.Text = PlayerStat(iTeam, iPlayerNum).Stat22
+                    Me.lablPlayerStat23H.Text = PlayerStat(iTeam, iPlayerNum).Stat23
+                    Me.lablPlayerStat24H.Text = PlayerStat(iTeam, iPlayerNum).Stat24
+                    Me.lablPlayerStat25H.Text = PlayerStat(iTeam, iPlayerNum).Stat25
+                    Me.lablPlayerStat26H.Text = PlayerStat(iTeam, iPlayerNum).Stat26
+                    Me.lablPlayerStat27H.Text = PlayerStat(iTeam, iPlayerNum).Stat27
+                    Me.lablPlayerStat28H.Text = PlayerStat(iTeam, iPlayerNum).Stat28
+                    Me.lablPlayerStat29H.Text = PlayerStat(iTeam, iPlayerNum).Stat29
+                    Me.lablPlayerStat30H.Text = PlayerStat(iTeam, iPlayerNum).Stat30
 
-            Case 2
-                Me.lablPlayerStat01A.Text = PlayerStat(iTeam, iPlayerNum).Stat01
-                Me.lablPlayerStat02A.Text = PlayerStat(iTeam, iPlayerNum).Stat02
-                Me.lablPlayerStat03A.Text = PlayerStat(iTeam, iPlayerNum).Stat03
-                Me.lablPlayerStat04A.Text = PlayerStat(iTeam, iPlayerNum).Stat04
-                Me.lablPlayerStat05A.Text = PlayerStat(iTeam, iPlayerNum).Stat05
-                Me.lablPlayerStat06A.Text = PlayerStat(iTeam, iPlayerNum).Stat06
-                Me.lablPlayerStat07A.Text = PlayerStat(iTeam, iPlayerNum).Stat07
-                Me.lablPlayerStat08A.Text = PlayerStat(iTeam, iPlayerNum).Stat08
-                Me.lablPlayerStat09A.Text = PlayerStat(iTeam, iPlayerNum).Stat09
-                Me.lablPlayerStat10A.Text = PlayerStat(iTeam, iPlayerNum).Stat10
-                Me.lablPlayerStat11A.Text = PlayerStat(iTeam, iPlayerNum).Stat11
-                Me.lablPlayerStat12A.Text = PlayerStat(iTeam, iPlayerNum).Stat12
-                Me.lablPlayerStat13A.Text = PlayerStat(iTeam, iPlayerNum).Stat13
-                Me.lablPlayerStat14A.Text = PlayerStat(iTeam, iPlayerNum).Stat14
-                Me.lablPlayerStat15A.Text = PlayerStat(iTeam, iPlayerNum).Stat15
-                Me.lablPlayerStat16A.Text = PlayerStat(iTeam, iPlayerNum).Stat16
-                Me.lablPlayerStat17A.Text = PlayerStat(iTeam, iPlayerNum).Stat17
-                Me.lablPlayerStat18A.Text = PlayerStat(iTeam, iPlayerNum).Stat18
-                Me.lablPlayerStat19A.Text = PlayerStat(iTeam, iPlayerNum).Stat19
-                Me.lablPlayerStat20A.Text = PlayerStat(iTeam, iPlayerNum).Stat20
-                Me.lablPlayerStat21A.Text = PlayerStat(iTeam, iPlayerNum).Stat21
-                Me.lablPlayerStat22A.Text = PlayerStat(iTeam, iPlayerNum).Stat22
-                Me.lablPlayerStat23A.Text = PlayerStat(iTeam, iPlayerNum).Stat23
-                Me.lablPlayerStat24A.Text = PlayerStat(iTeam, iPlayerNum).Stat24
-                Me.lablPlayerStat25A.Text = PlayerStat(iTeam, iPlayerNum).Stat25
-                Me.lablPlayerStat26A.Text = PlayerStat(iTeam, iPlayerNum).Stat26
-                Me.lablPlayerStat27A.Text = PlayerStat(iTeam, iPlayerNum).Stat27
-                Me.lablPlayerStat28A.Text = PlayerStat(iTeam, iPlayerNum).Stat28
-                Me.lablPlayerStat29A.Text = PlayerStat(iTeam, iPlayerNum).Stat29
-                Me.lablPlayerStat30A.Text = PlayerStat(iTeam, iPlayerNum).Stat30
-                'For inc = 1 To 25
-                '    tempButton = FindPlayerButtonByName(iTeam, inc)
-                '    tempButton.BackColor = colNormal
-                'Next
-                'tempButton = FindPlayerButtonByName(iTeam, iPlayerNum)
-                'tempButton.BackColor = colHighlight
-                'For inc = 1 To 30
-                '    tempLabel = FindPlayerStatLabel(iTeam, inc)
-                '    tempLabel.BackColor = colNormal
-                'Next
-                'tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
-                'tempLabel.BackColor = colHighlight
-        End Select
-        For inc = 1 To 25
-            tempButton = FindPlayerButtonByName(iTeam, inc)
-            tempButton.BackColor = colNormal
-        Next
-        tempButton = FindPlayerButtonByName(iTeam, iPlayerNum)
-        tempButton.BackColor = colHighlight
-        For inc = 1 To 30
-            tempLabel = FindPlayerStatLabel(iTeam, inc)
-            tempLabel.BackColor = colNormal
-        Next
-        tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
-        tempLabel.BackColor = colHighlight
-        Me.lablRemove.Visible = bRemove
-
+                Case 2
+                    Me.lablPlayerStat01A.Text = PlayerStat(iTeam, iPlayerNum).Stat01
+                    Me.lablPlayerStat02A.Text = PlayerStat(iTeam, iPlayerNum).Stat02
+                    Me.lablPlayerStat03A.Text = PlayerStat(iTeam, iPlayerNum).Stat03
+                    Me.lablPlayerStat04A.Text = PlayerStat(iTeam, iPlayerNum).Stat04
+                    Me.lablPlayerStat05A.Text = PlayerStat(iTeam, iPlayerNum).Stat05
+                    Me.lablPlayerStat06A.Text = PlayerStat(iTeam, iPlayerNum).Stat06
+                    Me.lablPlayerStat07A.Text = PlayerStat(iTeam, iPlayerNum).Stat07
+                    Me.lablPlayerStat08A.Text = PlayerStat(iTeam, iPlayerNum).Stat08
+                    Me.lablPlayerStat09A.Text = PlayerStat(iTeam, iPlayerNum).Stat09
+                    Me.lablPlayerStat10A.Text = PlayerStat(iTeam, iPlayerNum).Stat10
+                    Me.lablPlayerStat11A.Text = PlayerStat(iTeam, iPlayerNum).Stat11
+                    Me.lablPlayerStat12A.Text = PlayerStat(iTeam, iPlayerNum).Stat12
+                    Me.lablPlayerStat13A.Text = PlayerStat(iTeam, iPlayerNum).Stat13
+                    Me.lablPlayerStat14A.Text = PlayerStat(iTeam, iPlayerNum).Stat14
+                    Me.lablPlayerStat15A.Text = PlayerStat(iTeam, iPlayerNum).Stat15
+                    Me.lablPlayerStat16A.Text = PlayerStat(iTeam, iPlayerNum).Stat16
+                    Me.lablPlayerStat17A.Text = PlayerStat(iTeam, iPlayerNum).Stat17
+                    Me.lablPlayerStat18A.Text = PlayerStat(iTeam, iPlayerNum).Stat18
+                    Me.lablPlayerStat19A.Text = PlayerStat(iTeam, iPlayerNum).Stat19
+                    Me.lablPlayerStat20A.Text = PlayerStat(iTeam, iPlayerNum).Stat20
+                    Me.lablPlayerStat21A.Text = PlayerStat(iTeam, iPlayerNum).Stat21
+                    Me.lablPlayerStat22A.Text = PlayerStat(iTeam, iPlayerNum).Stat22
+                    Me.lablPlayerStat23A.Text = PlayerStat(iTeam, iPlayerNum).Stat23
+                    Me.lablPlayerStat24A.Text = PlayerStat(iTeam, iPlayerNum).Stat24
+                    Me.lablPlayerStat25A.Text = PlayerStat(iTeam, iPlayerNum).Stat25
+                    Me.lablPlayerStat26A.Text = PlayerStat(iTeam, iPlayerNum).Stat26
+                    Me.lablPlayerStat27A.Text = PlayerStat(iTeam, iPlayerNum).Stat27
+                    Me.lablPlayerStat28A.Text = PlayerStat(iTeam, iPlayerNum).Stat28
+                    Me.lablPlayerStat29A.Text = PlayerStat(iTeam, iPlayerNum).Stat29
+                    Me.lablPlayerStat30A.Text = PlayerStat(iTeam, iPlayerNum).Stat30
+                    'For inc = 1 To 25
+                    '    tempButton = FindPlayerButtonByName(iTeam, inc)
+                    '    tempButton.BackColor = colNormal
+                    'Next
+                    'tempButton = FindPlayerButtonByName(iTeam, iPlayerNum)
+                    'tempButton.BackColor = colHighlight
+                    'For inc = 1 To 30
+                    '    tempLabel = FindPlayerStatLabel(iTeam, inc)
+                    '    tempLabel.BackColor = colNormal
+                    'Next
+                    'tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
+                    'tempLabel.BackColor = colHighlight
+            End Select
+            For inc = 1 To 25
+                tempButton = FindPlayerButtonByName(iTeam, inc)
+                tempButton.BackColor = colNormal
+            Next
+            tempButton = FindPlayerButtonByName(iTeam, iPlayerNum)
+            tempButton.BackColor = colHighlight
+            For inc = 1 To 30
+                tempLabel = FindPlayerStatLabel(iTeam, inc)
+                tempLabel.BackColor = colNormal
+            Next
+            tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
+            tempLabel.BackColor = colHighlight
+            Me.lablRemove.Visible = bRemove
+        End If
     End Sub
     Function FindPlayerButtonByName(ByVal iTeam As Integer, ByVal iNum As Integer) As Button
         Dim testButton As New Control
@@ -9087,73 +9175,96 @@ Public Class Form1
                     strText += "|"
                 End If
         End Select
-        Select Case iTeam
-            Case 1
-                strText += LiveMatch.Stat01H.ToString & "^"
-                strText += LiveMatch.Stat02H.ToString & "^"
-                strText += LiveMatch.Stat03H.ToString & "^"
-                strText += LiveMatch.Stat04H.ToString & "^"
-                strText += LiveMatch.Stat05H.ToString & "^"
-                strText += LiveMatch.Stat06H.ToString & "^"
-                strText += LiveMatch.Stat07H.ToString & "^"
-                strText += LiveMatch.Stat08H.ToString & "^"
-                strText += LiveMatch.Stat09H.ToString & "^"
-                strText += LiveMatch.Stat10H.ToString & "^"
-                strText += LiveMatch.Stat11H.ToString & "^"
-                strText += LiveMatch.Stat12H.ToString & "^"
-                strText += LiveMatch.Stat13H.ToString & "^"
-                strText += LiveMatch.Stat14H.ToString & "^"
-                strText += LiveMatch.Stat15H.ToString & "^"
-                strText += LiveMatch.Stat16H.ToString & "^"
-                strText += LiveMatch.Stat17H.ToString & "^"
-                strText += LiveMatch.Stat18H.ToString & "^"
-                strText += LiveMatch.Stat19H.ToString & "^"
-                strText += LiveMatch.Stat20H.ToString & "^"
-                strText += LiveMatch.Stat21H.ToString & "^"
-                strText += LiveMatch.Stat22H.ToString & "^"
-                strText += LiveMatch.Stat23H.ToString & "^"
-                strText += LiveMatch.Stat24H.ToString & "^"
-                strText += LiveMatch.Stat25H.ToString & "^"
-                strText += LiveMatch.Stat26H.ToString & "^"
-                strText += LiveMatch.Stat27H.ToString & "^"
-                strText += LiveMatch.Stat28H.ToString & "^"
-                strText += LiveMatch.Stat29H.ToString & "^"
-                strText += LiveMatch.Stat30H.ToString & "^"
-            Case 2
-                strText += LiveMatch.Stat01A.ToString & "^"
-                strText += LiveMatch.Stat02A.ToString & "^"
-                strText += LiveMatch.Stat03A.ToString & "^"
-                strText += LiveMatch.Stat04A.ToString & "^"
-                strText += LiveMatch.Stat05A.ToString & "^"
-                strText += LiveMatch.Stat06A.ToString & "^"
-                strText += LiveMatch.Stat07A.ToString & "^"
-                strText += LiveMatch.Stat08A.ToString & "^"
-                strText += LiveMatch.Stat09A.ToString & "^"
-                strText += LiveMatch.Stat10A.ToString & "^"
-                strText += LiveMatch.Stat11A.ToString & "^"
-                strText += LiveMatch.Stat12A.ToString & "^"
-                strText += LiveMatch.Stat13A.ToString & "^"
-                strText += LiveMatch.Stat14A.ToString & "^"
-                strText += LiveMatch.Stat15A.ToString & "^"
-                strText += LiveMatch.Stat16A.ToString & "^"
-                strText += LiveMatch.Stat17A.ToString & "^"
-                strText += LiveMatch.Stat18A.ToString & "^"
-                strText += LiveMatch.Stat19A.ToString & "^"
-                strText += LiveMatch.Stat20A.ToString & "^"
-                strText += LiveMatch.Stat21A.ToString & "^"
-                strText += LiveMatch.Stat22A.ToString & "^"
-                strText += LiveMatch.Stat23A.ToString & "^"
-                strText += LiveMatch.Stat24A.ToString & "^"
-                strText += LiveMatch.Stat25A.ToString & "^"
-                strText += LiveMatch.Stat26A.ToString & "^"
-                strText += LiveMatch.Stat27A.ToString & "^"
-                strText += LiveMatch.Stat28A.ToString & "^"
-                strText += LiveMatch.Stat29A.ToString & "^"
-                strText += LiveMatch.Stat30A.ToString & "^"
-        End Select
+        Dim selectedStatNum As Integer = 0  'local or x-ref to RB stat index
+        If Utils.IsRBTeamNamesValid Then
+            're-order to match RB statnames.
+            'ensures MatchPad stat updates + DB save are correct
+            For incStat As Integer = 1 To 30
+                Select Case iTeam
+                    Case 1
+                        strText += HomeTeamStatFromRBName(strRBTeamStatJSONName(incStat)) & "^"
+                    Case 2
+                        strText += AwayTeamStatFromRBName(strRBTeamStatJSONName(incStat)) & "^"
+                End Select
+            Next
+            Dim thisStatName As String = strTeamStatJSONName(iStatNum)
+            selectedStatNum = FindRBTeamStatfromJSONName(thisStatName)
+        Else
+            Select Case iTeam
+                Case 1
+                    strText += LiveMatch.Stat01H.ToString & "^"
+                    strText += LiveMatch.Stat02H.ToString & "^"
+                    strText += LiveMatch.Stat03H.ToString & "^"
+                    strText += LiveMatch.Stat04H.ToString & "^"
+                    strText += LiveMatch.Stat05H.ToString & "^"
+                    strText += LiveMatch.Stat06H.ToString & "^"
+                    strText += LiveMatch.Stat07H.ToString & "^"
+                    strText += LiveMatch.Stat08H.ToString & "^"
+                    strText += LiveMatch.Stat09H.ToString & "^"
+                    strText += LiveMatch.Stat10H.ToString & "^"
+                    strText += LiveMatch.Stat11H.ToString & "^"
+                    strText += LiveMatch.Stat12H.ToString & "^"
+                    strText += LiveMatch.Stat13H.ToString & "^"
+                    strText += LiveMatch.Stat14H.ToString & "^"
+                    strText += LiveMatch.Stat15H.ToString & "^"
+                    strText += LiveMatch.Stat16H.ToString & "^"
+                    strText += LiveMatch.Stat17H.ToString & "^"
+                    strText += LiveMatch.Stat18H.ToString & "^"
+                    strText += LiveMatch.Stat19H.ToString & "^"
+                    strText += LiveMatch.Stat20H.ToString & "^"
+                    strText += LiveMatch.Stat21H.ToString & "^"
+                    strText += LiveMatch.Stat22H.ToString & "^"
+                    strText += LiveMatch.Stat23H.ToString & "^"
+                    strText += LiveMatch.Stat24H.ToString & "^"
+                    strText += LiveMatch.Stat25H.ToString & "^"
+                    strText += LiveMatch.Stat26H.ToString & "^"
+                    strText += LiveMatch.Stat27H.ToString & "^"
+                    strText += LiveMatch.Stat28H.ToString & "^"
+                    strText += LiveMatch.Stat29H.ToString & "^"
+                    strText += LiveMatch.Stat30H.ToString & "^"
+                Case 2
+                    strText += LiveMatch.Stat01A.ToString & "^"
+                    strText += LiveMatch.Stat02A.ToString & "^"
+                    strText += LiveMatch.Stat03A.ToString & "^"
+                    strText += LiveMatch.Stat04A.ToString & "^"
+                    strText += LiveMatch.Stat05A.ToString & "^"
+                    strText += LiveMatch.Stat06A.ToString & "^"
+                    strText += LiveMatch.Stat07A.ToString & "^"
+                    strText += LiveMatch.Stat08A.ToString & "^"
+                    strText += LiveMatch.Stat09A.ToString & "^"
+                    strText += LiveMatch.Stat10A.ToString & "^"
+                    strText += LiveMatch.Stat11A.ToString & "^"
+                    strText += LiveMatch.Stat12A.ToString & "^"
+                    strText += LiveMatch.Stat13A.ToString & "^"
+                    strText += LiveMatch.Stat14A.ToString & "^"
+                    strText += LiveMatch.Stat15A.ToString & "^"
+                    strText += LiveMatch.Stat16A.ToString & "^"
+                    strText += LiveMatch.Stat17A.ToString & "^"
+                    strText += LiveMatch.Stat18A.ToString & "^"
+                    strText += LiveMatch.Stat19A.ToString & "^"
+                    strText += LiveMatch.Stat20A.ToString & "^"
+                    strText += LiveMatch.Stat21A.ToString & "^"
+                    strText += LiveMatch.Stat22A.ToString & "^"
+                    strText += LiveMatch.Stat23A.ToString & "^"
+                    strText += LiveMatch.Stat24A.ToString & "^"
+                    strText += LiveMatch.Stat25A.ToString & "^"
+                    strText += LiveMatch.Stat26A.ToString & "^"
+                    strText += LiveMatch.Stat27A.ToString & "^"
+                    strText += LiveMatch.Stat28A.ToString & "^"
+                    strText += LiveMatch.Stat29A.ToString & "^"
+                    strText += LiveMatch.Stat30A.ToString & "^"
+            End Select
+            selectedStatNum = iStatNum
+        End If
         strText += "|"
         strText += iTeam.ToString & "|"
-        strText += iStatNum.ToString & "|"
+        strText += selectedStatNum.ToString & "|"
+        'new 2019:
+        If Utils.IsTeamJSONValid Then
+            'only add if names exist to avoid confusing RB
+            strText += JSONTeamStatsString() & "|"
+        End If
+
         SendData(strText)
     End Sub
     Sub SendKickout(ByVal thisPitchKickout As clsPitchLocationLog)
@@ -9196,41 +9307,57 @@ Public Class Form1
                     strText += "|"
                 End If
         End Select
-        strText += PlayerStat(iTeam, iPlayer).Stat01 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat02 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat03 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat04 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat05 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat06 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat07 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat08 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat09 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat10 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat11 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat12 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat13 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat14 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat15 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat16 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat17 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat18 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat19 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat20 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat21 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat22 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat23 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat24 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat25 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat26 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat27 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat28 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat29 & "^"
-        strText += PlayerStat(iTeam, iPlayer).Stat30 & "^"
-        strText += "|"
-
+        Dim selectedStatNum As Integer = 0  'local or x-ref to RB stat index
+        If Utils.IsRBPlayerNamesValid Then
+            're-order to match RB statnames.
+            'ensures MatchPad stat updates + DB save are correct
+            For incStat As Integer = 1 To 30
+                strText += PlayerStatFromRBName(strRBPlayerStatJSONName(incStat), iTeam, iPlayer) & "^"
+            Next
+            strText += "|"
+            Dim thisStatName As String = strPlayerStatJSONName(iStatNum)
+            selectedStatNum = FindRBPlayerStatfromJSONName(thisStatName)
+        Else
+            strText += PlayerStat(iTeam, iPlayer).Stat01 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat02 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat03 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat04 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat05 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat06 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat07 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat08 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat09 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat10 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat11 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat12 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat13 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat14 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat15 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat16 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat17 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat18 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat19 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat20 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat21 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat22 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat23 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat24 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat25 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat26 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat27 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat28 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat29 & "^"
+            strText += PlayerStat(iTeam, iPlayer).Stat30 & "^"
+            strText += "|"
+        End If
         strText += iTeam.ToString & "|"
         strText += iPlayer.ToString & "|"
         strText += iStatNum.ToString & "|"
+        'new 2019:
+        If Utils.IsPlayerJSONValid Then
+            'only add if names exist to avoid confusing RB
+            strText += JSONPlayerStatsString(iTeam, iPlayer) & "|"
+        End If
 
         SendData(strText)
     End Sub
@@ -9315,27 +9442,33 @@ Public Class Form1
 
         Me.lablInPlay.Text = MatchPossession(iCurrentPeriod).InPlayText
     End Sub
+    Delegate Sub ShowRemotePossessionCallback()
     Sub ShowRemotePossession()
-        Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
-        Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
+        If lablRemoteMatchTime.InvokeRequired Then
+            Dim d As New ShowRemotePossessionCallback(AddressOf ShowRemotePossession)
+            Me.Invoke(d, New Object() {})
+        Else
+            Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
+            Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
 
-        Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
-        Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
+            Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
+            Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
 
-        Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
-        Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
+            Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
+            Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
 
-        Select Case Config.NumberOfAreas
-            Case 4
-                Me.lablRemoteAreaR1.Text = RemoteData.Area1
-                Me.lablRemoteAreaR2.Text = RemoteData.Area2
-                Me.lablRemoteAreaR3.Text = RemoteData.Area3
-                Me.lablRemoteAreaR4.Text = RemoteData.Area4
-            Case Else
-                Me.lablRemoteAreaS1.Text = RemoteData.Area1
-                Me.lablRemoteAreaS2.Text = RemoteData.Area2
-                Me.lablRemoteAreaS3.Text = RemoteData.Area3
-        End Select
+            Select Case Config.NumberOfAreas
+                Case 4
+                    Me.lablRemoteAreaR1.Text = RemoteData.Area1
+                    Me.lablRemoteAreaR2.Text = RemoteData.Area2
+                    Me.lablRemoteAreaR3.Text = RemoteData.Area3
+                    Me.lablRemoteAreaR4.Text = RemoteData.Area4
+                Case Else
+                    Me.lablRemoteAreaS1.Text = RemoteData.Area1
+                    Me.lablRemoteAreaS2.Text = RemoteData.Area2
+                    Me.lablRemoteAreaS3.Text = RemoteData.Area3
+            End Select
+        End If
     End Sub
     Delegate Sub ShowDirectionCallback()
     Sub ShowDirection()
@@ -10466,13 +10599,20 @@ Public Class Form1
     End Sub
 
     Private Sub btnPenaltyName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPenaltyName01.Click, btnPenaltyName02.Click, btnPenaltyName03.Click, btnPenaltyName04.Click, btnPenaltyName05.Click, btnPenaltyName06.Click, btnPenaltyName07.Click, btnPenaltyName08.Click, btnPenaltyName09.Click, btnPenaltyName10.Click, btnPenaltyName11.Click, btnPenaltyName12.Click, btnPenaltyName13.Click, btnPenaltyName14.Click, btnPenaltyName15.Click, btnPenaltyName16.Click, btnPenaltyName17.Click, btnPenaltyName18.Click, btnPenaltyName19.Click, btnPenaltyName20.Click, btnPenaltyName21.Click, btnPenaltyName22.Click, btnPenaltyName23.Click, btnPenaltyName24.Click, btnPenaltyName25.Click, btnPenaltyName26.Click, btnPenaltyName27.Click, btnPenaltyName28.Click, btnPenaltyName29.Click, btnPenaltyName30.Click
-        btnPenaltyDisplay.Text = "Display: " & sender.TEXT
+        lablSelectedPenalty.Text = sender.TEXT
+        btnPenaltyDisplay.Text = LiveMatch.HomeShortName + vbLf + "Penalty"
+        btnPenaltyDisplay2.Text = LiveMatch.AwayShortName + vbLf + "Penalty"
         btnPenaltyDisplay.Tag = sender.TEXT
         btnPenaltyDisplay.Enabled = True
+        btnPenaltyDisplay2.Tag = sender.TEXT
+        btnPenaltyDisplay2.Enabled = True
     End Sub
 
     Private Sub btnPenaltyDisplay_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPenaltyDisplay.Click
-        SendData("MATCHLOG|PENALTYTEXT|" & btnPenaltyDisplay.Tag & "|")
+        SendData("MATCHLOG|PENALTYTEXT|" & btnPenaltyDisplay.Tag & "|1|")
+    End Sub
+    Private Sub btnPenaltyDisplay2_Click(sender As Object, e As EventArgs) Handles btnPenaltyDisplay2.Click
+        SendData("MATCHLOG|PENALTYTEXT|" & btnPenaltyDisplay.Tag & "|2|")
     End Sub
 
     Private Sub btnPenaltyClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPenaltyClear.Click
@@ -10498,7 +10638,469 @@ Public Class Form1
     Private Sub btnLogYC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogYC.Click
 
     End Sub
+    Private Function FindPlayerByShirt(teamIndex As Integer, shirt As Integer) As Integer
+        For inc As Integer = 1 To PlayerStat.GetUpperBound(1)
+            If PlayerStat(teamIndex, inc).PlayerNum = shirt Then
+                Return inc
+            End If
+        Next
+        Return 0
+    End Function
+    Private Function FindJSONPlayer(thisTeamIndex As Integer, thisPlayerIndex As Integer) As clsJSONPlayer
+        For Each JSONPlayer As clsJSONPlayer In JSONPlayerStats.playerList
+            Dim teamIndex As Integer = Val(JSONPlayer.t)
+            Dim shirt As Integer = Val(JSONPlayer.s)
+            Dim playerIndex As Integer = FindPlayerByShirt(teamIndex, shirt)
+            If ((thisTeamIndex = teamIndex) And (thisPlayerIndex = playerIndex)) Then
+                Return JSONPlayer
+            End If
+        Next
+        Return New clsJSONPlayer
+    End Function
+    Private Sub AssignLocalPlayerStatsToJSON(teamIndex As Integer, playerIndex As Integer)
+        Dim thisJSONPlayer As clsJSONPlayer = FindJSONPlayer(teamIndex, playerIndex)
+        For Each JSONStat As clsJSONPlayerStat In thisJSONPlayer.statList
+            Dim localIndex As Integer = FindPlayerStatfromJSONName(JSONStat.n)
+            Select Case localIndex
+                Case 1
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat01
+                Case 2
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat02
+                Case 3
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat03
+                Case 4
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat04
+                Case 5
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat05
+                Case 6
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat06
+                Case 7
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat07
+                Case 8
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat08
+                Case 9
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat09
+                Case 10
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat10
+                Case 11
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat11
+                Case 12
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat12
+                Case 13
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat13
+                Case 14
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat14
+                Case 15
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat15
+                Case 16
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat16
+                Case 17
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat17
+                Case 18
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat18
+                Case 19
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat19
+                Case 20
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat20
+                Case 21
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat21
+                Case 22
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat22
+                Case 23
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat23
+                Case 24
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat24
+                Case 25
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat25
+                Case 26
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat26
+                Case 27
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat27
+                Case 28
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat28
+                Case 29
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat29
+                Case 30
+                    JSONStat.v = PlayerStat(teamIndex, playerIndex).Stat30
+            End Select
+        Next
+    End Sub
+    Function HomeTeamStatFromRBName(thisStatName As String) As String
+        Dim localIndex As Integer = FindTeamStatfromJSONName(thisStatName)
+        Select Case localIndex
+            Case 1
+                Return LiveMatch.Stat01H.ToString
+            Case 2
+                Return LiveMatch.Stat02H.ToString
+            Case 3
+                Return LiveMatch.Stat03H.ToString
+            Case 4
+                Return LiveMatch.Stat04H.ToString
+            Case 5
+                Return LiveMatch.Stat05H.ToString
+            Case 6
+                Return LiveMatch.Stat06H.ToString
+            Case 7
+                Return LiveMatch.Stat07H.ToString
+            Case 8
+                Return LiveMatch.Stat08H.ToString
+            Case 9
+                Return LiveMatch.Stat09H.ToString
+            Case 10
+                Return LiveMatch.Stat10H.ToString
+            Case 11
+                Return LiveMatch.Stat11H.ToString
+            Case 12
+                Return LiveMatch.Stat12H.ToString
+            Case 13
+                Return LiveMatch.Stat13H.ToString
+            Case 14
+                Return LiveMatch.Stat14H.ToString
+            Case 15
+                Return LiveMatch.Stat15H.ToString
+            Case 16
+                Return LiveMatch.Stat16H.ToString
+            Case 17
+                Return LiveMatch.Stat17H.ToString
+            Case 18
+                Return LiveMatch.Stat18H.ToString
+            Case 19
+                Return LiveMatch.Stat19H.ToString
+            Case 20
+                Return LiveMatch.Stat20H.ToString
+            Case 21
+                Return LiveMatch.Stat21H.ToString
+            Case 22
+                Return LiveMatch.Stat22H.ToString
+            Case 23
+                Return LiveMatch.Stat23H.ToString
+            Case 24
+                Return LiveMatch.Stat24H.ToString
+            Case 25
+                Return LiveMatch.Stat25H.ToString
+            Case 26
+                Return LiveMatch.Stat26H.ToString
+            Case 27
+                Return LiveMatch.Stat27H.ToString
+            Case 28
+                Return LiveMatch.Stat28H.ToString
+            Case 29
+                Return LiveMatch.Stat29H.ToString
+            Case 30
+                Return LiveMatch.Stat30H.ToString
+            Case Else
+                'not found
+                Return ""
+        End Select
+    End Function
+    Function AwayTeamStatFromRBName(thisStatName As String) As String
+        Dim localIndex As Integer = FindTeamStatfromJSONName(thisStatName)
+        Select Case localIndex
+            Case 1
+                Return LiveMatch.Stat01A.ToString
+            Case 2
+                Return LiveMatch.Stat02A.ToString
+            Case 3
+                Return LiveMatch.Stat03A.ToString
+            Case 4
+                Return LiveMatch.Stat04A.ToString
+            Case 5
+                Return LiveMatch.Stat05A.ToString
+            Case 6
+                Return LiveMatch.Stat06A.ToString
+            Case 7
+                Return LiveMatch.Stat07A.ToString
+            Case 8
+                Return LiveMatch.Stat08A.ToString
+            Case 9
+                Return LiveMatch.Stat09A.ToString
+            Case 10
+                Return LiveMatch.Stat10A.ToString
+            Case 11
+                Return LiveMatch.Stat11A.ToString
+            Case 12
+                Return LiveMatch.Stat12A.ToString
+            Case 13
+                Return LiveMatch.Stat13A.ToString
+            Case 14
+                Return LiveMatch.Stat14A.ToString
+            Case 15
+                Return LiveMatch.Stat15A.ToString
+            Case 16
+                Return LiveMatch.Stat16A.ToString
+            Case 17
+                Return LiveMatch.Stat17A.ToString
+            Case 18
+                Return LiveMatch.Stat18A.ToString
+            Case 19
+                Return LiveMatch.Stat19A.ToString
+            Case 20
+                Return LiveMatch.Stat20A.ToString
+            Case 21
+                Return LiveMatch.Stat21A.ToString
+            Case 22
+                Return LiveMatch.Stat22A.ToString
+            Case 23
+                Return LiveMatch.Stat23A.ToString
+            Case 24
+                Return LiveMatch.Stat24A.ToString
+            Case 25
+                Return LiveMatch.Stat25A.ToString
+            Case 26
+                Return LiveMatch.Stat26A.ToString
+            Case 27
+                Return LiveMatch.Stat27A.ToString
+            Case 28
+                Return LiveMatch.Stat28A.ToString
+            Case 29
+                Return LiveMatch.Stat29A.ToString
+            Case 30
+                Return LiveMatch.Stat30A.ToString
+            Case Else
+                'not found
+                Return ""
+        End Select
+    End Function
+    Function PlayerStatFromRBName(thisStatName As String, teamIndex As Integer, playerIndex As Integer) As String
+        Dim localIndex As Integer = FindPlayerStatfromJSONName(thisStatName)
+        Select Case localIndex
+            Case 1
+                Return PlayerStat(teamIndex, playerIndex).Stat01
+            Case 2
+                Return PlayerStat(teamIndex, playerIndex).Stat02
+            Case 3
+                Return PlayerStat(teamIndex, playerIndex).Stat03
+            Case 4
+                Return PlayerStat(teamIndex, playerIndex).Stat04
+            Case 5
+                Return PlayerStat(teamIndex, playerIndex).Stat05
+            Case 6
+                Return PlayerStat(teamIndex, playerIndex).Stat06
+            Case 7
+                Return PlayerStat(teamIndex, playerIndex).Stat07
+            Case 8
+                Return PlayerStat(teamIndex, playerIndex).Stat08
+            Case 9
+                Return PlayerStat(teamIndex, playerIndex).Stat09
+            Case 10
+                Return PlayerStat(teamIndex, playerIndex).Stat10
+            Case 11
+                Return PlayerStat(teamIndex, playerIndex).Stat11
+            Case 12
+                Return PlayerStat(teamIndex, playerIndex).Stat12
+            Case 13
+                Return PlayerStat(teamIndex, playerIndex).Stat13
+            Case 14
+                Return PlayerStat(teamIndex, playerIndex).Stat14
+            Case 15
+                Return PlayerStat(teamIndex, playerIndex).Stat15
+            Case 16
+                Return PlayerStat(teamIndex, playerIndex).Stat16
+            Case 17
+                Return PlayerStat(teamIndex, playerIndex).Stat17
+            Case 18
+                Return PlayerStat(teamIndex, playerIndex).Stat18
+            Case 19
+                Return PlayerStat(teamIndex, playerIndex).Stat19
+            Case 20
+                Return PlayerStat(teamIndex, playerIndex).Stat20
+            Case 21
+                Return PlayerStat(teamIndex, playerIndex).Stat21
+            Case 22
+                Return PlayerStat(teamIndex, playerIndex).Stat22
+            Case 23
+                Return PlayerStat(teamIndex, playerIndex).Stat23
+            Case 24
+                Return PlayerStat(teamIndex, playerIndex).Stat24
+            Case 25
+                Return PlayerStat(teamIndex, playerIndex).Stat25
+            Case 26
+                Return PlayerStat(teamIndex, playerIndex).Stat26
+            Case 27
+                Return PlayerStat(teamIndex, playerIndex).Stat27
+            Case 28
+                Return PlayerStat(teamIndex, playerIndex).Stat28
+            Case 29
+                Return PlayerStat(teamIndex, playerIndex).Stat29
+            Case 30
+                Return PlayerStat(teamIndex, playerIndex).Stat30
+            Case Else
+                'not found
+                Return ""
+        End Select
+    End Function
 
+    Private Sub AssignLocalTeamStatsToJSON()
+        For Each JSONStat As clsJSONTeamStat In JSONTeamStats.statList
+            Dim localIndex As Integer = FindTeamStatfromJSONName(JSONStat.n)
+            Select Case localIndex
+                Case 1
+                    JSONStat.h = LiveMatch.Stat01H.ToString
+                    JSONStat.a = LiveMatch.Stat01A.ToString
+                Case 2
+                    JSONStat.h = LiveMatch.Stat02H.ToString
+                    JSONStat.a = LiveMatch.Stat02A.ToString
+                Case 3
+                    JSONStat.h = LiveMatch.Stat03H.ToString
+                    JSONStat.a = LiveMatch.Stat03A.ToString
+                Case 4
+                    JSONStat.h = LiveMatch.Stat04H.ToString
+                    JSONStat.a = LiveMatch.Stat04A.ToString
+                Case 5
+                    JSONStat.h = LiveMatch.Stat05H.ToString
+                    JSONStat.a = LiveMatch.Stat05A.ToString
+                Case 6
+                    JSONStat.h = LiveMatch.Stat06H.ToString
+                    JSONStat.a = LiveMatch.Stat06A.ToString
+                Case 7
+                    JSONStat.h = LiveMatch.Stat07H.ToString
+                    JSONStat.a = LiveMatch.Stat07A.ToString
+                Case 8
+                    JSONStat.h = LiveMatch.Stat08H.ToString
+                    JSONStat.a = LiveMatch.Stat08A.ToString
+                Case 9
+                    JSONStat.h = LiveMatch.Stat09H.ToString
+                    JSONStat.a = LiveMatch.Stat09A.ToString
+                Case 10
+                    JSONStat.h = LiveMatch.Stat10H.ToString
+                    JSONStat.a = LiveMatch.Stat10A.ToString
+                Case 11
+                    JSONStat.h = LiveMatch.Stat11H.ToString
+                    JSONStat.a = LiveMatch.Stat11A.ToString
+                Case 12
+                    JSONStat.h = LiveMatch.Stat12H.ToString
+                    JSONStat.a = LiveMatch.Stat12A.ToString
+                Case 13
+                    JSONStat.h = LiveMatch.Stat13H.ToString
+                    JSONStat.a = LiveMatch.Stat13A.ToString
+                Case 14
+                    JSONStat.h = LiveMatch.Stat14H.ToString
+                    JSONStat.a = LiveMatch.Stat14A.ToString
+                Case 15
+                    JSONStat.h = LiveMatch.Stat15H.ToString
+                    JSONStat.a = LiveMatch.Stat15A.ToString
+                Case 16
+                    JSONStat.h = LiveMatch.Stat16H.ToString
+                    JSONStat.a = LiveMatch.Stat16A.ToString
+                Case 17
+                    JSONStat.h = LiveMatch.Stat17H.ToString
+                    JSONStat.a = LiveMatch.Stat17A.ToString
+                Case 18
+                    JSONStat.h = LiveMatch.Stat18H.ToString
+                    JSONStat.a = LiveMatch.Stat18A.ToString
+                Case 19
+                    JSONStat.h = LiveMatch.Stat19H.ToString
+                    JSONStat.a = LiveMatch.Stat19A.ToString
+                Case 20
+                    JSONStat.h = LiveMatch.Stat20H.ToString
+                    JSONStat.a = LiveMatch.Stat20A.ToString
+                Case 21
+                    JSONStat.h = LiveMatch.Stat21H.ToString
+                    JSONStat.a = LiveMatch.Stat21A.ToString
+                Case 22
+                    JSONStat.h = LiveMatch.Stat22H.ToString
+                    JSONStat.a = LiveMatch.Stat22A.ToString
+                Case 23
+                    JSONStat.h = LiveMatch.Stat23H.ToString
+                    JSONStat.a = LiveMatch.Stat23A.ToString
+                Case 24
+                    JSONStat.h = LiveMatch.Stat24H.ToString
+                    JSONStat.a = LiveMatch.Stat24A.ToString
+                Case 25
+                    JSONStat.h = LiveMatch.Stat25H.ToString
+                    JSONStat.a = LiveMatch.Stat25A.ToString
+                Case 26
+                    JSONStat.h = LiveMatch.Stat26H.ToString
+                    JSONStat.a = LiveMatch.Stat26A.ToString
+                Case 27
+                    JSONStat.h = LiveMatch.Stat27H.ToString
+                    JSONStat.a = LiveMatch.Stat27A.ToString
+                Case 28
+                    JSONStat.h = LiveMatch.Stat28H.ToString
+                    JSONStat.a = LiveMatch.Stat28A.ToString
+                Case 29
+                    JSONStat.h = LiveMatch.Stat29H.ToString
+                    JSONStat.a = LiveMatch.Stat29A.ToString
+                Case 30
+                    JSONStat.h = LiveMatch.Stat30H.ToString
+                    JSONStat.a = LiveMatch.Stat30A.ToString
+                Case Else
+                    'not found
+                    JSONStat.h = ""
+                    JSONStat.a = ""
+            End Select
+        Next
+    End Sub
+    Private Function FindTeamStatfromJSONName(JSONName As String) As Integer
+        For inc As Integer = 1 To strTeamStatJSONName.GetUpperBound(0)
+            If strTeamStatJSONName(inc).ToLower = JSONName Then
+                Return inc
+            End If
+        Next
+        Return 0
+    End Function
+    Private Function FindPlayerStatfromJSONName(JSONName As String) As Integer
+        For inc As Integer = 1 To strPlayerStatJSONName.GetUpperBound(0)
+            If strPlayerStatJSONName(inc).ToLower = JSONName Then
+                Return inc
+            End If
+        Next
+        Return 0
+    End Function
+    Private Function FindRBTeamStatfromJSONName(JSONName As String) As Integer
+        For inc As Integer = 1 To strRBTeamStatJSONName.GetUpperBound(0)
+            If strRBTeamStatJSONName(inc).ToLower = JSONName Then
+                Return inc
+            End If
+        Next
+        Return 0
+    End Function
+    Private Function FindRBPlayerStatfromJSONName(JSONName As String) As Integer
+        For inc As Integer = 1 To strRBPlayerStatJSONName.GetUpperBound(0)
+            If strRBPlayerStatJSONName(inc).ToLower = JSONName Then
+                Return inc
+            End If
+        Next
+        Return 0
+    End Function
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) 
+        MessageBox.Show(JSONPlayerStatsString(1, 1))
+    End Sub
+    Private Function JSONTeamStatsString() As String
+        AssignLocalTeamStatsToJSON()
+        Dim jsonSerializer As New JavaScriptSerializer
+        Return jsonSerializer.Serialize(JSONTeamStats)
+    End Function
+   
+    Private Function JSONPlayerStatsString(teamIndex As Integer, playerIndex As Integer) As String
+        AssignLocalPlayerStatsToJSON(teamIndex, playerIndex)
+        Dim tempJSONPlayer As clsJSONPlayer = FindJSONPlayer(teamIndex, playerIndex)
+        Dim jsonSerializer As New JavaScriptSerializer
+        Return jsonSerializer.Serialize(tempJSONPlayer)
+    End Function
+    Sub AssignRBOptaStatnames(dataString As String)
+        'MATCHDATA|LIVESTATNAMES|PLAYER...|TEAM...|TRIGGERS...|PLAYEROPTA^possessions^turnovers_won^unforced_errors^assists^^shots^goals^points^interceptions^frees_conceded^kick_passes^hand_passes^tackles^kickouts_won^carries_into_contact^^^^marks^^^goals_from_penalties^points_from_penalties^goals_from_frees^points_from_frees^goals_from_45^points_from_45^goals_from_sideline^points_from_sideline^|TEAMOPTA^kickouts^^^marks^^^^inside_45^possessions^shots^scores^goals^wides^yellow_cards^red_cards^black_cards^^^^^^frees_won^frees_conceded^^^blocks^^scores_from_dead_ball^points_from_frees^^turnovers_won^^^^own_kickouts_won^scoring_chances_from_play^scores_from_play^^scoring_chances_from_placed_ball^scores_from_placed_ball^goals^points|
+        If dataString.Contains("|") Then
+            Dim splitText() As String = dataString.Split("|")
+            If splitText.GetUpperBound(0) > 5 Then
+                If splitText(5).Contains("^") Then
+                    Dim playerSplit() As String = splitText(5).Split("^")
+                    For inc As Integer = 1 To playerSplit.GetUpperBound(0)
+                        If inc <= strRBPlayerStatJSONName.GetUpperBound(0) Then
+                            strRBPlayerStatJSONName(inc) = playerSplit(inc)
+                        End If
+                    Next
+                End If
+                If splitText(6).Contains("^") Then
+                    Dim teamSplit() As String = splitText(6).Split("^")
+                    For inc As Integer = 1 To teamSplit.GetUpperBound(0)
+                        If inc <= strRBTeamStatJSONName.GetUpperBound(0) Then
+                            strRBTeamStatJSONName(inc) = teamSplit(inc)
+                        End If
+                    Next
+                End If
 
-
+            End If
+        End If
+    End Sub
 End Class
