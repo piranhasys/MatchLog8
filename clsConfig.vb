@@ -46,6 +46,8 @@ Public Class clsConfig
 
     Private iPeriodDurationNormal As Integer = 40
     Private iPeriodDurationExtra As Integer = 15
+    Public Property UseRBStatNames As Boolean = False
+
     Public Property PeriodDurationExtra() As Integer
         Get
             Return iPeriodDurationExtra
@@ -231,6 +233,11 @@ Public Class clsConfig
                                 iPeriodDurationNormal = Convert.ToInt16(TempArray(1))
                             Case "PERIODDURATIONEXTRA"
                                 iPeriodDurationExtra = Convert.ToInt16(TempArray(1))
+                            Case "USERBSTATNAMES"
+                                Select Case TempArray(1).ToUpper
+                                    Case "TRUE", "YES"
+                                        _UseRBStatNames = True
+                                End Select
                         End Select
                     End If
                 Loop Until strTextLine Is Nothing
@@ -241,6 +248,8 @@ Public Class clsConfig
         End Try
     End Sub
     Sub ReadStatnames()
+        If _useRBStatNames Then Exit Sub
+
         Dim strTextLine As String, strFilename As String, iStatNum As Integer
         Dim inputFile As System.IO.StreamReader
         Dim TempArray() As String

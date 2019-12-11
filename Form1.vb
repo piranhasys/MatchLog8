@@ -375,6 +375,9 @@ Public Class Form1
     Friend WithEvents btnPitchShotGood As System.Windows.Forms.Button
     Friend WithEvents lablSelectedPenalty As System.Windows.Forms.Label
     Friend WithEvents btnPenaltyDisplay2 As System.Windows.Forms.Button
+    Friend WithEvents btnFetchStatNames As System.Windows.Forms.Button
+    Friend WithEvents lablMatchID As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -715,6 +718,8 @@ Public Class Form1
         Me.timerCheckClock = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.lablMatchID = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClearAllTeam = New System.Windows.Forms.Button()
         Me.btnResendTeam = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -1068,6 +1073,7 @@ Public Class Form1
         Me.btnAreaR1 = New System.Windows.Forms.Button()
         Me.lablViewR2 = New System.Windows.Forms.Label()
         Me.btnAreaR2 = New System.Windows.Forms.Button()
+        Me.btnFetchStatNames = New System.Windows.Forms.Button()
         Me.groupClock.SuspendLayout()
         Me.groupViewTime.SuspendLayout()
         Me.groupActionAreasSoccer.SuspendLayout()
@@ -3195,6 +3201,8 @@ Public Class Form1
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.TabPage1.Controls.Add(Me.lablMatchID)
+        Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.btnClearAllTeam)
         Me.TabPage1.Controls.Add(Me.btnResendTeam)
         Me.TabPage1.Controls.Add(Me.lablStat21H)
@@ -3297,6 +3305,30 @@ Public Class Form1
         Me.TabPage1.Size = New System.Drawing.Size(896, 684)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "TEAM "
+        '
+        'lablMatchID
+        '
+        Me.lablMatchID.BackColor = System.Drawing.Color.White
+        Me.lablMatchID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablMatchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablMatchID.ForeColor = System.Drawing.Color.Black
+        Me.lablMatchID.Location = New System.Drawing.Point(740, 63)
+        Me.lablMatchID.Name = "lablMatchID"
+        Me.lablMatchID.Size = New System.Drawing.Size(144, 28)
+        Me.lablMatchID.TabIndex = 223
+        Me.lablMatchID.Text = "123456"
+        Me.lablMatchID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(740, 43)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(144, 18)
+        Me.Label2.TabIndex = 224
+        Me.Label2.Text = "Match ID"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnClearAllTeam
         '
@@ -6747,10 +6779,10 @@ Public Class Form1
         '
         'btnPenaltyDisplay2
         '
-        Me.btnPenaltyDisplay2.BackColor = System.Drawing.Color.Yellow
+        Me.btnPenaltyDisplay2.BackColor = System.Drawing.Color.DarkGreen
         Me.btnPenaltyDisplay2.Enabled = False
         Me.btnPenaltyDisplay2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPenaltyDisplay2.ForeColor = System.Drawing.Color.Black
+        Me.btnPenaltyDisplay2.ForeColor = System.Drawing.Color.White
         Me.btnPenaltyDisplay2.Location = New System.Drawing.Point(172, 639)
         Me.btnPenaltyDisplay2.Name = "btnPenaltyDisplay2"
         Me.btnPenaltyDisplay2.Size = New System.Drawing.Size(140, 40)
@@ -6761,9 +6793,9 @@ Public Class Form1
         '
         'btnAdvantageClear
         '
-        Me.btnAdvantageClear.BackColor = System.Drawing.Color.Yellow
+        Me.btnAdvantageClear.BackColor = System.Drawing.Color.DarkRed
         Me.btnAdvantageClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdvantageClear.ForeColor = System.Drawing.Color.Black
+        Me.btnAdvantageClear.ForeColor = System.Drawing.Color.White
         Me.btnAdvantageClear.Location = New System.Drawing.Point(764, 639)
         Me.btnAdvantageClear.Name = "btnAdvantageClear"
         Me.btnAdvantageClear.Size = New System.Drawing.Size(100, 40)
@@ -6774,9 +6806,9 @@ Public Class Form1
         '
         'btnAdvantageAway
         '
-        Me.btnAdvantageAway.BackColor = System.Drawing.Color.Yellow
+        Me.btnAdvantageAway.BackColor = System.Drawing.Color.DarkGreen
         Me.btnAdvantageAway.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdvantageAway.ForeColor = System.Drawing.Color.Black
+        Me.btnAdvantageAway.ForeColor = System.Drawing.Color.White
         Me.btnAdvantageAway.Location = New System.Drawing.Point(608, 639)
         Me.btnAdvantageAway.Name = "btnAdvantageAway"
         Me.btnAdvantageAway.Size = New System.Drawing.Size(140, 40)
@@ -6787,9 +6819,9 @@ Public Class Form1
         '
         'btnAdvantageHome
         '
-        Me.btnAdvantageHome.BackColor = System.Drawing.Color.Yellow
+        Me.btnAdvantageHome.BackColor = System.Drawing.Color.DarkGreen
         Me.btnAdvantageHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdvantageHome.ForeColor = System.Drawing.Color.Black
+        Me.btnAdvantageHome.ForeColor = System.Drawing.Color.White
         Me.btnAdvantageHome.Location = New System.Drawing.Point(466, 639)
         Me.btnAdvantageHome.Name = "btnAdvantageHome"
         Me.btnAdvantageHome.Size = New System.Drawing.Size(140, 40)
@@ -6800,9 +6832,9 @@ Public Class Form1
         '
         'btnPenaltyClear
         '
-        Me.btnPenaltyClear.BackColor = System.Drawing.Color.Yellow
+        Me.btnPenaltyClear.BackColor = System.Drawing.Color.DarkRed
         Me.btnPenaltyClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPenaltyClear.ForeColor = System.Drawing.Color.Black
+        Me.btnPenaltyClear.ForeColor = System.Drawing.Color.White
         Me.btnPenaltyClear.Location = New System.Drawing.Point(328, 639)
         Me.btnPenaltyClear.Name = "btnPenaltyClear"
         Me.btnPenaltyClear.Size = New System.Drawing.Size(100, 40)
@@ -6813,10 +6845,10 @@ Public Class Form1
         '
         'btnPenaltyDisplay
         '
-        Me.btnPenaltyDisplay.BackColor = System.Drawing.Color.Yellow
+        Me.btnPenaltyDisplay.BackColor = System.Drawing.Color.DarkGreen
         Me.btnPenaltyDisplay.Enabled = False
         Me.btnPenaltyDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPenaltyDisplay.ForeColor = System.Drawing.Color.Black
+        Me.btnPenaltyDisplay.ForeColor = System.Drawing.Color.White
         Me.btnPenaltyDisplay.Location = New System.Drawing.Point(30, 639)
         Me.btnPenaltyDisplay.Name = "btnPenaltyDisplay"
         Me.btnPenaltyDisplay.Size = New System.Drawing.Size(140, 40)
@@ -7648,11 +7680,25 @@ Public Class Form1
         Me.btnAreaR2.Text = "LEFT2"
         Me.btnAreaR2.UseVisualStyleBackColor = False
         '
+        'btnFetchStatNames
+        '
+        Me.btnFetchStatNames.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnFetchStatNames.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFetchStatNames.ForeColor = System.Drawing.Color.Black
+        Me.btnFetchStatNames.Location = New System.Drawing.Point(16, 264)
+        Me.btnFetchStatNames.Name = "btnFetchStatNames"
+        Me.btnFetchStatNames.Size = New System.Drawing.Size(100, 40)
+        Me.btnFetchStatNames.TabIndex = 141
+        Me.btnFetchStatNames.Text = "Refetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Stat Names"
+        Me.btnFetchStatNames.UseVisualStyleBackColor = False
+        Me.btnFetchStatNames.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ClientSize = New System.Drawing.Size(1360, 740)
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
+        Me.Controls.Add(Me.btnFetchStatNames)
         Me.Controls.Add(Me.groupRemotePossession)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnRemove)
@@ -8098,14 +8144,15 @@ Public Class Form1
         Else
 
             With LiveMatch
-                Me.lablHomeName.Text = .HomeLongName
-                Me.lablHomeName2.Text = .HomeLongName
-                Me.lablHomeName3.Text = .HomeLongName
-                Me.lablAwayName.Text = .AwayLongName
-                Me.lablAwayName2.Text = .AwayLongName
-                Me.lablAwayName3.Text = .AwayLongName
-                Me.btnPossessionH.Text = .HomeShortName & vbLf & "Key ,"
-                Me.btnPossessionA.Text = .AwayShortName & vbLf & "Key ."
+                Me.lablMatchID.Text = .MatchID.ToString
+                Me.lablHomeName.Text = .HomeLongName.ToUpper
+                Me.lablHomeName2.Text = .HomeLongName.ToUpper
+                Me.lablHomeName3.Text = .HomeLongName.ToUpper
+                Me.lablAwayName.Text = .AwayLongName.ToUpper
+                Me.lablAwayName2.Text = .AwayLongName.ToUpper
+                Me.lablAwayName3.Text = .AwayLongName.ToUpper
+                Me.btnPossessionH.Text = .HomeShortName.ToUpper & vbLf & "Key ,"
+                Me.btnPossessionA.Text = .AwayShortName.ToUpper & vbLf & "Key ."
                 Me.btnPossessionOOP.Text = "OUT OF PLAY" & vbLf & "Key /"
                 Me.btnAreaS1.Text = "LEFT" & vbLf & "Key z"
                 Me.btnAreaS2.Text = "CENTRE" & vbLf & "Key x"
@@ -8538,11 +8585,16 @@ Public Class Form1
         ShowPlayerSummaryStats(2)
         ShowDirection()
         Me.Text = "MatchLog8 by PIRANHA Systems v " & Application.ProductVersion & "       User: " & Config.UserName
+        If Config.UseRBStatNames Then
+            Me.Text += "       Stat Names: ReportBuilder"
+            btnFetchStatNames.Visible = True
+        Else
+            Me.Text += "       Stat Names file: " + Config.StatnamesFilename
+        End If
         If Config.AutoConectToSportServer = True Then
             ConnectToSportServer()
             Me.timerCheckConnection.Enabled = True
         End If
-
     End Sub
     Sub SetUser()
         Select Case Config.UserName
@@ -8550,11 +8602,12 @@ Public Class Form1
                 Config.NumberOfAreas = 3
             Case "SETANTA2009 RUGBY", "INPUT TWICKENHAM", "PRO14"
                 Config.NumberOfAreas = 4
-            Case "TV3", "SKY2014 GAA", "GAA STATS"
+            Case "TV3", "SKY2014 GAA", "GAA STATS", "SKYSUPERLEAGUE"
                 Config.NumberOfAreas = 3
             Case Else
-                MessageBox.Show("Unrecognised User: " & Config.UserName & vbLf & "Cannot continue", "Error starting")
-                End
+                Config.NumberOfAreas = 3
+                'MessageBox.Show("Unrecognised User: " & Config.UserName & vbLf & "Cannot continue", "Error starting")
+                'End
         End Select
     End Sub
     Sub SetEnables()
@@ -8918,117 +8971,122 @@ Public Class Form1
         Return FailLabel
     End Function
 
+    Delegate Sub ShowHeadingsCallback()
     Sub ShowHeadings()
-        Dim inc As Integer
-        Me.lablHeading01.Text = strTeamStatName(1)
-        Me.lablHeading02.Text = strTeamStatName(2)
-        Me.lablHeading03.Text = strTeamStatName(3)
-        Me.lablHeading04.Text = strTeamStatName(4)
-        Me.lablHeading05.Text = strTeamStatName(5)
-        Me.lablHeading06.Text = strTeamStatName(6)
-        Me.lablHeading07.Text = strTeamStatName(7)
-        Me.lablHeading08.Text = strTeamStatName(8)
-        Me.lablHeading09.Text = strTeamStatName(9)
-        Me.lablHeading10.Text = strTeamStatName(10)
-        Me.lablHeading11.Text = strTeamStatName(11)
-        Me.lablHeading12.Text = strTeamStatName(12)
-        Me.lablHeading13.Text = strTeamStatName(13)
-        Me.lablHeading14.Text = strTeamStatName(14)
-        Me.lablHeading15.Text = strTeamStatName(15)
-        Me.lablHeading16.Text = strTeamStatName(16)
-        Me.lablHeading17.Text = strTeamStatName(17)
-        Me.lablHeading18.Text = strTeamStatName(18)
-        Me.lablHeading19.Text = strTeamStatName(19)
-        Me.lablHeading20.Text = strTeamStatName(20)
-        Me.lablHeading21.Text = strTeamStatName(21)
-        Me.lablHeading22.Text = strTeamStatName(22)
-        Me.lablHeading23.Text = strTeamStatName(23)
-        Me.lablHeading24.Text = strTeamStatName(24)
-        Me.lablHeading25.Text = strTeamStatName(25)
-        Me.lablHeading26.Text = strTeamStatName(26)
-        Me.lablHeading27.Text = strTeamStatName(27)
-        Me.lablHeading28.Text = strTeamStatName(28)
-        Me.lablHeading29.Text = strTeamStatName(29)
-        Me.lablHeading30.Text = strTeamStatName(30)
+        If lablHeading01.InvokeRequired Then
+            Dim d As New ShowHeadingsCallback(AddressOf ShowHeadings)
+            Me.Invoke(d, New Object() {})
+        Else
+            Dim inc As Integer
+            Me.lablHeading01.Text = strTeamStatName(1)
+            Me.lablHeading02.Text = strTeamStatName(2)
+            Me.lablHeading03.Text = strTeamStatName(3)
+            Me.lablHeading04.Text = strTeamStatName(4)
+            Me.lablHeading05.Text = strTeamStatName(5)
+            Me.lablHeading06.Text = strTeamStatName(6)
+            Me.lablHeading07.Text = strTeamStatName(7)
+            Me.lablHeading08.Text = strTeamStatName(8)
+            Me.lablHeading09.Text = strTeamStatName(9)
+            Me.lablHeading10.Text = strTeamStatName(10)
+            Me.lablHeading11.Text = strTeamStatName(11)
+            Me.lablHeading12.Text = strTeamStatName(12)
+            Me.lablHeading13.Text = strTeamStatName(13)
+            Me.lablHeading14.Text = strTeamStatName(14)
+            Me.lablHeading15.Text = strTeamStatName(15)
+            Me.lablHeading16.Text = strTeamStatName(16)
+            Me.lablHeading17.Text = strTeamStatName(17)
+            Me.lablHeading18.Text = strTeamStatName(18)
+            Me.lablHeading19.Text = strTeamStatName(19)
+            Me.lablHeading20.Text = strTeamStatName(20)
+            Me.lablHeading21.Text = strTeamStatName(21)
+            Me.lablHeading22.Text = strTeamStatName(22)
+            Me.lablHeading23.Text = strTeamStatName(23)
+            Me.lablHeading24.Text = strTeamStatName(24)
+            Me.lablHeading25.Text = strTeamStatName(25)
+            Me.lablHeading26.Text = strTeamStatName(26)
+            Me.lablHeading27.Text = strTeamStatName(27)
+            Me.lablHeading28.Text = strTeamStatName(28)
+            Me.lablHeading29.Text = strTeamStatName(29)
+            Me.lablHeading30.Text = strTeamStatName(30)
 
-        Me.lablPlayerStatHeading01.Text = strPlayerStatName(1)
-        Me.lablPlayerStatHeading02.Text = strPlayerStatName(2)
-        Me.lablPlayerStatHeading03.Text = strPlayerStatName(3)
-        Me.lablPlayerStatHeading04.Text = strPlayerStatName(4)
-        Me.lablPlayerStatHeading05.Text = strPlayerStatName(5)
-        Me.lablPlayerStatHeading06.Text = strPlayerStatName(6)
-        Me.lablPlayerStatHeading07.Text = strPlayerStatName(7)
-        Me.lablPlayerStatHeading08.Text = strPlayerStatName(8)
-        Me.lablPlayerStatHeading09.Text = strPlayerStatName(9)
-        Me.lablPlayerStatHeading10.Text = strPlayerStatName(10)
-        Me.lablPlayerStatHeading11.Text = strPlayerStatName(11)
-        Me.lablPlayerStatHeading12.Text = strPlayerStatName(12)
-        Me.lablPlayerStatHeading13.Text = strPlayerStatName(13)
-        Me.lablPlayerStatHeading14.Text = strPlayerStatName(14)
-        Me.lablPlayerStatHeading15.Text = strPlayerStatName(15)
-        Me.lablPlayerStatHeading16.Text = strPlayerStatName(16)
-        Me.lablPlayerStatHeading17.Text = strPlayerStatName(17)
-        Me.lablPlayerStatHeading18.Text = strPlayerStatName(18)
-        Me.lablPlayerStatHeading19.Text = strPlayerStatName(19)
-        Me.lablPlayerStatHeading20.Text = strPlayerStatName(20)
-        Me.lablPlayerStatHeading21.Text = strPlayerStatName(21)
-        Me.lablPlayerStatHeading22.Text = strPlayerStatName(22)
-        Me.lablPlayerStatHeading23.Text = strPlayerStatName(23)
-        Me.lablPlayerStatHeading24.Text = strPlayerStatName(24)
-        Me.lablPlayerStatHeading25.Text = strPlayerStatName(25)
-        Me.lablPlayerStatHeading26.Text = strPlayerStatName(26)
-        Me.lablPlayerStatHeading27.Text = strPlayerStatName(27)
-        Me.lablPlayerStatHeading28.Text = strPlayerStatName(28)
-        Me.lablPlayerStatHeading29.Text = strPlayerStatName(29)
-        Me.lablPlayerStatHeading30.Text = strPlayerStatName(30)
+            Me.lablPlayerStatHeading01.Text = strPlayerStatName(1)
+            Me.lablPlayerStatHeading02.Text = strPlayerStatName(2)
+            Me.lablPlayerStatHeading03.Text = strPlayerStatName(3)
+            Me.lablPlayerStatHeading04.Text = strPlayerStatName(4)
+            Me.lablPlayerStatHeading05.Text = strPlayerStatName(5)
+            Me.lablPlayerStatHeading06.Text = strPlayerStatName(6)
+            Me.lablPlayerStatHeading07.Text = strPlayerStatName(7)
+            Me.lablPlayerStatHeading08.Text = strPlayerStatName(8)
+            Me.lablPlayerStatHeading09.Text = strPlayerStatName(9)
+            Me.lablPlayerStatHeading10.Text = strPlayerStatName(10)
+            Me.lablPlayerStatHeading11.Text = strPlayerStatName(11)
+            Me.lablPlayerStatHeading12.Text = strPlayerStatName(12)
+            Me.lablPlayerStatHeading13.Text = strPlayerStatName(13)
+            Me.lablPlayerStatHeading14.Text = strPlayerStatName(14)
+            Me.lablPlayerStatHeading15.Text = strPlayerStatName(15)
+            Me.lablPlayerStatHeading16.Text = strPlayerStatName(16)
+            Me.lablPlayerStatHeading17.Text = strPlayerStatName(17)
+            Me.lablPlayerStatHeading18.Text = strPlayerStatName(18)
+            Me.lablPlayerStatHeading19.Text = strPlayerStatName(19)
+            Me.lablPlayerStatHeading20.Text = strPlayerStatName(20)
+            Me.lablPlayerStatHeading21.Text = strPlayerStatName(21)
+            Me.lablPlayerStatHeading22.Text = strPlayerStatName(22)
+            Me.lablPlayerStatHeading23.Text = strPlayerStatName(23)
+            Me.lablPlayerStatHeading24.Text = strPlayerStatName(24)
+            Me.lablPlayerStatHeading25.Text = strPlayerStatName(25)
+            Me.lablPlayerStatHeading26.Text = strPlayerStatName(26)
+            Me.lablPlayerStatHeading27.Text = strPlayerStatName(27)
+            Me.lablPlayerStatHeading28.Text = strPlayerStatName(28)
+            Me.lablPlayerStatHeading29.Text = strPlayerStatName(29)
+            Me.lablPlayerStatHeading30.Text = strPlayerStatName(30)
 
-        Me.lablPlayerStatHeading01A.Text = strPlayerStatName(1)
-        Me.lablPlayerStatHeading02A.Text = strPlayerStatName(2)
-        Me.lablPlayerStatHeading03A.Text = strPlayerStatName(3)
-        Me.lablPlayerStatHeading04A.Text = strPlayerStatName(4)
-        Me.lablPlayerStatHeading05A.Text = strPlayerStatName(5)
-        Me.lablPlayerStatHeading06A.Text = strPlayerStatName(6)
-        Me.lablPlayerStatHeading07A.Text = strPlayerStatName(7)
-        Me.lablPlayerStatHeading08A.Text = strPlayerStatName(8)
-        Me.lablPlayerStatHeading09A.Text = strPlayerStatName(9)
-        Me.lablPlayerStatHeading10A.Text = strPlayerStatName(10)
-        Me.lablPlayerStatHeading11A.Text = strPlayerStatName(11)
-        Me.lablPlayerStatHeading12A.Text = strPlayerStatName(12)
-        Me.lablPlayerStatHeading13A.Text = strPlayerStatName(13)
-        Me.lablPlayerStatHeading14A.Text = strPlayerStatName(14)
-        Me.lablPlayerStatHeading15A.Text = strPlayerStatName(15)
-        Me.lablPlayerStatHeading16A.Text = strPlayerStatName(16)
-        Me.lablPlayerStatHeading17A.Text = strPlayerStatName(17)
-        Me.lablPlayerStatHeading18A.Text = strPlayerStatName(18)
-        Me.lablPlayerStatHeading19A.Text = strPlayerStatName(19)
-        Me.lablPlayerStatHeading20A.Text = strPlayerStatName(20)
-        Me.lablPlayerStatHeading21A.Text = strPlayerStatName(21)
-        Me.lablPlayerStatHeading22A.Text = strPlayerStatName(22)
-        Me.lablPlayerStatHeading23A.Text = strPlayerStatName(23)
-        Me.lablPlayerStatHeading24A.Text = strPlayerStatName(24)
-        Me.lablPlayerStatHeading25A.Text = strPlayerStatName(25)
-        Me.lablPlayerStatHeading26A.Text = strPlayerStatName(26)
-        Me.lablPlayerStatHeading27A.Text = strPlayerStatName(27)
-        Me.lablPlayerStatHeading28A.Text = strPlayerStatName(28)
-        Me.lablPlayerStatHeading29A.Text = strPlayerStatName(29)
-        Me.lablPlayerStatHeading30A.Text = strPlayerStatName(30)
-        For inc = 1 To 30
-            If strPlayerStatName(inc).Trim <> "" Then
-                Me.listViewSummaryHome.Columns(inc + 1).Text = strPlayerStatName(inc).Substring(0, 2)
-                Me.listViewsummaryAway.Columns(inc + 1).Text = strPlayerStatName(inc).Substring(0, 2)
-            Else
-                Me.listViewSummaryHome.Columns(inc + 1).Text = ""
-                Me.listViewsummaryAway.Columns(inc + 1).Text = ""
-            End If
-            Dim penaltyButton As Button = FindPenaltyNameButton(inc)
-            If strPenaltyName(inc) <> "" Then
-                penaltyButton.Text = strPenaltyName(inc)
-                penaltyButton.Visible = True
-            Else
-                penaltyButton.Visible = False
-            End If
-
-        Next
+            Me.lablPlayerStatHeading01A.Text = strPlayerStatName(1)
+            Me.lablPlayerStatHeading02A.Text = strPlayerStatName(2)
+            Me.lablPlayerStatHeading03A.Text = strPlayerStatName(3)
+            Me.lablPlayerStatHeading04A.Text = strPlayerStatName(4)
+            Me.lablPlayerStatHeading05A.Text = strPlayerStatName(5)
+            Me.lablPlayerStatHeading06A.Text = strPlayerStatName(6)
+            Me.lablPlayerStatHeading07A.Text = strPlayerStatName(7)
+            Me.lablPlayerStatHeading08A.Text = strPlayerStatName(8)
+            Me.lablPlayerStatHeading09A.Text = strPlayerStatName(9)
+            Me.lablPlayerStatHeading10A.Text = strPlayerStatName(10)
+            Me.lablPlayerStatHeading11A.Text = strPlayerStatName(11)
+            Me.lablPlayerStatHeading12A.Text = strPlayerStatName(12)
+            Me.lablPlayerStatHeading13A.Text = strPlayerStatName(13)
+            Me.lablPlayerStatHeading14A.Text = strPlayerStatName(14)
+            Me.lablPlayerStatHeading15A.Text = strPlayerStatName(15)
+            Me.lablPlayerStatHeading16A.Text = strPlayerStatName(16)
+            Me.lablPlayerStatHeading17A.Text = strPlayerStatName(17)
+            Me.lablPlayerStatHeading18A.Text = strPlayerStatName(18)
+            Me.lablPlayerStatHeading19A.Text = strPlayerStatName(19)
+            Me.lablPlayerStatHeading20A.Text = strPlayerStatName(20)
+            Me.lablPlayerStatHeading21A.Text = strPlayerStatName(21)
+            Me.lablPlayerStatHeading22A.Text = strPlayerStatName(22)
+            Me.lablPlayerStatHeading23A.Text = strPlayerStatName(23)
+            Me.lablPlayerStatHeading24A.Text = strPlayerStatName(24)
+            Me.lablPlayerStatHeading25A.Text = strPlayerStatName(25)
+            Me.lablPlayerStatHeading26A.Text = strPlayerStatName(26)
+            Me.lablPlayerStatHeading27A.Text = strPlayerStatName(27)
+            Me.lablPlayerStatHeading28A.Text = strPlayerStatName(28)
+            Me.lablPlayerStatHeading29A.Text = strPlayerStatName(29)
+            Me.lablPlayerStatHeading30A.Text = strPlayerStatName(30)
+            For inc = 1 To 30
+                If strPlayerStatName(inc).Trim <> "" Then
+                    Me.listViewSummaryHome.Columns(inc + 1).Text = strPlayerStatName(inc).Substring(0, 2)
+                    Me.listViewsummaryAway.Columns(inc + 1).Text = strPlayerStatName(inc).Substring(0, 2)
+                Else
+                    Me.listViewSummaryHome.Columns(inc + 1).Text = ""
+                    Me.listViewsummaryAway.Columns(inc + 1).Text = ""
+                End If
+                Dim penaltyButton As Button = FindPenaltyNameButton(inc)
+                If strPenaltyName(inc) <> "" Then
+                    penaltyButton.Text = strPenaltyName(inc)
+                    penaltyButton.Visible = True
+                Else
+                    penaltyButton.Visible = False
+                End If
+            Next
+        End If
     End Sub
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPeriod1.Click, btnPeriod2.Click, btnPeriod3.Click, btnPeriod4.Click, btnPeriod5.Click, btnPeriod6.Click, btnPeriod7.Click, btnPeriod8.Click, btnPeriod0.Click
         Dim iPeriod As Integer = sender.tag
@@ -9713,10 +9771,10 @@ Public Class Form1
         Else
 
             Dim inc As Integer, tempButton As Button
-            Me.TabPage2.Text = LiveMatch.HomeShortName
-            Me.TabPage3.Text = LiveMatch.AwayShortName
-            Me.TabPage4.Text = "VIEW ALL " & LiveMatch.HomeShortName
-            Me.TabPage5.Text = "VIEW ALL " & LiveMatch.AwayShortName
+            Me.TabPage2.Text = LiveMatch.HomeShortName.ToUpper
+            Me.TabPage3.Text = LiveMatch.AwayShortName.ToUpper
+            Me.TabPage4.Text = "VIEW ALL " & LiveMatch.HomeShortName.ToUpper
+            Me.TabPage5.Text = "VIEW ALL " & LiveMatch.AwayShortName.ToUpper
             For inc = 1 To 25
                 tempButton = FindPlayerButtonByName(iTeam, inc)
                 tempButton.Text = PlayerStat(iTeam, inc).ButtonText
@@ -9750,8 +9808,8 @@ Public Class Form1
         If bFormLocked = True Then
             Me.Panel1.Top = 0
             Me.Panel1.Left = 0
-            Me.Panel1.Height = 800
-            Me.Panel1.Width = 1280
+            Me.Panel1.Height = 768
+            Me.Panel1.Width = 1366
         Else
             Me.Panel1.Top = 0
             Me.Panel1.Left = 0
@@ -11099,8 +11157,30 @@ Public Class Form1
                         End If
                     Next
                 End If
-
+                If Config.UseRBStatNames Then
+                    If splitText(2).Contains("^") Then
+                        Dim playerSplit() As String = splitText(2).Split("^")
+                        For inc As Integer = 1 To playerSplit.GetUpperBound(0)
+                            If inc <= strPlayerStatName.GetUpperBound(0) Then
+                                strPlayerStatName(inc) = playerSplit(inc)
+                            End If
+                        Next
+                    End If
+                    If splitText(3).Contains("^") Then
+                        Dim teamSplit() As String = splitText(3).Split("^")
+                        For inc As Integer = 1 To teamSplit.GetUpperBound(0)
+                            If inc <= strTeamStatName.GetUpperBound(0) Then
+                                strTeamStatName(inc) = teamSplit(inc)
+                            End If
+                        Next
+                    End If
+                    ShowHeadings()
+                End If
             End If
         End If
+    End Sub
+
+    Private Sub btnFetchStatNames_Click(sender As Object, e As EventArgs) Handles btnFetchStatNames.Click
+        SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
     End Sub
 End Class
