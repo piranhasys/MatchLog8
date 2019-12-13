@@ -378,6 +378,19 @@ Public Class Form1
     Friend WithEvents btnFetchStatNames As System.Windows.Forms.Button
     Friend WithEvents lablMatchID As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents panelSuperLeague As Panel
+    Friend WithEvents lablRemoteAwayPossessionSL As Label
+    Friend WithEvents lablRemoteHomePossessionSL As Label
+    Friend WithEvents lablAwayNameSL As Label
+    Friend WithEvents lablHomeNameSL As Label
+    Friend WithEvents btnPossessionHSL As Button
+    Friend WithEvents btnPossessionASL As Button
+    Friend WithEvents btnPossessionOOPSL As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lablPeriodSL As Label
+    Friend WithEvents lablMatchClockSL As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1074,24 +1087,39 @@ Public Class Form1
         Me.lablViewR2 = New System.Windows.Forms.Label()
         Me.btnAreaR2 = New System.Windows.Forms.Button()
         Me.btnFetchStatNames = New System.Windows.Forms.Button()
-        Me.groupClock.SuspendLayout()
-        Me.groupViewTime.SuspendLayout()
-        Me.groupActionAreasSoccer.SuspendLayout()
-        Me.groupPossession.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        Me.tabKickouts.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabPenalties.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.groupRemotePossession.SuspendLayout()
-        Me.groupActionAreasRugby.SuspendLayout()
-        Me.SuspendLayout()
+        Me.panelSuperLeague = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lablPeriodSL = New System.Windows.Forms.Label()
+        Me.lablMatchClockSL = New System.Windows.Forms.Label()
+        Me.btnPossessionHSL = New System.Windows.Forms.Button()
+        Me.btnPossessionASL = New System.Windows.Forms.Button()
+        Me.btnPossessionOOPSL = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lablRemoteAwayPossessionSL = New System.Windows.Forms.Label()
+        Me.lablRemoteHomePossessionSL = New System.Windows.Forms.Label()
+        Me.lablAwayNameSL = New System.Windows.Forms.Label()
+        Me.lablHomeNameSL = New System.Windows.Forms.Label()
+        Me.groupClock.SuspendLayout
+        Me.groupViewTime.SuspendLayout
+        Me.groupActionAreasSoccer.SuspendLayout
+        Me.groupPossession.SuspendLayout
+        Me.TabControl1.SuspendLayout
+        Me.TabPage1.SuspendLayout
+        Me.TabPage2.SuspendLayout
+        Me.TabPage3.SuspendLayout
+        Me.TabPage4.SuspendLayout
+        Me.TabPage5.SuspendLayout
+        Me.tabKickouts.SuspendLayout
+        Me.GroupBox1.SuspendLayout
+        CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.tabPenalties.SuspendLayout
+        Me.Panel1.SuspendLayout
+        Me.groupRemotePossession.SuspendLayout
+        Me.groupActionAreasRugby.SuspendLayout
+        Me.panelSuperLeague.SuspendLayout
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'lablHeading01
         '
@@ -2702,7 +2730,7 @@ Public Class Form1
         '
         Me.lablHomeName2.BackColor = System.Drawing.Color.Black
         Me.lablHomeName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lablHomeName2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeName2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablHomeName2.ForeColor = System.Drawing.Color.White
         Me.lablHomeName2.Location = New System.Drawing.Point(48, 0)
         Me.lablHomeName2.Name = "lablHomeName2"
@@ -2715,7 +2743,7 @@ Public Class Form1
         '
         Me.lablAwayName2.BackColor = System.Drawing.Color.Black
         Me.lablAwayName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lablAwayName2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayName2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablAwayName2.ForeColor = System.Drawing.Color.White
         Me.lablAwayName2.Location = New System.Drawing.Point(196, 0)
         Me.lablAwayName2.Name = "lablAwayName2"
@@ -2728,7 +2756,7 @@ Public Class Form1
         '
         Me.lablAwayName3.BackColor = System.Drawing.Color.Black
         Me.lablAwayName3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lablAwayName3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayName3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablAwayName3.ForeColor = System.Drawing.Color.White
         Me.lablAwayName3.Location = New System.Drawing.Point(560, 0)
         Me.lablAwayName3.Name = "lablAwayName3"
@@ -2741,7 +2769,7 @@ Public Class Form1
         '
         Me.lablHomeName3.BackColor = System.Drawing.Color.Black
         Me.lablHomeName3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lablHomeName3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeName3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablHomeName3.ForeColor = System.Drawing.Color.White
         Me.lablHomeName3.Location = New System.Drawing.Point(412, 0)
         Me.lablHomeName3.Name = "lablHomeName3"
@@ -5889,6 +5917,7 @@ Public Class Form1
         Me.listViewSummaryHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listViewSummaryHome.FullRowSelect = True
         Me.listViewSummaryHome.GridLines = True
+        Me.listViewSummaryHome.HideSelection = False
         Me.listViewSummaryHome.Location = New System.Drawing.Point(0, 0)
         Me.listViewSummaryHome.MultiSelect = False
         Me.listViewSummaryHome.Name = "listViewSummaryHome"
@@ -6103,6 +6132,7 @@ Public Class Form1
         Me.listViewsummaryAway.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listViewsummaryAway.FullRowSelect = True
         Me.listViewsummaryAway.GridLines = True
+        Me.listViewsummaryAway.HideSelection = False
         Me.listViewsummaryAway.Location = New System.Drawing.Point(0, 0)
         Me.listViewsummaryAway.MultiSelect = False
         Me.listViewsummaryAway.Name = "listViewsummaryAway"
@@ -7693,11 +7723,182 @@ Public Class Form1
         Me.btnFetchStatNames.UseVisualStyleBackColor = False
         Me.btnFetchStatNames.Visible = False
         '
+        'panelSuperLeague
+        '
+        Me.panelSuperLeague.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.panelSuperLeague.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.panelSuperLeague.Controls.Add(Me.Label3)
+        Me.panelSuperLeague.Controls.Add(Me.PictureBox1)
+        Me.panelSuperLeague.Controls.Add(Me.lablPeriodSL)
+        Me.panelSuperLeague.Controls.Add(Me.lablMatchClockSL)
+        Me.panelSuperLeague.Controls.Add(Me.btnPossessionHSL)
+        Me.panelSuperLeague.Controls.Add(Me.btnPossessionASL)
+        Me.panelSuperLeague.Controls.Add(Me.btnPossessionOOPSL)
+        Me.panelSuperLeague.Controls.Add(Me.Label1)
+        Me.panelSuperLeague.Controls.Add(Me.lablRemoteAwayPossessionSL)
+        Me.panelSuperLeague.Controls.Add(Me.lablRemoteHomePossessionSL)
+        Me.panelSuperLeague.Controls.Add(Me.lablAwayNameSL)
+        Me.panelSuperLeague.Controls.Add(Me.lablHomeNameSL)
+        Me.panelSuperLeague.Location = New System.Drawing.Point(1037, 0)
+        Me.panelSuperLeague.Name = "panelSuperLeague"
+        Me.panelSuperLeague.Size = New System.Drawing.Size(315, 642)
+        Me.panelSuperLeague.TabIndex = 225
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(149, 220)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(16, 44)
+        Me.Label3.TabIndex = 217
+        Me.Label3.Text = "v"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(14, 35)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(288, 180)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 216
+        Me.PictureBox1.TabStop = False
+        '
+        'lablPeriodSL
+        '
+        Me.lablPeriodSL.BackColor = System.Drawing.Color.White
+        Me.lablPeriodSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablPeriodSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablPeriodSL.ForeColor = System.Drawing.Color.Black
+        Me.lablPeriodSL.Location = New System.Drawing.Point(82, 290)
+        Me.lablPeriodSL.Name = "lablPeriodSL"
+        Me.lablPeriodSL.Size = New System.Drawing.Size(150, 24)
+        Me.lablPeriodSL.TabIndex = 215
+        Me.lablPeriodSL.Text = "First Half"
+        Me.lablPeriodSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablMatchClockSL
+        '
+        Me.lablMatchClockSL.BackColor = System.Drawing.Color.White
+        Me.lablMatchClockSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablMatchClockSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablMatchClockSL.ForeColor = System.Drawing.Color.Black
+        Me.lablMatchClockSL.Location = New System.Drawing.Point(82, 316)
+        Me.lablMatchClockSL.Name = "lablMatchClockSL"
+        Me.lablMatchClockSL.Size = New System.Drawing.Size(150, 44)
+        Me.lablMatchClockSL.TabIndex = 214
+        Me.lablMatchClockSL.Text = "00:00"
+        Me.lablMatchClockSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnPossessionHSL
+        '
+        Me.btnPossessionHSL.BackColor = System.Drawing.Color.White
+        Me.btnPossessionHSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPossessionHSL.ForeColor = System.Drawing.Color.Black
+        Me.btnPossessionHSL.Location = New System.Drawing.Point(4, 499)
+        Me.btnPossessionHSL.Name = "btnPossessionHSL"
+        Me.btnPossessionHSL.Size = New System.Drawing.Size(150, 60)
+        Me.btnPossessionHSL.TabIndex = 211
+        Me.btnPossessionHSL.Tag = "1"
+        Me.btnPossessionHSL.Text = "Tottenham"
+        Me.btnPossessionHSL.UseVisualStyleBackColor = False
+        '
+        'btnPossessionASL
+        '
+        Me.btnPossessionASL.BackColor = System.Drawing.Color.White
+        Me.btnPossessionASL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPossessionASL.ForeColor = System.Drawing.Color.Black
+        Me.btnPossessionASL.Location = New System.Drawing.Point(159, 499)
+        Me.btnPossessionASL.Name = "btnPossessionASL"
+        Me.btnPossessionASL.Size = New System.Drawing.Size(150, 60)
+        Me.btnPossessionASL.TabIndex = 212
+        Me.btnPossessionASL.Tag = "2"
+        Me.btnPossessionASL.Text = "West Brom"
+        Me.btnPossessionASL.UseVisualStyleBackColor = False
+        '
+        'btnPossessionOOPSL
+        '
+        Me.btnPossessionOOPSL.BackColor = System.Drawing.Color.White
+        Me.btnPossessionOOPSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPossessionOOPSL.ForeColor = System.Drawing.Color.Black
+        Me.btnPossessionOOPSL.Location = New System.Drawing.Point(82, 565)
+        Me.btnPossessionOOPSL.Name = "btnPossessionOOPSL"
+        Me.btnPossessionOOPSL.Size = New System.Drawing.Size(150, 60)
+        Me.btnPossessionOOPSL.TabIndex = 213
+        Me.btnPossessionOOPSL.Tag = "0"
+        Me.btnPossessionOOPSL.Text = "Out of Play"
+        Me.btnPossessionOOPSL.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(4, 421)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(304, 20)
+        Me.Label1.TabIndex = 210
+        Me.Label1.Text = "Possession"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablRemoteAwayPossessionSL
+        '
+        Me.lablRemoteAwayPossessionSL.BackColor = System.Drawing.Color.White
+        Me.lablRemoteAwayPossessionSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablRemoteAwayPossessionSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablRemoteAwayPossessionSL.ForeColor = System.Drawing.Color.Black
+        Me.lablRemoteAwayPossessionSL.Location = New System.Drawing.Point(159, 451)
+        Me.lablRemoteAwayPossessionSL.Name = "lablRemoteAwayPossessionSL"
+        Me.lablRemoteAwayPossessionSL.Size = New System.Drawing.Size(150, 36)
+        Me.lablRemoteAwayPossessionSL.TabIndex = 199
+        Me.lablRemoteAwayPossessionSL.Text = "100%"
+        Me.lablRemoteAwayPossessionSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablRemoteHomePossessionSL
+        '
+        Me.lablRemoteHomePossessionSL.BackColor = System.Drawing.Color.White
+        Me.lablRemoteHomePossessionSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablRemoteHomePossessionSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablRemoteHomePossessionSL.ForeColor = System.Drawing.Color.Black
+        Me.lablRemoteHomePossessionSL.Location = New System.Drawing.Point(4, 451)
+        Me.lablRemoteHomePossessionSL.Name = "lablRemoteHomePossessionSL"
+        Me.lablRemoteHomePossessionSL.Size = New System.Drawing.Size(150, 36)
+        Me.lablRemoteHomePossessionSL.TabIndex = 198
+        Me.lablRemoteHomePossessionSL.Text = "100%"
+        Me.lablRemoteHomePossessionSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablAwayNameSL
+        '
+        Me.lablAwayNameSL.BackColor = System.Drawing.Color.Transparent
+        Me.lablAwayNameSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayNameSL.ForeColor = System.Drawing.Color.White
+        Me.lablAwayNameSL.Location = New System.Drawing.Point(171, 220)
+        Me.lablAwayNameSL.Name = "lablAwayNameSL"
+        Me.lablAwayNameSL.Size = New System.Drawing.Size(140, 44)
+        Me.lablAwayNameSL.TabIndex = 94
+        Me.lablAwayNameSL.Text = "WEST BROM" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "TEST LINE 2"
+        Me.lablAwayNameSL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lablHomeNameSL
+        '
+        Me.lablHomeNameSL.BackColor = System.Drawing.Color.Transparent
+        Me.lablHomeNameSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeNameSL.ForeColor = System.Drawing.Color.White
+        Me.lablHomeNameSL.Location = New System.Drawing.Point(0, 220)
+        Me.lablHomeNameSL.Name = "lablHomeNameSL"
+        Me.lablHomeNameSL.Size = New System.Drawing.Size(140, 44)
+        Me.lablHomeNameSL.TabIndex = 93
+        Me.lablHomeNameSL.Text = "TOTTENHAM"
+        Me.lablHomeNameSL.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(1350, 729)
+        Me.Controls.Add(Me.panelSuperLeague)
         Me.Controls.Add(Me.btnFetchStatNames)
         Me.Controls.Add(Me.groupRemotePossession)
         Me.Controls.Add(Me.Panel1)
@@ -7741,12 +7942,14 @@ Public Class Form1
         Me.TabPage5.ResumeLayout(False)
         Me.tabKickouts.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.PerformLayout
+        CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).EndInit
         Me.tabPenalties.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.groupRemotePossession.ResumeLayout(False)
         Me.groupActionAreasRugby.ResumeLayout(False)
+        Me.panelSuperLeague.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
 
     End Sub
@@ -7936,12 +8139,22 @@ Public Class Form1
                             Utils.AssignAllTeamStatsDataString(strMessage)
                             ShowTeamStats()
                         Case "POSSESSION"
-                            If LiveMatch.MatchID = Val(dataArray(3)) Then
-                                LiveMatch.Period = Val(dataArray(4))
-                                Utils.AssignRemoteDataString(strMessage)
-                                ShowRemotePossession()
-                                ShowDirection()
-                            End If
+                            Select Case Config.UserName
+                                Case "SKYSUPERLEAGUE"
+                                    'MATCHDATA|POSSESSION|49233|1|100|0|
+                                    If LiveMatch.MatchID = Val(dataArray(2)) Then
+                                        LiveMatch.Period = Val(dataArray(3))
+                                        Utils.AssignRemoteSLPossessionDataString(strMessage)
+                                        ShowRemotePossession()
+                                    End If
+                                Case Else
+                                    If LiveMatch.MatchID = Val(dataArray(3)) Then
+                                        LiveMatch.Period = Val(dataArray(4))
+                                        Utils.AssignRemoteDataString(strMessage)
+                                        ShowRemotePossession()
+                                        ShowDirection()
+                                    End If
+                            End Select
                         Case "CLEARALLDATA"
                             If iMatchID = Val(dataArray(2)) Then
                                 ClearAllData()
@@ -8148,12 +8361,17 @@ Public Class Form1
                 Me.lablHomeName.Text = .HomeLongName.ToUpper
                 Me.lablHomeName2.Text = .HomeLongName.ToUpper
                 Me.lablHomeName3.Text = .HomeLongName.ToUpper
+                Me.lablHomeNameSL.Text = .HomeShortName.ToUpper
                 Me.lablAwayName.Text = .AwayLongName.ToUpper
                 Me.lablAwayName2.Text = .AwayLongName.ToUpper
                 Me.lablAwayName3.Text = .AwayLongName.ToUpper
+                Me.lablAwayNameSL.Text = .AwayShortName.ToUpper
                 Me.btnPossessionH.Text = .HomeShortName.ToUpper & vbLf & "Key ,"
                 Me.btnPossessionA.Text = .AwayShortName.ToUpper & vbLf & "Key ."
                 Me.btnPossessionOOP.Text = "OUT OF PLAY" & vbLf & "Key /"
+                Me.btnPossessionHSL.Text = .HomeShortName.ToUpper & vbLf & "Key ,"
+                Me.btnPossessionASL.Text = .AwayShortName.ToUpper & vbLf & "Key ."
+                Me.btnPossessionOOPSL.Text = "OUT OF PLAY" & vbLf & "Key /"
                 Me.btnAreaS1.Text = "LEFT" & vbLf & "Key z"
                 Me.btnAreaS2.Text = "CENTRE" & vbLf & "Key x"
                 Me.btnAreaS3.Text = "RIGHT" & vbLf & "Key c"
@@ -8169,10 +8387,19 @@ Public Class Form1
                 Me.lablHomeName.ForeColor = Color.FromArgb(.HomeColour2)
                 Me.lablAwayName.ForeColor = Color.FromArgb(.AwayColour2)
 
+                'Me.lablHomeNameSL.BackColor = Color.FromArgb(.HomeColour)
+                'Me.lablAwayNameSL.BackColor = Color.FromArgb(.AwayColour)
+                'Me.lablHomeNameSL.ForeColor = Color.FromArgb(.HomeColour2)
+                'Me.lablAwayNameSL.ForeColor = Color.FromArgb(.AwayColour2)
+
                 Me.btnPossessionH.BackColor = Color.FromArgb(.HomeColour)
                 Me.btnPossessionA.BackColor = Color.FromArgb(.AwayColour)
                 Me.btnPossessionH.ForeColor = Color.FromArgb(.HomeColour2)
                 Me.btnPossessionA.ForeColor = Color.FromArgb(.AwayColour2)
+                Me.btnPossessionHSL.BackColor = Color.FromArgb(.HomeColour)
+                Me.btnPossessionASL.BackColor = Color.FromArgb(.AwayColour)
+                Me.btnPossessionHSL.ForeColor = Color.FromArgb(.HomeColour2)
+                Me.btnPossessionASL.ForeColor = Color.FromArgb(.AwayColour2)
 
 
                 Dim colTemp As Color
@@ -8647,6 +8874,11 @@ Public Class Form1
         Me.btnPeriod6.Enabled = bPeriodEnabled
         Me.btnPeriod7.Enabled = bPeriodEnabled
         Me.btnPeriod8.Enabled = bPeriodEnabled
+        Select Case Config.UserName
+            Case "SKYSUPERLEAGUE"
+                panelSuperLeague.Visible = True
+                panelSuperLeague.BringToFront()
+        End Select
     End Sub
     Sub InitClasses()
         Dim inc As Integer, iTeam As Integer
@@ -9506,26 +9738,45 @@ Public Class Form1
             Dim d As New ShowRemotePossessionCallback(AddressOf ShowRemotePossession)
             Me.Invoke(d, New Object() {})
         Else
-            Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
-            Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
+            Select Case Config.UserName
+                Case "SKYSUPERLEAGUE"
+                    lablRemoteHomePossessionSL.Text = RemoteData.HomePossession
+                    lablRemoteAwayPossessionSL.Text = RemoteData.AwayPossession
+                    Select Case RemoteData.CurrentPossessionTeam
+                        Case 1
+                            lablRemoteHomePossessionSL.BackColor = Color.LightGreen
+                            lablRemoteAwayPossessionSL.BackColor = Color.White
+                        Case 2
+                            lablRemoteHomePossessionSL.BackColor = Color.White
+                            lablRemoteAwayPossessionSL.BackColor = Color.LightGreen
+                        Case Else
+                            lablRemoteHomePossessionSL.BackColor = Color.White
+                            lablRemoteAwayPossessionSL.BackColor = Color.White
 
-            Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
-            Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
+                    End Select
 
-            Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
-            Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
-
-            Select Case Config.NumberOfAreas
-                Case 4
-                    Me.lablRemoteAreaR1.Text = RemoteData.Area1
-                    Me.lablRemoteAreaR2.Text = RemoteData.Area2
-                    Me.lablRemoteAreaR3.Text = RemoteData.Area3
-                    Me.lablRemoteAreaR4.Text = RemoteData.Area4
                 Case Else
-                    Me.lablRemoteAreaS1.Text = RemoteData.Area1
-                    Me.lablRemoteAreaS2.Text = RemoteData.Area2
-                    Me.lablRemoteAreaS3.Text = RemoteData.Area3
-            End Select
+                            Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
+                            Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
+
+                            Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
+                            Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
+
+                            Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
+                            Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
+
+                            Select Case Config.NumberOfAreas
+                                Case 4
+                                    Me.lablRemoteAreaR1.Text = RemoteData.Area1
+                                    Me.lablRemoteAreaR2.Text = RemoteData.Area2
+                                    Me.lablRemoteAreaR3.Text = RemoteData.Area3
+                                    Me.lablRemoteAreaR4.Text = RemoteData.Area4
+                                Case Else
+                                    Me.lablRemoteAreaS1.Text = RemoteData.Area1
+                                    Me.lablRemoteAreaS2.Text = RemoteData.Area2
+                                    Me.lablRemoteAreaS3.Text = RemoteData.Area3
+                            End Select
+                    End Select
         End If
     End Sub
     Delegate Sub ShowDirectionCallback()
@@ -11121,7 +11372,7 @@ Public Class Form1
         Next
         Return 0
     End Function
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) 
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs)
         MessageBox.Show(JSONPlayerStatsString(1, 1))
     End Sub
     Private Function JSONTeamStatsString() As String
@@ -11129,7 +11380,7 @@ Public Class Form1
         Dim jsonSerializer As New JavaScriptSerializer
         Return jsonSerializer.Serialize(JSONTeamStats)
     End Function
-   
+
     Private Function JSONPlayerStatsString(teamIndex As Integer, playerIndex As Integer) As String
         AssignLocalPlayerStatsToJSON(teamIndex, playerIndex)
         Dim tempJSONPlayer As clsJSONPlayer = FindJSONPlayer(teamIndex, playerIndex)
@@ -11182,5 +11433,12 @@ Public Class Form1
 
     Private Sub btnFetchStatNames_Click(sender As Object, e As EventArgs) Handles btnFetchStatNames.Click
         SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
+    End Sub
+
+    Private Sub btnPossessionHSL_Click(sender As Object, e As EventArgs) Handles btnPossessionHSL.Click, btnPossessionASL.Click, btnPossessionOOPSL.Click
+        Dim lastPossession As Integer = 0
+        Dim senderTag As Integer = Val(sender.tag)
+        'Use MatchPad syntax. RB calculates percentages.
+        SendData("MATCHPAD|LOGPOSSESSION|" + LiveMatch.MatchID.ToString + "|" + senderTag.ToString + "|")
     End Sub
 End Class

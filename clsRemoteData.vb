@@ -8,4 +8,5 @@
     Public Area4 As String = ""
     Public HomePossession As String = ""
     Public AwayPossession As String = ""
+    Public CurrentPossessionTeam As Integer = 0
 End Class

@@ -287,6 +287,17 @@ Public Class clsUtils
         RemoteData.AwayPossession = strPossessionArray(1)
 
     End Sub
+    Sub AssignRemoteSLPossessionDataString(ByVal tempString As String)
+        'MATCHDATA|POSSESSION|49233|1|100|0|
+        On Error Resume Next
+
+        Dim dataArray() As String
+        dataArray = tempString.Split(Chr(124))
+
+        RemoteData.CurrentPossessionTeam = Val(dataArray(3))
+        RemoteData.HomePossession = dataArray(4) + "%"
+        RemoteData.AwayPossession = dataArray(5) + "%"
+    End Sub
     Function LookupLocalTeamStatIndexFromRBIndex(thisIndex As Integer) As Integer
         Dim refName As String = strRBTeamStatJSONName(thisIndex)
         For incTest As Integer = 1 To strTeamStatJSONName.GetUpperBound(0)
