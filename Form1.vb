@@ -378,7 +378,7 @@ Public Class Form1
     Friend WithEvents btnFetchStatNames As System.Windows.Forms.Button
     Friend WithEvents lablMatchID As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents panelSuperLeague As Panel
+    Friend WithEvents panelSuperLeaguePro14 As Panel
     Friend WithEvents lablRemoteAwayPossessionSL As Label
     Friend WithEvents lablRemoteHomePossessionSL As Label
     Friend WithEvents lablAwayNameSL As Label
@@ -387,10 +387,14 @@ Public Class Form1
     Friend WithEvents btnPossessionASL As Button
     Friend WithEvents btnPossessionOOPSL As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents picBoxSLLogo As PictureBox
     Friend WithEvents lablPeriodSL As Label
     Friend WithEvents lablMatchClockSL As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnClearSLPossession As Button
+    Friend WithEvents lablAwayScoreSL As Label
+    Friend WithEvents lablHomeScoreSL As Label
+    Friend WithEvents picBoxPro14 As PictureBox
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1087,9 +1091,12 @@ Public Class Form1
         Me.lablViewR2 = New System.Windows.Forms.Label()
         Me.btnAreaR2 = New System.Windows.Forms.Button()
         Me.btnFetchStatNames = New System.Windows.Forms.Button()
-        Me.panelSuperLeague = New System.Windows.Forms.Panel()
+        Me.panelSuperLeaguePro14 = New System.Windows.Forms.Panel()
+        Me.lablAwayScoreSL = New System.Windows.Forms.Label()
+        Me.lablHomeScoreSL = New System.Windows.Forms.Label()
+        Me.btnClearSLPossession = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picBoxSLLogo = New System.Windows.Forms.PictureBox()
         Me.lablPeriodSL = New System.Windows.Forms.Label()
         Me.lablMatchClockSL = New System.Windows.Forms.Label()
         Me.btnPossessionHSL = New System.Windows.Forms.Button()
@@ -1100,6 +1107,7 @@ Public Class Form1
         Me.lablRemoteHomePossessionSL = New System.Windows.Forms.Label()
         Me.lablAwayNameSL = New System.Windows.Forms.Label()
         Me.lablHomeNameSL = New System.Windows.Forms.Label()
+        Me.picBoxPro14 = New System.Windows.Forms.PictureBox()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -1117,8 +1125,9 @@ Public Class Form1
         Me.Panel1.SuspendLayout
         Me.groupRemotePossession.SuspendLayout
         Me.groupActionAreasRugby.SuspendLayout
-        Me.panelSuperLeague.SuspendLayout
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.panelSuperLeaguePro14.SuspendLayout
+        CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'lablHeading01
@@ -7723,28 +7732,72 @@ Public Class Form1
         Me.btnFetchStatNames.UseVisualStyleBackColor = False
         Me.btnFetchStatNames.Visible = False
         '
-        'panelSuperLeague
+        'panelSuperLeaguePro14
         '
-        Me.panelSuperLeague.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.panelSuperLeaguePro14.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.panelSuperLeague.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.panelSuperLeague.Controls.Add(Me.Label3)
-        Me.panelSuperLeague.Controls.Add(Me.PictureBox1)
-        Me.panelSuperLeague.Controls.Add(Me.lablPeriodSL)
-        Me.panelSuperLeague.Controls.Add(Me.lablMatchClockSL)
-        Me.panelSuperLeague.Controls.Add(Me.btnPossessionHSL)
-        Me.panelSuperLeague.Controls.Add(Me.btnPossessionASL)
-        Me.panelSuperLeague.Controls.Add(Me.btnPossessionOOPSL)
-        Me.panelSuperLeague.Controls.Add(Me.Label1)
-        Me.panelSuperLeague.Controls.Add(Me.lablRemoteAwayPossessionSL)
-        Me.panelSuperLeague.Controls.Add(Me.lablRemoteHomePossessionSL)
-        Me.panelSuperLeague.Controls.Add(Me.lablAwayNameSL)
-        Me.panelSuperLeague.Controls.Add(Me.lablHomeNameSL)
-        Me.panelSuperLeague.Location = New System.Drawing.Point(1037, 0)
-        Me.panelSuperLeague.Name = "panelSuperLeague"
-        Me.panelSuperLeague.Size = New System.Drawing.Size(315, 642)
-        Me.panelSuperLeague.TabIndex = 225
+        Me.panelSuperLeaguePro14.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablAwayScoreSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablHomeScoreSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.btnClearSLPossession)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.Label3)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.picBoxSLLogo)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablPeriodSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablMatchClockSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.btnPossessionHSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.btnPossessionASL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.btnPossessionOOPSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.Label1)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablRemoteAwayPossessionSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablRemoteHomePossessionSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablAwayNameSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.lablHomeNameSL)
+        Me.panelSuperLeaguePro14.Controls.Add(Me.picBoxPro14)
+        Me.panelSuperLeaguePro14.Location = New System.Drawing.Point(1037, 0)
+        Me.panelSuperLeaguePro14.Name = "panelSuperLeaguePro14"
+        Me.panelSuperLeaguePro14.Size = New System.Drawing.Size(315, 725)
+        Me.panelSuperLeaguePro14.TabIndex = 225
+        Me.panelSuperLeaguePro14.Visible = False
+        '
+        'lablAwayScoreSL
+        '
+        Me.lablAwayScoreSL.BackColor = System.Drawing.Color.White
+        Me.lablAwayScoreSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablAwayScoreSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayScoreSL.ForeColor = System.Drawing.Color.Black
+        Me.lablAwayScoreSL.Location = New System.Drawing.Point(161, 276)
+        Me.lablAwayScoreSL.Name = "lablAwayScoreSL"
+        Me.lablAwayScoreSL.Size = New System.Drawing.Size(70, 36)
+        Me.lablAwayScoreSL.TabIndex = 225
+        Me.lablAwayScoreSL.Text = "123"
+        Me.lablAwayScoreSL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lablHomeScoreSL
+        '
+        Me.lablHomeScoreSL.BackColor = System.Drawing.Color.White
+        Me.lablHomeScoreSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablHomeScoreSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeScoreSL.ForeColor = System.Drawing.Color.Black
+        Me.lablHomeScoreSL.Location = New System.Drawing.Point(82, 275)
+        Me.lablHomeScoreSL.Name = "lablHomeScoreSL"
+        Me.lablHomeScoreSL.Size = New System.Drawing.Size(70, 36)
+        Me.lablHomeScoreSL.TabIndex = 224
+        Me.lablHomeScoreSL.Text = "123"
+        Me.lablHomeScoreSL.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnClearSLPossession
+        '
+        Me.btnClearSLPossession.BackColor = System.Drawing.Color.DarkRed
+        Me.btnClearSLPossession.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearSLPossession.ForeColor = System.Drawing.Color.White
+        Me.btnClearSLPossession.Location = New System.Drawing.Point(82, 663)
+        Me.btnClearSLPossession.Name = "btnClearSLPossession"
+        Me.btnClearSLPossession.Size = New System.Drawing.Size(150, 51)
+        Me.btnClearSLPossession.TabIndex = 223
+        Me.btnClearSLPossession.Tag = "1"
+        Me.btnClearSLPossession.Text = "Clear this period possession"
+        Me.btnClearSLPossession.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -7757,15 +7810,16 @@ Public Class Form1
         Me.Label3.Text = "v"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox1
+        'picBoxSLLogo
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(14, 35)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(288, 180)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 216
-        Me.PictureBox1.TabStop = False
+        Me.picBoxSLLogo.Image = CType(resources.GetObject("picBoxSLLogo.Image"), System.Drawing.Image)
+        Me.picBoxSLLogo.Location = New System.Drawing.Point(14, 35)
+        Me.picBoxSLLogo.Name = "picBoxSLLogo"
+        Me.picBoxSLLogo.Size = New System.Drawing.Size(288, 180)
+        Me.picBoxSLLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picBoxSLLogo.TabIndex = 216
+        Me.picBoxSLLogo.TabStop = False
+        Me.picBoxSLLogo.Visible = False
         '
         'lablPeriodSL
         '
@@ -7773,7 +7827,7 @@ Public Class Form1
         Me.lablPeriodSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lablPeriodSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablPeriodSL.ForeColor = System.Drawing.Color.Black
-        Me.lablPeriodSL.Location = New System.Drawing.Point(82, 290)
+        Me.lablPeriodSL.Location = New System.Drawing.Point(82, 318)
         Me.lablPeriodSL.Name = "lablPeriodSL"
         Me.lablPeriodSL.Size = New System.Drawing.Size(150, 24)
         Me.lablPeriodSL.TabIndex = 215
@@ -7786,7 +7840,7 @@ Public Class Form1
         Me.lablMatchClockSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lablMatchClockSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablMatchClockSL.ForeColor = System.Drawing.Color.Black
-        Me.lablMatchClockSL.Location = New System.Drawing.Point(82, 316)
+        Me.lablMatchClockSL.Location = New System.Drawing.Point(82, 344)
         Me.lablMatchClockSL.Name = "lablMatchClockSL"
         Me.lablMatchClockSL.Size = New System.Drawing.Size(150, 44)
         Me.lablMatchClockSL.TabIndex = 214
@@ -7893,12 +7947,23 @@ Public Class Form1
         Me.lablHomeNameSL.Text = "TOTTENHAM"
         Me.lablHomeNameSL.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'picBoxPro14
+        '
+        Me.picBoxPro14.Image = CType(resources.GetObject("picBoxPro14.Image"), System.Drawing.Image)
+        Me.picBoxPro14.Location = New System.Drawing.Point(14, 35)
+        Me.picBoxPro14.Name = "picBoxPro14"
+        Me.picBoxPro14.Size = New System.Drawing.Size(288, 180)
+        Me.picBoxPro14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picBoxPro14.TabIndex = 226
+        Me.picBoxPro14.TabStop = False
+        Me.picBoxPro14.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(1350, 729)
-        Me.Controls.Add(Me.panelSuperLeague)
+        Me.Controls.Add(Me.panelSuperLeaguePro14)
         Me.Controls.Add(Me.btnFetchStatNames)
         Me.Controls.Add(Me.groupRemotePossession)
         Me.Controls.Add(Me.Panel1)
@@ -7948,8 +8013,9 @@ Public Class Form1
         Me.Panel1.ResumeLayout(False)
         Me.groupRemotePossession.ResumeLayout(False)
         Me.groupActionAreasRugby.ResumeLayout(False)
-        Me.panelSuperLeague.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
+        Me.panelSuperLeaguePro14.ResumeLayout(False)
+        CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
 
     End Sub
@@ -8147,6 +8213,13 @@ Public Class Form1
                                         Utils.AssignRemoteSLPossessionDataString(strMessage)
                                         ShowRemotePossession()
                                     End If
+                                Case "PRO14"
+                                    'MATCHDATA|POSSESSION|32488|2|58|42|3^0%^100%^0%^100%^^^0%^0%^99%^^^^^00:00^00:00^00:00^40:00^00:00^|
+                                    If LiveMatch.MatchID = Val(dataArray(2)) Then
+                                        LiveMatch.Period = Val(dataArray(3))
+                                        Utils.AssignRemoteSLPossessionDataString(strMessage)
+                                        ShowRemotePossession()
+                                    End If
                                 Case Else
                                     If LiveMatch.MatchID = Val(dataArray(3)) Then
                                         LiveMatch.Period = Val(dataArray(4))
@@ -8155,10 +8228,38 @@ Public Class Form1
                                         ShowDirection()
                                     End If
                             End Select
+                        Case "LOCALMATCHTIME"
+                            Select Case Config.UserName
+                                Case "PRO14"
+                                    'MATCHDATA|LOCALMATCHTIME|32488|1|00:00|0:00|0:00|20|15|RUNNING|
+                                    If LiveMatch.MatchID = Val(dataArray(2)) Then
+                                        LiveMatch.Period = Val(dataArray(3))
+                                        RemoteData.CurrentMatchPeriod = Val(dataArray(3))
+                                        RemoteData.MatchClockTime = dataArray(4)
+                                        If dataArray.GetUpperBound(0) > 8 Then
+                                            'additional data
+                                            RemoteData.HomeScore = dataArray(7)
+                                            RemoteData.AwayScore = dataArray(8)
+                                            RemoteData.MatchClockRunning = (dataArray(9) = "RUNNING")
+                                        End If
+                                        ShowRemotePossession()
+                                    End If
+                            End Select
                         Case "CLEARALLDATA"
                             If iMatchID = Val(dataArray(2)) Then
                                 ClearAllData()
                             End If
+                        Case "SCOREUPDATE"
+                            'MATCHDATA|SCOREUPDATE|49233|5|4|0|5^4|
+                            Select Case Config.UserName
+                                Case "SKYSUPERLEAGUE", "PRO14"
+                                    If LiveMatch.MatchID = Val(dataArray(2)) Then
+                                        RemoteData.HomeScore = dataArray(3)
+                                        RemoteData.AwayScore = dataArray(4)
+                                        ShowRemotePossession()
+                                    End If
+                                Case Else
+                            End Select
                         Case Else
                             'MessageBox.Show(strMessage)
                     End Select
@@ -8231,6 +8332,19 @@ Public Class Form1
                         Next
                         DrawAll()
                     End If
+                Case "SPORTCLOCK"
+                    'SPORTCLOCK|MATCHTIME|49233|1|38:01|01:59|RUNNING|
+                    Select Case Config.UserName
+                        Case "SKYSUPERLEAGUE"
+                            Dim iMatchID As Integer = Val(dataArray(2))
+                            If iMatchID = LiveMatch.MatchID Then
+                                RemoteData.CurrentMatchPeriod = Val(dataArray(3))
+                                RemoteData.MatchClockTime = dataArray(5)  'counting up
+                                RemoteData.MatchClockRunning = (dataArray(6) = "RUNNING")
+                                ShowRemotePossession()
+                            End If
+                    End Select
+
                 Case "HEARTBEAT"
 
                 Case "DISCONNECTED"
@@ -8665,6 +8779,8 @@ Public Class Form1
         JSONTeamStats.MatchID = iMatchID.ToString
         JSONPlayerStats.MatchID = iMatchID.ToString
         dtSelDate = LiveMatch.MatchDate
+        'RemoteData.HomeScore = LiveMatch.HomeGoals
+        'RemoteData.AwayScore = LiveMatch.AwayGoals
     End Sub
     Sub AssignPlayersToJSON()
         'clear existing players
@@ -8876,8 +8992,14 @@ Public Class Form1
         Me.btnPeriod8.Enabled = bPeriodEnabled
         Select Case Config.UserName
             Case "SKYSUPERLEAGUE"
-                panelSuperLeague.Visible = True
-                panelSuperLeague.BringToFront()
+                panelSuperLeaguePro14.Visible = True
+                picBoxSLLogo.Visible = True
+                panelSuperLeaguePro14.BringToFront()
+            Case "PRO14"
+                'testing
+                panelSuperLeaguePro14.Visible = True
+                picBoxPro14.Visible = True
+                panelSuperLeaguePro14.BringToFront()
         End Select
     End Sub
     Sub InitClasses()
@@ -9739,7 +9861,7 @@ Public Class Form1
             Me.Invoke(d, New Object() {})
         Else
             Select Case Config.UserName
-                Case "SKYSUPERLEAGUE"
+                Case "SKYSUPERLEAGUE", "PRO14"
                     lablRemoteHomePossessionSL.Text = RemoteData.HomePossession
                     lablRemoteAwayPossessionSL.Text = RemoteData.AwayPossession
                     Select Case RemoteData.CurrentPossessionTeam
@@ -9752,31 +9874,45 @@ Public Class Form1
                         Case Else
                             lablRemoteHomePossessionSL.BackColor = Color.White
                             lablRemoteAwayPossessionSL.BackColor = Color.White
-
                     End Select
-
+                    lablMatchClockSL.Text = RemoteData.MatchClockTime
+                    lablMatchClockSL.BackColor = If(RemoteData.MatchClockRunning, Color.LightGreen, Color.LightPink)
+                    Select Case RemoteData.CurrentMatchPeriod
+                        Case 1
+                            lablPeriodSL.Text = "1st HALF"
+                        Case 2
+                            lablPeriodSL.Text = "2nd HALF"
+                        Case 3
+                            lablPeriodSL.Text = "ET 1st HALF"
+                        Case 4
+                            lablPeriodSL.Text = "ET 2nd HALF"
+                        Case Else
+                            lablPeriodSL.Text = "Pre Match"
+                    End Select
+                    lablHomeScoreSL.Text = RemoteData.HomeScore
+                    lablAwayScoreSL.Text = RemoteData.AwayScore
                 Case Else
-                            Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
-                            Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
+                    Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
+                    Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
 
-                            Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
-                            Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
+                    Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
+                    Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
 
-                            Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
-                            Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
+                    Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
+                    Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
 
-                            Select Case Config.NumberOfAreas
-                                Case 4
-                                    Me.lablRemoteAreaR1.Text = RemoteData.Area1
-                                    Me.lablRemoteAreaR2.Text = RemoteData.Area2
-                                    Me.lablRemoteAreaR3.Text = RemoteData.Area3
-                                    Me.lablRemoteAreaR4.Text = RemoteData.Area4
-                                Case Else
-                                    Me.lablRemoteAreaS1.Text = RemoteData.Area1
-                                    Me.lablRemoteAreaS2.Text = RemoteData.Area2
-                                    Me.lablRemoteAreaS3.Text = RemoteData.Area3
-                            End Select
+                    Select Case Config.NumberOfAreas
+                        Case 4
+                            Me.lablRemoteAreaR1.Text = RemoteData.Area1
+                            Me.lablRemoteAreaR2.Text = RemoteData.Area2
+                            Me.lablRemoteAreaR3.Text = RemoteData.Area3
+                            Me.lablRemoteAreaR4.Text = RemoteData.Area4
+                        Case Else
+                            Me.lablRemoteAreaS1.Text = RemoteData.Area1
+                            Me.lablRemoteAreaS2.Text = RemoteData.Area2
+                            Me.lablRemoteAreaS3.Text = RemoteData.Area3
                     End Select
+            End Select
         End If
     End Sub
     Delegate Sub ShowDirectionCallback()
@@ -11440,5 +11576,9 @@ Public Class Form1
         Dim senderTag As Integer = Val(sender.tag)
         'Use MatchPad syntax. RB calculates percentages.
         SendData("MATCHPAD|LOGPOSSESSION|" + LiveMatch.MatchID.ToString + "|" + senderTag.ToString + "|")
+    End Sub
+
+    Private Sub btnClearSLPossession_Click(sender As Object, e As EventArgs) Handles btnClearSLPossession.Click
+        MessageBox.Show("TODO")
     End Sub
 End Class

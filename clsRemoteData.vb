@@ -9,4 +9,9 @@
     Public HomePossession As String = ""
     Public AwayPossession As String = ""
     Public CurrentPossessionTeam As Integer = 0
+    Public CurrentMatchPeriod As Integer = 0
+    Public MatchClockTime As String = "00:00"
+    Public MatchClockRunning As Boolean = False
+    Public HomeScore As String = "0"
+    Public AwayScore As String = "0"
 End Class
