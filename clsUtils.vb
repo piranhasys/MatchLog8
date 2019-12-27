@@ -198,6 +198,75 @@ Public Class clsUtils
             PlayerStat(iTeam, iPlayer).PlayerShortName = strStatArray(4)
         End If
     End Sub
+    Sub AssignAllPlayerDataString(ByVal tempString As String)
+        'MATCHDATA|ALLPLAYERSTATS|matchID|teamID|playerID^5^0^0^1^0^0^4^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10783^1^1^1^1^1^0^4^0^0^3^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10776^3^3^0^0^2^0^2^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10775^0^0^0^0^0^0^0^0^0^3^2^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10791^0^0^0^0^1^1^1^1^0^0^0^1^2^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10785^0^0^0^1^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10789^0^0^0^0^0^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10786^0^0^0^1^2^0^0^0^0^1^0^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10779^4^0^1^0^0^0^2^0^1^2^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10778^7^0^0^0^1^1^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10777^5^1^0^0^2^0^1^0^0^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10782^1^0^1^0^0^0^4^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10780^5^0^0^0^6^1^3^0^0^2^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10787^0^0^0^0^6^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|10790^0^0^0^0^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|
+        'one string per team
+        On Error Resume Next
+        Dim dataArray() As String
+        dataArray = tempString.Split(Chr(124))
+        Dim iMatchID As Integer = Val(dataArray(2))
+        Dim iTeam As Integer = 0
+        Dim iPlayerID As Integer = 0
+        Dim iPlayer As Integer = 0
+        If iMatchID = LiveMatch.MatchID Then
+            Dim iTeamID As Integer = Val(dataArray(3))
+            Select Case iTeamID
+                Case LiveMatch.HomeTeamID
+                    iTeam = 1
+                Case LiveMatch.AwayTeamID
+                    iTeam = 2
+            End Select
+            'now list of player data
+            For incPlayerEntry As Integer = 4 To dataArray.GetUpperBound(0)
+                If dataArray(incPlayerEntry).Contains("^") Then
+                    Dim playerDataRow As String() = dataArray(incPlayerEntry).Split("^")
+                    iPlayerID = Val(playerDataRow(0))
+                    iPlayer = FindPlayerbyID(iTeam, iPlayerID)
+                    If Utils.IsRBPlayerNamesValid Then
+                        're-assign order based on incoming are in RB order.
+                        For incStat As Integer = 1 To 30
+                            Dim statValue As Integer = Val(playerDataRow(incStat))   '1-based
+                            Dim localStatIndex As Integer = LookupLocalPlayerStatIndexFromRBIndex(incStat)
+                            AssignPlayerStat(iTeam, iPlayer, localStatIndex, statValue)
+                        Next
+                    Else
+                        PlayerStat(iTeam, iPlayer).Stat01 = Val(playerDataRow(1))
+                        PlayerStat(iTeam, iPlayer).Stat02 = Val(playerDataRow(2))
+                        PlayerStat(iTeam, iPlayer).Stat03 = Val(playerDataRow(3))
+                        PlayerStat(iTeam, iPlayer).Stat04 = Val(playerDataRow(4))
+                        PlayerStat(iTeam, iPlayer).Stat05 = Val(playerDataRow(5))
+                        PlayerStat(iTeam, iPlayer).Stat06 = Val(playerDataRow(6))
+                        PlayerStat(iTeam, iPlayer).Stat07 = Val(playerDataRow(7))
+                        PlayerStat(iTeam, iPlayer).Stat08 = Val(playerDataRow(8))
+                        PlayerStat(iTeam, iPlayer).Stat09 = Val(playerDataRow(9))
+                        PlayerStat(iTeam, iPlayer).Stat10 = Val(playerDataRow(10))
+                        PlayerStat(iTeam, iPlayer).Stat11 = Val(playerDataRow(11))
+                        PlayerStat(iTeam, iPlayer).Stat12 = Val(playerDataRow(12))
+                        PlayerStat(iTeam, iPlayer).Stat13 = Val(playerDataRow(13))
+                        PlayerStat(iTeam, iPlayer).Stat14 = Val(playerDataRow(14))
+                        PlayerStat(iTeam, iPlayer).Stat15 = Val(playerDataRow(15))
+                        PlayerStat(iTeam, iPlayer).Stat16 = Val(playerDataRow(16))
+                        PlayerStat(iTeam, iPlayer).Stat17 = Val(playerDataRow(17))
+                        PlayerStat(iTeam, iPlayer).Stat18 = Val(playerDataRow(18))
+                        PlayerStat(iTeam, iPlayer).Stat19 = Val(playerDataRow(19))
+                        PlayerStat(iTeam, iPlayer).Stat20 = Val(playerDataRow(20))
+                        PlayerStat(iTeam, iPlayer).Stat21 = Val(playerDataRow(21))
+                        PlayerStat(iTeam, iPlayer).Stat22 = Val(playerDataRow(22))
+                        PlayerStat(iTeam, iPlayer).Stat23 = Val(playerDataRow(23))
+                        PlayerStat(iTeam, iPlayer).Stat24 = Val(playerDataRow(24))
+                        PlayerStat(iTeam, iPlayer).Stat25 = Val(playerDataRow(25))
+                        PlayerStat(iTeam, iPlayer).Stat26 = Val(playerDataRow(26))
+                        PlayerStat(iTeam, iPlayer).Stat27 = Val(playerDataRow(27))
+                        PlayerStat(iTeam, iPlayer).Stat28 = Val(playerDataRow(28))
+                        PlayerStat(iTeam, iPlayer).Stat29 = Val(playerDataRow(29))
+                        PlayerStat(iTeam, iPlayer).Stat30 = Val(playerDataRow(30))
+                    End If
+
+                End If
+            Next
+        End If
+
+    End Sub
     Sub AssignPlayerDataString(ByVal tempString As String)
         'MatchData|PlayerStats|TimeStamp|MatchID|TeamID|PlayerID|Action|Stat1^Stat2^Stat3^...|1|12|14|
         Dim iMatchID As Integer, iTeamID As Integer, iPlayerID As Integer
@@ -299,13 +368,18 @@ Public Class clsUtils
         RemoteData.AwayPossession = dataArray(5) + "%"
     End Sub
     Function LookupLocalTeamStatIndexFromRBIndex(thisIndex As Integer) As Integer
-        Dim refName As String = strRBTeamStatJSONName(thisIndex)
-        For incTest As Integer = 1 To strTeamStatJSONName.GetUpperBound(0)
-            If strTeamStatJSONName(incTest) = refName Then
-                Return incTest
-            End If
-        Next
-        Return 0
+        If Utils.IsRBTeamNamesValid Then
+            Dim refName As String = strRBTeamStatJSONName(thisIndex)
+            For incTest As Integer = 1 To strTeamStatJSONName.GetUpperBound(0)
+                If strTeamStatJSONName(incTest) = refName Then
+                    Return incTest
+                End If
+            Next
+            Return 0
+        Else
+            'old style
+            Return thisIndex
+        End If
     End Function
     Function LookupLocalPlayerStatIndexFromRBIndex(thisIndex As Integer) As Integer
         Dim refName As String = strRBPlayerStatJSONName(thisIndex)
@@ -626,13 +700,21 @@ Public Class clsUtils
             For incStat As Integer = 1 To 30
                 Dim statValue As Integer = Val(homeStatArray(incStat))   'one-based
                 Dim localStatIndex As Integer = LookupLocalTeamStatIndexFromRBIndex(incStat)
-                AssignHomeTeamStat(localStatIndex, statValue)
+                If Val(homeStatArray(0)) = LiveMatch.HomeTeamID Then
+                    AssignHomeTeamStat(localStatIndex, statValue)
+                Else
+                    AssignAwayTeamStat(localStatIndex, statValue)
+                End If
             Next
             Dim awayStatArray() As String = dataArray(4).Split("^")
             For incStat As Integer = 1 To 30
                 Dim statValue As Integer = Val(awayStatArray(incStat))   'one-based
                 Dim localStatIndex As Integer = LookupLocalTeamStatIndexFromRBIndex(incStat)
-                AssignAwayTeamStat(localStatIndex, statValue)
+                If Val(awayStatArray(0)) = LiveMatch.HomeTeamID Then
+                    AssignHomeTeamStat(localStatIndex, statValue)
+                Else
+                    AssignAwayTeamStat(localStatIndex, statValue)
+                End If
             Next
         End If
     End Sub

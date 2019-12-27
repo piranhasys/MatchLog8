@@ -395,6 +395,7 @@ Public Class Form1
     Friend WithEvents lablAwayScoreSL As Label
     Friend WithEvents lablHomeScoreSL As Label
     Friend WithEvents picBoxPro14 As PictureBox
+    Friend WithEvents btnFetchRBStats As Button
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1108,6 +1109,7 @@ Public Class Form1
         Me.lablAwayNameSL = New System.Windows.Forms.Label()
         Me.lablHomeNameSL = New System.Windows.Forms.Label()
         Me.picBoxPro14 = New System.Windows.Forms.PictureBox()
+        Me.btnFetchRBStats = New System.Windows.Forms.Button()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -7770,7 +7772,7 @@ Public Class Form1
         Me.lablAwayScoreSL.Name = "lablAwayScoreSL"
         Me.lablAwayScoreSL.Size = New System.Drawing.Size(70, 36)
         Me.lablAwayScoreSL.TabIndex = 225
-        Me.lablAwayScoreSL.Text = "123"
+        Me.lablAwayScoreSL.Text = " "
         Me.lablAwayScoreSL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lablHomeScoreSL
@@ -7779,24 +7781,24 @@ Public Class Form1
         Me.lablHomeScoreSL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lablHomeScoreSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablHomeScoreSL.ForeColor = System.Drawing.Color.Black
-        Me.lablHomeScoreSL.Location = New System.Drawing.Point(82, 275)
+        Me.lablHomeScoreSL.Location = New System.Drawing.Point(82, 276)
         Me.lablHomeScoreSL.Name = "lablHomeScoreSL"
         Me.lablHomeScoreSL.Size = New System.Drawing.Size(70, 36)
         Me.lablHomeScoreSL.TabIndex = 224
-        Me.lablHomeScoreSL.Text = "123"
+        Me.lablHomeScoreSL.Text = " "
         Me.lablHomeScoreSL.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'btnClearSLPossession
         '
         Me.btnClearSLPossession.BackColor = System.Drawing.Color.DarkRed
-        Me.btnClearSLPossession.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearSLPossession.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearSLPossession.ForeColor = System.Drawing.Color.White
-        Me.btnClearSLPossession.Location = New System.Drawing.Point(82, 663)
+        Me.btnClearSLPossession.Location = New System.Drawing.Point(82, 673)
         Me.btnClearSLPossession.Name = "btnClearSLPossession"
-        Me.btnClearSLPossession.Size = New System.Drawing.Size(150, 51)
+        Me.btnClearSLPossession.Size = New System.Drawing.Size(150, 40)
         Me.btnClearSLPossession.TabIndex = 223
         Me.btnClearSLPossession.Tag = "1"
-        Me.btnClearSLPossession.Text = "Clear this period possession"
+        Me.btnClearSLPossession.Text = "Reset this period's" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "possession"
         Me.btnClearSLPossession.UseVisualStyleBackColor = False
         '
         'Label3
@@ -7831,7 +7833,7 @@ Public Class Form1
         Me.lablPeriodSL.Name = "lablPeriodSL"
         Me.lablPeriodSL.Size = New System.Drawing.Size(150, 24)
         Me.lablPeriodSL.TabIndex = 215
-        Me.lablPeriodSL.Text = "First Half"
+        Me.lablPeriodSL.Text = " "
         Me.lablPeriodSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lablMatchClockSL
@@ -7849,7 +7851,7 @@ Public Class Form1
         '
         'btnPossessionHSL
         '
-        Me.btnPossessionHSL.BackColor = System.Drawing.Color.White
+        Me.btnPossessionHSL.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnPossessionHSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPossessionHSL.ForeColor = System.Drawing.Color.Black
         Me.btnPossessionHSL.Location = New System.Drawing.Point(4, 499)
@@ -7862,7 +7864,7 @@ Public Class Form1
         '
         'btnPossessionASL
         '
-        Me.btnPossessionASL.BackColor = System.Drawing.Color.White
+        Me.btnPossessionASL.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnPossessionASL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPossessionASL.ForeColor = System.Drawing.Color.Black
         Me.btnPossessionASL.Location = New System.Drawing.Point(159, 499)
@@ -7875,7 +7877,7 @@ Public Class Form1
         '
         'btnPossessionOOPSL
         '
-        Me.btnPossessionOOPSL.BackColor = System.Drawing.Color.White
+        Me.btnPossessionOOPSL.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnPossessionOOPSL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPossessionOOPSL.ForeColor = System.Drawing.Color.Black
         Me.btnPossessionOOPSL.Location = New System.Drawing.Point(82, 565)
@@ -7907,7 +7909,7 @@ Public Class Form1
         Me.lablRemoteAwayPossessionSL.Name = "lablRemoteAwayPossessionSL"
         Me.lablRemoteAwayPossessionSL.Size = New System.Drawing.Size(150, 36)
         Me.lablRemoteAwayPossessionSL.TabIndex = 199
-        Me.lablRemoteAwayPossessionSL.Text = "100%"
+        Me.lablRemoteAwayPossessionSL.Text = " "
         Me.lablRemoteAwayPossessionSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lablRemoteHomePossessionSL
@@ -7920,7 +7922,7 @@ Public Class Form1
         Me.lablRemoteHomePossessionSL.Name = "lablRemoteHomePossessionSL"
         Me.lablRemoteHomePossessionSL.Size = New System.Drawing.Size(150, 36)
         Me.lablRemoteHomePossessionSL.TabIndex = 198
-        Me.lablRemoteHomePossessionSL.Text = "100%"
+        Me.lablRemoteHomePossessionSL.Text = " "
         Me.lablRemoteHomePossessionSL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lablAwayNameSL
@@ -7958,12 +7960,25 @@ Public Class Form1
         Me.picBoxPro14.TabStop = False
         Me.picBoxPro14.Visible = False
         '
+        'btnFetchRBStats
+        '
+        Me.btnFetchRBStats.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnFetchRBStats.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFetchRBStats.ForeColor = System.Drawing.Color.Black
+        Me.btnFetchRBStats.Location = New System.Drawing.Point(16, 308)
+        Me.btnFetchRBStats.Name = "btnFetchRBStats"
+        Me.btnFetchRBStats.Size = New System.Drawing.Size(100, 40)
+        Me.btnFetchRBStats.TabIndex = 226
+        Me.btnFetchRBStats.Text = "Fetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Match Stats"
+        Me.btnFetchRBStats.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.panelSuperLeaguePro14)
+        Me.Controls.Add(Me.btnFetchRBStats)
         Me.Controls.Add(Me.btnFetchStatNames)
         Me.Controls.Add(Me.groupRemotePossession)
         Me.Controls.Add(Me.Panel1)
@@ -8197,6 +8212,10 @@ Public Class Form1
                             Utils.AssignPlayerDataString(strMessage)
                             ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
                             ShowPlayerSummaryStats(iCurrentPlayerTeam)
+                        Case "ALLPLAYERSTATS"
+                            'SL2020
+                            Utils.AssignAllPlayerDataString(strMessage)
+                            ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
                         Case "TEAMSTATS"
                             Utils.AssignTeamDataString(strMessage)
                             ShowTeamStats()
@@ -8927,7 +8946,7 @@ Public Class Form1
         ShowPlayerSummaryStats(1)
         ShowPlayerSummaryStats(2)
         ShowDirection()
-        Me.Text = "MatchLog8 by PIRANHA Systems v " & Application.ProductVersion & "       User: " & Config.UserName
+        Me.Text = "MatchLog by PIRANHA Systems v " & Application.ProductVersion & "       User: " & Config.UserName
         If Config.UseRBStatNames Then
             Me.Text += "       Stat Names: ReportBuilder"
             btnFetchStatNames.Visible = True
@@ -8995,6 +9014,8 @@ Public Class Form1
                 panelSuperLeaguePro14.Visible = True
                 picBoxSLLogo.Visible = True
                 panelSuperLeaguePro14.BringToFront()
+                TabControl1.TabPages.RemoveByKey("tabKickouts")
+                TabControl1.TabPages.RemoveByKey("tabPenalties")
             Case "PRO14"
                 'testing
                 panelSuperLeaguePro14.Visible = True
@@ -10197,6 +10218,7 @@ Public Class Form1
             Me.Panel1.Left = 0
             Me.Panel1.Height = 768
             Me.Panel1.Width = 1366
+            Panel1.BringToFront()
         Else
             Me.Panel1.Top = 0
             Me.Panel1.Left = 0
@@ -11579,6 +11601,16 @@ Public Class Form1
     End Sub
 
     Private Sub btnClearSLPossession_Click(sender As Object, e As EventArgs) Handles btnClearSLPossession.Click
-        MessageBox.Show("TODO")
+        If MessageBox.Show("This will reset calculated Possession data." & vbLf & "Are you sure you want to continue?", "Reset Possession", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            SendData("MATCHPAD|LOGPOSSESSION|" + LiveMatch.MatchID.ToString + "|-1|")
+        End If
+    End Sub
+
+    Private Sub btnFetchRBStats_Click(sender As Object, e As EventArgs) Handles btnFetchRBStats.Click
+        SendData("MATCHPAD|REQUESTTEAMSTATS|" + LiveMatch.MatchID.ToString + "|")
+        Threading.Thread.Sleep(100)
+        SendData("MATCHPAD|REQUESTPLAYERSTATS|" + LiveMatch.MatchID.ToString + "|" + LiveMatch.HomeTeamID.ToString + "|")
+        Threading.Thread.Sleep(100)
+        SendData("MATCHPAD|REQUESTPLAYERSTATS|" + LiveMatch.MatchID.ToString + "|" + LiveMatch.AwayTeamID.ToString + "|")
     End Sub
 End Class
