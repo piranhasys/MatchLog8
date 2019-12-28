@@ -396,6 +396,17 @@ Public Class Form1
     Friend WithEvents lablHomeScoreSL As Label
     Friend WithEvents picBoxPro14 As PictureBox
     Friend WithEvents btnFetchRBStats As Button
+    Friend WithEvents tabCarries As TabPage
+    Friend WithEvents listViewCarriesHome As ListView
+    Friend WithEvents ColumnHeader65 As ColumnHeader
+    Friend WithEvents ColumnHeader66 As ColumnHeader
+    Friend WithEvents lablHomeNameSL2 As Label
+    Friend WithEvents lablAwayNameSL2 As Label
+    Friend WithEvents listViewCarriesAway As ListView
+    Friend WithEvents ColumnHeader67 As ColumnHeader
+    Friend WithEvents ColumnHeader68 As ColumnHeader
+    Friend WithEvents ColumnHeader70 As ColumnHeader
+    Friend WithEvents ColumnHeader69 As ColumnHeader
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1110,6 +1121,17 @@ Public Class Form1
         Me.lablHomeNameSL = New System.Windows.Forms.Label()
         Me.picBoxPro14 = New System.Windows.Forms.PictureBox()
         Me.btnFetchRBStats = New System.Windows.Forms.Button()
+        Me.tabCarries = New System.Windows.Forms.TabPage()
+        Me.listViewCarriesHome = New System.Windows.Forms.ListView()
+        Me.ColumnHeader65 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader66 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lablHomeNameSL2 = New System.Windows.Forms.Label()
+        Me.lablAwayNameSL2 = New System.Windows.Forms.Label()
+        Me.listViewCarriesAway = New System.Windows.Forms.ListView()
+        Me.ColumnHeader67 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader68 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader69 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader70 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -1130,6 +1152,7 @@ Public Class Form1
         Me.panelSuperLeaguePro14.SuspendLayout
         CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.tabCarries.SuspendLayout
         Me.SuspendLayout
         '
         'lablHeading01
@@ -3230,6 +3253,7 @@ Public Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.tabKickouts)
         Me.TabControl1.Controls.Add(Me.tabPenalties)
+        Me.TabControl1.Controls.Add(Me.tabCarries)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(131, 1)
         Me.TabControl1.Name = "TabControl1"
@@ -7972,6 +7996,113 @@ Public Class Form1
         Me.btnFetchRBStats.Text = "Fetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Match Stats"
         Me.btnFetchRBStats.UseVisualStyleBackColor = False
         '
+        'tabCarries
+        '
+        Me.tabCarries.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tabCarries.Controls.Add(Me.listViewCarriesAway)
+        Me.tabCarries.Controls.Add(Me.lablAwayNameSL2)
+        Me.tabCarries.Controls.Add(Me.lablHomeNameSL2)
+        Me.tabCarries.Controls.Add(Me.listViewCarriesHome)
+        Me.tabCarries.Location = New System.Drawing.Point(4, 36)
+        Me.tabCarries.Name = "tabCarries"
+        Me.tabCarries.Size = New System.Drawing.Size(896, 684)
+        Me.tabCarries.TabIndex = 9
+        Me.tabCarries.Text = "CARRIES"
+        '
+        'listViewCarriesHome
+        '
+        Me.listViewCarriesHome.BackColor = System.Drawing.Color.Black
+        Me.listViewCarriesHome.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listViewCarriesHome.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader65, Me.ColumnHeader69, Me.ColumnHeader66})
+        Me.listViewCarriesHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewCarriesHome.ForeColor = System.Drawing.Color.White
+        Me.listViewCarriesHome.FullRowSelect = True
+        Me.listViewCarriesHome.GridLines = True
+        Me.listViewCarriesHome.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewCarriesHome.HideSelection = False
+        Me.listViewCarriesHome.Location = New System.Drawing.Point(93, 34)
+        Me.listViewCarriesHome.MultiSelect = False
+        Me.listViewCarriesHome.Name = "listViewCarriesHome"
+        Me.listViewCarriesHome.Size = New System.Drawing.Size(350, 634)
+        Me.listViewCarriesHome.TabIndex = 1
+        Me.listViewCarriesHome.UseCompatibleStateImageBehavior = False
+        Me.listViewCarriesHome.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader65
+        '
+        Me.ColumnHeader65.Text = "ID"
+        Me.ColumnHeader65.Width = 0
+        '
+        'ColumnHeader66
+        '
+        Me.ColumnHeader66.Text = "Player"
+        Me.ColumnHeader66.Width = 300
+        '
+        'lablHomeNameSL2
+        '
+        Me.lablHomeNameSL2.BackColor = System.Drawing.Color.Transparent
+        Me.lablHomeNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeNameSL2.ForeColor = System.Drawing.Color.White
+        Me.lablHomeNameSL2.Location = New System.Drawing.Point(93, 8)
+        Me.lablHomeNameSL2.Name = "lablHomeNameSL2"
+        Me.lablHomeNameSL2.Size = New System.Drawing.Size(304, 26)
+        Me.lablHomeNameSL2.TabIndex = 94
+        Me.lablHomeNameSL2.Text = "TOTTENHAM"
+        Me.lablHomeNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablAwayNameSL2
+        '
+        Me.lablAwayNameSL2.BackColor = System.Drawing.Color.Transparent
+        Me.lablAwayNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayNameSL2.ForeColor = System.Drawing.Color.White
+        Me.lablAwayNameSL2.Location = New System.Drawing.Point(485, 8)
+        Me.lablAwayNameSL2.Name = "lablAwayNameSL2"
+        Me.lablAwayNameSL2.Size = New System.Drawing.Size(304, 26)
+        Me.lablAwayNameSL2.TabIndex = 95
+        Me.lablAwayNameSL2.Text = "TOTTENHAM"
+        Me.lablAwayNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'listViewCarriesAway
+        '
+        Me.listViewCarriesAway.BackColor = System.Drawing.Color.Black
+        Me.listViewCarriesAway.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listViewCarriesAway.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader67, Me.ColumnHeader70, Me.ColumnHeader68})
+        Me.listViewCarriesAway.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewCarriesAway.ForeColor = System.Drawing.Color.White
+        Me.listViewCarriesAway.FullRowSelect = True
+        Me.listViewCarriesAway.GridLines = True
+        Me.listViewCarriesAway.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewCarriesAway.HideSelection = False
+        Me.listViewCarriesAway.Location = New System.Drawing.Point(485, 34)
+        Me.listViewCarriesAway.MultiSelect = False
+        Me.listViewCarriesAway.Name = "listViewCarriesAway"
+        Me.listViewCarriesAway.Size = New System.Drawing.Size(350, 634)
+        Me.listViewCarriesAway.TabIndex = 96
+        Me.listViewCarriesAway.UseCompatibleStateImageBehavior = False
+        Me.listViewCarriesAway.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader67
+        '
+        Me.ColumnHeader67.Text = "ID"
+        Me.ColumnHeader67.Width = 0
+        '
+        'ColumnHeader68
+        '
+        Me.ColumnHeader68.Text = "Player"
+        Me.ColumnHeader68.Width = 300
+        '
+        'ColumnHeader69
+        '
+        Me.ColumnHeader69.Text = "Num"
+        Me.ColumnHeader69.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader69.Width = 50
+        '
+        'ColumnHeader70
+        '
+        Me.ColumnHeader70.Text = "Num"
+        Me.ColumnHeader70.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader70.Width = 50
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -8031,6 +8162,7 @@ Public Class Form1
         Me.panelSuperLeaguePro14.ResumeLayout(False)
         CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).EndInit
+        Me.tabCarries.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -8200,6 +8332,7 @@ Public Class Form1
                         Case Else
                             'MessageBox.Show("Not live team")
                     End Select
+                    ShowCarryPlayers()    'SL2020
                 Case "MATCHDATA"
                     Select Case dataArray(1).ToUpper
                         Case "LIVESTATNAMES"
@@ -8495,10 +8628,12 @@ Public Class Form1
                 Me.lablHomeName2.Text = .HomeLongName.ToUpper
                 Me.lablHomeName3.Text = .HomeLongName.ToUpper
                 Me.lablHomeNameSL.Text = .HomeShortName.ToUpper
+                Me.lablHomeNameSL2.Text = .HomeShortName.ToUpper
                 Me.lablAwayName.Text = .AwayLongName.ToUpper
                 Me.lablAwayName2.Text = .AwayLongName.ToUpper
                 Me.lablAwayName3.Text = .AwayLongName.ToUpper
                 Me.lablAwayNameSL.Text = .AwayShortName.ToUpper
+                Me.lablAwayNameSL2.Text = .AwayShortName.ToUpper
                 Me.btnPossessionH.Text = .HomeShortName.ToUpper & vbLf & "Key ,"
                 Me.btnPossessionA.Text = .AwayShortName.ToUpper & vbLf & "Key ."
                 Me.btnPossessionOOP.Text = "OUT OF PLAY" & vbLf & "Key /"
@@ -9016,11 +9151,15 @@ Public Class Form1
                 panelSuperLeaguePro14.BringToFront()
                 TabControl1.TabPages.RemoveByKey("tabKickouts")
                 TabControl1.TabPages.RemoveByKey("tabPenalties")
+                ShowCarryPlayers()
             Case "PRO14"
                 'testing
                 panelSuperLeaguePro14.Visible = True
                 picBoxPro14.Visible = True
                 panelSuperLeaguePro14.BringToFront()
+                TabControl1.TabPages.RemoveByKey("tabCarries")
+            Case Else
+                TabControl1.TabPages.RemoveByKey("tabCarries")
         End Select
     End Sub
     Sub InitClasses()
@@ -9071,6 +9210,30 @@ Public Class Form1
                 PlayerStat(iTeam, inc) = New clsPlayerStat
             Next
         Next
+    End Sub
+
+    Sub ShowCarryPlayers()
+        Dim iTeam As Integer = 1
+        Dim tempItem As New ListViewItem
+
+        listViewCarriesHome.Items.Clear()
+        listViewCarriesAway.Items.Clear()
+        For inc As Integer = 1 To 21    'SL2020 only
+            tempItem = New ListViewItem
+            tempItem.Text = PlayerStat(iTeam, inc).PlayerID
+            tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerNum.ToString)
+            tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
+            listViewCarriesHome.Items.Add(tempItem)
+        Next
+        iTeam = 2
+        For inc As Integer = 1 To 21    'SL2020 only
+            tempItem = New ListViewItem
+            tempItem.Text = PlayerStat(iTeam, inc).PlayerID
+            tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerNum.ToString)
+            tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
+            listViewCarriesAway.Items.Add(tempItem)
+        Next
+
     End Sub
     Delegate Sub ShowTeamStatsCallback()
     Sub ShowTeamStats()
@@ -11612,5 +11775,31 @@ Public Class Form1
         SendData("MATCHPAD|REQUESTPLAYERSTATS|" + LiveMatch.MatchID.ToString + "|" + LiveMatch.HomeTeamID.ToString + "|")
         Threading.Thread.Sleep(100)
         SendData("MATCHPAD|REQUESTPLAYERSTATS|" + LiveMatch.MatchID.ToString + "|" + LiveMatch.AwayTeamID.ToString + "|")
+    End Sub
+
+    Private Sub listViewCarriesHome_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listViewCarriesHome.SelectedIndexChanged
+        If listViewCarriesHome.SelectedIndices.Count = 1 Then
+            'valid
+            Dim matchID As String = LiveMatch.MatchID.ToString
+            Dim teamID As String = LiveMatch.HomeTeamID.ToString
+            Dim playerID As String = listViewCarriesHome.SelectedItems(0).Text
+            Dim playerShirt As String = listViewCarriesHome.SelectedItems(0).SubItems(1).Text
+            Dim playerName As String = listViewCarriesHome.SelectedItems(0).SubItems(2).Text
+            'MATCHDATA|CURRENTPLAYER|26538|462|6560|Name|number||
+            SendData("MATCHPAD|CURRENTPLAYER|" + matchID + "|" + teamID + "|" + playerID + "|" + playerName + "|" + playerShirt + "||")
+        End If
+    End Sub
+
+    Private Sub listViewCarriesAway_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listViewCarriesAway.SelectedIndexChanged
+        If listViewCarriesAway.SelectedIndices.Count = 1 Then
+            'valid
+            Dim matchID As String = LiveMatch.MatchID.ToString
+            Dim teamID As String = LiveMatch.AwayTeamID.ToString
+            Dim playerID As String = listViewCarriesAway.SelectedItems(0).Text
+            Dim playerShirt As String = listViewCarriesAway.SelectedItems(0).SubItems(1).Text
+            Dim playerName As String = listViewCarriesAway.SelectedItems(0).SubItems(2).Text
+            'MATCHDATA|CURRENTPLAYER|26538|462|6560|Name|number||
+            SendData("MATCHPAD|CURRENTPLAYER|" + matchID + "|" + teamID + "|" + playerID + "|" + playerName + "|" + playerShirt + "||")
+        End If
     End Sub
 End Class
