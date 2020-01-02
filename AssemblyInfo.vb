@@ -17,7 +17,7 @@ Imports System.Runtime.InteropServices
 <Assembly: CLSCompliant(True)> 
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("E83CCD28-1B4D-4BFD-A67F-11CBC4C06373")> 
+<Assembly: Guid("E83CCD28-1B4D-4BFD-A67F-11CBC4C06373")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -29,4 +29,4 @@ Imports System.Runtime.InteropServices
 ' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
 
-<Assembly: AssemblyVersion("1.1.0.1")> 
+<Assembly: AssemblyVersion("1.2.0.0")>

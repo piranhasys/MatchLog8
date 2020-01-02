@@ -368,7 +368,10 @@ Public Class clsUtils
         RemoteData.AwayPossession = dataArray(5) + "%"
     End Sub
     Function LookupLocalTeamStatIndexFromRBIndex(thisIndex As Integer) As Integer
-        If Utils.IsRBTeamNamesValid Then
+        If Config.UseRBStatNames Then
+            'old style
+            Return thisIndex
+        ElseIf Utils.IsRBTeamNamesValid Then
             Dim refName As String = strRBTeamStatJSONName(thisIndex)
             For incTest As Integer = 1 To strTeamStatJSONName.GetUpperBound(0)
                 If strTeamStatJSONName(incTest) = refName Then
@@ -690,10 +693,10 @@ Public Class clsUtils
         End If
     End Sub
     Sub AssignAllTeamStatsDataString(ByVal tempString As String)
+        'MATCHDATA|ALLTEAMSTATS|32488|426^3^0^0^0^1^0^1^0^0^0^0^1^1^0^1^1^1^0^1^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|428^3^0^0^0^1^0^1^0^0^0^0^1^1^0^1^1^1^0^1^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|||3|1|0|0|
         Dim iMatchID As Integer, iTeamID As Integer
         On Error Resume Next
-        Dim dataArray() As String
-        dataArray = tempString.Split(Chr(124))
+        Dim dataArray() As String = tempString.Split(Chr(124))
         iMatchID = Val(dataArray(2))
         If iMatchID = LiveMatch.MatchID Then
             Dim homeStatArray() As String = dataArray(3).Split("^")

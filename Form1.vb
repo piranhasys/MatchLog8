@@ -9157,6 +9157,7 @@ Public Class Form1
                 panelSuperLeaguePro14.Visible = True
                 picBoxPro14.Visible = True
                 panelSuperLeaguePro14.BringToFront()
+                TabControl1.TabPages.RemoveByKey("tabKickouts")
                 TabControl1.TabPages.RemoveByKey("tabCarries")
             Case Else
                 TabControl1.TabPages.RemoveByKey("tabCarries")
@@ -9433,6 +9434,21 @@ Public Class Form1
                     'tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
                     'tempLabel.BackColor = colHighlight
             End Select
+            Select Case Config.UserName
+                Case "SKYSUPERLEAGUE"
+                    'possible v long data for metres
+                    'careful if stat moves###################
+                    If PlayerStat(1, iPlayerNum).Stat08.ToString.Length > 4 Then
+                        lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
+                    Else
+                        lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
+                    End If
+                    If PlayerStat(2, iPlayerNum).Stat08.ToString.Length > 4 Then
+                        lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
+                    Else
+                        lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
+                    End If
+            End Select
             For inc = 1 To 25
                 tempButton = FindPlayerButtonByName(iTeam, inc)
                 tempButton.BackColor = colNormal
@@ -9547,6 +9563,101 @@ Public Class Form1
             Me.lablHeading29.Text = strTeamStatName(29)
             Me.lablHeading30.Text = strTeamStatName(30)
 
+            lablHeading01.Visible = (strTeamStatName(1).Trim <> "")
+            lablHeading02.Visible = (strTeamStatName(2).Trim <> "")
+            lablHeading03.Visible = (strTeamStatName(3).Trim <> "")
+            lablHeading04.Visible = (strTeamStatName(4).Trim <> "")
+            lablHeading05.Visible = (strTeamStatName(5).Trim <> "")
+            lablHeading06.Visible = (strTeamStatName(6).Trim <> "")
+            lablHeading07.Visible = (strTeamStatName(7).Trim <> "")
+            lablHeading08.Visible = (strTeamStatName(8).Trim <> "")
+            lablHeading09.Visible = (strTeamStatName(9).Trim <> "")
+            lablHeading10.Visible = (strTeamStatName(10).Trim <> "")
+            lablHeading11.Visible = (strTeamStatName(11).Trim <> "")
+            lablHeading12.Visible = (strTeamStatName(12).Trim <> "")
+            lablHeading13.Visible = (strTeamStatName(13).Trim <> "")
+            lablHeading14.Visible = (strTeamStatName(14).Trim <> "")
+            lablHeading15.Visible = (strTeamStatName(15).Trim <> "")
+            lablHeading16.Visible = (strTeamStatName(16).Trim <> "")
+            lablHeading17.Visible = (strTeamStatName(17).Trim <> "")
+            lablHeading18.Visible = (strTeamStatName(18).Trim <> "")
+            lablHeading19.Visible = (strTeamStatName(19).Trim <> "")
+            lablHeading20.Visible = (strTeamStatName(20).Trim <> "")
+            lablHeading21.Visible = (strTeamStatName(21).Trim <> "")
+            lablHeading22.Visible = (strTeamStatName(22).Trim <> "")
+            lablHeading23.Visible = (strTeamStatName(23).Trim <> "")
+            lablHeading24.Visible = (strTeamStatName(24).Trim <> "")
+            lablHeading25.Visible = (strTeamStatName(25).Trim <> "")
+            lablHeading26.Visible = (strTeamStatName(26).Trim <> "")
+            lablHeading27.Visible = (strTeamStatName(27).Trim <> "")
+            lablHeading28.Visible = (strTeamStatName(28).Trim <> "")
+            lablHeading29.Visible = (strTeamStatName(29).Trim <> "")
+            lablHeading30.Visible = (strTeamStatName(30).Trim <> "")
+
+            lablStat01H.Visible = (strTeamStatName(1).Trim <> "")
+            lablStat02H.Visible = (strTeamStatName(2).Trim <> "")
+            lablStat03H.Visible = (strTeamStatName(3).Trim <> "")
+            lablStat04H.Visible = (strTeamStatName(4).Trim <> "")
+            lablStat05H.Visible = (strTeamStatName(5).Trim <> "")
+            lablStat06H.Visible = (strTeamStatName(6).Trim <> "")
+            lablStat07H.Visible = (strTeamStatName(7).Trim <> "")
+            lablStat08H.Visible = (strTeamStatName(8).Trim <> "")
+            lablStat09H.Visible = (strTeamStatName(9).Trim <> "")
+            lablStat10H.Visible = (strTeamStatName(10).Trim <> "")
+            lablStat11H.Visible = (strTeamStatName(11).Trim <> "")
+            lablStat12H.Visible = (strTeamStatName(12).Trim <> "")
+            lablStat13H.Visible = (strTeamStatName(13).Trim <> "")
+            lablStat14H.Visible = (strTeamStatName(14).Trim <> "")
+            lablStat15H.Visible = (strTeamStatName(15).Trim <> "")
+            lablStat16H.Visible = (strTeamStatName(16).Trim <> "")
+            lablStat17H.Visible = (strTeamStatName(17).Trim <> "")
+            lablStat18H.Visible = (strTeamStatName(18).Trim <> "")
+            lablStat19H.Visible = (strTeamStatName(19).Trim <> "")
+            lablStat20H.Visible = (strTeamStatName(20).Trim <> "")
+            lablStat21H.Visible = (strTeamStatName(21).Trim <> "")
+            lablStat22H.Visible = (strTeamStatName(22).Trim <> "")
+            lablStat23H.Visible = (strTeamStatName(23).Trim <> "")
+            lablStat24H.Visible = (strTeamStatName(24).Trim <> "")
+            lablStat25H.Visible = (strTeamStatName(25).Trim <> "")
+            lablStat26H.Visible = (strTeamStatName(26).Trim <> "")
+            lablStat27H.Visible = (strTeamStatName(27).Trim <> "")
+            lablStat28H.Visible = (strTeamStatName(28).Trim <> "")
+            lablStat29H.Visible = (strTeamStatName(29).Trim <> "")
+            lablStat30H.Visible = (strTeamStatName(30).Trim <> "")
+
+            lablStat01A.Visible = (strTeamStatName(1).Trim <> "")
+            lablStat02A.Visible = (strTeamStatName(2).Trim <> "")
+            lablStat03A.Visible = (strTeamStatName(3).Trim <> "")
+            lablStat04A.Visible = (strTeamStatName(4).Trim <> "")
+            lablStat05A.Visible = (strTeamStatName(5).Trim <> "")
+            lablStat06A.Visible = (strTeamStatName(6).Trim <> "")
+            lablStat07A.Visible = (strTeamStatName(7).Trim <> "")
+            lablStat08A.Visible = (strTeamStatName(8).Trim <> "")
+            lablStat09A.Visible = (strTeamStatName(9).Trim <> "")
+            lablStat10A.Visible = (strTeamStatName(10).Trim <> "")
+            lablStat11A.Visible = (strTeamStatName(11).Trim <> "")
+            lablStat12A.Visible = (strTeamStatName(12).Trim <> "")
+            lablStat13A.Visible = (strTeamStatName(13).Trim <> "")
+            lablStat14A.Visible = (strTeamStatName(14).Trim <> "")
+            lablStat15A.Visible = (strTeamStatName(15).Trim <> "")
+            lablStat16A.Visible = (strTeamStatName(16).Trim <> "")
+            lablStat17A.Visible = (strTeamStatName(17).Trim <> "")
+            lablStat18A.Visible = (strTeamStatName(18).Trim <> "")
+            lablStat19A.Visible = (strTeamStatName(19).Trim <> "")
+            lablStat20A.Visible = (strTeamStatName(20).Trim <> "")
+            lablStat21A.Visible = (strTeamStatName(21).Trim <> "")
+            lablStat22A.Visible = (strTeamStatName(22).Trim <> "")
+            lablStat23A.Visible = (strTeamStatName(23).Trim <> "")
+            lablStat24A.Visible = (strTeamStatName(24).Trim <> "")
+            lablStat25A.Visible = (strTeamStatName(25).Trim <> "")
+            lablStat26A.Visible = (strTeamStatName(26).Trim <> "")
+            lablStat27A.Visible = (strTeamStatName(27).Trim <> "")
+            lablStat28A.Visible = (strTeamStatName(28).Trim <> "")
+            lablStat29A.Visible = (strTeamStatName(29).Trim <> "")
+            lablStat30A.Visible = (strTeamStatName(30).Trim <> "")
+
+
+
             Me.lablPlayerStatHeading01.Text = strPlayerStatName(1)
             Me.lablPlayerStatHeading02.Text = strPlayerStatName(2)
             Me.lablPlayerStatHeading03.Text = strPlayerStatName(3)
@@ -9608,6 +9719,134 @@ Public Class Form1
             Me.lablPlayerStatHeading28A.Text = strPlayerStatName(28)
             Me.lablPlayerStatHeading29A.Text = strPlayerStatName(29)
             Me.lablPlayerStatHeading30A.Text = strPlayerStatName(30)
+
+            lablPlayerStatHeading01.Visible = (strPlayerStatName(1).Trim <> "")
+            lablPlayerStatHeading02.Visible = (strPlayerStatName(2).Trim <> "")
+            lablPlayerStatHeading03.Visible = (strPlayerStatName(3).Trim <> "")
+            lablPlayerStatHeading04.Visible = (strPlayerStatName(4).Trim <> "")
+            lablPlayerStatHeading05.Visible = (strPlayerStatName(5).Trim <> "")
+            lablPlayerStatHeading06.Visible = (strPlayerStatName(6).Trim <> "")
+            lablPlayerStatHeading07.Visible = (strPlayerStatName(7).Trim <> "")
+            lablPlayerStatHeading08.Visible = (strPlayerStatName(8).Trim <> "")
+            lablPlayerStatHeading09.Visible = (strPlayerStatName(9).Trim <> "")
+            lablPlayerStatHeading10.Visible = (strPlayerStatName(10).Trim <> "")
+            lablPlayerStatHeading11.Visible = (strPlayerStatName(11).Trim <> "")
+            lablPlayerStatHeading12.Visible = (strPlayerStatName(12).Trim <> "")
+            lablPlayerStatHeading13.Visible = (strPlayerStatName(13).Trim <> "")
+            lablPlayerStatHeading14.Visible = (strPlayerStatName(14).Trim <> "")
+            lablPlayerStatHeading15.Visible = (strPlayerStatName(15).Trim <> "")
+            lablPlayerStatHeading16.Visible = (strPlayerStatName(16).Trim <> "")
+            lablPlayerStatHeading17.Visible = (strPlayerStatName(17).Trim <> "")
+            lablPlayerStatHeading18.Visible = (strPlayerStatName(18).Trim <> "")
+            lablPlayerStatHeading19.Visible = (strPlayerStatName(19).Trim <> "")
+            lablPlayerStatHeading20.Visible = (strPlayerStatName(20).Trim <> "")
+            lablPlayerStatHeading21.Visible = (strPlayerStatName(21).Trim <> "")
+            lablPlayerStatHeading22.Visible = (strPlayerStatName(22).Trim <> "")
+            lablPlayerStatHeading23.Visible = (strPlayerStatName(23).Trim <> "")
+            lablPlayerStatHeading24.Visible = (strPlayerStatName(24).Trim <> "")
+            lablPlayerStatHeading25.Visible = (strPlayerStatName(25).Trim <> "")
+            lablPlayerStatHeading26.Visible = (strPlayerStatName(26).Trim <> "")
+            lablPlayerStatHeading27.Visible = (strPlayerStatName(27).Trim <> "")
+            lablPlayerStatHeading28.Visible = (strPlayerStatName(28).Trim <> "")
+            lablPlayerStatHeading29.Visible = (strPlayerStatName(29).Trim <> "")
+            lablPlayerStatHeading30.Visible = (strPlayerStatName(30).Trim <> "")
+
+            lablPlayerStatHeading01A.Visible = (strPlayerStatName(1).Trim <> "")
+            lablPlayerStatHeading02A.Visible = (strPlayerStatName(2).Trim <> "")
+            lablPlayerStatHeading03A.Visible = (strPlayerStatName(3).Trim <> "")
+            lablPlayerStatHeading04A.Visible = (strPlayerStatName(4).Trim <> "")
+            lablPlayerStatHeading05A.Visible = (strPlayerStatName(5).Trim <> "")
+            lablPlayerStatHeading06A.Visible = (strPlayerStatName(6).Trim <> "")
+            lablPlayerStatHeading07A.Visible = (strPlayerStatName(7).Trim <> "")
+            lablPlayerStatHeading08A.Visible = (strPlayerStatName(8).Trim <> "")
+            lablPlayerStatHeading09A.Visible = (strPlayerStatName(9).Trim <> "")
+            lablPlayerStatHeading10A.Visible = (strPlayerStatName(10).Trim <> "")
+            lablPlayerStatHeading11A.Visible = (strPlayerStatName(11).Trim <> "")
+            lablPlayerStatHeading12A.Visible = (strPlayerStatName(12).Trim <> "")
+            lablPlayerStatHeading13A.Visible = (strPlayerStatName(13).Trim <> "")
+            lablPlayerStatHeading14A.Visible = (strPlayerStatName(14).Trim <> "")
+            lablPlayerStatHeading15A.Visible = (strPlayerStatName(15).Trim <> "")
+            lablPlayerStatHeading16A.Visible = (strPlayerStatName(16).Trim <> "")
+            lablPlayerStatHeading17A.Visible = (strPlayerStatName(17).Trim <> "")
+            lablPlayerStatHeading18A.Visible = (strPlayerStatName(18).Trim <> "")
+            lablPlayerStatHeading19A.Visible = (strPlayerStatName(19).Trim <> "")
+            lablPlayerStatHeading20A.Visible = (strPlayerStatName(20).Trim <> "")
+            lablPlayerStatHeading21A.Visible = (strPlayerStatName(21).Trim <> "")
+            lablPlayerStatHeading22A.Visible = (strPlayerStatName(22).Trim <> "")
+            lablPlayerStatHeading23A.Visible = (strPlayerStatName(23).Trim <> "")
+            lablPlayerStatHeading24A.Visible = (strPlayerStatName(24).Trim <> "")
+            lablPlayerStatHeading25A.Visible = (strPlayerStatName(25).Trim <> "")
+            lablPlayerStatHeading26A.Visible = (strPlayerStatName(26).Trim <> "")
+            lablPlayerStatHeading27A.Visible = (strPlayerStatName(27).Trim <> "")
+            lablPlayerStatHeading28A.Visible = (strPlayerStatName(28).Trim <> "")
+            lablPlayerStatHeading29A.Visible = (strPlayerStatName(29).Trim <> "")
+            lablPlayerStatHeading30A.Visible = (strPlayerStatName(30).Trim <> "")
+
+            'lablPlayerStat01H
+            lablPlayerStat01H.Visible = (strPlayerStatName(1).Trim <> "")
+            lablPlayerStat02H.Visible = (strPlayerStatName(2).Trim <> "")
+            lablPlayerStat03H.Visible = (strPlayerStatName(3).Trim <> "")
+            lablPlayerStat04H.Visible = (strPlayerStatName(4).Trim <> "")
+            lablPlayerStat05H.Visible = (strPlayerStatName(5).Trim <> "")
+            lablPlayerStat06H.Visible = (strPlayerStatName(6).Trim <> "")
+            lablPlayerStat07H.Visible = (strPlayerStatName(7).Trim <> "")
+            lablPlayerStat08H.Visible = (strPlayerStatName(8).Trim <> "")
+            lablPlayerStat09H.Visible = (strPlayerStatName(9).Trim <> "")
+            lablPlayerStat10H.Visible = (strPlayerStatName(10).Trim <> "")
+            lablPlayerStat11H.Visible = (strPlayerStatName(11).Trim <> "")
+            lablPlayerStat12H.Visible = (strPlayerStatName(12).Trim <> "")
+            lablPlayerStat13H.Visible = (strPlayerStatName(13).Trim <> "")
+            lablPlayerStat14H.Visible = (strPlayerStatName(14).Trim <> "")
+            lablPlayerStat15H.Visible = (strPlayerStatName(15).Trim <> "")
+            lablPlayerStat16H.Visible = (strPlayerStatName(16).Trim <> "")
+            lablPlayerStat17H.Visible = (strPlayerStatName(17).Trim <> "")
+            lablPlayerStat18H.Visible = (strPlayerStatName(18).Trim <> "")
+            lablPlayerStat19H.Visible = (strPlayerStatName(19).Trim <> "")
+            lablPlayerStat20H.Visible = (strPlayerStatName(20).Trim <> "")
+            lablPlayerStat21H.Visible = (strPlayerStatName(21).Trim <> "")
+            lablPlayerStat22H.Visible = (strPlayerStatName(22).Trim <> "")
+            lablPlayerStat23H.Visible = (strPlayerStatName(23).Trim <> "")
+            lablPlayerStat24H.Visible = (strPlayerStatName(24).Trim <> "")
+            lablPlayerStat25H.Visible = (strPlayerStatName(25).Trim <> "")
+            lablPlayerStat26H.Visible = (strPlayerStatName(26).Trim <> "")
+            lablPlayerStat27H.Visible = (strPlayerStatName(27).Trim <> "")
+            lablPlayerStat28H.Visible = (strPlayerStatName(28).Trim <> "")
+            lablPlayerStat29H.Visible = (strPlayerStatName(29).Trim <> "")
+            lablPlayerStat30H.Visible = (strPlayerStatName(30).Trim <> "")
+
+            lablPlayerStat01A.Visible = (strPlayerStatName(1).Trim <> "")
+            lablPlayerStat02A.Visible = (strPlayerStatName(2).Trim <> "")
+            lablPlayerStat03A.Visible = (strPlayerStatName(3).Trim <> "")
+            lablPlayerStat04A.Visible = (strPlayerStatName(4).Trim <> "")
+            lablPlayerStat05A.Visible = (strPlayerStatName(5).Trim <> "")
+            lablPlayerStat06A.Visible = (strPlayerStatName(6).Trim <> "")
+            lablPlayerStat07A.Visible = (strPlayerStatName(7).Trim <> "")
+            lablPlayerStat08A.Visible = (strPlayerStatName(8).Trim <> "")
+            lablPlayerStat09A.Visible = (strPlayerStatName(9).Trim <> "")
+            lablPlayerStat10A.Visible = (strPlayerStatName(10).Trim <> "")
+            lablPlayerStat11A.Visible = (strPlayerStatName(11).Trim <> "")
+            lablPlayerStat12A.Visible = (strPlayerStatName(12).Trim <> "")
+            lablPlayerStat13A.Visible = (strPlayerStatName(13).Trim <> "")
+            lablPlayerStat14A.Visible = (strPlayerStatName(14).Trim <> "")
+            lablPlayerStat15A.Visible = (strPlayerStatName(15).Trim <> "")
+            lablPlayerStat16A.Visible = (strPlayerStatName(16).Trim <> "")
+            lablPlayerStat17A.Visible = (strPlayerStatName(17).Trim <> "")
+            lablPlayerStat18A.Visible = (strPlayerStatName(18).Trim <> "")
+            lablPlayerStat19A.Visible = (strPlayerStatName(19).Trim <> "")
+            lablPlayerStat20A.Visible = (strPlayerStatName(20).Trim <> "")
+            lablPlayerStat21A.Visible = (strPlayerStatName(21).Trim <> "")
+            lablPlayerStat22A.Visible = (strPlayerStatName(22).Trim <> "")
+            lablPlayerStat23A.Visible = (strPlayerStatName(23).Trim <> "")
+            lablPlayerStat24A.Visible = (strPlayerStatName(24).Trim <> "")
+            lablPlayerStat25A.Visible = (strPlayerStatName(25).Trim <> "")
+            lablPlayerStat26A.Visible = (strPlayerStatName(26).Trim <> "")
+            lablPlayerStat27A.Visible = (strPlayerStatName(27).Trim <> "")
+            lablPlayerStat28A.Visible = (strPlayerStatName(28).Trim <> "")
+            lablPlayerStat29A.Visible = (strPlayerStatName(29).Trim <> "")
+            lablPlayerStat30A.Visible = (strPlayerStatName(30).Trim <> "")
+
+
+
             For inc = 1 To 30
                 If strPlayerStatName(inc).Trim <> "" Then
                     Me.listViewSummaryHome.Columns(inc + 1).Text = strPlayerStatName(inc).Substring(0, 2)
@@ -10102,41 +10341,45 @@ Public Class Form1
     Delegate Sub ShowDirectionCallback()
     Sub ShowDirection()
         'all machines see kickout labels
-        If lablPitchLRTeamName.InvokeRequired Then
+        If lablArrowHomeLR.InvokeRequired Then
             Dim d As New ShowDirectionCallback(AddressOf ShowDirection)
             Me.Invoke(d, New Object() {})
         Else
+            Select Case Config.UserName
+                Case "SKYSUPERLEAGUE", "PRO14"
+                    'tab removed
+                Case Else
+                    lablPitchLRTeamName.Text = LiveMatch.LRTeamName
+                    lablPitchLRTeamName.Tag = LiveMatch.LRTeamID
+                    lablPitchRLTeamName.Text = LiveMatch.RLTeamName
+                    lablPitchRLTeamName.Tag = LiveMatch.RLTeamID
+                    If Config.LogPossession = True Then
+                        Me.lablArrowHomeLR.Visible = LiveMatch.HomeLR
+                        Me.lablArrowHomeRL.Visible = LiveMatch.AwayLR
+                        Me.lablArrowAwayLR.Visible = LiveMatch.AwayLR
+                        Me.lablArrowAwayRL.Visible = LiveMatch.HomeLR
+                    Else
+                        'MessageBox.Show(LiveMatch.DisplayDirection.ToString)
+                        Select Case RemoteData.CurrentDirection
+                            Case 1
+                                Me.lablArrowHomeLR.Visible = True
+                                Me.lablArrowHomeRL.Visible = False
+                                Me.lablArrowAwayLR.Visible = False
+                                Me.lablArrowAwayRL.Visible = True
+                            Case 2
+                                Me.lablArrowHomeLR.Visible = False
+                                Me.lablArrowHomeRL.Visible = True
+                                Me.lablArrowAwayLR.Visible = True
+                                Me.lablArrowAwayRL.Visible = False
+                            Case Else
+                                Me.lablArrowHomeLR.Visible = False
+                                Me.lablArrowHomeRL.Visible = False
+                                Me.lablArrowAwayLR.Visible = False
+                                Me.lablArrowAwayRL.Visible = False
+                        End Select
+                    End If
+            End Select
 
-            lablPitchLRTeamName.Text = LiveMatch.LRTeamName
-            lablPitchLRTeamName.Tag = LiveMatch.LRTeamID
-            lablPitchRLTeamName.Text = LiveMatch.RLTeamName
-            lablPitchRLTeamName.Tag = LiveMatch.RLTeamID
-
-            If Config.LogPossession = True Then
-                Me.lablArrowHomeLR.Visible = LiveMatch.HomeLR
-                Me.lablArrowHomeRL.Visible = LiveMatch.AwayLR
-                Me.lablArrowAwayLR.Visible = LiveMatch.AwayLR
-                Me.lablArrowAwayRL.Visible = LiveMatch.HomeLR
-            Else
-                'MessageBox.Show(LiveMatch.DisplayDirection.ToString)
-                Select Case RemoteData.CurrentDirection
-                    Case 1
-                        Me.lablArrowHomeLR.Visible = True
-                        Me.lablArrowHomeRL.Visible = False
-                        Me.lablArrowAwayLR.Visible = False
-                        Me.lablArrowAwayRL.Visible = True
-                    Case 2
-                        Me.lablArrowHomeLR.Visible = False
-                        Me.lablArrowHomeRL.Visible = True
-                        Me.lablArrowAwayLR.Visible = True
-                        Me.lablArrowAwayRL.Visible = False
-                    Case Else
-                        Me.lablArrowHomeLR.Visible = False
-                        Me.lablArrowHomeRL.Visible = False
-                        Me.lablArrowAwayLR.Visible = False
-                        Me.lablArrowAwayRL.Visible = False
-                End Select
-            End If
             Me.lablPeriod.Text = Utils.PeriodPhrase(LiveMatch.Period)
             'currentPitchKickoutTeamID = 0
             DrawAll() 'dependent on LR direction
