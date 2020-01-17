@@ -47,6 +47,7 @@ Public Class clsConfig
     Private iPeriodDurationNormal As Integer = 40
     Private iPeriodDurationExtra As Integer = 15
     Public Property UseRBStatNames As Boolean = False
+    Public Property UseRBLiveMatch As Boolean = False
 
     Public Property PeriodDurationExtra() As Integer
         Get
@@ -237,6 +238,11 @@ Public Class clsConfig
                                 Select Case TempArray(1).ToUpper
                                     Case "TRUE", "YES"
                                         _UseRBStatNames = True
+                                End Select
+                            Case "USERBLIVEMATCH", "USERBMATCHDETAILS"
+                                Select Case TempArray(1).ToUpper
+                                    Case "TRUE", "YES"
+                                        _UseRBLiveMatch = True
                                 End Select
                         End Select
                     End If

@@ -407,6 +407,7 @@ Public Class Form1
     Friend WithEvents ColumnHeader68 As ColumnHeader
     Friend WithEvents ColumnHeader70 As ColumnHeader
     Friend WithEvents ColumnHeader69 As ColumnHeader
+    Friend WithEvents btnFetchLiveMatch As Button
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1066,6 +1067,17 @@ Public Class Form1
         Me.btnPenaltyName02 = New System.Windows.Forms.Button()
         Me.btnPenaltyName13 = New System.Windows.Forms.Button()
         Me.btnPenaltyName01 = New System.Windows.Forms.Button()
+        Me.tabCarries = New System.Windows.Forms.TabPage()
+        Me.listViewCarriesAway = New System.Windows.Forms.ListView()
+        Me.ColumnHeader67 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader70 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader68 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lablAwayNameSL2 = New System.Windows.Forms.Label()
+        Me.lablHomeNameSL2 = New System.Windows.Forms.Label()
+        Me.listViewCarriesHome = New System.Windows.Forms.ListView()
+        Me.ColumnHeader65 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader69 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader66 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnLock = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -1121,17 +1133,7 @@ Public Class Form1
         Me.lablHomeNameSL = New System.Windows.Forms.Label()
         Me.picBoxPro14 = New System.Windows.Forms.PictureBox()
         Me.btnFetchRBStats = New System.Windows.Forms.Button()
-        Me.tabCarries = New System.Windows.Forms.TabPage()
-        Me.listViewCarriesHome = New System.Windows.Forms.ListView()
-        Me.ColumnHeader65 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader66 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.lablHomeNameSL2 = New System.Windows.Forms.Label()
-        Me.lablAwayNameSL2 = New System.Windows.Forms.Label()
-        Me.listViewCarriesAway = New System.Windows.Forms.ListView()
-        Me.ColumnHeader67 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader68 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader69 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader70 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnFetchLiveMatch = New System.Windows.Forms.Button()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -1146,13 +1148,13 @@ Public Class Form1
         Me.GroupBox1.SuspendLayout
         CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).BeginInit
         Me.tabPenalties.SuspendLayout
+        Me.tabCarries.SuspendLayout
         Me.Panel1.SuspendLayout
         Me.groupRemotePossession.SuspendLayout
         Me.groupActionAreasRugby.SuspendLayout
         Me.panelSuperLeaguePro14.SuspendLayout
         CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).BeginInit
-        Me.tabCarries.SuspendLayout
         Me.SuspendLayout
         '
         'lablHeading01
@@ -3193,7 +3195,7 @@ Public Class Form1
         Me.btnConnect.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConnect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConnect.ForeColor = System.Drawing.Color.Black
-        Me.btnConnect.Location = New System.Drawing.Point(16, 168)
+        Me.btnConnect.Location = New System.Drawing.Point(16, 152)
         Me.btnConnect.Name = "btnConnect"
         Me.btnConnect.Size = New System.Drawing.Size(100, 40)
         Me.btnConnect.TabIndex = 133
@@ -3206,7 +3208,7 @@ Public Class Form1
         Me.LablConnected.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.LablConnected.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LablConnected.ForeColor = System.Drawing.Color.Black
-        Me.LablConnected.Location = New System.Drawing.Point(16, 208)
+        Me.LablConnected.Location = New System.Drawing.Point(16, 192)
         Me.LablConnected.Name = "LablConnected"
         Me.LablConnected.Size = New System.Drawing.Size(100, 40)
         Me.LablConnected.TabIndex = 134
@@ -3215,10 +3217,10 @@ Public Class Form1
         '
         'btnRemove
         '
-        Me.btnRemove.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnRemove.BackColor = System.Drawing.Color.LightSalmon
         Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemove.ForeColor = System.Drawing.Color.Black
-        Me.btnRemove.Location = New System.Drawing.Point(16, 363)
+        Me.btnRemove.Location = New System.Drawing.Point(16, 435)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(100, 40)
         Me.btnRemove.TabIndex = 135
@@ -3231,7 +3233,7 @@ Public Class Form1
         Me.lablRemove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lablRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lablRemove.ForeColor = System.Drawing.Color.White
-        Me.lablRemove.Location = New System.Drawing.Point(16, 405)
+        Me.lablRemove.Location = New System.Drawing.Point(16, 477)
         Me.lablRemove.Name = "lablRemove"
         Me.lablRemove.Size = New System.Drawing.Size(100, 40)
         Me.lablRemove.TabIndex = 136
@@ -7282,6 +7284,113 @@ Public Class Form1
         Me.btnPenaltyName01.Text = "NAME OF THE PENALTY"
         Me.btnPenaltyName01.UseVisualStyleBackColor = False
         '
+        'tabCarries
+        '
+        Me.tabCarries.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tabCarries.Controls.Add(Me.listViewCarriesAway)
+        Me.tabCarries.Controls.Add(Me.lablAwayNameSL2)
+        Me.tabCarries.Controls.Add(Me.lablHomeNameSL2)
+        Me.tabCarries.Controls.Add(Me.listViewCarriesHome)
+        Me.tabCarries.Location = New System.Drawing.Point(4, 36)
+        Me.tabCarries.Name = "tabCarries"
+        Me.tabCarries.Size = New System.Drawing.Size(896, 684)
+        Me.tabCarries.TabIndex = 9
+        Me.tabCarries.Text = "CARRIES"
+        '
+        'listViewCarriesAway
+        '
+        Me.listViewCarriesAway.BackColor = System.Drawing.Color.Black
+        Me.listViewCarriesAway.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listViewCarriesAway.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader67, Me.ColumnHeader70, Me.ColumnHeader68})
+        Me.listViewCarriesAway.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewCarriesAway.ForeColor = System.Drawing.Color.White
+        Me.listViewCarriesAway.FullRowSelect = True
+        Me.listViewCarriesAway.GridLines = True
+        Me.listViewCarriesAway.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewCarriesAway.HideSelection = False
+        Me.listViewCarriesAway.Location = New System.Drawing.Point(485, 34)
+        Me.listViewCarriesAway.MultiSelect = False
+        Me.listViewCarriesAway.Name = "listViewCarriesAway"
+        Me.listViewCarriesAway.Size = New System.Drawing.Size(350, 634)
+        Me.listViewCarriesAway.TabIndex = 96
+        Me.listViewCarriesAway.UseCompatibleStateImageBehavior = False
+        Me.listViewCarriesAway.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader67
+        '
+        Me.ColumnHeader67.Text = "ID"
+        Me.ColumnHeader67.Width = 0
+        '
+        'ColumnHeader70
+        '
+        Me.ColumnHeader70.Text = "Num"
+        Me.ColumnHeader70.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader70.Width = 50
+        '
+        'ColumnHeader68
+        '
+        Me.ColumnHeader68.Text = "Player"
+        Me.ColumnHeader68.Width = 300
+        '
+        'lablAwayNameSL2
+        '
+        Me.lablAwayNameSL2.BackColor = System.Drawing.Color.Transparent
+        Me.lablAwayNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayNameSL2.ForeColor = System.Drawing.Color.White
+        Me.lablAwayNameSL2.Location = New System.Drawing.Point(485, 8)
+        Me.lablAwayNameSL2.Name = "lablAwayNameSL2"
+        Me.lablAwayNameSL2.Size = New System.Drawing.Size(304, 26)
+        Me.lablAwayNameSL2.TabIndex = 95
+        Me.lablAwayNameSL2.Text = "TOTTENHAM"
+        Me.lablAwayNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablHomeNameSL2
+        '
+        Me.lablHomeNameSL2.BackColor = System.Drawing.Color.Transparent
+        Me.lablHomeNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeNameSL2.ForeColor = System.Drawing.Color.White
+        Me.lablHomeNameSL2.Location = New System.Drawing.Point(93, 8)
+        Me.lablHomeNameSL2.Name = "lablHomeNameSL2"
+        Me.lablHomeNameSL2.Size = New System.Drawing.Size(304, 26)
+        Me.lablHomeNameSL2.TabIndex = 94
+        Me.lablHomeNameSL2.Text = "TOTTENHAM"
+        Me.lablHomeNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'listViewCarriesHome
+        '
+        Me.listViewCarriesHome.BackColor = System.Drawing.Color.Black
+        Me.listViewCarriesHome.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listViewCarriesHome.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader65, Me.ColumnHeader69, Me.ColumnHeader66})
+        Me.listViewCarriesHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewCarriesHome.ForeColor = System.Drawing.Color.White
+        Me.listViewCarriesHome.FullRowSelect = True
+        Me.listViewCarriesHome.GridLines = True
+        Me.listViewCarriesHome.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewCarriesHome.HideSelection = False
+        Me.listViewCarriesHome.Location = New System.Drawing.Point(93, 34)
+        Me.listViewCarriesHome.MultiSelect = False
+        Me.listViewCarriesHome.Name = "listViewCarriesHome"
+        Me.listViewCarriesHome.Size = New System.Drawing.Size(350, 634)
+        Me.listViewCarriesHome.TabIndex = 1
+        Me.listViewCarriesHome.UseCompatibleStateImageBehavior = False
+        Me.listViewCarriesHome.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader65
+        '
+        Me.ColumnHeader65.Text = "ID"
+        Me.ColumnHeader65.Width = 0
+        '
+        'ColumnHeader69
+        '
+        Me.ColumnHeader69.Text = "Num"
+        Me.ColumnHeader69.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader69.Width = 50
+        '
+        'ColumnHeader66
+        '
+        Me.ColumnHeader66.Text = "Player"
+        Me.ColumnHeader66.Width = 300
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Maroon
@@ -7747,14 +7856,14 @@ Public Class Form1
         '
         'btnFetchStatNames
         '
-        Me.btnFetchStatNames.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnFetchStatNames.BackColor = System.Drawing.Color.SkyBlue
         Me.btnFetchStatNames.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFetchStatNames.ForeColor = System.Drawing.Color.Black
-        Me.btnFetchStatNames.Location = New System.Drawing.Point(16, 264)
+        Me.btnFetchStatNames.Location = New System.Drawing.Point(16, 315)
         Me.btnFetchStatNames.Name = "btnFetchStatNames"
         Me.btnFetchStatNames.Size = New System.Drawing.Size(100, 40)
         Me.btnFetchStatNames.TabIndex = 141
-        Me.btnFetchStatNames.Text = "Refetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Stat Names"
+        Me.btnFetchStatNames.Text = "Fetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Stat Names"
         Me.btnFetchStatNames.UseVisualStyleBackColor = False
         Me.btnFetchStatNames.Visible = False
         '
@@ -7986,128 +8095,35 @@ Public Class Form1
         '
         'btnFetchRBStats
         '
-        Me.btnFetchRBStats.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnFetchRBStats.BackColor = System.Drawing.Color.SkyBlue
         Me.btnFetchRBStats.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFetchRBStats.ForeColor = System.Drawing.Color.Black
-        Me.btnFetchRBStats.Location = New System.Drawing.Point(16, 308)
+        Me.btnFetchRBStats.Location = New System.Drawing.Point(16, 359)
         Me.btnFetchRBStats.Name = "btnFetchRBStats"
         Me.btnFetchRBStats.Size = New System.Drawing.Size(100, 40)
         Me.btnFetchRBStats.TabIndex = 226
         Me.btnFetchRBStats.Text = "Fetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Match Stats"
         Me.btnFetchRBStats.UseVisualStyleBackColor = False
         '
-        'tabCarries
+        'btnFetchLiveMatch
         '
-        Me.tabCarries.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.tabCarries.Controls.Add(Me.listViewCarriesAway)
-        Me.tabCarries.Controls.Add(Me.lablAwayNameSL2)
-        Me.tabCarries.Controls.Add(Me.lablHomeNameSL2)
-        Me.tabCarries.Controls.Add(Me.listViewCarriesHome)
-        Me.tabCarries.Location = New System.Drawing.Point(4, 36)
-        Me.tabCarries.Name = "tabCarries"
-        Me.tabCarries.Size = New System.Drawing.Size(896, 684)
-        Me.tabCarries.TabIndex = 9
-        Me.tabCarries.Text = "CARRIES"
-        '
-        'listViewCarriesHome
-        '
-        Me.listViewCarriesHome.BackColor = System.Drawing.Color.Black
-        Me.listViewCarriesHome.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.listViewCarriesHome.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader65, Me.ColumnHeader69, Me.ColumnHeader66})
-        Me.listViewCarriesHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.listViewCarriesHome.ForeColor = System.Drawing.Color.White
-        Me.listViewCarriesHome.FullRowSelect = True
-        Me.listViewCarriesHome.GridLines = True
-        Me.listViewCarriesHome.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
-        Me.listViewCarriesHome.HideSelection = False
-        Me.listViewCarriesHome.Location = New System.Drawing.Point(93, 34)
-        Me.listViewCarriesHome.MultiSelect = False
-        Me.listViewCarriesHome.Name = "listViewCarriesHome"
-        Me.listViewCarriesHome.Size = New System.Drawing.Size(350, 634)
-        Me.listViewCarriesHome.TabIndex = 1
-        Me.listViewCarriesHome.UseCompatibleStateImageBehavior = False
-        Me.listViewCarriesHome.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader65
-        '
-        Me.ColumnHeader65.Text = "ID"
-        Me.ColumnHeader65.Width = 0
-        '
-        'ColumnHeader66
-        '
-        Me.ColumnHeader66.Text = "Player"
-        Me.ColumnHeader66.Width = 300
-        '
-        'lablHomeNameSL2
-        '
-        Me.lablHomeNameSL2.BackColor = System.Drawing.Color.Transparent
-        Me.lablHomeNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lablHomeNameSL2.ForeColor = System.Drawing.Color.White
-        Me.lablHomeNameSL2.Location = New System.Drawing.Point(93, 8)
-        Me.lablHomeNameSL2.Name = "lablHomeNameSL2"
-        Me.lablHomeNameSL2.Size = New System.Drawing.Size(304, 26)
-        Me.lablHomeNameSL2.TabIndex = 94
-        Me.lablHomeNameSL2.Text = "TOTTENHAM"
-        Me.lablHomeNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lablAwayNameSL2
-        '
-        Me.lablAwayNameSL2.BackColor = System.Drawing.Color.Transparent
-        Me.lablAwayNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lablAwayNameSL2.ForeColor = System.Drawing.Color.White
-        Me.lablAwayNameSL2.Location = New System.Drawing.Point(485, 8)
-        Me.lablAwayNameSL2.Name = "lablAwayNameSL2"
-        Me.lablAwayNameSL2.Size = New System.Drawing.Size(304, 26)
-        Me.lablAwayNameSL2.TabIndex = 95
-        Me.lablAwayNameSL2.Text = "TOTTENHAM"
-        Me.lablAwayNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'listViewCarriesAway
-        '
-        Me.listViewCarriesAway.BackColor = System.Drawing.Color.Black
-        Me.listViewCarriesAway.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.listViewCarriesAway.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader67, Me.ColumnHeader70, Me.ColumnHeader68})
-        Me.listViewCarriesAway.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.listViewCarriesAway.ForeColor = System.Drawing.Color.White
-        Me.listViewCarriesAway.FullRowSelect = True
-        Me.listViewCarriesAway.GridLines = True
-        Me.listViewCarriesAway.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
-        Me.listViewCarriesAway.HideSelection = False
-        Me.listViewCarriesAway.Location = New System.Drawing.Point(485, 34)
-        Me.listViewCarriesAway.MultiSelect = False
-        Me.listViewCarriesAway.Name = "listViewCarriesAway"
-        Me.listViewCarriesAway.Size = New System.Drawing.Size(350, 634)
-        Me.listViewCarriesAway.TabIndex = 96
-        Me.listViewCarriesAway.UseCompatibleStateImageBehavior = False
-        Me.listViewCarriesAway.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader67
-        '
-        Me.ColumnHeader67.Text = "ID"
-        Me.ColumnHeader67.Width = 0
-        '
-        'ColumnHeader68
-        '
-        Me.ColumnHeader68.Text = "Player"
-        Me.ColumnHeader68.Width = 300
-        '
-        'ColumnHeader69
-        '
-        Me.ColumnHeader69.Text = "Num"
-        Me.ColumnHeader69.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ColumnHeader69.Width = 50
-        '
-        'ColumnHeader70
-        '
-        Me.ColumnHeader70.Text = "Num"
-        Me.ColumnHeader70.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ColumnHeader70.Width = 50
+        Me.btnFetchLiveMatch.BackColor = System.Drawing.Color.SkyBlue
+        Me.btnFetchLiveMatch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFetchLiveMatch.ForeColor = System.Drawing.Color.Black
+        Me.btnFetchLiveMatch.Location = New System.Drawing.Point(16, 271)
+        Me.btnFetchLiveMatch.Name = "btnFetchLiveMatch"
+        Me.btnFetchLiveMatch.Size = New System.Drawing.Size(100, 40)
+        Me.btnFetchLiveMatch.TabIndex = 227
+        Me.btnFetchLiveMatch.Text = "Fetch" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Match Details"
+        Me.btnFetchLiveMatch.UseVisualStyleBackColor = False
+        Me.btnFetchLiveMatch.Visible = False
         '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(1350, 729)
+        Me.Controls.Add(Me.btnFetchLiveMatch)
         Me.Controls.Add(Me.panelSuperLeaguePro14)
         Me.Controls.Add(Me.btnFetchRBStats)
         Me.Controls.Add(Me.btnFetchStatNames)
@@ -8156,13 +8172,13 @@ Public Class Form1
         Me.GroupBox1.PerformLayout
         CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).EndInit
         Me.tabPenalties.ResumeLayout(False)
+        Me.tabCarries.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.groupRemotePossession.ResumeLayout(False)
         Me.groupActionAreasRugby.ResumeLayout(False)
         Me.panelSuperLeaguePro14.ResumeLayout(False)
         CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).EndInit
-        Me.tabCarries.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -8295,7 +8311,12 @@ Public Class Form1
             ShowLocalMessage("Received from Server: " & strMessage)
             Select Case dataArray(0)
                 Case "CONNECTED"
-                    SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
+                    If Config.UseRBLiveMatch Then
+                        SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
+                    End If
+                    If Config.UseRBStatNames Then
+                        SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
+                    End If
                 Case "MATCHLIST"
                     If dataArray(1) = dtSelDate Then
                         MatchList = AssignMatchList(strMessage)
@@ -8335,6 +8356,16 @@ Public Class Form1
                     ShowCarryPlayers()    'SL2020
                 Case "MATCHDATA"
                     Select Case dataArray(1).ToUpper
+                        Case "LIVEMATCHDETAILS"
+                            'MATCHDATA|LIVEMATCHDETAILS|49233|Catalans^3^SKY2014 GAA|Castleford^2^Rugby League|1^1^1^ESCARE^MORGAN ESCARE^10775^^^^^|1^2^2^DUPORT^VINCENT DUPORT^10776^^^^^|1^3^3^POMEROY^BEN POMEROY^10777^^^^^|1^4^4^TONGA^WILLIE TONGA^10778^^^^^|1^5^5^OLDFIELD^MICHAEL OLDFIELD^10779^^^^^|1^6^6^CARNEY^TODD CARNEY^10780^^^^^|1^7^7^DUREAU^SCOTT DUREAU^10781^^^^^|1^8^8^ELIMA^OLIVIER ELIMA^10782^^^^^|1^9^9^HENDERSON^IAN HENDERSON^10783^^^^^|1^10^10^CASTY^REMI CASTY^10784^^^^^|1^11^11^TAIA^ZEB TAIA^10785^^^^^|1^12^12^ANDERSON^LOUIS ANDERSON^10786^^^^^|1^13^13^MOUNIS^GREGORY MOUNIS^10787^^^^^|1^14^14^BOSC^THOMAS BOSC^10788^^^^^|1^15^15^LIMA^JEFF LIMA^10789^^^^^|1^16^16^PELISSIER^ELOI PELISSIER^10790^^^^^|1^17^17^WHITEHEAD^ELLIOTT WHITEHEAD^10791^^^^^|1^18^18^GARCIA^BENJAMIN GARCIA^10792^^^^^|1^19^19^PALA^MATHIAS PALA^10793^^^^^|1^20^20^CARDACE^DAMIEN CARDACE^10794^^^^^|1^21^21^BOUSQUET^JULIAN BOUSQUET^10795^^^^^|1^22^^^^-1^^^^^|1^23^^^^-1^^^^^|1^24^^^^-1^^^^^|1^25^^^^-1^^^^^|2^1^1^Dorn^Luke Dorn^11003^^^^^|2^2^2^Clare^James Clare^11004^^^^^|2^3^3^Webster^Jake Webster^11005^^^^^|2^4^4^Shenton^Michael Shenton^11006^^^^^|2^5^5^Carney^Justin Carney^11007^^^^^|2^6^6^Roberts^Ben Roberts^11008^^^^^|2^7^7^Gale^Luke Gale^11009^^^^^|2^8^8^Lynch^Andy Lynch^11010^^^^^|2^9^9^Milner^Adam Milner^11011^^^^^|2^10^10^Millington^Grant Millington^11012^^^^^|2^11^11^Holmes^Oliver Holmes^11013^^^^^|2^12^12^Cook^Matt Cook^11014^^^^^|2^13^13^Massey^Nathan Massey^11015^^^^^|2^14^14^Jewitt^Lee Jewitt^11016^^^^^|2^15^15^Boyle^Ryan Boyle^11017^^^^^|2^16^16^Moors^Junior Moors^11018^^^^^|2^17^17^Moore^Scott Moore^11019^^^^^|2^18^21^FINN^LIAM FINN^11023^^^^^|2^19^22^TANSEY^JORDAN TANSEY^11024^^^^^|2^20^23^CHANNING^MICHAEL CHANNING^11025^^^^^|2^21^25^CROSSLEY^STEVE CROSSLEY^11027^^^^^|2^22^^^^-1^^^^^|2^23^^^^-1^^^^^|2^24^^^^-1^^^^^|2^25^^^^-1^^^^^|
+                            'just use to fetch ID, then fetch data from server as normal
+                            If Config.UseRBLiveMatch Then
+                                iMatchID = Val(dataArray(2))
+                                JSONTeamStats.MatchID = iMatchID.ToString
+                                SendData("REQUESTMATCHDETAILS|" & iMatchID.ToString)
+                                Threading.Thread.Sleep(100)
+                                FetchAllLiveStats()
+                            End If
                         Case "LIVESTATNAMES"
                             AssignRBOptaStatnames(strMessage)
                         Case "PLAYEREDIT"
@@ -8520,6 +8551,7 @@ Public Class Form1
         If bConnectedToServer = True Then
             Try
                 'MessageBox.Show(data, "Connected")
+                Console.WriteLine("Sent: " + data)
                 Dim writer As New IO.StreamWriter(client.GetStream, Encoding.Default)
                 writer.Write(data & vbCrLf)
                 writer.Flush()
@@ -9088,6 +9120,8 @@ Public Class Form1
         Else
             Me.Text += "       Stat Names file: " + Config.StatnamesFilename
         End If
+        btnFetchLiveMatch.Visible = Config.UseRBLiveMatch
+        btnSetup.Visible = Not (Config.UseRBLiveMatch)
         If Config.AutoConectToSportServer = True Then
             ConnectToSportServer()
             Me.timerCheckConnection.Enabled = True
@@ -9151,7 +9185,8 @@ Public Class Form1
                 panelSuperLeaguePro14.BringToFront()
                 TabControl1.TabPages.RemoveByKey("tabKickouts")
                 TabControl1.TabPages.RemoveByKey("tabPenalties")
-                ShowCarryPlayers()
+                TabControl1.TabPages.RemoveByKey("tabCarries")
+'                ShowCarryPlayers()
             Case "PRO14"
                 'testing
                 panelSuperLeaguePro14.Visible = True
@@ -10424,19 +10459,27 @@ Public Class Form1
         LogPossession(iTeam)
     End Sub
     Sub LogPossession(ByVal iTeam As Integer)
-        Select Case LiveMatch.Period
-            Case 1, 3, 5, 7
-                MatchPossession(iCurrentPeriod).AllocatePossession()
-                MatchPossession(iCurrentPeriod).CurrentPossession = iTeam
-                If iTeam = 0 Then
-                    'OOP, pause areas
-                    'pause areas
-                    MatchPossession(iCurrentPeriod).AllocateArea()
-                    MatchPossession(iCurrentPeriod).CurrentArea = 0
-                End If
-                ShowPossession()
+        Select Case Config.UserName
+            Case "SKYSUPERLEAGUE"
+                Dim lastPossession As Integer = 0
+                Dim senderTag As Integer = iTeam
+                'Use MatchPad syntax. RB calculates percentages.
+                SendData("MATCHPAD|LOGPOSSESSION|" + LiveMatch.MatchID.ToString + "|" + senderTag.ToString + "|")
             Case Else
+                Select Case LiveMatch.Period
+                    Case 1, 3, 5, 7
+                        MatchPossession(iCurrentPeriod).AllocatePossession()
+                        MatchPossession(iCurrentPeriod).CurrentPossession = iTeam
+                        If iTeam = 0 Then
+                            'OOP, pause areas
+                            'pause areas
+                            MatchPossession(iCurrentPeriod).AllocateArea()
+                            MatchPossession(iCurrentPeriod).CurrentArea = 0
+                        End If
+                        ShowPossession()
+                    Case Else
 
+                End Select
         End Select
 
     End Sub
@@ -12013,13 +12056,15 @@ Public Class Form1
     End Sub
 
     Private Sub btnFetchRBStats_Click(sender As Object, e As EventArgs) Handles btnFetchRBStats.Click
+        FetchAllLiveStats()
+    End Sub
+    Sub FetchAllLiveStats()
         SendData("MATCHPAD|REQUESTTEAMSTATS|" + LiveMatch.MatchID.ToString + "|")
         Threading.Thread.Sleep(100)
         SendData("MATCHPAD|REQUESTPLAYERSTATS|" + LiveMatch.MatchID.ToString + "|" + LiveMatch.HomeTeamID.ToString + "|")
         Threading.Thread.Sleep(100)
         SendData("MATCHPAD|REQUESTPLAYERSTATS|" + LiveMatch.MatchID.ToString + "|" + LiveMatch.AwayTeamID.ToString + "|")
     End Sub
-
     Private Sub listViewCarriesHome_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listViewCarriesHome.SelectedIndexChanged
         If listViewCarriesHome.SelectedIndices.Count = 1 Then
             'valid
@@ -12044,5 +12089,9 @@ Public Class Form1
             'MATCHDATA|CURRENTPLAYER|26538|462|6560|Name|number||
             SendData("MATCHPAD|CURRENTPLAYER|" + matchID + "|" + teamID + "|" + playerID + "|" + playerName + "|" + playerShirt + "||")
         End If
+    End Sub
+
+    Private Sub btnFetchLiveMatch_Click(sender As Object, e As EventArgs) Handles btnFetchLiveMatch.Click
+        SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
     End Sub
 End Class
