@@ -408,6 +408,8 @@ Public Class Form1
     Friend WithEvents ColumnHeader70 As ColumnHeader
     Friend WithEvents ColumnHeader69 As ColumnHeader
     Friend WithEvents btnFetchLiveMatch As Button
+    Friend WithEvents timerSendHeartbeat As Timer
+    Friend WithEvents btnMatchSync As Button
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1134,6 +1136,8 @@ Public Class Form1
         Me.picBoxPro14 = New System.Windows.Forms.PictureBox()
         Me.btnFetchRBStats = New System.Windows.Forms.Button()
         Me.btnFetchLiveMatch = New System.Windows.Forms.Button()
+        Me.timerSendHeartbeat = New System.Windows.Forms.Timer(Me.components)
+        Me.btnMatchSync = New System.Windows.Forms.Button()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -8118,11 +8122,30 @@ Public Class Form1
         Me.btnFetchLiveMatch.UseVisualStyleBackColor = False
         Me.btnFetchLiveMatch.Visible = False
         '
+        'timerSendHeartbeat
+        '
+        Me.timerSendHeartbeat.Enabled = True
+        Me.timerSendHeartbeat.Interval = 30000
+        '
+        'btnMatchSync
+        '
+        Me.btnMatchSync.BackColor = System.Drawing.Color.SkyBlue
+        Me.btnMatchSync.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMatchSync.ForeColor = System.Drawing.Color.Black
+        Me.btnMatchSync.Location = New System.Drawing.Point(16, 323)
+        Me.btnMatchSync.Name = "btnMatchSync"
+        Me.btnMatchSync.Size = New System.Drawing.Size(100, 40)
+        Me.btnMatchSync.TabIndex = 228
+        Me.btnMatchSync.Text = "Sync"
+        Me.btnMatchSync.UseVisualStyleBackColor = False
+        Me.btnMatchSync.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(1350, 729)
+        Me.Controls.Add(Me.btnMatchSync)
         Me.Controls.Add(Me.btnFetchLiveMatch)
         Me.Controls.Add(Me.panelSuperLeaguePro14)
         Me.Controls.Add(Me.btnFetchRBStats)
@@ -8216,7 +8239,7 @@ Public Class Form1
     End Sub
     Sub ConnectToSportServer()
         Connect()
-        SendData("CONNECT|" & Config.PCName & "|" & Config.LocalIPAddress & "|")
+        SendData("CONNECT|" & My.Computer.Name & "-MatchLog" & "|Network|")
     End Sub
     Private Sub DoRead(ByVal ar As IAsyncResult)
         Dim BytesRead As Integer
@@ -8311,12 +8334,17 @@ Public Class Form1
             ShowLocalMessage("Received from Server: " & strMessage)
             Select Case dataArray(0)
                 Case "CONNECTED"
-                    If Config.UseRBLiveMatch Then
-                        SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
-                    End If
-                    If Config.UseRBStatNames Then
-                        SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
-                    End If
+                    Select Case Config.UserName
+                        Case "SKYSUPERLEAGUE"
+                            SendData("MATCHLOG|REQUESTMATCHSYNC|")
+                        Case Else
+                            If Config.UseRBLiveMatch Then
+                                SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
+                            End If
+                            If Config.UseRBStatNames Then
+                                SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
+                            End If
+                    End Select
                 Case "MATCHLIST"
                     If dataArray(1) = dtSelDate Then
                         MatchList = AssignMatchList(strMessage)
@@ -8366,6 +8394,9 @@ Public Class Form1
                                 Threading.Thread.Sleep(100)
                                 FetchAllLiveStats()
                             End If
+                        Case "MATCHSYNC"
+                            'currently only SL
+                            AssignMatchSync(dataArray(2))
                         Case "LIVESTATNAMES"
                             AssignRBOptaStatnames(strMessage)
                         Case "PLAYEREDIT"
@@ -9114,13 +9145,21 @@ Public Class Form1
         ShowPlayerSummaryStats(2)
         ShowDirection()
         Me.Text = "MatchLog by PIRANHA Systems v " & Application.ProductVersion & "       User: " & Config.UserName
-        If Config.UseRBStatNames Then
-            Me.Text += "       Stat Names: ReportBuilder"
-            btnFetchStatNames.Visible = True
-        Else
-            Me.Text += "       Stat Names file: " + Config.StatnamesFilename
-        End If
-        btnFetchLiveMatch.Visible = Config.UseRBLiveMatch
+        Select Case Config.UserName
+            Case "SKYSUPERLEAGUE"
+                Me.Text += "       Stat Names: ReportBuilder"
+                btnMatchSync.Visible = True
+                btnFetchRBStats.Visible = False 'now uses MATCHSYNC data
+                btnFetchStatNames.Visible = False
+            Case Else
+                If Config.UseRBStatNames Then
+                    Me.Text += "       Stat Names: ReportBuilder"
+                    btnFetchStatNames.Visible = True
+                Else
+                    Me.Text += "       Stat Names file: " + Config.StatnamesFilename
+                End If
+                btnFetchLiveMatch.Visible = Config.UseRBLiveMatch
+        End Select
         btnSetup.Visible = Not (Config.UseRBLiveMatch)
         If Config.AutoConectToSportServer = True Then
             ConnectToSportServer()
@@ -9133,8 +9172,12 @@ Public Class Form1
                 Config.NumberOfAreas = 3
             Case "SETANTA2009 RUGBY", "INPUT TWICKENHAM", "PRO14"
                 Config.NumberOfAreas = 4
-            Case "TV3", "SKY2014 GAA", "GAA STATS", "SKYSUPERLEAGUE"
+            Case "TV3", "SKY2014 GAA", "GAA STATS"
                 Config.NumberOfAreas = 3
+            Case "SKYSUPERLEAGUE"
+                Config.NumberOfAreas = 3
+                Config.UseRBLiveMatch = True
+                Config.UseRBStatNames = True
             Case Else
                 Config.NumberOfAreas = 3
                 'MessageBox.Show("Unrecognised User: " & Config.UserName & vbLf & "Cannot continue", "Error starting")
@@ -11994,6 +12037,13 @@ Public Class Form1
         Dim jsonSerializer As New JavaScriptSerializer
         Return jsonSerializer.Serialize(tempJSONPlayer)
     End Function
+    Sub AssignMatchSync(jsonString As String)
+        Dim json As New JavaScriptSerializer
+        Dim data As clsMatchSync = json.Deserialize(Of clsMatchSync)(jsonString)
+        Console.WriteLine(data.HomeLongName + " v " + data.AwayLongName)
+
+    End Sub
+
     Sub AssignRBOptaStatnames(dataString As String)
         'MATCHDATA|LIVESTATNAMES|PLAYER...|TEAM...|TRIGGERS...|PLAYEROPTA^possessions^turnovers_won^unforced_errors^assists^^shots^goals^points^interceptions^frees_conceded^kick_passes^hand_passes^tackles^kickouts_won^carries_into_contact^^^^marks^^^goals_from_penalties^points_from_penalties^goals_from_frees^points_from_frees^goals_from_45^points_from_45^goals_from_sideline^points_from_sideline^|TEAMOPTA^kickouts^^^marks^^^^inside_45^possessions^shots^scores^goals^wides^yellow_cards^red_cards^black_cards^^^^^^frees_won^frees_conceded^^^blocks^^scores_from_dead_ball^points_from_frees^^turnovers_won^^^^own_kickouts_won^scoring_chances_from_play^scores_from_play^^scoring_chances_from_placed_ball^scores_from_placed_ball^goals^points|
         If dataString.Contains("|") Then
@@ -12093,5 +12143,13 @@ Public Class Form1
 
     Private Sub btnFetchLiveMatch_Click(sender As Object, e As EventArgs) Handles btnFetchLiveMatch.Click
         SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
+    End Sub
+
+    Private Sub timerSendHeartbeat_Tick(sender As Object, e As EventArgs) Handles timerSendHeartbeat.Tick
+        SendData("HEARTBEAT|MATCHLOG|" + Config.PCName + "|")
+    End Sub
+
+    Private Sub btnMatchSync_Click(sender As Object, e As EventArgs) Handles btnMatchSync.Click
+        SendData("MATCHLOG|REQUESTMATCHSYNC|")
     End Sub
 End Class

@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("MatchLog8")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("Piranha Graphics Limited")> 
-<Assembly: AssemblyProduct("MatchLog")> 
-<Assembly: AssemblyCopyright("Piranha Graphics Limited 2019")> 
+<Assembly: AssemblyProduct("MatchLog")>
+<Assembly: AssemblyCopyright("Piranha Graphics Limited 2019,2020")>
 <Assembly: AssemblyTrademark("")> 
 <Assembly: CLSCompliant(True)> 
 
@@ -29,4 +29,4 @@ Imports System.Runtime.InteropServices
 ' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
 
-<Assembly: AssemblyVersion("1.2.0.4")>
+<Assembly: AssemblyVersion("1.2.0.5")>

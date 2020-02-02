@@ -133,9 +133,11 @@
     <Compile Include="clsJSONTeamStat.vb" />
     <Compile Include="clsJSONTeamStats.vb" />
     <Compile Include="clsMatch.vb" />
+    <Compile Include="clsMatchSync.vb" />
     <Compile Include="clsPitchKickout.vb" />
     <Compile Include="clsPlayerStat.vb" />
     <Compile Include="clsPlayerStatSet.vb" />
+    <Compile Include="clsPlayerSync.vb" />
     <Compile Include="clsPossession.vb" />
     <Compile Include="clsRemoteData.vb" />
     <Compile Include="clsUtils.vb" />
