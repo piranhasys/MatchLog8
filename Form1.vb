@@ -410,6 +410,7 @@ Public Class Form1
     Friend WithEvents btnFetchLiveMatch As Button
     Friend WithEvents timerSendHeartbeat As Timer
     Friend WithEvents btnMatchSync As Button
+    Friend WithEvents panelWaitingForSync As Panel
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -1138,6 +1139,7 @@ Public Class Form1
         Me.btnFetchLiveMatch = New System.Windows.Forms.Button()
         Me.timerSendHeartbeat = New System.Windows.Forms.Timer(Me.components)
         Me.btnMatchSync = New System.Windows.Forms.Button()
+        Me.panelWaitingForSync = New System.Windows.Forms.Panel()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -8140,6 +8142,15 @@ Public Class Form1
         Me.btnMatchSync.UseVisualStyleBackColor = False
         Me.btnMatchSync.Visible = False
         '
+        'panelWaitingForSync
+        '
+        Me.panelWaitingForSync.BackColor = System.Drawing.Color.Maroon
+        Me.panelWaitingForSync.Location = New System.Drawing.Point(130, 0)
+        Me.panelWaitingForSync.Name = "panelWaitingForSync"
+        Me.panelWaitingForSync.Size = New System.Drawing.Size(1222, 732)
+        Me.panelWaitingForSync.TabIndex = 229
+        Me.panelWaitingForSync.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -8174,6 +8185,7 @@ Public Class Form1
         Me.Controls.Add(Me.lablAwayName)
         Me.Controls.Add(Me.lablHomeName)
         Me.Controls.Add(Me.groupActionAreasRugby)
+        Me.Controls.Add(Me.panelWaitingForSync)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
@@ -8336,6 +8348,7 @@ Public Class Form1
                 Case "CONNECTED"
                     Select Case Config.UserName
                         Case "SKYSUPERLEAGUE"
+                            MatchSynced = False
                             SendData("MATCHLOG|REQUESTMATCHSYNC|")
                         Case Else
                             If Config.UseRBLiveMatch Then
@@ -8384,21 +8397,45 @@ Public Class Form1
                     ShowCarryPlayers()    'SL2020
                 Case "MATCHDATA"
                     Select Case dataArray(1).ToUpper
+                        Case "MATCHSYNC"
+                            'currently only SL
+                            If Config.UseRBMatchSync Then
+                                AssignMatchSync(dataArray(2))
+                                ShowMatch()
+                                ShowHeadings()
+                                ShowTeamStats()
+                                ShowPlayerNames(1)
+                                ShowPlayerNames(2)
+                                ShowRemotePossession()
+                                AssignPlayersToJSON()
+                                ShowPlayerStats(1, 1)
+                                ShowPlayerStats(2, 1)
+                                ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
+                                ShowPlayerSummaryStats(1)
+                                ShowPlayerSummaryStats(2)
+                                SaveLiveMatch()
+                                MatchSynced = True
+                                ShowSyncedStatus()  'clear holding screen
+                            End If
                         Case "LIVEMATCHDETAILS"
                             'MATCHDATA|LIVEMATCHDETAILS|49233|Catalans^3^SKY2014 GAA|Castleford^2^Rugby League|1^1^1^ESCARE^MORGAN ESCARE^10775^^^^^|1^2^2^DUPORT^VINCENT DUPORT^10776^^^^^|1^3^3^POMEROY^BEN POMEROY^10777^^^^^|1^4^4^TONGA^WILLIE TONGA^10778^^^^^|1^5^5^OLDFIELD^MICHAEL OLDFIELD^10779^^^^^|1^6^6^CARNEY^TODD CARNEY^10780^^^^^|1^7^7^DUREAU^SCOTT DUREAU^10781^^^^^|1^8^8^ELIMA^OLIVIER ELIMA^10782^^^^^|1^9^9^HENDERSON^IAN HENDERSON^10783^^^^^|1^10^10^CASTY^REMI CASTY^10784^^^^^|1^11^11^TAIA^ZEB TAIA^10785^^^^^|1^12^12^ANDERSON^LOUIS ANDERSON^10786^^^^^|1^13^13^MOUNIS^GREGORY MOUNIS^10787^^^^^|1^14^14^BOSC^THOMAS BOSC^10788^^^^^|1^15^15^LIMA^JEFF LIMA^10789^^^^^|1^16^16^PELISSIER^ELOI PELISSIER^10790^^^^^|1^17^17^WHITEHEAD^ELLIOTT WHITEHEAD^10791^^^^^|1^18^18^GARCIA^BENJAMIN GARCIA^10792^^^^^|1^19^19^PALA^MATHIAS PALA^10793^^^^^|1^20^20^CARDACE^DAMIEN CARDACE^10794^^^^^|1^21^21^BOUSQUET^JULIAN BOUSQUET^10795^^^^^|1^22^^^^-1^^^^^|1^23^^^^-1^^^^^|1^24^^^^-1^^^^^|1^25^^^^-1^^^^^|2^1^1^Dorn^Luke Dorn^11003^^^^^|2^2^2^Clare^James Clare^11004^^^^^|2^3^3^Webster^Jake Webster^11005^^^^^|2^4^4^Shenton^Michael Shenton^11006^^^^^|2^5^5^Carney^Justin Carney^11007^^^^^|2^6^6^Roberts^Ben Roberts^11008^^^^^|2^7^7^Gale^Luke Gale^11009^^^^^|2^8^8^Lynch^Andy Lynch^11010^^^^^|2^9^9^Milner^Adam Milner^11011^^^^^|2^10^10^Millington^Grant Millington^11012^^^^^|2^11^11^Holmes^Oliver Holmes^11013^^^^^|2^12^12^Cook^Matt Cook^11014^^^^^|2^13^13^Massey^Nathan Massey^11015^^^^^|2^14^14^Jewitt^Lee Jewitt^11016^^^^^|2^15^15^Boyle^Ryan Boyle^11017^^^^^|2^16^16^Moors^Junior Moors^11018^^^^^|2^17^17^Moore^Scott Moore^11019^^^^^|2^18^21^FINN^LIAM FINN^11023^^^^^|2^19^22^TANSEY^JORDAN TANSEY^11024^^^^^|2^20^23^CHANNING^MICHAEL CHANNING^11025^^^^^|2^21^25^CROSSLEY^STEVE CROSSLEY^11027^^^^^|2^22^^^^-1^^^^^|2^23^^^^-1^^^^^|2^24^^^^-1^^^^^|2^25^^^^-1^^^^^|
                             'just use to fetch ID, then fetch data from server as normal
                             If Config.UseRBLiveMatch Then
-                                iMatchID = Val(dataArray(2))
-                                JSONTeamStats.MatchID = iMatchID.ToString
-                                SendData("REQUESTMATCHDETAILS|" & iMatchID.ToString)
-                                Threading.Thread.Sleep(100)
-                                FetchAllLiveStats()
+                                'ignore if using MATCHSYNC:
+                                If Not (Config.UseRBMatchSync) Then
+                                    iMatchID = Val(dataArray(2))
+                                    JSONTeamStats.MatchID = iMatchID.ToString
+                                    SendData("REQUESTMATCHDETAILS|" & iMatchID.ToString)
+                                    Threading.Thread.Sleep(100)
+                                    FetchAllLiveStats()
+                                End If
                             End If
-                        Case "MATCHSYNC"
-                            'currently only SL
-                            AssignMatchSync(dataArray(2))
+                        Case "MATCHFACTS"
+                            'not for us
                         Case "LIVESTATNAMES"
-                            AssignRBOptaStatnames(strMessage)
+                            If Not (Config.UseRBMatchSync) Then
+                                AssignRBOptaStatnames(strMessage)
+                            End If
                         Case "PLAYEREDIT"
                             Utils.AssignPlayerNameString(strMessage)
                             ShowPlayerNames(1)
@@ -9178,6 +9215,7 @@ Public Class Form1
                 Config.NumberOfAreas = 3
                 Config.UseRBLiveMatch = True
                 Config.UseRBStatNames = True
+                Config.UseRBMatchSync = True
             Case Else
                 Config.NumberOfAreas = 3
                 'MessageBox.Show("Unrecognised User: " & Config.UserName & vbLf & "Cannot continue", "Error starting")
@@ -9224,11 +9262,16 @@ Public Class Form1
         Select Case Config.UserName
             Case "SKYSUPERLEAGUE"
                 panelSuperLeaguePro14.Visible = True
+                panelWaitingForSync.BringToFront()
+                ShowSyncedStatus()
                 picBoxSLLogo.Visible = True
                 panelSuperLeaguePro14.BringToFront()
                 TabControl1.TabPages.RemoveByKey("tabKickouts")
                 TabControl1.TabPages.RemoveByKey("tabPenalties")
                 TabControl1.TabPages.RemoveByKey("tabCarries")
+                btnClearAllTeam.Visible = False
+                btnClearPlayerHome.Visible = False
+                btnClearPlayerAway.Visible = False
 '                ShowCarryPlayers()
             Case "PRO14"
                 'testing
@@ -9240,6 +9283,16 @@ Public Class Form1
             Case Else
                 TabControl1.TabPages.RemoveByKey("tabCarries")
         End Select
+    End Sub
+    Delegate Sub ShowSyncedStatusCallback()
+    Sub ShowSyncedStatus()
+        If panelWaitingForSync.InvokeRequired Then
+            Dim d As New ShowSyncedStatusCallback(AddressOf ShowSyncedStatus)
+            Me.Invoke(d, New Object() {})
+        Else
+            panelWaitingForSync.Visible = Not (MatchSynced)
+        End If
+
     End Sub
     Sub InitClasses()
         Dim inc As Integer, iTeam As Integer
@@ -9512,21 +9565,21 @@ Public Class Form1
                     'tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
                     'tempLabel.BackColor = colHighlight
             End Select
-            Select Case Config.UserName
-                Case "SKYSUPERLEAGUE"
-                    'possible v long data for metres
-                    'careful if stat moves###################
-                    If PlayerStat(1, iPlayerNum).Stat08.ToString.Length > 4 Then
-                        lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
-                    Else
-                        lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
-                    End If
-                    If PlayerStat(2, iPlayerNum).Stat08.ToString.Length > 4 Then
-                        lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
-                    Else
-                        lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
-                    End If
-            End Select
+            'Select Case Config.UserName
+            '    Case "SKYSUPERLEAGUE"
+            '        'possible v long data for metres
+            '        'careful if stat moves###################
+            '        If PlayerStat(1, iPlayerNum).Stat08.ToString.Length > 4 Then
+            '            lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
+            '        Else
+            '            lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
+            '        End If
+            '        If PlayerStat(2, iPlayerNum).Stat08.ToString.Length > 4 Then
+            '            lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
+            '        Else
+            '            lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
+            '        End If
+            'End Select
             For inc = 1 To 25
                 tempButton = FindPlayerButtonByName(iTeam, inc)
                 tempButton.BackColor = colNormal
@@ -10607,61 +10660,68 @@ Public Class Form1
         ShowPlayerSummaryStats(iCurrentPlayerTeam)
         'save data ##########
     End Sub
+    Delegate Sub ShowPlayerSummaryStatsCallback(ByVal iTeam As Integer)
     Sub ShowPlayerSummaryStats(ByVal iTeam As Integer)
         Dim inc As Integer
         Dim tempItem As New ListViewItem
-        Try
-            Select Case iTeam
-                Case 1
-                    Me.listViewSummaryHome.Items.Clear()
-                Case 2
-                    Me.listViewsummaryAway.Items.Clear()
-            End Select
-            For inc = 1 To 25
-                tempItem = New ListViewItem
-                tempItem.Text = inc.ToString
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat01.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat02.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat03.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat04.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat05.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat06.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat07.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat08.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat09.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat10.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat11.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat12.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat13.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat14.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat15.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat16.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat17.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat18.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat19.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat20.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat21.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat22.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat23.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat24.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat25.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat26.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat27.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat28.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat29.ToString)
-                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat30.ToString)
+        If listViewSummaryHome.InvokeRequired Then
+            Dim d As New ShowPlayerSummaryStatsCallback(AddressOf ShowPlayerSummaryStats)
+            Me.Invoke(d, New Object() {iTeam})
+        Else
+            Try
                 Select Case iTeam
                     Case 1
-                        Me.listViewSummaryHome.Items.Add(tempItem)
+                        Me.listViewSummaryHome.Items.Clear()
                     Case 2
-                        Me.listViewsummaryAway.Items.Add(tempItem)
+                        Me.listViewsummaryAway.Items.Clear()
                 End Select
-            Next
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error in ShowPlayerSummaryStats")
+                For inc = 1 To 25
+                    tempItem = New ListViewItem
+                    tempItem.Text = inc.ToString
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat01.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat02.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat03.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat04.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat05.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat06.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat07.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat08.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat09.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat10.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat11.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat12.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat13.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat14.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat15.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat16.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat17.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat18.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat19.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat20.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat21.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat22.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat23.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat24.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat25.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat26.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat27.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat28.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat29.ToString)
+                    tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat30.ToString)
+                    Select Case iTeam
+                        Case 1
+                            Me.listViewSummaryHome.Items.Add(tempItem)
+                        Case 2
+                            Me.listViewsummaryAway.Items.Add(tempItem)
+                    End Select
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error in ShowPlayerSummaryStats")
 
-        End Try
+            End Try
+        End If
+
     End Sub
     Delegate Sub ShowPlayerNamesCallback(iTeam As Integer)
     Sub ShowPlayerNames(ByVal iTeam As Integer)
@@ -12040,8 +12100,101 @@ Public Class Form1
     Sub AssignMatchSync(jsonString As String)
         Dim json As New JavaScriptSerializer
         Dim data As clsMatchSync = json.Deserialize(Of clsMatchSync)(jsonString)
-        Console.WriteLine(data.HomeLongName + " v " + data.AwayLongName)
+        Dim inc As Integer = 0
+        Dim incStat As Integer = 0
 
+        LiveMatch = New clsMatch
+        LiveMatch.MatchID = data.MatchID
+        LiveMatch.Period = data.Period
+        LiveMatch.HomeTeamID = data.HomeTeamID
+        LiveMatch.AwayTeamID = data.AwayTeamID
+        LiveMatch.HomeShortName = data.HomeShortName
+        LiveMatch.AwayShortName = data.AwayShortName
+        LiveMatch.HomeLongName = data.HomeLongName
+        LiveMatch.AwayLongName = data.HomeShortName
+        LiveMatch.HomeScoreLine = data.HomeScore
+        LiveMatch.AwayScoreLine = data.AwayScore
+        LiveMatch.HomeColour2 = -16777216
+        LiveMatch.HomeColour = -1
+        LiveMatch.AwayColour2 = -16777216
+        LiveMatch.AwayColour = -1
+        RemoteData.HomePossession = data.HomePossession
+        RemoteData.AwayPossession = data.AwayPossession
+        RemoteData.CurrentPossessionTeam = data.PossessionTeam
+
+        RemoteData.CurrentMatchPeriod = data.Period
+        RemoteData.HomeScore = data.HomeScore
+        RemoteData.AwayScore = data.AwayScore
+
+        'team statnames:
+        inc = 0
+        For Each statName As String In data.TeamStatNameList
+            inc += 1
+            If inc <= strTeamStatName.GetUpperBound(0) Then
+                strTeamStatName(inc) = statName
+            End If
+        Next
+
+        'player statnames:
+        inc = 0
+        For Each statName As String In data.PlayerStatNameList
+            inc += 1
+            If inc <= strPlayerStatName.GetUpperBound(0) Then
+                strPlayerStatName(inc) = statName
+            End If
+        Next
+
+
+
+        'team stat data:
+        inc = 0
+        For Each statValue As Integer In data.HomeTeamStatList
+            inc += 1
+            Utils.AssignHomeTeamStat(inc, statValue)
+        Next
+        inc = 0
+        For Each statValue As Integer In data.AwayTeamStatList
+            inc += 1
+            Utils.AssignAwayTeamStat(inc, statValue)
+        Next
+
+        'player data:
+        inc = 0
+        For Each tempPlayer As clsPlayerSync In data.HomePlayerList
+            inc += 1
+            If inc <= PlayerStat.GetUpperBound(1) Then
+                PlayerStat(1, inc).PlayerID = tempPlayer.PlayerID
+                PlayerStat(1, inc).PlayerNum = Val(tempPlayer.Number)
+                PlayerStat(1, inc).PlayerShortName = tempPlayer.Name
+                PlayerStat(1, inc).PlayerLongName = tempPlayer.Name
+                PlayerStat(1, inc).PlayerSortName = tempPlayer.Name
+                incstat = 0
+                For Each statValue As Integer In tempPlayer.StatList
+                    incStat += 1
+                    Utils.AssignPlayerStat(1, inc, incStat, statValue)
+                Next
+            End If
+        Next
+        inc = 0
+        For Each tempPlayer As clsPlayerSync In data.AwayPlayerList
+            inc += 1
+            If inc <= PlayerStat.GetUpperBound(1) Then
+                PlayerStat(2, inc).PlayerID = tempPlayer.PlayerID
+                PlayerStat(2, inc).PlayerNum = Val(tempPlayer.Number)
+                PlayerStat(2, inc).PlayerShortName = tempPlayer.Name
+                PlayerStat(2, inc).PlayerLongName = tempPlayer.Name
+                PlayerStat(2, inc).PlayerSortName = tempPlayer.Name
+                incStat = 0
+                For Each statValue As Integer In tempPlayer.StatList
+                    incStat += 1
+                    Utils.AssignPlayerStat(2, inc, incStat, statValue)
+                Next
+            End If
+        Next
+
+
+        iMatchID = data.MatchID
+        JSONTeamStats.MatchID = iMatchID.ToString
     End Sub
 
     Sub AssignRBOptaStatnames(dataString As String)

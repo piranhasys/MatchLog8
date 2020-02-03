@@ -27,14 +27,22 @@ Public Class clsUtils
                 Return "PRE MATCH"
         End Select
     End Function
+    Private Sub CreateAppDataFolder()
+        Dim restoreFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\MatchLog"
+        If Not (Directory.Exists(restoreFolder)) Then
+            Directory.CreateDirectory(restoreFolder)
+        End If
+    End Sub
     Sub SerializeMatch(ByVal temp As clsMatch)
-        Dim strFileName As String = "Match.xml"
+        CreateAppDataFolder()
+        Dim strFileName As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\MatchLog\Match.xml"
         Dim serializer As XmlSerializer = New XmlSerializer(GetType(clsMatch))
         Dim myWriter As StreamWriter = New StreamWriter(strFileName)
         serializer.Serialize(myWriter, temp)
         myWriter.Close()
     End Sub
     Sub SerializePlayerStatSet(ByVal tempPlayerStat(,) As clsPlayerStat, ByVal iTeam As Integer)
+        CreateAppDataFolder()
         Dim strFileName As String
         Dim tempArray(25) As clsPlayerStat
         Dim inc As Integer
@@ -42,9 +50,9 @@ Public Class clsUtils
             tempArray(inc) = tempPlayerStat(iTeam, inc)
         Next
         If iTeam = 1 Then
-            strFileName = "PlayersH.xml"
+            strFileName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\MatchLog\PlayersH.xml"
         Else
-            strFileName = "PlayersA.xml"
+            strFileName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\MatchLog\PlayersA.xml"
         End If
         Dim serializer As XmlSerializer = New XmlSerializer(GetType(clsPlayerStatSet))
         Dim tempSet As New clsPlayerStatSet(tempArray)
@@ -52,16 +60,23 @@ Public Class clsUtils
         serializer.Serialize(myWriter, tempSet)
         myWriter.Close()
     End Sub
-    Function DeSerializePlayerStatSet(ByVal strFilename As String) As clsPlayerStatSet
-        Dim serializer As XmlSerializer = New XmlSerializer(GetType(clsPlayerStatSet))
+    Function DeSerializePlayerStatSet(ByVal shortFilename As String) As clsPlayerStatSet
+        CreateAppDataFolder()
         Dim tempSet As New clsPlayerStatSet
-        Dim myReader As StreamReader = New StreamReader(strFilename)
-        tempSet = CType(serializer.Deserialize(myReader), clsPlayerStatSet)
-        myReader.Close()
+        Try
+            Dim strFileName As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\MatchLog\" + shortFilename
+            Dim serializer As XmlSerializer = New XmlSerializer(GetType(clsPlayerStatSet))
+            Dim myReader As StreamReader = New StreamReader(strFileName)
+            tempSet = CType(serializer.Deserialize(myReader), clsPlayerStatSet)
+            myReader.Close()
+        Catch ex As Exception
+
+        End Try
         Return tempSet
     End Function
     Function DeSerializeMatchfile() As clsMatch
-        Dim strFileName As String = "Match.xml"
+        CreateAppDataFolder()
+        Dim strFileName As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\MatchLog\Match.xml"
         Dim temp As New clsMatch
         If File.Exists(strFileName) Then
             Try
@@ -70,11 +85,11 @@ Public Class clsUtils
                 temp = CType(serializer.Deserialize(myReader), clsMatch)
                 myReader.Close()
             Catch ex As Exception
-                MessageBox.Show(ex.Message, "Error reading Match data")
+                'MessageBox.Show(ex.Message, "Error reading Match data")
                 'will return default pagefile
             End Try
         Else
-            MessageBox.Show("Can't find file: " & strFileName, "Error reading Match File")
+            'MessageBox.Show("Can't find file: " & strFileName, "Error reading Match File")
         End If
         Return temp
     End Function
@@ -268,6 +283,7 @@ Public Class clsUtils
 
     End Sub
     Sub AssignPlayerDataString(ByVal tempString As String)
+        'don't assign iCurrentplayer or iCurrentPlayerStat - may be multi-logging machines
         'MatchData|PlayerStats|TimeStamp|MatchID|TeamID|PlayerID|Action|Stat1^Stat2^Stat3^...|1|12|14|
         Dim iMatchID As Integer, iTeamID As Integer, iPlayerID As Integer
         Dim iTeam As Integer = 0, iPlayer As Integer = 0
@@ -295,8 +311,8 @@ Public Class clsUtils
                     Dim localStatIndex As Integer = LookupLocalPlayerStatIndexFromRBIndex(incStat)
                     AssignPlayerStat(iTeam, iPlayer, localStatIndex, statValue)
                 Next
-                iCurrentPlayer = Val(dataArray(9))
-                iCurrentPlayerStat = LookupLocalPlayerStatIndexFromRBIndex(Val(dataArray(10)))
+                'iCurrentPlayer = Val(dataArray(9))
+                'iCurrentPlayerStat = LookupLocalPlayerStatIndexFromRBIndex(Val(dataArray(10)))
             Else
                 Dim strStatArray() As String = dataArray(7).Split("^")
                 PlayerStat(iTeam, iPlayer).Stat01 = Val(strStatArray(0))
@@ -329,8 +345,8 @@ Public Class clsUtils
                 PlayerStat(iTeam, iPlayer).Stat28 = Val(strStatArray(27))
                 PlayerStat(iTeam, iPlayer).Stat29 = Val(strStatArray(28))
                 PlayerStat(iTeam, iPlayer).Stat30 = Val(strStatArray(29))
-                iCurrentPlayer = Val(dataArray(9))
-                iCurrentPlayerStat = Val(dataArray(10))
+                'iCurrentPlayer = Val(dataArray(9))
+                'iCurrentPlayerStat = Val(dataArray(10))
             End If
         End If
     End Sub
@@ -593,6 +609,8 @@ Public Class clsUtils
     End Sub
 
     Sub AssignTeamDataString(ByVal tempString As String)
+        'don't assign iCurrentTeam or iCurrentTeamStat - may be multi-logging machines (unlikely but...)
+
         'MatchData|TeamStats|TimeStamp|MatchID|TeamID|Action|Stat1^Stat2^Stat3^...
         Dim iMatchID As Integer, iTeamID As Integer
         On Error Resume Next
@@ -617,8 +635,8 @@ Public Class clsUtils
                             AssignAwayTeamStat(localStatIndex, statValue)
                     End Select
                 Next
-                iCurrentTeam = Val(dataArray(7))
-                iCurrentTeamStat = LookupLocalTeamStatIndexFromRBIndex(Val(dataArray(8)))
+                'iCurrentTeam = Val(dataArray(7))
+                'iCurrentTeamStat = LookupLocalTeamStatIndexFromRBIndex(Val(dataArray(8)))
             Else
                 Select Case iTeamID
                     Case LiveMatch.HomeTeamID
@@ -687,8 +705,8 @@ Public Class clsUtils
                         LiveMatch.Stat30A = Val(strStatArray(29))
                     Case Else
                 End Select
-                iCurrentTeam = Val(dataArray(7))
-                iCurrentTeamStat = Val(dataArray(8))
+                'iCurrentTeam = Val(dataArray(7))
+                'iCurrentTeamStat = Val(dataArray(8))
             End If
         End If
     End Sub

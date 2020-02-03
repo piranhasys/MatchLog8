@@ -29,6 +29,7 @@
     Public Pitch4565() As clsPitchLocationLog
     Public JSONTeamStats As New clsJSONTeamStats
     Public JSONPlayerStats As New clsJSONPlayerStats
+    Public MatchSynced As Boolean = False
 
     Enum PitchLogType As Integer
         Kickouts = 1

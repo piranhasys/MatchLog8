@@ -48,6 +48,7 @@ Public Class clsConfig
     Private iPeriodDurationExtra As Integer = 15
     Public Property UseRBStatNames As Boolean = False
     Public Property UseRBLiveMatch As Boolean = False
+    Public Property UseRBMatchSync As Boolean = False   'hard coded to user
 
     Public Property PeriodDurationExtra() As Integer
         Get
