@@ -22,9 +22,9 @@ Public Class Form1
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents tabTeam As System.Windows.Forms.TabPage
+    Friend WithEvents tabHome As System.Windows.Forms.TabPage
+    Friend WithEvents tabAway As System.Windows.Forms.TabPage
     Friend WithEvents btnPlayer04H As System.Windows.Forms.Button
     Friend WithEvents btnPlayer03H As System.Windows.Forms.Button
     Friend WithEvents btnPlayer02H As System.Windows.Forms.Button
@@ -411,6 +411,7 @@ Public Class Form1
     Friend WithEvents timerSendHeartbeat As Timer
     Friend WithEvents btnMatchSync As Button
     Friend WithEvents panelWaitingForSync As Panel
+    Friend WithEvents Label5 As Label
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -750,12 +751,12 @@ Public Class Form1
         Me.lablRemove = New System.Windows.Forms.Label()
         Me.timerCheckClock = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.tabTeam = New System.Windows.Forms.TabPage()
         Me.lablMatchID = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClearAllTeam = New System.Windows.Forms.Button()
         Me.btnResendTeam = New System.Windows.Forms.Button()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.tabHome = New System.Windows.Forms.TabPage()
         Me.btnClearPlayerHome = New System.Windows.Forms.Button()
         Me.btnResendPlayerHome = New System.Windows.Forms.Button()
         Me.btnPlayer25H = New System.Windows.Forms.Button()
@@ -843,7 +844,7 @@ Public Class Form1
         Me.btnPlayer03H = New System.Windows.Forms.Button()
         Me.btnPlayer02H = New System.Windows.Forms.Button()
         Me.btnPlayer01H = New System.Windows.Forms.Button()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.tabAway = New System.Windows.Forms.TabPage()
         Me.btnClearPlayerAway = New System.Windows.Forms.Button()
         Me.btnResendPlayerAway = New System.Windows.Forms.Button()
         Me.btnPlayer25A = New System.Windows.Forms.Button()
@@ -1140,14 +1141,15 @@ Public Class Form1
         Me.timerSendHeartbeat = New System.Windows.Forms.Timer(Me.components)
         Me.btnMatchSync = New System.Windows.Forms.Button()
         Me.panelWaitingForSync = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
         Me.groupPossession.SuspendLayout
         Me.TabControl1.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.TabPage2.SuspendLayout
-        Me.TabPage3.SuspendLayout
+        Me.tabTeam.SuspendLayout
+        Me.tabHome.SuspendLayout
+        Me.tabAway.SuspendLayout
         Me.TabPage4.SuspendLayout
         Me.TabPage5.SuspendLayout
         Me.tabKickouts.SuspendLayout
@@ -1161,6 +1163,7 @@ Public Class Form1
         Me.panelSuperLeaguePro14.SuspendLayout
         CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.panelWaitingForSync.SuspendLayout
         Me.SuspendLayout
         '
         'lablHeading01
@@ -3254,9 +3257,9 @@ Public Class Form1
         'TabControl1
         '
         Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.tabTeam)
+        Me.TabControl1.Controls.Add(Me.tabHome)
+        Me.TabControl1.Controls.Add(Me.tabAway)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.tabKickouts)
@@ -3269,113 +3272,113 @@ Public Class Form1
         Me.TabControl1.Size = New System.Drawing.Size(904, 724)
         Me.TabControl1.TabIndex = 137
         '
-        'TabPage1
+        'tabTeam
         '
-        Me.TabPage1.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.TabPage1.Controls.Add(Me.lablMatchID)
-        Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.btnClearAllTeam)
-        Me.TabPage1.Controls.Add(Me.btnResendTeam)
-        Me.TabPage1.Controls.Add(Me.lablStat21H)
-        Me.TabPage1.Controls.Add(Me.lablHeading26)
-        Me.TabPage1.Controls.Add(Me.lablStat26H)
-        Me.TabPage1.Controls.Add(Me.lablStat26A)
-        Me.TabPage1.Controls.Add(Me.lablHeading27)
-        Me.TabPage1.Controls.Add(Me.lablStat27H)
-        Me.TabPage1.Controls.Add(Me.lablStat27A)
-        Me.TabPage1.Controls.Add(Me.lablHeading28)
-        Me.TabPage1.Controls.Add(Me.lablStat28H)
-        Me.TabPage1.Controls.Add(Me.lablStat28A)
-        Me.TabPage1.Controls.Add(Me.lablHeading29)
-        Me.TabPage1.Controls.Add(Me.lablStat29H)
-        Me.TabPage1.Controls.Add(Me.lablStat29A)
-        Me.TabPage1.Controls.Add(Me.lablHeading30)
-        Me.TabPage1.Controls.Add(Me.lablStat30H)
-        Me.TabPage1.Controls.Add(Me.lablStat30A)
-        Me.TabPage1.Controls.Add(Me.lablHeading21)
-        Me.TabPage1.Controls.Add(Me.lablStat21A)
-        Me.TabPage1.Controls.Add(Me.lablHeading22)
-        Me.TabPage1.Controls.Add(Me.lablAwayName2)
-        Me.TabPage1.Controls.Add(Me.lablAwayName3)
-        Me.TabPage1.Controls.Add(Me.lablHomeName2)
-        Me.TabPage1.Controls.Add(Me.lablStat22H)
-        Me.TabPage1.Controls.Add(Me.lablHomeName3)
-        Me.TabPage1.Controls.Add(Me.lablStat22A)
-        Me.TabPage1.Controls.Add(Me.lablStat15A)
-        Me.TabPage1.Controls.Add(Me.lablHeading23)
-        Me.TabPage1.Controls.Add(Me.lablStat15H)
-        Me.TabPage1.Controls.Add(Me.lablStat23H)
-        Me.TabPage1.Controls.Add(Me.lablHeading15)
-        Me.TabPage1.Controls.Add(Me.lablStat23A)
-        Me.TabPage1.Controls.Add(Me.lablStat14A)
-        Me.TabPage1.Controls.Add(Me.lablHeading24)
-        Me.TabPage1.Controls.Add(Me.lablStat14H)
-        Me.TabPage1.Controls.Add(Me.lablStat24H)
-        Me.TabPage1.Controls.Add(Me.lablHeading14)
-        Me.TabPage1.Controls.Add(Me.lablStat20A)
-        Me.TabPage1.Controls.Add(Me.lablStat13A)
-        Me.TabPage1.Controls.Add(Me.lablStat25A)
-        Me.TabPage1.Controls.Add(Me.lablStat13H)
-        Me.TabPage1.Controls.Add(Me.lablStat20H)
-        Me.TabPage1.Controls.Add(Me.lablHeading13)
-        Me.TabPage1.Controls.Add(Me.lablStat24A)
-        Me.TabPage1.Controls.Add(Me.lablStat12A)
-        Me.TabPage1.Controls.Add(Me.lablHeading20)
-        Me.TabPage1.Controls.Add(Me.lablStat12H)
-        Me.TabPage1.Controls.Add(Me.lablStat25H)
-        Me.TabPage1.Controls.Add(Me.lablHeading12)
-        Me.TabPage1.Controls.Add(Me.lablStat19A)
-        Me.TabPage1.Controls.Add(Me.lablStat11A)
-        Me.TabPage1.Controls.Add(Me.lablHeading25)
-        Me.TabPage1.Controls.Add(Me.lablStat11H)
-        Me.TabPage1.Controls.Add(Me.lablStat19H)
-        Me.TabPage1.Controls.Add(Me.lablHeading11)
-        Me.TabPage1.Controls.Add(Me.lablHeading19)
-        Me.TabPage1.Controls.Add(Me.lablStat10A)
-        Me.TabPage1.Controls.Add(Me.lablHeading16)
-        Me.TabPage1.Controls.Add(Me.lablStat10H)
-        Me.TabPage1.Controls.Add(Me.lablStat18A)
-        Me.TabPage1.Controls.Add(Me.lablHeading10)
-        Me.TabPage1.Controls.Add(Me.lablStat16H)
-        Me.TabPage1.Controls.Add(Me.lablStat09A)
-        Me.TabPage1.Controls.Add(Me.lablStat18H)
-        Me.TabPage1.Controls.Add(Me.lablStat09H)
-        Me.TabPage1.Controls.Add(Me.lablStat16A)
-        Me.TabPage1.Controls.Add(Me.lablHeading09)
-        Me.TabPage1.Controls.Add(Me.lablHeading18)
-        Me.TabPage1.Controls.Add(Me.lablStat08A)
-        Me.TabPage1.Controls.Add(Me.lablHeading17)
-        Me.TabPage1.Controls.Add(Me.lablStat08H)
-        Me.TabPage1.Controls.Add(Me.lablStat17A)
-        Me.TabPage1.Controls.Add(Me.lablHeading08)
-        Me.TabPage1.Controls.Add(Me.lablStat17H)
-        Me.TabPage1.Controls.Add(Me.lablStat07A)
-        Me.TabPage1.Controls.Add(Me.lablHeading01)
-        Me.TabPage1.Controls.Add(Me.lablStat07H)
-        Me.TabPage1.Controls.Add(Me.lablStat01H)
-        Me.TabPage1.Controls.Add(Me.lablHeading07)
-        Me.TabPage1.Controls.Add(Me.lablStat01A)
-        Me.TabPage1.Controls.Add(Me.lablStat06A)
-        Me.TabPage1.Controls.Add(Me.lablHeading02)
-        Me.TabPage1.Controls.Add(Me.lablStat06H)
-        Me.TabPage1.Controls.Add(Me.lablStat02H)
-        Me.TabPage1.Controls.Add(Me.lablHeading06)
-        Me.TabPage1.Controls.Add(Me.lablStat02A)
-        Me.TabPage1.Controls.Add(Me.lablStat05A)
-        Me.TabPage1.Controls.Add(Me.lablHeading03)
-        Me.TabPage1.Controls.Add(Me.lablStat05H)
-        Me.TabPage1.Controls.Add(Me.lablStat03H)
-        Me.TabPage1.Controls.Add(Me.lablHeading05)
-        Me.TabPage1.Controls.Add(Me.lablStat03A)
-        Me.TabPage1.Controls.Add(Me.lablStat04A)
-        Me.TabPage1.Controls.Add(Me.lablHeading04)
-        Me.TabPage1.Controls.Add(Me.lablStat04H)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 36)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(896, 684)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TEAM "
+        Me.tabTeam.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tabTeam.Controls.Add(Me.lablMatchID)
+        Me.tabTeam.Controls.Add(Me.Label2)
+        Me.tabTeam.Controls.Add(Me.btnClearAllTeam)
+        Me.tabTeam.Controls.Add(Me.btnResendTeam)
+        Me.tabTeam.Controls.Add(Me.lablStat21H)
+        Me.tabTeam.Controls.Add(Me.lablHeading26)
+        Me.tabTeam.Controls.Add(Me.lablStat26H)
+        Me.tabTeam.Controls.Add(Me.lablStat26A)
+        Me.tabTeam.Controls.Add(Me.lablHeading27)
+        Me.tabTeam.Controls.Add(Me.lablStat27H)
+        Me.tabTeam.Controls.Add(Me.lablStat27A)
+        Me.tabTeam.Controls.Add(Me.lablHeading28)
+        Me.tabTeam.Controls.Add(Me.lablStat28H)
+        Me.tabTeam.Controls.Add(Me.lablStat28A)
+        Me.tabTeam.Controls.Add(Me.lablHeading29)
+        Me.tabTeam.Controls.Add(Me.lablStat29H)
+        Me.tabTeam.Controls.Add(Me.lablStat29A)
+        Me.tabTeam.Controls.Add(Me.lablHeading30)
+        Me.tabTeam.Controls.Add(Me.lablStat30H)
+        Me.tabTeam.Controls.Add(Me.lablStat30A)
+        Me.tabTeam.Controls.Add(Me.lablHeading21)
+        Me.tabTeam.Controls.Add(Me.lablStat21A)
+        Me.tabTeam.Controls.Add(Me.lablHeading22)
+        Me.tabTeam.Controls.Add(Me.lablAwayName2)
+        Me.tabTeam.Controls.Add(Me.lablAwayName3)
+        Me.tabTeam.Controls.Add(Me.lablHomeName2)
+        Me.tabTeam.Controls.Add(Me.lablStat22H)
+        Me.tabTeam.Controls.Add(Me.lablHomeName3)
+        Me.tabTeam.Controls.Add(Me.lablStat22A)
+        Me.tabTeam.Controls.Add(Me.lablStat15A)
+        Me.tabTeam.Controls.Add(Me.lablHeading23)
+        Me.tabTeam.Controls.Add(Me.lablStat15H)
+        Me.tabTeam.Controls.Add(Me.lablStat23H)
+        Me.tabTeam.Controls.Add(Me.lablHeading15)
+        Me.tabTeam.Controls.Add(Me.lablStat23A)
+        Me.tabTeam.Controls.Add(Me.lablStat14A)
+        Me.tabTeam.Controls.Add(Me.lablHeading24)
+        Me.tabTeam.Controls.Add(Me.lablStat14H)
+        Me.tabTeam.Controls.Add(Me.lablStat24H)
+        Me.tabTeam.Controls.Add(Me.lablHeading14)
+        Me.tabTeam.Controls.Add(Me.lablStat20A)
+        Me.tabTeam.Controls.Add(Me.lablStat13A)
+        Me.tabTeam.Controls.Add(Me.lablStat25A)
+        Me.tabTeam.Controls.Add(Me.lablStat13H)
+        Me.tabTeam.Controls.Add(Me.lablStat20H)
+        Me.tabTeam.Controls.Add(Me.lablHeading13)
+        Me.tabTeam.Controls.Add(Me.lablStat24A)
+        Me.tabTeam.Controls.Add(Me.lablStat12A)
+        Me.tabTeam.Controls.Add(Me.lablHeading20)
+        Me.tabTeam.Controls.Add(Me.lablStat12H)
+        Me.tabTeam.Controls.Add(Me.lablStat25H)
+        Me.tabTeam.Controls.Add(Me.lablHeading12)
+        Me.tabTeam.Controls.Add(Me.lablStat19A)
+        Me.tabTeam.Controls.Add(Me.lablStat11A)
+        Me.tabTeam.Controls.Add(Me.lablHeading25)
+        Me.tabTeam.Controls.Add(Me.lablStat11H)
+        Me.tabTeam.Controls.Add(Me.lablStat19H)
+        Me.tabTeam.Controls.Add(Me.lablHeading11)
+        Me.tabTeam.Controls.Add(Me.lablHeading19)
+        Me.tabTeam.Controls.Add(Me.lablStat10A)
+        Me.tabTeam.Controls.Add(Me.lablHeading16)
+        Me.tabTeam.Controls.Add(Me.lablStat10H)
+        Me.tabTeam.Controls.Add(Me.lablStat18A)
+        Me.tabTeam.Controls.Add(Me.lablHeading10)
+        Me.tabTeam.Controls.Add(Me.lablStat16H)
+        Me.tabTeam.Controls.Add(Me.lablStat09A)
+        Me.tabTeam.Controls.Add(Me.lablStat18H)
+        Me.tabTeam.Controls.Add(Me.lablStat09H)
+        Me.tabTeam.Controls.Add(Me.lablStat16A)
+        Me.tabTeam.Controls.Add(Me.lablHeading09)
+        Me.tabTeam.Controls.Add(Me.lablHeading18)
+        Me.tabTeam.Controls.Add(Me.lablStat08A)
+        Me.tabTeam.Controls.Add(Me.lablHeading17)
+        Me.tabTeam.Controls.Add(Me.lablStat08H)
+        Me.tabTeam.Controls.Add(Me.lablStat17A)
+        Me.tabTeam.Controls.Add(Me.lablHeading08)
+        Me.tabTeam.Controls.Add(Me.lablStat17H)
+        Me.tabTeam.Controls.Add(Me.lablStat07A)
+        Me.tabTeam.Controls.Add(Me.lablHeading01)
+        Me.tabTeam.Controls.Add(Me.lablStat07H)
+        Me.tabTeam.Controls.Add(Me.lablStat01H)
+        Me.tabTeam.Controls.Add(Me.lablHeading07)
+        Me.tabTeam.Controls.Add(Me.lablStat01A)
+        Me.tabTeam.Controls.Add(Me.lablStat06A)
+        Me.tabTeam.Controls.Add(Me.lablHeading02)
+        Me.tabTeam.Controls.Add(Me.lablStat06H)
+        Me.tabTeam.Controls.Add(Me.lablStat02H)
+        Me.tabTeam.Controls.Add(Me.lablHeading06)
+        Me.tabTeam.Controls.Add(Me.lablStat02A)
+        Me.tabTeam.Controls.Add(Me.lablStat05A)
+        Me.tabTeam.Controls.Add(Me.lablHeading03)
+        Me.tabTeam.Controls.Add(Me.lablStat05H)
+        Me.tabTeam.Controls.Add(Me.lablStat03H)
+        Me.tabTeam.Controls.Add(Me.lablHeading05)
+        Me.tabTeam.Controls.Add(Me.lablStat03A)
+        Me.tabTeam.Controls.Add(Me.lablStat04A)
+        Me.tabTeam.Controls.Add(Me.lablHeading04)
+        Me.tabTeam.Controls.Add(Me.lablStat04H)
+        Me.tabTeam.Location = New System.Drawing.Point(4, 36)
+        Me.tabTeam.Name = "tabTeam"
+        Me.tabTeam.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabTeam.Size = New System.Drawing.Size(896, 684)
+        Me.tabTeam.TabIndex = 0
+        Me.tabTeam.Text = "TEAM "
         '
         'lablMatchID
         '
@@ -3427,102 +3430,102 @@ Public Class Form1
         Me.btnResendTeam.Text = "Resend Data"
         Me.btnResendTeam.UseVisualStyleBackColor = False
         '
-        'TabPage2
+        'tabHome
         '
-        Me.TabPage2.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.TabPage2.Controls.Add(Me.btnClearPlayerHome)
-        Me.TabPage2.Controls.Add(Me.btnResendPlayerHome)
-        Me.TabPage2.Controls.Add(Me.btnPlayer25H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading15)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat15H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading14)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat14H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading13)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat13H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading12)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat12H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading11)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat11H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading10)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat10H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading09)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat09H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading08)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat08H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading07)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat07H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading06)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat06H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading05)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat05H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading04)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat04H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading03)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat03H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading02)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat02H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading01)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat01H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading30)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat30H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading29)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat29H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading28)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat28H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading27)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat27H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading26)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat26H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading25)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat25H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading24)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat24H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading23)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat23H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading22)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat22H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading21)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat21H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading20)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat20H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading19)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat19H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading18)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat18H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading17)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat17H)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStatHeading16)
-        Me.TabPage2.Controls.Add(Me.lablPlayerStat16H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer24H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer23H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer22H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer21H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer20H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer19H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer18H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer17H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer16H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer15H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer14H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer13H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer12H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer11H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer10H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer09H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer08H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer07H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer06H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer05H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer04H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer03H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer02H)
-        Me.TabPage2.Controls.Add(Me.btnPlayer01H)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 36)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(896, 684)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "HOME PLAYERS"
+        Me.tabHome.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tabHome.Controls.Add(Me.btnClearPlayerHome)
+        Me.tabHome.Controls.Add(Me.btnResendPlayerHome)
+        Me.tabHome.Controls.Add(Me.btnPlayer25H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading15)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat15H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading14)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat14H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading13)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat13H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading12)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat12H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading11)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat11H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading10)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat10H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading09)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat09H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading08)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat08H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading07)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat07H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading06)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat06H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading05)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat05H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading04)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat04H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading03)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat03H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading02)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat02H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading01)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat01H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading30)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat30H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading29)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat29H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading28)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat28H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading27)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat27H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading26)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat26H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading25)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat25H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading24)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat24H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading23)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat23H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading22)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat22H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading21)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat21H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading20)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat20H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading19)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat19H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading18)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat18H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading17)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat17H)
+        Me.tabHome.Controls.Add(Me.lablPlayerStatHeading16)
+        Me.tabHome.Controls.Add(Me.lablPlayerStat16H)
+        Me.tabHome.Controls.Add(Me.btnPlayer24H)
+        Me.tabHome.Controls.Add(Me.btnPlayer23H)
+        Me.tabHome.Controls.Add(Me.btnPlayer22H)
+        Me.tabHome.Controls.Add(Me.btnPlayer21H)
+        Me.tabHome.Controls.Add(Me.btnPlayer20H)
+        Me.tabHome.Controls.Add(Me.btnPlayer19H)
+        Me.tabHome.Controls.Add(Me.btnPlayer18H)
+        Me.tabHome.Controls.Add(Me.btnPlayer17H)
+        Me.tabHome.Controls.Add(Me.btnPlayer16H)
+        Me.tabHome.Controls.Add(Me.btnPlayer15H)
+        Me.tabHome.Controls.Add(Me.btnPlayer14H)
+        Me.tabHome.Controls.Add(Me.btnPlayer13H)
+        Me.tabHome.Controls.Add(Me.btnPlayer12H)
+        Me.tabHome.Controls.Add(Me.btnPlayer11H)
+        Me.tabHome.Controls.Add(Me.btnPlayer10H)
+        Me.tabHome.Controls.Add(Me.btnPlayer09H)
+        Me.tabHome.Controls.Add(Me.btnPlayer08H)
+        Me.tabHome.Controls.Add(Me.btnPlayer07H)
+        Me.tabHome.Controls.Add(Me.btnPlayer06H)
+        Me.tabHome.Controls.Add(Me.btnPlayer05H)
+        Me.tabHome.Controls.Add(Me.btnPlayer04H)
+        Me.tabHome.Controls.Add(Me.btnPlayer03H)
+        Me.tabHome.Controls.Add(Me.btnPlayer02H)
+        Me.tabHome.Controls.Add(Me.btnPlayer01H)
+        Me.tabHome.Location = New System.Drawing.Point(4, 36)
+        Me.tabHome.Name = "tabHome"
+        Me.tabHome.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabHome.Size = New System.Drawing.Size(896, 684)
+        Me.tabHome.TabIndex = 1
+        Me.tabHome.Text = "HOME PLAYERS"
         '
         'btnClearPlayerHome
         '
@@ -4685,101 +4688,101 @@ Public Class Form1
         Me.btnPlayer01H.Text = "21- PETER WILKINSON-SMYTHE"
         Me.btnPlayer01H.UseVisualStyleBackColor = False
         '
-        'TabPage3
+        'tabAway
         '
-        Me.TabPage3.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.TabPage3.Controls.Add(Me.btnClearPlayerAway)
-        Me.TabPage3.Controls.Add(Me.btnResendPlayerAway)
-        Me.TabPage3.Controls.Add(Me.btnPlayer25A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading15A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat15A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading14A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat14A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading13A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat13A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading12A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat12A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading11A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat11A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading10A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat10A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading09A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat09A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading08A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat08A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading07A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat07A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading06A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat06A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading05A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat05A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading04A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat04A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading03A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat03A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading02A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat02A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading01A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat01A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading30A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat30A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading29A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat29A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading28A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat28A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading27A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat27A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading26A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat26A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading25A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat25A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading24A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat24A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading23A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat23A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading22A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat22A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading21A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat21A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading20A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat20A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading19A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat19A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading18A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat18A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading17A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat17A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStatHeading16A)
-        Me.TabPage3.Controls.Add(Me.lablPlayerStat16A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer24A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer23A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer22A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer21A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer20A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer19A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer18A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer17A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer16A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer15A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer14A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer13A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer12A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer11A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer10A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer09A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer08A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer07A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer06A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer05A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer04A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer03A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer02A)
-        Me.TabPage3.Controls.Add(Me.btnPlayer01A)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 36)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(896, 684)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "AWAY PLAYERS"
+        Me.tabAway.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tabAway.Controls.Add(Me.btnClearPlayerAway)
+        Me.tabAway.Controls.Add(Me.btnResendPlayerAway)
+        Me.tabAway.Controls.Add(Me.btnPlayer25A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading15A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat15A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading14A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat14A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading13A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat13A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading12A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat12A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading11A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat11A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading10A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat10A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading09A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat09A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading08A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat08A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading07A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat07A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading06A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat06A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading05A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat05A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading04A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat04A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading03A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat03A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading02A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat02A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading01A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat01A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading30A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat30A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading29A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat29A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading28A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat28A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading27A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat27A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading26A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat26A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading25A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat25A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading24A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat24A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading23A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat23A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading22A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat22A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading21A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat21A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading20A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat20A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading19A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat19A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading18A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat18A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading17A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat17A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStatHeading16A)
+        Me.tabAway.Controls.Add(Me.lablPlayerStat16A)
+        Me.tabAway.Controls.Add(Me.btnPlayer24A)
+        Me.tabAway.Controls.Add(Me.btnPlayer23A)
+        Me.tabAway.Controls.Add(Me.btnPlayer22A)
+        Me.tabAway.Controls.Add(Me.btnPlayer21A)
+        Me.tabAway.Controls.Add(Me.btnPlayer20A)
+        Me.tabAway.Controls.Add(Me.btnPlayer19A)
+        Me.tabAway.Controls.Add(Me.btnPlayer18A)
+        Me.tabAway.Controls.Add(Me.btnPlayer17A)
+        Me.tabAway.Controls.Add(Me.btnPlayer16A)
+        Me.tabAway.Controls.Add(Me.btnPlayer15A)
+        Me.tabAway.Controls.Add(Me.btnPlayer14A)
+        Me.tabAway.Controls.Add(Me.btnPlayer13A)
+        Me.tabAway.Controls.Add(Me.btnPlayer12A)
+        Me.tabAway.Controls.Add(Me.btnPlayer11A)
+        Me.tabAway.Controls.Add(Me.btnPlayer10A)
+        Me.tabAway.Controls.Add(Me.btnPlayer09A)
+        Me.tabAway.Controls.Add(Me.btnPlayer08A)
+        Me.tabAway.Controls.Add(Me.btnPlayer07A)
+        Me.tabAway.Controls.Add(Me.btnPlayer06A)
+        Me.tabAway.Controls.Add(Me.btnPlayer05A)
+        Me.tabAway.Controls.Add(Me.btnPlayer04A)
+        Me.tabAway.Controls.Add(Me.btnPlayer03A)
+        Me.tabAway.Controls.Add(Me.btnPlayer02A)
+        Me.tabAway.Controls.Add(Me.btnPlayer01A)
+        Me.tabAway.Location = New System.Drawing.Point(4, 36)
+        Me.tabAway.Name = "tabAway"
+        Me.tabAway.Size = New System.Drawing.Size(896, 684)
+        Me.tabAway.TabIndex = 2
+        Me.tabAway.Text = "AWAY PLAYERS"
         '
         'btnClearPlayerAway
         '
@@ -7684,7 +7687,7 @@ Public Class Form1
         '
         'timerCheckConnection
         '
-        Me.timerCheckConnection.Interval = 20000
+        Me.timerCheckConnection.Interval = 10000
         '
         'groupActionAreasRugby
         '
@@ -8145,11 +8148,24 @@ Public Class Form1
         'panelWaitingForSync
         '
         Me.panelWaitingForSync.BackColor = System.Drawing.Color.Maroon
+        Me.panelWaitingForSync.Controls.Add(Me.Label5)
         Me.panelWaitingForSync.Location = New System.Drawing.Point(130, 0)
         Me.panelWaitingForSync.Name = "panelWaitingForSync"
         Me.panelWaitingForSync.Size = New System.Drawing.Size(1222, 732)
         Me.panelWaitingForSync.TabIndex = 229
         Me.panelWaitingForSync.Visible = False
+        '
+        'Label5
+        '
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(202, 175)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(870, 360)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "Waiting for data" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from ReportBuilder." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Use Sync button if this screen" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "does not" &
+    " clear."
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1
         '
@@ -8197,9 +8213,9 @@ Public Class Form1
         Me.groupActionAreasSoccer.ResumeLayout(False)
         Me.groupPossession.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
+        Me.tabTeam.ResumeLayout(False)
+        Me.tabHome.ResumeLayout(False)
+        Me.tabAway.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.tabKickouts.ResumeLayout(False)
@@ -8214,6 +8230,7 @@ Public Class Form1
         Me.panelSuperLeaguePro14.ResumeLayout(False)
         CType(Me.picBoxSLLogo, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.picBoxPro14, System.ComponentModel.ISupportInitialize).EndInit
+        Me.panelWaitingForSync.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -8335,6 +8352,17 @@ Public Class Form1
         'Me.lablStatus.Text = strText
 
     End Sub
+    Private Sub SendQueue()
+        If messageQueue.Count > 0 Then
+            Console.WriteLine("Queue messages: " + messageQueue.Count.ToString)
+            For Each testMessage As String In messageQueue
+                SendData(testMessage)
+                Threading.Thread.Sleep(10)
+            Next
+        Else
+            'Console.WriteLine("Queue empty")
+        End If
+    End Sub
     Private Sub ProcessCommands(ByVal strMessage As String)
         Dim dataArray() As String, iReturn As Integer = 0
 
@@ -8348,8 +8376,12 @@ Public Class Form1
                 Case "CONNECTED"
                     Select Case Config.UserName
                         Case "SKYSUPERLEAGUE"
-                            MatchSynced = False
-                            SendData("MATCHLOG|REQUESTMATCHSYNC|")
+                            If (MatchSynced = False) Then
+                                'startup
+                                SendData("MATCHLOG|REQUESTMATCHSYNC|" + Config.PCName + "|")
+                            End If
+                            'check for messages in queue:
+                            SendQueue() 'may connect to restarted SS before RB so keep queue until acks received
                         Case Else
                             If Config.UseRBLiveMatch Then
                                 SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
@@ -8400,23 +8432,59 @@ Public Class Form1
                         Case "MATCHSYNC"
                             'currently only SL
                             If Config.UseRBMatchSync Then
-                                AssignMatchSync(dataArray(2))
-                                ShowMatch()
-                                ShowHeadings()
-                                ShowTeamStats()
-                                ShowPlayerNames(1)
-                                ShowPlayerNames(2)
-                                ShowRemotePossession()
-                                AssignPlayersToJSON()
-                                ShowPlayerStats(1, 1)
-                                ShowPlayerStats(2, 1)
-                                ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
-                                ShowPlayerSummaryStats(1)
-                                ShowPlayerSummaryStats(2)
-                                SaveLiveMatch()
-                                MatchSynced = True
-                                ShowSyncedStatus()  'clear holding screen
+                                Select Case dataArray(3)
+                                    Case "RB", Config.PCName
+                                        'RB = broadcast
+                                        'ignore other MatchLogs starting up and requesting sync ??
+                                        'only use if needed
+                                        AssignMatchSync(dataArray(2))
+                                        ShowMatch()
+                                        ShowHeadings()
+                                        ShowTeamStats()
+                                        ShowPlayerNames(1)
+                                        ShowPlayerNames(2)
+                                        ShowRemotePossession()
+                                        AssignPlayersToJSON()
+                                        ShowPlayerStats(1, 1)
+                                        ShowPlayerStats(2, 1)
+                                        ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
+                                        ShowPlayerSummaryStats(1)
+                                        ShowPlayerSummaryStats(2)
+                                        SaveLiveMatch()
+                                        MatchSynced = True
+                                        ShowSyncedStatus()  'clear holding screen
+                                End Select
                             End If
+                        Case "ACK"
+                            'MATCHDATA|ACK|T|6836|
+                            Select Case dataArray(2)
+                                Case "T"
+                                    'TEAMSTATS
+                                    For Each testMessage As String In messageQueue
+                                        If testMessage.Contains("|TEAMSTATS|") Then
+                                            'check it
+                                            'Console.WriteLine("Checking " + testMessage + " = " + Utils.CalcTeamStatChecksum(testMessage))
+                                            If Utils.CalcTeamStatChecksum(testMessage) = "T|" + dataArray(3) Then
+                                                messageQueue.Remove(testMessage)
+                                                Console.WriteLine("ACK received for " + testMessage)
+                                                Exit For
+                                            End If
+                                        End If
+                                    Next
+                                Case "P"
+                                    'PLAYERSTATS
+                                    For Each testMessage As String In messageQueue
+                                        If testMessage.Contains("|PLAYERSTATS|") Then
+                                            'check it
+                                            'Console.WriteLine("Checking " + testMessage + " = " + Utils.CalcTeamStatChecksum(testMessage))
+                                            If Utils.CalcPlayerStatChecksum(testMessage) = "P|" + dataArray(3) Then
+                                                messageQueue.Remove(testMessage)
+                                                Console.WriteLine("ACK received for " + testMessage)
+                                                Exit For
+                                            End If
+                                        End If
+                                    Next
+                            End Select
                         Case "LIVEMATCHDETAILS"
                             'MATCHDATA|LIVEMATCHDETAILS|49233|Catalans^3^SKY2014 GAA|Castleford^2^Rugby League|1^1^1^ESCARE^MORGAN ESCARE^10775^^^^^|1^2^2^DUPORT^VINCENT DUPORT^10776^^^^^|1^3^3^POMEROY^BEN POMEROY^10777^^^^^|1^4^4^TONGA^WILLIE TONGA^10778^^^^^|1^5^5^OLDFIELD^MICHAEL OLDFIELD^10779^^^^^|1^6^6^CARNEY^TODD CARNEY^10780^^^^^|1^7^7^DUREAU^SCOTT DUREAU^10781^^^^^|1^8^8^ELIMA^OLIVIER ELIMA^10782^^^^^|1^9^9^HENDERSON^IAN HENDERSON^10783^^^^^|1^10^10^CASTY^REMI CASTY^10784^^^^^|1^11^11^TAIA^ZEB TAIA^10785^^^^^|1^12^12^ANDERSON^LOUIS ANDERSON^10786^^^^^|1^13^13^MOUNIS^GREGORY MOUNIS^10787^^^^^|1^14^14^BOSC^THOMAS BOSC^10788^^^^^|1^15^15^LIMA^JEFF LIMA^10789^^^^^|1^16^16^PELISSIER^ELOI PELISSIER^10790^^^^^|1^17^17^WHITEHEAD^ELLIOTT WHITEHEAD^10791^^^^^|1^18^18^GARCIA^BENJAMIN GARCIA^10792^^^^^|1^19^19^PALA^MATHIAS PALA^10793^^^^^|1^20^20^CARDACE^DAMIEN CARDACE^10794^^^^^|1^21^21^BOUSQUET^JULIAN BOUSQUET^10795^^^^^|1^22^^^^-1^^^^^|1^23^^^^-1^^^^^|1^24^^^^-1^^^^^|1^25^^^^-1^^^^^|2^1^1^Dorn^Luke Dorn^11003^^^^^|2^2^2^Clare^James Clare^11004^^^^^|2^3^3^Webster^Jake Webster^11005^^^^^|2^4^4^Shenton^Michael Shenton^11006^^^^^|2^5^5^Carney^Justin Carney^11007^^^^^|2^6^6^Roberts^Ben Roberts^11008^^^^^|2^7^7^Gale^Luke Gale^11009^^^^^|2^8^8^Lynch^Andy Lynch^11010^^^^^|2^9^9^Milner^Adam Milner^11011^^^^^|2^10^10^Millington^Grant Millington^11012^^^^^|2^11^11^Holmes^Oliver Holmes^11013^^^^^|2^12^12^Cook^Matt Cook^11014^^^^^|2^13^13^Massey^Nathan Massey^11015^^^^^|2^14^14^Jewitt^Lee Jewitt^11016^^^^^|2^15^15^Boyle^Ryan Boyle^11017^^^^^|2^16^16^Moors^Junior Moors^11018^^^^^|2^17^17^Moore^Scott Moore^11019^^^^^|2^18^21^FINN^LIAM FINN^11023^^^^^|2^19^22^TANSEY^JORDAN TANSEY^11024^^^^^|2^20^23^CHANNING^MICHAEL CHANNING^11025^^^^^|2^21^25^CROSSLEY^STEVE CROSSLEY^11027^^^^^|2^22^^^^-1^^^^^|2^23^^^^-1^^^^^|2^24^^^^-1^^^^^|2^25^^^^-1^^^^^|
                             'just use to fetch ID, then fetch data from server as normal
@@ -8597,7 +8665,7 @@ Public Class Form1
                     End Select
 
                 Case "HEARTBEAT"
-
+                    SendQueue()
                 Case "DISCONNECTED"
                     Disconnect()
                     ShowConnectionStatus(-1)
@@ -9054,7 +9122,7 @@ Public Class Form1
                 End If
             Next
         Next
-        Console.WriteLine(JSONPlayerStats.playerList.Count.ToString)
+        'Console.WriteLine(JSONPlayerStats.playerList.Count.ToString)
     End Sub
     Sub LoadDummyKickouts()
         ReDim PitchKickouts(5)
@@ -9199,8 +9267,8 @@ Public Class Form1
         End Select
         btnSetup.Visible = Not (Config.UseRBLiveMatch)
         If Config.AutoConectToSportServer = True Then
-            ConnectToSportServer()
             Me.timerCheckConnection.Enabled = True
+            ConnectToSportServer()
         End If
     End Sub
     Sub SetUser()
@@ -9262,8 +9330,6 @@ Public Class Form1
         Select Case Config.UserName
             Case "SKYSUPERLEAGUE"
                 panelSuperLeaguePro14.Visible = True
-                panelWaitingForSync.BringToFront()
-                ShowSyncedStatus()
                 picBoxSLLogo.Visible = True
                 panelSuperLeaguePro14.BringToFront()
                 TabControl1.TabPages.RemoveByKey("tabKickouts")
@@ -9272,6 +9338,11 @@ Public Class Form1
                 btnClearAllTeam.Visible = False
                 btnClearPlayerHome.Visible = False
                 btnClearPlayerAway.Visible = False
+                btnResendTeam.Visible = False
+                btnResendPlayerHome.Visible = False
+                btnResendPlayerAway.Visible = False
+                panelWaitingForSync.BringToFront()
+                ShowSyncedStatus()
 '                ShowCarryPlayers()
             Case "PRO14"
                 'testing
@@ -9583,11 +9654,17 @@ Public Class Form1
             For inc = 1 To 25
                 tempButton = FindPlayerButtonByName(iTeam, inc)
                 tempButton.BackColor = colNormal
+                'other team to clear:
+                tempButton = FindPlayerButtonByName(3 - iTeam, inc)
+                tempButton.BackColor = colNormal
             Next
             tempButton = FindPlayerButtonByName(iTeam, iPlayerNum)
             tempButton.BackColor = colHighlight
             For inc = 1 To 30
                 tempLabel = FindPlayerStatLabel(iTeam, inc)
+                tempLabel.BackColor = colNormal
+                'other team to clear:
+                tempLabel = FindPlayerStatLabel(3 - iTeam, inc)
                 tempLabel.BackColor = colNormal
             Next
             tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
@@ -10230,8 +10307,21 @@ Public Class Form1
             'only add if names exist to avoid confusing RB
             strText += JSONTeamStatsString() & "|"
         End If
-
-        SendData(strText)
+        If messageQueue.Count = 0 Then
+            'OK, up to date
+            'just send this one and add it to the ACK list
+            SendData(strText)
+            Console.WriteLine("Added Message with Checksum: " + Utils.CalcTeamStatChecksum(strText))
+            messageQueue.Add(strText)
+        Else
+            'lost connection
+            'add to end of queue, try sending
+            Console.WriteLine("Added Message with Checksum: " + Utils.CalcTeamStatChecksum(strText))
+            messageQueue.Add(strText)
+            If bConnectedToServer Then
+                SendQueue()
+            End If
+        End If
     End Sub
     Sub SendKickout(ByVal thisPitchKickout As clsPitchLocationLog)
         Dim strText As String = ""
@@ -10325,7 +10415,22 @@ Public Class Form1
             strText += JSONPlayerStatsString(iTeam, iPlayer) & "|"
         End If
 
-        SendData(strText)
+        If messageQueue.Count = 0 Then
+            'OK, up to date
+            'just send this one and add it to the ACK list
+            SendData(strText)
+            Console.WriteLine("Added Message with Checksum: " + Utils.CalcPlayerStatChecksum(strText))
+            messageQueue.Add(strText)
+        Else
+            'lost connection
+            'add to end of queue, try sending
+            Console.WriteLine("Added Message with Checksum: " + Utils.CalcPlayerStatChecksum(strText))
+            messageQueue.Add(strText)
+            If bConnectedToServer Then
+                SendQueue()
+            End If
+        End If
+        '        SendData(strText)
     End Sub
 
     Private Sub lablStat01H_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lablStat01H.Click, lablStat02H.Click, lablStat03H.Click, lablStat04H.Click, lablStat05H.Click, lablStat06H.Click, lablStat07H.Click, lablStat08H.Click, lablStat09H.Click, lablStat10H.Click, lablStat11H.Click, lablStat12H.Click, lablStat13H.Click, lablStat14H.Click, lablStat15H.Click, lablStat16H.Click, lablStat17H.Click, lablStat18H.Click, lablStat19H.Click, lablStat20H.Click, lablStat21H.Click, lablStat22H.Click, lablStat23H.Click, lablStat24H.Click, lablStat25H.Click, lablStat26H.Click, lablStat27H.Click, lablStat28H.Click, lablStat29H.Click, lablStat30H.Click
@@ -10623,6 +10728,7 @@ Public Class Form1
     End Sub
 
     Private Sub lablPlayerStat01H_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lablPlayerStat01H.Click, lablPlayerStat02H.Click, lablPlayerStat03H.Click, lablPlayerStat04H.Click, lablPlayerStat05H.Click, lablPlayerStat06H.Click, lablPlayerStat07H.Click, lablPlayerStat08H.Click, lablPlayerStat09H.Click, lablPlayerStat10H.Click, lablPlayerStat11H.Click, lablPlayerStat12H.Click, lablPlayerStat13H.Click, lablPlayerStat14H.Click, lablPlayerStat15H.Click, lablPlayerStat16H.Click, lablPlayerStat17H.Click, lablPlayerStat18H.Click, lablPlayerStat19H.Click, lablPlayerStat20H.Click, lablPlayerStat21H.Click, lablPlayerStat22H.Click, lablPlayerStat23H.Click, lablPlayerStat24H.Click, lablPlayerStat25H.Click, lablPlayerStat26H.Click, lablPlayerStat27H.Click, lablPlayerStat28H.Click, lablPlayerStat29H.Click, lablPlayerStat30H.Click
+        If iCurrentPlayer = 0 Then Exit Sub
         Dim iTag As Integer = sender.tag
         Dim iValue As Integer = 0, iStatNum As Integer = 0
         Dim iTeam As Integer = 1
@@ -10642,6 +10748,7 @@ Public Class Form1
         'save data ##########
     End Sub
     Private Sub lablPlayerStat01A_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lablPlayerStat01A.Click, lablPlayerStat02A.Click, lablPlayerStat03A.Click, lablPlayerStat04A.Click, lablPlayerStat05A.Click, lablPlayerStat06A.Click, lablPlayerStat07A.Click, lablPlayerStat08A.Click, lablPlayerStat09A.Click, lablPlayerStat10A.Click, lablPlayerStat11A.Click, lablPlayerStat12A.Click, lablPlayerStat13A.Click, lablPlayerStat14A.Click, lablPlayerStat15A.Click, lablPlayerStat16A.Click, lablPlayerStat17A.Click, lablPlayerStat18A.Click, lablPlayerStat19A.Click, lablPlayerStat20A.Click, lablPlayerStat21A.Click, lablPlayerStat22A.Click, lablPlayerStat23A.Click, lablPlayerStat24A.Click, lablPlayerStat25A.Click, lablPlayerStat26A.Click, lablPlayerStat27A.Click, lablPlayerStat28A.Click, lablPlayerStat29A.Click, lablPlayerStat30A.Click
+        If iCurrentPlayer = 0 Then Exit Sub
         Dim iTag As Integer = sender.tag
         Dim iValue As Integer = 0, iStatNum As Integer = 0
         Dim iTeam As Integer = 2
@@ -10725,14 +10832,14 @@ Public Class Form1
     End Sub
     Delegate Sub ShowPlayerNamesCallback(iTeam As Integer)
     Sub ShowPlayerNames(ByVal iTeam As Integer)
-        If TabPage2.InvokeRequired Then
+        If tabHome.InvokeRequired Then
             Dim d As New ShowPlayerNamesCallback(AddressOf ShowPlayerNames)
             Me.Invoke(d, New Object() {iTeam})
         Else
 
             Dim inc As Integer, tempButton As Button
-            Me.TabPage2.Text = LiveMatch.HomeShortName.ToUpper
-            Me.TabPage3.Text = LiveMatch.AwayShortName.ToUpper
+            Me.tabHome.Text = LiveMatch.HomeShortName.ToUpper
+            Me.tabAway.Text = LiveMatch.AwayShortName.ToUpper
             Me.TabPage4.Text = "VIEW ALL " & LiveMatch.HomeShortName.ToUpper
             Me.TabPage5.Text = "VIEW ALL " & LiveMatch.AwayShortName.ToUpper
             For inc = 1 To 25
@@ -10826,7 +10933,15 @@ Public Class Form1
     End Sub
 
     Private Sub timerCheckConnection_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles timerCheckConnection.Tick
-        If DateDiff(DateInterval.Minute, dtLastPAData, Now) > 0 Then
+        Dim intervalSecs As Integer = 60
+        Select Case Config.UserName
+            Case "SKYSUPERLEAGUE"
+                intervalSecs = 20
+        End Select
+
+        'If DateDiff(DateInterval.Minute, dtLastPAData, Now) > 0 Then
+        If DateDiff(DateInterval.Second, dtLastPAData, Now) > intervalSecs Then
+            bConnectedToServer = False
             If Config.AutoConectToSportServer = True Then
                 ShowConnectionStatus(-1)
                 ConnectToSportServer()
@@ -10904,7 +11019,7 @@ Public Class Form1
     'End Sub
 
     Private Sub picBoxPitch_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles picBoxPitch.MouseDown
-        Console.WriteLine(e.X.ToString & ", " & e.Y.ToString)
+        'Console.WriteLine(e.X.ToString & ", " & e.Y.ToString)
         picBoxPitch.Tag = winningPitchKickoutTeamID
         winningPitchKickoutTeamID = 0 'reset so doesn't get used later if this mouse down does not get finished by a mouse up
     End Sub
@@ -11448,6 +11563,16 @@ Public Class Form1
 
     Private Sub TabControl1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TabControl1.SelectedIndexChanged
         Select Case TabControl1.SelectedTab.Name
+            Case "tabHome"
+                'switched screen, refresh live player
+                iCurrentPlayerTeam = 1  'use valid teamindex
+                iCurrentPlayer = 0
+                ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
+            Case "tabAway"
+                'switched screen, refresh live player
+                iCurrentPlayerTeam = 2  'use valid teamindex
+                iCurrentPlayer = 0
+                ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
             Case "tabKickouts"
                 Select Case currentPitchLogType
                     Case PitchLogType.Kickouts
@@ -12102,7 +12227,7 @@ Public Class Form1
         Dim data As clsMatchSync = json.Deserialize(Of clsMatchSync)(jsonString)
         Dim inc As Integer = 0
         Dim incStat As Integer = 0
-
+        Console.WriteLine("Syncing...")
         LiveMatch = New clsMatch
         LiveMatch.MatchID = data.MatchID
         LiveMatch.Period = data.Period
@@ -12111,7 +12236,7 @@ Public Class Form1
         LiveMatch.HomeShortName = data.HomeShortName
         LiveMatch.AwayShortName = data.AwayShortName
         LiveMatch.HomeLongName = data.HomeLongName
-        LiveMatch.AwayLongName = data.HomeShortName
+        LiveMatch.AwayLongName = data.AwayShortName
         LiveMatch.HomeScoreLine = data.HomeScore
         LiveMatch.AwayScoreLine = data.AwayScore
         LiveMatch.HomeColour2 = -16777216
@@ -12303,6 +12428,7 @@ Public Class Form1
     End Sub
 
     Private Sub btnMatchSync_Click(sender As Object, e As EventArgs) Handles btnMatchSync.Click
-        SendData("MATCHLOG|REQUESTMATCHSYNC|")
+        MatchSynced = False
+        SendData("MATCHLOG|REQUESTMATCHSYNC|" + Config.PCName + "|")
     End Sub
 End Class

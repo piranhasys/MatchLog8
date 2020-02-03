@@ -1,4 +1,5 @@
-﻿Module Module1
+﻿Imports System.Collections.Generic
+Module Module1
     Public Config As New clsConfig
     Public MatchList() As clsMatch
     Public LiveMatch As New clsMatch
@@ -30,6 +31,7 @@
     Public JSONTeamStats As New clsJSONTeamStats
     Public JSONPlayerStats As New clsJSONPlayerStats
     Public MatchSynced As Boolean = False
+    Public messageQueue As New List(Of String)
 
     Enum PitchLogType As Integer
         Kickouts = 1

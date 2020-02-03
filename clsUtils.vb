@@ -93,6 +93,35 @@ Public Class clsUtils
         End If
         Return temp
     End Function
+    Function CalcTeamStatChecksum(thisMesssage As String) As String
+        'MATCHLOG|TEAMSTATS|15:03:07|                  49233|2|Penalties|5^7^0^0^20^10^50^763^38^16^23^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|2|1|
+        'MATCHDATA|TEAMSTATS|03 February 2020 15:03:07|49233|2|Penalties|5^7^0^0^20^10^50^763^38^16^23^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0|2|1|||PC|
+        Dim returnString As String = "T|"
+        Dim value As Integer = 0
+        Dim split() As String = thisMesssage.Replace("^|", "|").Split("|")  'lose rogue ^ that won't be on version passed by SS
+        For incSplit As Integer = 3 To 8
+            For inc As Integer = 0 To split(incSplit).Length - 1
+                value += Asc(split(incSplit).Substring(inc, 1))
+            Next
+        Next
+        returnString += value.ToString
+        Return returnString
+    End Function
+    Function CalcPlayerStatChecksum(thisMesssage As String) As String
+        'MATCHLOG|PLAYERSTATS|15:56:18|                  49233|3|10776|Handling errors|3^2^3^2^1^1^4^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^|1|2|4|
+        'MATCHDATA|PLAYERSTATS|03 February 2020 15:56:18|49233|3|10776|Handling errors|3^2^3^2^1^1^4^0^0^1^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0|1|2|4|||PC|
+        Dim returnString As String = "P|"
+        Dim value As Integer = 0
+        Dim split() As String = thisMesssage.Replace("^|", "|").Split("|")  'lose rogue ^ that won't be on version passed by SS
+        For incSplit As Integer = 3 To 10
+            For inc As Integer = 0 To split(incSplit).Length - 1
+                value += Asc(split(incSplit).Substring(inc, 1))
+            Next
+        Next
+        returnString += value.ToString
+        Return returnString
+    End Function
+
 
     Sub CalcTotals(ByVal temp As clsPossession())
         Dim iSecsHome As Integer, iSecsAway As Integer, iTotalSecs As Integer
