@@ -755,6 +755,7 @@ Public Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabTeam = New System.Windows.Forms.TabPage()
         Me.panelSLCarries = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.listViewCarriesAway = New System.Windows.Forms.ListView()
         Me.ColumnHeader67 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader70 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -1145,7 +1146,6 @@ Public Class Form1
         Me.btnMatchSync = New System.Windows.Forms.Button()
         Me.panelWaitingForSync = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.groupClock.SuspendLayout
         Me.groupViewTime.SuspendLayout
         Me.groupActionAreasSoccer.SuspendLayout
@@ -3398,6 +3398,19 @@ Public Class Form1
         Me.panelSLCarries.TabIndex = 225
         Me.panelSLCarries.Visible = False
         '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.Black
+        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(8, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(535, 20)
+        Me.Label6.TabIndex = 117
+        Me.Label6.Text = "CARRIES"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'listViewCarriesAway
         '
         Me.listViewCarriesAway.BackColor = System.Drawing.Color.Black
@@ -3408,6 +3421,7 @@ Public Class Form1
         Me.listViewCarriesAway.FullRowSelect = True
         Me.listViewCarriesAway.GridLines = True
         Me.listViewCarriesAway.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewCarriesAway.HideSelection = False
         Me.listViewCarriesAway.Location = New System.Drawing.Point(282, 20)
         Me.listViewCarriesAway.MultiSelect = False
         Me.listViewCarriesAway.Name = "listViewCarriesAway"
@@ -3425,12 +3439,12 @@ Public Class Form1
         '
         Me.ColumnHeader70.Text = "Num"
         Me.ColumnHeader70.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ColumnHeader70.Width = 46
+        Me.ColumnHeader70.Width = 50
         '
         'ColumnHeader68
         '
         Me.ColumnHeader68.Text = "Player"
-        Me.ColumnHeader68.Width = 214
+        Me.ColumnHeader68.Width = 210
         '
         'listViewCarriesHome
         '
@@ -3442,6 +3456,7 @@ Public Class Form1
         Me.listViewCarriesHome.FullRowSelect = True
         Me.listViewCarriesHome.GridLines = True
         Me.listViewCarriesHome.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewCarriesHome.HideSelection = False
         Me.listViewCarriesHome.Location = New System.Drawing.Point(8, 20)
         Me.listViewCarriesHome.MultiSelect = False
         Me.listViewCarriesHome.Name = "listViewCarriesHome"
@@ -3459,12 +3474,12 @@ Public Class Form1
         '
         Me.ColumnHeader69.Text = "Num"
         Me.ColumnHeader69.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ColumnHeader69.Width = 46
+        Me.ColumnHeader69.Width = 50
         '
         'ColumnHeader66
         '
         Me.ColumnHeader66.Text = "Player"
-        Me.ColumnHeader66.Width = 214
+        Me.ColumnHeader66.Width = 210
         '
         'lablMatchID
         '
@@ -8180,19 +8195,6 @@ Public Class Form1
         Me.Label5.Text = "Waiting for data" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from ReportBuilder." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Use Sync button if this screen" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "does not" &
     " clear."
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label6
-        '
-        Me.Label6.BackColor = System.Drawing.Color.Black
-        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(8, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(535, 20)
-        Me.Label6.TabIndex = 117
-        Me.Label6.Text = "CARRIES"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1
         '
