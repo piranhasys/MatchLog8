@@ -414,6 +414,39 @@ Public Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents panelSLCarries As Panel
     Friend WithEvents Label6 As Label
+    Friend WithEvents listViewMetresAway As ListView
+    Friend WithEvents ColumnHeader71 As ColumnHeader
+    Friend WithEvents ColumnHeader72 As ColumnHeader
+    Friend WithEvents ColumnHeader73 As ColumnHeader
+    Friend WithEvents ColumnHeader78 As ColumnHeader
+    Friend WithEvents listViewMetresHome As ListView
+    Friend WithEvents ColumnHeader74 As ColumnHeader
+    Friend WithEvents ColumnHeader75 As ColumnHeader
+    Friend WithEvents ColumnHeader76 As ColumnHeader
+    Friend WithEvents ColumnHeader77 As ColumnHeader
+    Friend WithEvents lablMetresData As Label
+    Friend WithEvents btnMetresSubtract As Button
+    Friend WithEvents btnMetresAdd As Button
+    Friend WithEvents btnMetres100 As Button
+    Friend WithEvents btnMetresClear As Button
+    Friend WithEvents btnMetres10 As Button
+    Friend WithEvents btnMetres9 As Button
+    Friend WithEvents btnMetres8 As Button
+    Friend WithEvents btnMetres7 As Button
+    Friend WithEvents btnMetres6 As Button
+    Friend WithEvents btnMetres5 As Button
+    Friend WithEvents btnMetres4 As Button
+    Friend WithEvents btnMetres3 As Button
+    Friend WithEvents btnMetres2 As Button
+    Friend WithEvents btnMetres1 As Button
+    Friend WithEvents btnMetres90 As Button
+    Friend WithEvents btnMetres80 As Button
+    Friend WithEvents btnMetres70 As Button
+    Friend WithEvents btnMetres60 As Button
+    Friend WithEvents btnMetres50 As Button
+    Friend WithEvents btnMetres40 As Button
+    Friend WithEvents btnMetres30 As Button
+    Friend WithEvents btnMetres20 As Button
     Friend WithEvents lablPitchHome3 As System.Windows.Forms.Label
 #End Region
 #Region " Windows Form Designer generated code "
@@ -944,6 +977,42 @@ Public Class Form1
         Me.btnPlayer03A = New System.Windows.Forms.Button()
         Me.btnPlayer02A = New System.Windows.Forms.Button()
         Me.btnPlayer01A = New System.Windows.Forms.Button()
+        Me.tabCarries = New System.Windows.Forms.TabPage()
+        Me.btnMetres9 = New System.Windows.Forms.Button()
+        Me.btnMetres8 = New System.Windows.Forms.Button()
+        Me.btnMetres7 = New System.Windows.Forms.Button()
+        Me.btnMetres6 = New System.Windows.Forms.Button()
+        Me.btnMetres5 = New System.Windows.Forms.Button()
+        Me.btnMetres4 = New System.Windows.Forms.Button()
+        Me.btnMetres3 = New System.Windows.Forms.Button()
+        Me.btnMetres2 = New System.Windows.Forms.Button()
+        Me.btnMetres1 = New System.Windows.Forms.Button()
+        Me.btnMetres90 = New System.Windows.Forms.Button()
+        Me.btnMetres80 = New System.Windows.Forms.Button()
+        Me.btnMetres70 = New System.Windows.Forms.Button()
+        Me.btnMetres60 = New System.Windows.Forms.Button()
+        Me.btnMetres50 = New System.Windows.Forms.Button()
+        Me.btnMetres40 = New System.Windows.Forms.Button()
+        Me.btnMetres30 = New System.Windows.Forms.Button()
+        Me.btnMetres20 = New System.Windows.Forms.Button()
+        Me.btnMetresClear = New System.Windows.Forms.Button()
+        Me.btnMetres10 = New System.Windows.Forms.Button()
+        Me.lablMetresData = New System.Windows.Forms.Label()
+        Me.btnMetresSubtract = New System.Windows.Forms.Button()
+        Me.btnMetresAdd = New System.Windows.Forms.Button()
+        Me.btnMetres100 = New System.Windows.Forms.Button()
+        Me.listViewMetresAway = New System.Windows.Forms.ListView()
+        Me.ColumnHeader71 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader72 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader73 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader78 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.listViewMetresHome = New System.Windows.Forms.ListView()
+        Me.ColumnHeader74 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader75 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader76 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader77 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lablAwayNameSL2 = New System.Windows.Forms.Label()
+        Me.lablHomeNameSL2 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.listViewSummaryHome = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -1083,9 +1152,6 @@ Public Class Form1
         Me.btnPenaltyName02 = New System.Windows.Forms.Button()
         Me.btnPenaltyName13 = New System.Windows.Forms.Button()
         Me.btnPenaltyName01 = New System.Windows.Forms.Button()
-        Me.tabCarries = New System.Windows.Forms.TabPage()
-        Me.lablAwayNameSL2 = New System.Windows.Forms.Label()
-        Me.lablHomeNameSL2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnLock = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -1155,13 +1221,13 @@ Public Class Form1
         Me.panelSLCarries.SuspendLayout
         Me.tabHome.SuspendLayout
         Me.tabAway.SuspendLayout
+        Me.tabCarries.SuspendLayout
         Me.TabPage4.SuspendLayout
         Me.TabPage5.SuspendLayout
         Me.tabKickouts.SuspendLayout
         Me.GroupBox1.SuspendLayout
         CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).BeginInit
         Me.tabPenalties.SuspendLayout
-        Me.tabCarries.SuspendLayout
         Me.Panel1.SuspendLayout
         Me.groupRemotePossession.SuspendLayout
         Me.groupActionAreasRugby.SuspendLayout
@@ -3265,11 +3331,11 @@ Public Class Form1
         Me.TabControl1.Controls.Add(Me.tabTeam)
         Me.TabControl1.Controls.Add(Me.tabHome)
         Me.TabControl1.Controls.Add(Me.tabAway)
+        Me.TabControl1.Controls.Add(Me.tabCarries)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.tabKickouts)
         Me.TabControl1.Controls.Add(Me.tabPenalties)
-        Me.TabControl1.Controls.Add(Me.tabCarries)
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(131, 1)
         Me.TabControl1.Name = "TabControl1"
@@ -6046,6 +6112,447 @@ Public Class Form1
         Me.btnPlayer01A.Text = "21- PETER WILKINSON-SMYTHE"
         Me.btnPlayer01A.UseVisualStyleBackColor = False
         '
+        'tabCarries
+        '
+        Me.tabCarries.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tabCarries.Controls.Add(Me.btnMetres9)
+        Me.tabCarries.Controls.Add(Me.btnMetres8)
+        Me.tabCarries.Controls.Add(Me.btnMetres7)
+        Me.tabCarries.Controls.Add(Me.btnMetres6)
+        Me.tabCarries.Controls.Add(Me.btnMetres5)
+        Me.tabCarries.Controls.Add(Me.btnMetres4)
+        Me.tabCarries.Controls.Add(Me.btnMetres3)
+        Me.tabCarries.Controls.Add(Me.btnMetres2)
+        Me.tabCarries.Controls.Add(Me.btnMetres1)
+        Me.tabCarries.Controls.Add(Me.btnMetres90)
+        Me.tabCarries.Controls.Add(Me.btnMetres80)
+        Me.tabCarries.Controls.Add(Me.btnMetres70)
+        Me.tabCarries.Controls.Add(Me.btnMetres60)
+        Me.tabCarries.Controls.Add(Me.btnMetres50)
+        Me.tabCarries.Controls.Add(Me.btnMetres40)
+        Me.tabCarries.Controls.Add(Me.btnMetres30)
+        Me.tabCarries.Controls.Add(Me.btnMetres20)
+        Me.tabCarries.Controls.Add(Me.btnMetresClear)
+        Me.tabCarries.Controls.Add(Me.btnMetres10)
+        Me.tabCarries.Controls.Add(Me.lablMetresData)
+        Me.tabCarries.Controls.Add(Me.btnMetresSubtract)
+        Me.tabCarries.Controls.Add(Me.btnMetresAdd)
+        Me.tabCarries.Controls.Add(Me.btnMetres100)
+        Me.tabCarries.Controls.Add(Me.listViewMetresAway)
+        Me.tabCarries.Controls.Add(Me.listViewMetresHome)
+        Me.tabCarries.Controls.Add(Me.lablAwayNameSL2)
+        Me.tabCarries.Controls.Add(Me.lablHomeNameSL2)
+        Me.tabCarries.Location = New System.Drawing.Point(4, 36)
+        Me.tabCarries.Name = "tabCarries"
+        Me.tabCarries.Size = New System.Drawing.Size(896, 684)
+        Me.tabCarries.TabIndex = 9
+        Me.tabCarries.Text = "METRES"
+        '
+        'btnMetres9
+        '
+        Me.btnMetres9.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres9.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres9.Location = New System.Drawing.Point(764, 110)
+        Me.btnMetres9.Name = "btnMetres9"
+        Me.btnMetres9.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres9.TabIndex = 244
+        Me.btnMetres9.Tag = "9"
+        Me.btnMetres9.Text = "9m"
+        Me.btnMetres9.UseVisualStyleBackColor = False
+        '
+        'btnMetres8
+        '
+        Me.btnMetres8.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres8.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres8.Location = New System.Drawing.Point(764, 150)
+        Me.btnMetres8.Name = "btnMetres8"
+        Me.btnMetres8.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres8.TabIndex = 243
+        Me.btnMetres8.Tag = "8"
+        Me.btnMetres8.Text = "8m"
+        Me.btnMetres8.UseVisualStyleBackColor = False
+        '
+        'btnMetres7
+        '
+        Me.btnMetres7.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres7.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres7.Location = New System.Drawing.Point(764, 190)
+        Me.btnMetres7.Name = "btnMetres7"
+        Me.btnMetres7.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres7.TabIndex = 242
+        Me.btnMetres7.Tag = "7"
+        Me.btnMetres7.Text = "7m"
+        Me.btnMetres7.UseVisualStyleBackColor = False
+        '
+        'btnMetres6
+        '
+        Me.btnMetres6.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres6.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres6.Location = New System.Drawing.Point(764, 230)
+        Me.btnMetres6.Name = "btnMetres6"
+        Me.btnMetres6.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres6.TabIndex = 241
+        Me.btnMetres6.Tag = "6"
+        Me.btnMetres6.Text = "6m"
+        Me.btnMetres6.UseVisualStyleBackColor = False
+        '
+        'btnMetres5
+        '
+        Me.btnMetres5.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres5.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres5.Location = New System.Drawing.Point(764, 270)
+        Me.btnMetres5.Name = "btnMetres5"
+        Me.btnMetres5.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres5.TabIndex = 240
+        Me.btnMetres5.Tag = "5"
+        Me.btnMetres5.Text = "5m"
+        Me.btnMetres5.UseVisualStyleBackColor = False
+        '
+        'btnMetres4
+        '
+        Me.btnMetres4.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres4.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres4.Location = New System.Drawing.Point(764, 310)
+        Me.btnMetres4.Name = "btnMetres4"
+        Me.btnMetres4.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres4.TabIndex = 239
+        Me.btnMetres4.Tag = "4"
+        Me.btnMetres4.Text = "4m"
+        Me.btnMetres4.UseVisualStyleBackColor = False
+        '
+        'btnMetres3
+        '
+        Me.btnMetres3.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres3.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres3.Location = New System.Drawing.Point(764, 350)
+        Me.btnMetres3.Name = "btnMetres3"
+        Me.btnMetres3.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres3.TabIndex = 238
+        Me.btnMetres3.Tag = "3"
+        Me.btnMetres3.Text = "3m"
+        Me.btnMetres3.UseVisualStyleBackColor = False
+        '
+        'btnMetres2
+        '
+        Me.btnMetres2.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres2.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres2.Location = New System.Drawing.Point(764, 390)
+        Me.btnMetres2.Name = "btnMetres2"
+        Me.btnMetres2.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres2.TabIndex = 237
+        Me.btnMetres2.Tag = "2"
+        Me.btnMetres2.Text = "2m"
+        Me.btnMetres2.UseVisualStyleBackColor = False
+        '
+        'btnMetres1
+        '
+        Me.btnMetres1.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres1.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres1.Location = New System.Drawing.Point(764, 430)
+        Me.btnMetres1.Name = "btnMetres1"
+        Me.btnMetres1.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres1.TabIndex = 236
+        Me.btnMetres1.Tag = "1"
+        Me.btnMetres1.Text = "1m"
+        Me.btnMetres1.UseVisualStyleBackColor = False
+        '
+        'btnMetres90
+        '
+        Me.btnMetres90.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres90.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres90.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres90.Location = New System.Drawing.Point(664, 110)
+        Me.btnMetres90.Name = "btnMetres90"
+        Me.btnMetres90.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres90.TabIndex = 234
+        Me.btnMetres90.Tag = "90"
+        Me.btnMetres90.Text = "90m"
+        Me.btnMetres90.UseVisualStyleBackColor = False
+        '
+        'btnMetres80
+        '
+        Me.btnMetres80.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres80.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres80.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres80.Location = New System.Drawing.Point(664, 150)
+        Me.btnMetres80.Name = "btnMetres80"
+        Me.btnMetres80.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres80.TabIndex = 233
+        Me.btnMetres80.Tag = "80"
+        Me.btnMetres80.Text = "80m"
+        Me.btnMetres80.UseVisualStyleBackColor = False
+        '
+        'btnMetres70
+        '
+        Me.btnMetres70.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres70.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres70.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres70.Location = New System.Drawing.Point(664, 190)
+        Me.btnMetres70.Name = "btnMetres70"
+        Me.btnMetres70.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres70.TabIndex = 232
+        Me.btnMetres70.Tag = "70"
+        Me.btnMetres70.Text = "70m"
+        Me.btnMetres70.UseVisualStyleBackColor = False
+        '
+        'btnMetres60
+        '
+        Me.btnMetres60.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres60.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres60.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres60.Location = New System.Drawing.Point(664, 230)
+        Me.btnMetres60.Name = "btnMetres60"
+        Me.btnMetres60.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres60.TabIndex = 231
+        Me.btnMetres60.Tag = "60"
+        Me.btnMetres60.Text = "60m"
+        Me.btnMetres60.UseVisualStyleBackColor = False
+        '
+        'btnMetres50
+        '
+        Me.btnMetres50.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres50.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres50.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres50.Location = New System.Drawing.Point(664, 270)
+        Me.btnMetres50.Name = "btnMetres50"
+        Me.btnMetres50.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres50.TabIndex = 230
+        Me.btnMetres50.Tag = "50"
+        Me.btnMetres50.Text = "50m"
+        Me.btnMetres50.UseVisualStyleBackColor = False
+        '
+        'btnMetres40
+        '
+        Me.btnMetres40.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres40.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres40.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres40.Location = New System.Drawing.Point(664, 310)
+        Me.btnMetres40.Name = "btnMetres40"
+        Me.btnMetres40.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres40.TabIndex = 229
+        Me.btnMetres40.Tag = "40"
+        Me.btnMetres40.Text = "40m"
+        Me.btnMetres40.UseVisualStyleBackColor = False
+        '
+        'btnMetres30
+        '
+        Me.btnMetres30.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres30.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres30.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres30.Location = New System.Drawing.Point(664, 350)
+        Me.btnMetres30.Name = "btnMetres30"
+        Me.btnMetres30.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres30.TabIndex = 228
+        Me.btnMetres30.Tag = "30"
+        Me.btnMetres30.Text = "30m"
+        Me.btnMetres30.UseVisualStyleBackColor = False
+        '
+        'btnMetres20
+        '
+        Me.btnMetres20.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres20.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres20.Location = New System.Drawing.Point(664, 390)
+        Me.btnMetres20.Name = "btnMetres20"
+        Me.btnMetres20.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres20.TabIndex = 227
+        Me.btnMetres20.Tag = "20"
+        Me.btnMetres20.Text = "20m"
+        Me.btnMetres20.UseVisualStyleBackColor = False
+        '
+        'btnMetresClear
+        '
+        Me.btnMetresClear.BackColor = System.Drawing.Color.LightSalmon
+        Me.btnMetresClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetresClear.ForeColor = System.Drawing.Color.Black
+        Me.btnMetresClear.Location = New System.Drawing.Point(664, 470)
+        Me.btnMetresClear.Name = "btnMetresClear"
+        Me.btnMetresClear.Size = New System.Drawing.Size(200, 40)
+        Me.btnMetresClear.TabIndex = 226
+        Me.btnMetresClear.Tag = "0"
+        Me.btnMetresClear.Text = "Reset"
+        Me.btnMetresClear.UseVisualStyleBackColor = False
+        '
+        'btnMetres10
+        '
+        Me.btnMetres10.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres10.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres10.Location = New System.Drawing.Point(664, 430)
+        Me.btnMetres10.Name = "btnMetres10"
+        Me.btnMetres10.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres10.TabIndex = 225
+        Me.btnMetres10.Tag = "10"
+        Me.btnMetres10.Text = "10m"
+        Me.btnMetres10.UseVisualStyleBackColor = False
+        '
+        'lablMetresData
+        '
+        Me.lablMetresData.BackColor = System.Drawing.Color.White
+        Me.lablMetresData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lablMetresData.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablMetresData.ForeColor = System.Drawing.Color.Black
+        Me.lablMetresData.Location = New System.Drawing.Point(664, 535)
+        Me.lablMetresData.Name = "lablMetresData"
+        Me.lablMetresData.Size = New System.Drawing.Size(200, 44)
+        Me.lablMetresData.TabIndex = 224
+        Me.lablMetresData.Text = "Castleford" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ASHLEY-SMITH" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lablMetresData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnMetresSubtract
+        '
+        Me.btnMetresSubtract.BackColor = System.Drawing.Color.DarkRed
+        Me.btnMetresSubtract.Enabled = False
+        Me.btnMetresSubtract.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetresSubtract.ForeColor = System.Drawing.Color.White
+        Me.btnMetresSubtract.Location = New System.Drawing.Point(664, 627)
+        Me.btnMetresSubtract.Name = "btnMetresSubtract"
+        Me.btnMetresSubtract.Size = New System.Drawing.Size(200, 40)
+        Me.btnMetresSubtract.TabIndex = 223
+        Me.btnMetresSubtract.Tag = "0"
+        Me.btnMetresSubtract.Text = "Subtract"
+        Me.btnMetresSubtract.UseVisualStyleBackColor = False
+        '
+        'btnMetresAdd
+        '
+        Me.btnMetresAdd.BackColor = System.Drawing.Color.DarkGreen
+        Me.btnMetresAdd.Enabled = False
+        Me.btnMetresAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetresAdd.ForeColor = System.Drawing.Color.White
+        Me.btnMetresAdd.Location = New System.Drawing.Point(664, 583)
+        Me.btnMetresAdd.Name = "btnMetresAdd"
+        Me.btnMetresAdd.Size = New System.Drawing.Size(200, 40)
+        Me.btnMetresAdd.TabIndex = 222
+        Me.btnMetresAdd.Tag = "1"
+        Me.btnMetresAdd.Text = "Add"
+        Me.btnMetresAdd.UseVisualStyleBackColor = False
+        '
+        'btnMetres100
+        '
+        Me.btnMetres100.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMetres100.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetres100.ForeColor = System.Drawing.Color.Black
+        Me.btnMetres100.Location = New System.Drawing.Point(664, 70)
+        Me.btnMetres100.Name = "btnMetres100"
+        Me.btnMetres100.Size = New System.Drawing.Size(100, 40)
+        Me.btnMetres100.TabIndex = 221
+        Me.btnMetres100.Tag = "100"
+        Me.btnMetres100.Text = "100m"
+        Me.btnMetres100.UseVisualStyleBackColor = False
+        '
+        'listViewMetresAway
+        '
+        Me.listViewMetresAway.BackColor = System.Drawing.Color.Black
+        Me.listViewMetresAway.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listViewMetresAway.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader71, Me.ColumnHeader72, Me.ColumnHeader73, Me.ColumnHeader78})
+        Me.listViewMetresAway.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewMetresAway.ForeColor = System.Drawing.Color.White
+        Me.listViewMetresAway.FullRowSelect = True
+        Me.listViewMetresAway.GridLines = True
+        Me.listViewMetresAway.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewMetresAway.HideSelection = False
+        Me.listViewMetresAway.Location = New System.Drawing.Point(325, 35)
+        Me.listViewMetresAway.MultiSelect = False
+        Me.listViewMetresAway.Name = "listViewMetresAway"
+        Me.listViewMetresAway.Size = New System.Drawing.Size(310, 630)
+        Me.listViewMetresAway.TabIndex = 98
+        Me.listViewMetresAway.UseCompatibleStateImageBehavior = False
+        Me.listViewMetresAway.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader71
+        '
+        Me.ColumnHeader71.Text = "ID"
+        Me.ColumnHeader71.Width = 0
+        '
+        'ColumnHeader72
+        '
+        Me.ColumnHeader72.Text = "Num"
+        Me.ColumnHeader72.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader72.Width = 46
+        '
+        'ColumnHeader73
+        '
+        Me.ColumnHeader73.Text = "Player"
+        Me.ColumnHeader73.Width = 180
+        '
+        'ColumnHeader78
+        '
+        Me.ColumnHeader78.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader78.Width = 84
+        '
+        'listViewMetresHome
+        '
+        Me.listViewMetresHome.BackColor = System.Drawing.Color.Black
+        Me.listViewMetresHome.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listViewMetresHome.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader74, Me.ColumnHeader75, Me.ColumnHeader76, Me.ColumnHeader77})
+        Me.listViewMetresHome.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewMetresHome.ForeColor = System.Drawing.Color.White
+        Me.listViewMetresHome.FullRowSelect = True
+        Me.listViewMetresHome.GridLines = True
+        Me.listViewMetresHome.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
+        Me.listViewMetresHome.HideSelection = False
+        Me.listViewMetresHome.Location = New System.Drawing.Point(3, 35)
+        Me.listViewMetresHome.MultiSelect = False
+        Me.listViewMetresHome.Name = "listViewMetresHome"
+        Me.listViewMetresHome.Size = New System.Drawing.Size(310, 630)
+        Me.listViewMetresHome.TabIndex = 97
+        Me.listViewMetresHome.UseCompatibleStateImageBehavior = False
+        Me.listViewMetresHome.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader74
+        '
+        Me.ColumnHeader74.Text = "ID"
+        Me.ColumnHeader74.Width = 0
+        '
+        'ColumnHeader75
+        '
+        Me.ColumnHeader75.Text = "Num"
+        Me.ColumnHeader75.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader75.Width = 46
+        '
+        'ColumnHeader76
+        '
+        Me.ColumnHeader76.Text = "Player"
+        Me.ColumnHeader76.Width = 180
+        '
+        'ColumnHeader77
+        '
+        Me.ColumnHeader77.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader77.Width = 84
+        '
+        'lablAwayNameSL2
+        '
+        Me.lablAwayNameSL2.BackColor = System.Drawing.Color.Transparent
+        Me.lablAwayNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablAwayNameSL2.ForeColor = System.Drawing.Color.White
+        Me.lablAwayNameSL2.Location = New System.Drawing.Point(325, 8)
+        Me.lablAwayNameSL2.Name = "lablAwayNameSL2"
+        Me.lablAwayNameSL2.Size = New System.Drawing.Size(296, 26)
+        Me.lablAwayNameSL2.TabIndex = 95
+        Me.lablAwayNameSL2.Text = "TOTTENHAM"
+        Me.lablAwayNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lablHomeNameSL2
+        '
+        Me.lablHomeNameSL2.BackColor = System.Drawing.Color.Transparent
+        Me.lablHomeNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lablHomeNameSL2.ForeColor = System.Drawing.Color.White
+        Me.lablHomeNameSL2.Location = New System.Drawing.Point(3, 8)
+        Me.lablHomeNameSL2.Name = "lablHomeNameSL2"
+        Me.lablHomeNameSL2.Size = New System.Drawing.Size(296, 26)
+        Me.lablHomeNameSL2.TabIndex = 94
+        Me.lablHomeNameSL2.Text = "TOTTENHAM"
+        Me.lablHomeNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.listViewSummaryHome)
@@ -7394,41 +7901,6 @@ Public Class Form1
         Me.btnPenaltyName01.Text = "NAME OF THE PENALTY"
         Me.btnPenaltyName01.UseVisualStyleBackColor = False
         '
-        'tabCarries
-        '
-        Me.tabCarries.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.tabCarries.Controls.Add(Me.lablAwayNameSL2)
-        Me.tabCarries.Controls.Add(Me.lablHomeNameSL2)
-        Me.tabCarries.Location = New System.Drawing.Point(4, 36)
-        Me.tabCarries.Name = "tabCarries"
-        Me.tabCarries.Size = New System.Drawing.Size(896, 684)
-        Me.tabCarries.TabIndex = 9
-        Me.tabCarries.Text = "CARRIES"
-        '
-        'lablAwayNameSL2
-        '
-        Me.lablAwayNameSL2.BackColor = System.Drawing.Color.Transparent
-        Me.lablAwayNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lablAwayNameSL2.ForeColor = System.Drawing.Color.White
-        Me.lablAwayNameSL2.Location = New System.Drawing.Point(485, 8)
-        Me.lablAwayNameSL2.Name = "lablAwayNameSL2"
-        Me.lablAwayNameSL2.Size = New System.Drawing.Size(304, 26)
-        Me.lablAwayNameSL2.TabIndex = 95
-        Me.lablAwayNameSL2.Text = "TOTTENHAM"
-        Me.lablAwayNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lablHomeNameSL2
-        '
-        Me.lablHomeNameSL2.BackColor = System.Drawing.Color.Transparent
-        Me.lablHomeNameSL2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lablHomeNameSL2.ForeColor = System.Drawing.Color.White
-        Me.lablHomeNameSL2.Location = New System.Drawing.Point(93, 8)
-        Me.lablHomeNameSL2.Name = "lablHomeNameSL2"
-        Me.lablHomeNameSL2.Size = New System.Drawing.Size(304, 26)
-        Me.lablHomeNameSL2.TabIndex = 94
-        Me.lablHomeNameSL2.Text = "TOTTENHAM"
-        Me.lablHomeNameSL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Maroon
@@ -8246,6 +8718,7 @@ Public Class Form1
         Me.panelSLCarries.ResumeLayout(False)
         Me.tabHome.ResumeLayout(False)
         Me.tabAway.ResumeLayout(False)
+        Me.tabCarries.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.tabKickouts.ResumeLayout(False)
@@ -8253,7 +8726,6 @@ Public Class Form1
         Me.GroupBox1.PerformLayout
         CType(Me.picBoxPitch, System.ComponentModel.ISupportInitialize).EndInit
         Me.tabPenalties.ResumeLayout(False)
-        Me.tabCarries.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.groupRemotePossession.ResumeLayout(False)
         Me.groupActionAreasRugby.ResumeLayout(False)
@@ -8292,6 +8764,17 @@ Public Class Form1
     Dim kickoutStepNum As Integer = 0
     Dim currentPitchLogType As PitchLogType
     Dim clickStage As Integer = 1
+    Private metresListViewsInitialised As Boolean = False
+    Private metresLoggingTeamIndex As Integer = 0
+    Private metresLoggingPlayerIndex As Integer = 0
+    Private metresLoggingTeamID As String = ""
+    Private metresLoggingTeamName As String = ""
+    Private metresLoggingPlayerID As String = ""
+    Private metresLoggingPlayerShirt As String = ""
+    Private metresLoggingPlayerName As String = ""
+    Private metresLoggingDistance As Integer = 0
+    Private metresLoggingTens As Integer = 0
+    Private metresLoggingUnits As Integer = 0
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConnect.Click
         ConnectToSportServer()
@@ -8457,6 +8940,7 @@ Public Class Form1
                             'MessageBox.Show("Not live team")
                     End Select
                     ShowCarryPlayers()    'SL2020
+                    ShowMetresPlayers()    'SL2021
                 Case "MATCHDATA"
                     Select Case dataArray(1).ToUpper
                         Case "MATCHSYNC"
@@ -8481,6 +8965,7 @@ Public Class Form1
                                         ShowPlayerSummaryStats(1)
                                         ShowPlayerSummaryStats(2)
                                         ShowCarryPlayers()
+                                        ShowMetresPlayers()
                                         SaveLiveMatch()
                                         MatchSynced = True
                                         ShowSyncedStatus()  'clear holding screen
@@ -8544,7 +9029,7 @@ Public Class Form1
                             ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
                             ShowPlayerSummaryStats(iCurrentPlayerTeam)
                         Case "ALLPLAYERSTATS"
-                            'SL2020
+                            'SL2020 - current player ??
                             Utils.AssignAllPlayerDataString(strMessage)
                             ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
                             ShowPlayerSummaryStats(iCurrentPlayerTeam)
@@ -9367,7 +9852,7 @@ Public Class Form1
                 panelSuperLeaguePro14.BringToFront()
                 TabControl1.TabPages.RemoveByKey("tabKickouts")
                 TabControl1.TabPages.RemoveByKey("tabPenalties")
-                TabControl1.TabPages.RemoveByKey("tabCarries")
+                'TabControl1.TabPages.RemoveByKey("tabCarries")
                 btnClearAllTeam.Visible = False
                 btnClearPlayerHome.Visible = False
                 btnClearPlayerAway.Visible = False
@@ -9474,6 +9959,37 @@ Public Class Form1
                 tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
                 listViewCarriesAway.Items.Add(tempItem)
             Next
+        End If
+    End Sub
+    Delegate Sub ShowMetresPlayersCallback()
+    Sub ShowMetresPlayers()
+        If listViewMetresHome.InvokeRequired Then
+            Dim d As New ShowMetresPlayersCallback(AddressOf ShowMetresPlayers)
+            Me.Invoke(d, New Object() {})
+        Else
+            Dim iTeam As Integer = 1
+            Dim tempItem As New ListViewItem
+
+            listViewMetresHome.Items.Clear()
+            listViewMetresAway.Items.Clear()
+            For inc As Integer = 1 To 17    'SL2020 only
+                tempItem = New ListViewItem
+                tempItem.Text = PlayerStat(iTeam, inc).PlayerID
+                tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerNum.ToString)
+                tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
+                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat08.ToString)
+                listViewMetresHome.Items.Add(tempItem)
+            Next
+            iTeam = 2
+            For inc As Integer = 1 To 17    'SL2020 only
+                tempItem = New ListViewItem
+                tempItem.Text = PlayerStat(iTeam, inc).PlayerID
+                tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerNum.ToString)
+                tempItem.SubItems.Add(PlayerStat(iTeam, inc).PlayerShortName)
+                tempItem.SubItems.Add(PlayerStat(iTeam, inc).Stat08.ToString)
+                listViewMetresAway.Items.Add(tempItem)
+            Next
+            metreslistviewsinitialised = True
         End If
     End Sub
     Delegate Sub ShowTeamStatsCallback()
@@ -9673,21 +10189,36 @@ Public Class Form1
                     'tempLabel = FindPlayerStatLabel(iTeam, iCurrentPlayerStat)
                     'tempLabel.BackColor = colHighlight
             End Select
-            'Select Case Config.UserName
-            '    Case "SKYSUPERLEAGUE"
-            '        'possible v long data for metres
-            '        'careful if stat moves###################
-            '        If PlayerStat(1, iPlayerNum).Stat08.ToString.Length > 4 Then
-            '            lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
-            '        Else
-            '            lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
-            '        End If
-            '        If PlayerStat(2, iPlayerNum).Stat08.ToString.Length > 4 Then
-            '            lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
-            '        Else
-            '            lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
-            '        End If
-            'End Select
+            Select Case Config.UserName
+                Case "SKYSUPERLEAGUE"
+                    'possible v long data for metres
+                    'careful if stat moves###################
+                    Console.WriteLine($"Team {iTeam} Player {iPlayerNum} Metres {PlayerStat(iTeam, iPlayerNum).Stat08}")
+                    Select Case iTeam
+                        Case 1
+                            If PlayerStat(1, iPlayerNum).Stat08.ToString.Length > 4 Then
+                                lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
+                            Else
+                                lablPlayerStat08H.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
+                            End If
+                            If metresListViewsInitialised Then
+                                If iPlayerNum > 0 Then
+                                    listViewMetresHome.Items(iPlayerNum - 1).SubItems(3).Text = PlayerStat(iTeam, iPlayerNum).Stat08.ToString
+                                End If
+                            End If
+                        Case 2
+                            If PlayerStat(2, iPlayerNum).Stat08.ToString.Length > 4 Then
+                                lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 15, FontStyle.Bold)
+                            Else
+                                lablPlayerStat08A.Font = New Font("Microsoft Sans Serif", 20, FontStyle.Bold)
+                            End If
+                            If metresListViewsInitialised Then
+                                If iPlayerNum > 0 Then
+                                    listViewMetresAway.Items(iPlayerNum - 1).SubItems(3).Text = PlayerStat(iTeam, iPlayerNum).Stat08.ToString
+                                End If
+                            End If
+                    End Select
+            End Select
             For inc = 1 To 25
                 tempButton = FindPlayerButtonByName(iTeam, inc)
                 tempButton.BackColor = colNormal
@@ -12511,4 +13042,80 @@ Public Class Form1
             End If
         End If
     End Sub
+
+    Private Sub listViewMetresHome_Click(sender As Object, e As EventArgs) Handles listViewMetresHome.Click
+        If listViewMetresHome.SelectedIndices.Count = 1 Then
+            'valid
+            metresLoggingTeamIndex = 1
+            metresLoggingPlayerIndex = listViewMetresHome.SelectedIndices(0) + 1
+            metresLoggingTeamID = LiveMatch.HomeTeamID.ToString
+            metresLoggingTeamName = LiveMatch.HomeShortName
+            metresLoggingPlayerID = listViewMetresHome.SelectedItems(0).Text
+            metresLoggingPlayerShirt = listViewMetresHome.SelectedItems(0).SubItems(1).Text
+            metresLoggingPlayerName = listViewMetresHome.SelectedItems(0).SubItems(2).Text
+            ShowMetresLog()
+        End If
+    End Sub
+    Private Sub listViewMetresAway_Click(sender As Object, e As EventArgs) Handles listViewMetresAway.Click
+        If listViewMetresAway.SelectedIndices.Count = 1 Then
+            'valid
+            metresLoggingTeamIndex = 2
+            metresLoggingPlayerIndex = listViewMetresAway.SelectedIndices(0) + 1
+            metresLoggingTeamID = LiveMatch.AwayTeamID.ToString
+            metresLoggingTeamName = LiveMatch.AwayShortName
+            metresLoggingPlayerID = listViewMetresAway.SelectedItems(0).Text
+            metresLoggingPlayerShirt = listViewMetresAway.SelectedItems(0).SubItems(1).Text
+            metresLoggingPlayerName = listViewMetresAway.SelectedItems(0).SubItems(2).Text
+            ShowMetresLog()
+        End If
+    End Sub
+
+    Sub ShowMetresLog()
+        'lablMetresData.Text = $"{metresLoggingPlayerShirt} - {metresLoggingPlayerName}{vbLf}{metresLoggingDistance}m"
+        lablMetresData.Text = $"{metresLoggingTeamName}{vbLf}{metresLoggingPlayerShirt} - {metresLoggingPlayerName}"
+        If metresLoggingDistance > 0 Then
+            btnMetresAdd.Text = $" Add {metresLoggingDistance}m"
+            btnMetresSubtract.Text = $"Subtract {metresLoggingDistance}m"
+            btnMetresAdd.Enabled = True
+            btnMetresSubtract.Enabled = True
+        Else
+            btnMetresAdd.Text = $" Add"
+            btnMetresSubtract.Text = $"Subtract"
+            btnMetresAdd.Enabled = False
+            btnMetresSubtract.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnMetresClear_Click(sender As Object, e As EventArgs) Handles btnMetresClear.Click, btnMetres100.Click, btnMetres10.Click, btnMetres90.Click, btnMetres9.Click, btnMetres80.Click, btnMetres8.Click, btnMetres70.Click, btnMetres7.Click, btnMetres60.Click, btnMetres6.Click, btnMetres50.Click, btnMetres5.Click, btnMetres40.Click, btnMetres4.Click, btnMetres30.Click, btnMetres3.Click, btnMetres20.Click, btnMetres2.Click, btnMetres1.Click
+        Dim logValue As Integer = Val(sender.tag)
+        Select Case logValue
+            Case 0
+                metresLoggingTens = 0
+                metresLoggingUnits = 0
+            Case 10 To 100
+                metresLoggingTens = logValue
+            Case Else
+                metresLoggingUnits = logValue
+        End Select
+        metresLoggingDistance = metresLoggingTens + metresLoggingUnits
+        ShowMetresLog()
+    End Sub
+
+    Private Sub btnMetresAdd_Click(sender As Object, e As EventArgs) Handles btnMetresAdd.Click, btnMetresSubtract.Click
+        Dim logValue As Integer = Val(sender.tag)
+        If logValue = 1 Then
+            PlayerStat(metresLoggingTeamIndex, metresLoggingPlayerIndex).AssignStat(8, metresLoggingDistance)   'value
+        Else
+            PlayerStat(metresLoggingTeamIndex, metresLoggingPlayerIndex).AssignStat(8, -metresLoggingDistance)   'negative
+        End If
+        SendPlayerStat(metresLoggingTeamIndex, metresLoggingPlayerIndex, 8, metresLoggingDistance)
+        ShowPlayerStats(metresLoggingTeamIndex, metresLoggingPlayerIndex)
+        ShowPlayerSummaryStats(metresLoggingTeamIndex)
+        metresLoggingDistance = 0
+        metresLoggingTens = 0
+        metresLoggingUnits = 0
+        ShowMetresLog()
+    End Sub
+
+
 End Class
