@@ -32,6 +32,8 @@ Module Module1
     Public JSONPlayerStats As New clsJSONPlayerStats
     Public MatchSynced As Boolean = False
     Public messageQueue As New List(Of String)
+    Public iCurrentHomePlayer As Integer = 1    'keep for switching between screensa
+    Public iCurrentAwayPlayer As Integer = 1
 
     Enum PitchLogType As Integer
         Kickouts = 1

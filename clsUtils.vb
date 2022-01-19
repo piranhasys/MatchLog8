@@ -311,8 +311,8 @@ Public Class clsUtils
             Next
             Select Case Config.UserName
                 Case "SKYSUPERLEAGUE"
-                    iCurrentPlayerTeam = iTeam
-                    iCurrentPlayer = iPlayer
+                    'iCurrentPlayerTeam = iTeam
+                    'iCurrentPlayer = iPlayer
             End Select
         End If
 
@@ -409,6 +409,17 @@ Public Class clsUtils
     End Sub
     Sub AssignRemoteSLPossessionDataString(ByVal tempString As String)
         'MATCHDATA|POSSESSION|49233|1|100|0|
+        On Error Resume Next
+
+        Dim dataArray() As String
+        dataArray = tempString.Split(Chr(124))
+
+        RemoteData.CurrentPossessionTeam = Val(dataArray(3))
+        RemoteData.HomePossession = dataArray(4) + "%"
+        RemoteData.AwayPossession = dataArray(5) + "%"
+    End Sub
+    Sub AssignRemoteGAAPossessionDataString(ByVal tempString As String)
+        'MATCHDATA|POSSESSION|43150|1|13|87|3^40%^60%^12%^88%^13%^87%^^^^^^^34:45^00:32^00:00^29:05^35:00^29:37^|
         On Error Resume Next
 
         Dim dataArray() As String

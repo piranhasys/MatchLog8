@@ -8080,7 +8080,7 @@ Public Class Form1
         Me.lablRemoteInPlay.Name = "lablRemoteInPlay"
         Me.lablRemoteInPlay.Size = New System.Drawing.Size(96, 28)
         Me.lablRemoteInPlay.TabIndex = 206
-        Me.lablRemoteInPlay.Text = "77%"
+        Me.lablRemoteInPlay.Text = " "
         Me.lablRemoteInPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lablRemoteMatchTime
@@ -8093,7 +8093,7 @@ Public Class Form1
         Me.lablRemoteMatchTime.Name = "lablRemoteMatchTime"
         Me.lablRemoteMatchTime.Size = New System.Drawing.Size(96, 28)
         Me.lablRemoteMatchTime.TabIndex = 205
-        Me.lablRemoteMatchTime.Text = "88%"
+        Me.lablRemoteMatchTime.Text = " "
         Me.lablRemoteMatchTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lablRemoteAwayTeam
@@ -8170,7 +8170,7 @@ Public Class Form1
         Me.lablRemoteAwayPossession.Name = "lablRemoteAwayPossession"
         Me.lablRemoteAwayPossession.Size = New System.Drawing.Size(96, 28)
         Me.lablRemoteAwayPossession.TabIndex = 197
-        Me.lablRemoteAwayPossession.Text = "77%"
+        Me.lablRemoteAwayPossession.Text = " "
         Me.lablRemoteAwayPossession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lablRemoteHomePossession
@@ -8183,7 +8183,7 @@ Public Class Form1
         Me.lablRemoteHomePossession.Name = "lablRemoteHomePossession"
         Me.lablRemoteHomePossession.Size = New System.Drawing.Size(96, 28)
         Me.lablRemoteHomePossession.TabIndex = 196
-        Me.lablRemoteHomePossession.Text = "88%"
+        Me.lablRemoteHomePossession.Text = " "
         Me.lablRemoteHomePossession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'timerCheckConnection
@@ -8675,7 +8675,6 @@ Public Class Form1
         Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.btnMatchSync)
         Me.Controls.Add(Me.btnFetchLiveMatch)
-        Me.Controls.Add(Me.panelSuperLeaguePro14)
         Me.Controls.Add(Me.btnFetchRBStats)
         Me.Controls.Add(Me.btnFetchStatNames)
         Me.Controls.Add(Me.groupRemotePossession)
@@ -8703,6 +8702,7 @@ Public Class Form1
         Me.Controls.Add(Me.lablHomeName)
         Me.Controls.Add(Me.groupActionAreasRugby)
         Me.Controls.Add(Me.panelWaitingForSync)
+        Me.Controls.Add(Me.panelSuperLeaguePro14)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
@@ -8888,7 +8888,7 @@ Public Class Form1
             Select Case dataArray(0)
                 Case "CONNECTED"
                     Select Case Config.UserName
-                        Case "SKYSUPERLEAGUE"
+                        Case "SKYSUPERLEAGUE", "SKY2018 GAA"
                             If (MatchSynced = False) Then
                                 'startup
                                 SendData("MATCHLOG|REQUESTMATCHSYNC|" + Config.PCName + "|")
@@ -9026,12 +9026,16 @@ Public Class Form1
                             ShowPlayerNames(2)
                         Case "PLAYERSTATS"
                             Utils.AssignPlayerDataString(strMessage)
-                            ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
-                            ShowPlayerSummaryStats(iCurrentPlayerTeam)
+                            'bodge to stop new Metres logging upsetting player logs:
+                            'MATCHDATA|PLAYERSTATS|05 July 2021 17:27:13|49233|3|10778|Metres|0^0^0^1^0^0^0^1036^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0^0|1|4|8|||PC|
+                            If dataArray(6).ToUpper <> "METRES" Then
+                                ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
+                                ShowPlayerSummaryStats(iCurrentPlayerTeam)
+                            End If
                         Case "ALLPLAYERSTATS"
                             'SL2020 - current player ??
                             Utils.AssignAllPlayerDataString(strMessage)
-                            ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
+                            'ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)    'trying to stop Carry logging changing player
                             ShowPlayerSummaryStats(iCurrentPlayerTeam)
                         Case "TEAMSTATS"
                             Utils.AssignTeamDataString(strMessage)
@@ -9047,6 +9051,12 @@ Public Class Form1
                                     If LiveMatch.MatchID = Val(dataArray(2)) Then
                                         LiveMatch.Period = Val(dataArray(3))
                                         Utils.AssignRemoteSLPossessionDataString(strMessage)
+                                        ShowRemotePossession()
+                                    End If
+                                Case "SKY2018 GAA" '#########################
+                                    If LiveMatch.MatchID = Val(dataArray(2)) Then
+                                        LiveMatch.Period = Val(dataArray(3))
+                                        Utils.AssignRemoteGAAPossessionDataString(strMessage)
                                         ShowRemotePossession()
                                     End If
                                 Case "PRO14"
@@ -9088,7 +9098,7 @@ Public Class Form1
                         Case "SCOREUPDATE"
                             'MATCHDATA|SCOREUPDATE|49233|5|4|0|5^4|
                             Select Case Config.UserName
-                                Case "SKYSUPERLEAGUE", "PRO14"
+                                Case "SKYSUPERLEAGUE", "PRO14", "SKY2018 GAA" '#########################
                                     If LiveMatch.MatchID = Val(dataArray(2)) Then
                                         RemoteData.HomeScore = dataArray(3)
                                         RemoteData.AwayScore = dataArray(4)
@@ -9769,7 +9779,7 @@ Public Class Form1
         ShowDirection()
         Me.Text = "MatchLog by PIRANHA Systems v " & Application.ProductVersion & "       User: " & Config.UserName
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE"
+            Case "SKYSUPERLEAGUE", "SKY2018 GAA"
                 Me.Text += "       Tablet Name: " + Config.PCName
                 btnMatchSync.Visible = True
                 btnFetchRBStats.Visible = False 'now uses MATCHSYNC data
@@ -9797,7 +9807,7 @@ Public Class Form1
                 Config.NumberOfAreas = 4
             Case "TV3", "SKY2014 GAA", "GAA STATS"
                 Config.NumberOfAreas = 3
-            Case "SKYSUPERLEAGUE"
+            Case "SKYSUPERLEAGUE", "SKY2018 GAA"
                 Config.NumberOfAreas = 3
                 Config.UseRBLiveMatch = True
                 Config.UseRBStatNames = True
@@ -9809,42 +9819,67 @@ Public Class Form1
         End Select
     End Sub
     Sub SetEnables()
-        Me.groupRemotePossession.Visible = Not (Config.LogPossession)
-        Select Case Config.NumberOfAreas
-            Case 4
-                Me.lablRemoteAreaR1.Visible = True
-                Me.lablRemoteAreaR2.Visible = True
-                Me.lablRemoteAreaR3.Visible = True
-                Me.lablRemoteAreaR4.Visible = True
-                Me.lablRemoteAreaS1.Visible = False
-                Me.lablRemoteAreaS2.Visible = False
-                Me.lablRemoteAreaS3.Visible = False
-                Me.groupActionAreasRugby.Visible = Config.LogPossession
-                Me.groupActionAreasSoccer.Visible = False
+        Select Case Config.UserName
+            Case "SKY2018 GAA"
+                groupRemotePossession.Visible = True 'always show remote
+                groupPossession.Visible = Config.LogPossession   'logging control
+                groupViewTime.Visible = False
+                groupClock.Visible = False
+                timerCheckClock.Enabled = False
+                lablRemoteAreaR1.Visible = False
+                lablRemoteAreaR2.Visible = False
+                lablRemoteAreaR3.Visible = False
+                lablRemoteAreaR4.Visible = False
+                lablRemoteAreaS1.Visible = False
+                lablRemoteAreaS2.Visible = False
+                lablRemoteAreaS3.Visible = False
+                groupActionAreasRugby.Visible = False
+                groupActionAreasSoccer.Visible = False
+                lablPossessionH.Visible = False
+                lablPossessionA.Visible = False
+                lablTotalPossH.Visible = False
+                lablTotalPossA.Visible = False
+                groupPossession.Height = 88
+                Label8.Visible = False
+                Label9.Visible = False
             Case Else
-                Me.lablRemoteAreaR1.Visible = False
-                Me.lablRemoteAreaR2.Visible = False
-                Me.lablRemoteAreaR3.Visible = False
-                Me.lablRemoteAreaR4.Visible = False
-                Me.lablRemoteAreaS1.Visible = True
-                Me.lablRemoteAreaS2.Visible = True
-                Me.lablRemoteAreaS3.Visible = True
-                Me.groupActionAreasRugby.Visible = False
-                Me.groupActionAreasSoccer.Visible = Config.LogPossession
+                groupRemotePossession.Visible = Config.LogPossession
+                groupPossession.Visible = Config.LogPossession
+                groupViewTime.Visible = Config.LogPossession
+                groupClock.Visible = Config.LogPossession
+                timerCheckClock.Enabled = Config.LogPossession
+                Select Case Config.NumberOfAreas
+                    Case 4
+                        lablRemoteAreaR1.Visible = True
+                        lablRemoteAreaR2.Visible = True
+                        lablRemoteAreaR3.Visible = True
+                        lablRemoteAreaR4.Visible = True
+                        lablRemoteAreaS1.Visible = False
+                        lablRemoteAreaS2.Visible = False
+                        lablRemoteAreaS3.Visible = False
+                        groupActionAreasRugby.Visible = Config.LogPossession
+                        groupActionAreasSoccer.Visible = False
+                    Case Else
+                        lablRemoteAreaR1.Visible = False
+                        lablRemoteAreaR2.Visible = False
+                        lablRemoteAreaR3.Visible = False
+                        lablRemoteAreaR4.Visible = False
+                        lablRemoteAreaS1.Visible = True
+                        lablRemoteAreaS2.Visible = True
+                        lablRemoteAreaS3.Visible = True
+                        groupActionAreasRugby.Visible = False
+                        groupActionAreasSoccer.Visible = Config.LogPossession
+                End Select
         End Select
-        Me.groupPossession.Visible = Config.LogPossession
-        Me.groupViewTime.Visible = Config.LogPossession
-        Me.groupClock.Visible = Config.LogPossession
-        Me.timerCheckClock.Enabled = Config.LogPossession
-        Me.btnPeriod0.Enabled = bPeriodEnabled
-        Me.btnPeriod1.Enabled = bPeriodEnabled
-        Me.btnPeriod2.Enabled = bPeriodEnabled
-        Me.btnPeriod3.Enabled = bPeriodEnabled
-        Me.btnPeriod4.Enabled = bPeriodEnabled
-        Me.btnPeriod5.Enabled = bPeriodEnabled
-        Me.btnPeriod6.Enabled = bPeriodEnabled
-        Me.btnPeriod7.Enabled = bPeriodEnabled
-        Me.btnPeriod8.Enabled = bPeriodEnabled
+        btnPeriod0.Enabled = bPeriodEnabled
+        btnPeriod1.Enabled = bPeriodEnabled
+        btnPeriod2.Enabled = bPeriodEnabled
+        btnPeriod3.Enabled = bPeriodEnabled
+        btnPeriod4.Enabled = bPeriodEnabled
+        btnPeriod5.Enabled = bPeriodEnabled
+        btnPeriod6.Enabled = bPeriodEnabled
+        btnPeriod7.Enabled = bPeriodEnabled
+        btnPeriod8.Enabled = bPeriodEnabled
         Select Case Config.UserName
             Case "SKYSUPERLEAGUE"
                 panelSuperLeaguePro14.Visible = True
@@ -11088,7 +11123,7 @@ Public Class Form1
             Me.Invoke(d, New Object() {})
         Else
             Select Case Config.UserName
-                Case "SKYSUPERLEAGUE", "PRO14"
+                Case "SKYSUPERLEAGUE", "PRO14" '###########################
                     lablRemoteHomePossessionSL.Text = RemoteData.HomePossession
                     lablRemoteAwayPossessionSL.Text = RemoteData.AwayPossession
                     Select Case RemoteData.CurrentPossessionTeam
@@ -11229,7 +11264,7 @@ Public Class Form1
     End Sub
     Sub LogPossession(ByVal iTeam As Integer)
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE"
+            Case "SKYSUPERLEAGUE", "SKY2018 GAA"
                 Dim lastPossession As Integer = 0
                 Dim senderTag As Integer = iTeam
                 'Use MatchPad syntax. RB calculates percentages.
@@ -11283,16 +11318,16 @@ Public Class Form1
         iCurrentPlayer = iTag
         iCurrentPlayerTeam = 1
         iCurrentPlayerStat = 0
+        iCurrentHomePlayer = iCurrentPlayer
         ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
-
     End Sub
     Private Sub btnPlayer01A_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPlayer01A.Click, btnPlayer02A.Click, btnPlayer03A.Click, btnPlayer04A.Click, btnPlayer05A.Click, btnPlayer06A.Click, btnPlayer07A.Click, btnPlayer08A.Click, btnPlayer09A.Click, btnPlayer10A.Click, btnPlayer11A.Click, btnPlayer12A.Click, btnPlayer13A.Click, btnPlayer14A.Click, btnPlayer15A.Click, btnPlayer16A.Click, btnPlayer17A.Click, btnPlayer18A.Click, btnPlayer19A.Click, btnPlayer20A.Click, btnPlayer21A.Click, btnPlayer22A.Click, btnPlayer23A.Click, btnPlayer24A.Click, btnPlayer25A.Click
         Dim iTag As Integer = sender.tag
         iCurrentPlayer = iTag
         iCurrentPlayerTeam = 2
         iCurrentPlayerStat = 0
+        iCurrentAwayPlayer = iCurrentPlayer
         ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
-
     End Sub
 
     Private Sub lablPlayerStat01H_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lablPlayerStat01H.Click, lablPlayerStat02H.Click, lablPlayerStat03H.Click, lablPlayerStat04H.Click, lablPlayerStat05H.Click, lablPlayerStat06H.Click, lablPlayerStat07H.Click, lablPlayerStat08H.Click, lablPlayerStat09H.Click, lablPlayerStat10H.Click, lablPlayerStat11H.Click, lablPlayerStat12H.Click, lablPlayerStat13H.Click, lablPlayerStat14H.Click, lablPlayerStat15H.Click, lablPlayerStat16H.Click, lablPlayerStat17H.Click, lablPlayerStat18H.Click, lablPlayerStat19H.Click, lablPlayerStat20H.Click, lablPlayerStat21H.Click, lablPlayerStat22H.Click, lablPlayerStat23H.Click, lablPlayerStat24H.Click, lablPlayerStat25H.Click, lablPlayerStat26H.Click, lablPlayerStat27H.Click, lablPlayerStat28H.Click, lablPlayerStat29H.Click, lablPlayerStat30H.Click
@@ -12134,12 +12169,12 @@ Public Class Form1
             Case "tabHome"
                 'switched screen, refresh live player
                 iCurrentPlayerTeam = 1  'use valid teamindex
-                iCurrentPlayer = 0
+                iCurrentPlayer = iCurrentHomePlayer
                 ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
             Case "tabAway"
                 'switched screen, refresh live player
                 iCurrentPlayerTeam = 2  'use valid teamindex
-                iCurrentPlayer = 0
+                iCurrentPlayer = iCurrentAwayPlayer
                 ShowPlayerStats(iCurrentPlayerTeam, iCurrentPlayer)
             Case "tabKickouts"
                 Select Case currentPitchLogType
