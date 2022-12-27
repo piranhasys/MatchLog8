@@ -1,0 +1,13 @@
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\MatchLogGAA.vbproj.AssemblyReference.cache
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\TeamLog.Form1.resources
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\MatchLogGAA.vbproj.GenerateResource.cache
+C:\Users\david\source\repos\GAA\MatchLogGAA\bin\MatchLogGAA.exe.config
+C:\Users\david\source\repos\GAA\MatchLogGAA\bin\MatchLogGAA.exe
+C:\Users\david\source\repos\GAA\MatchLogGAA\bin\MatchLogGAA.pdb
+C:\Users\david\source\repos\GAA\MatchLogGAA\bin\MatchLogGAA.xml
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\TeamLog.Resources.resources
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\MatchLogGAA.vbproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\MatchLogGAA.exe
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\MatchLogGAA.xml
+C:\Users\david\source\repos\GAA\MatchLogGAA\obj\Debug\MatchLogGAA.pdb

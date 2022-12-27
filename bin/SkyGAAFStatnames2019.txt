@@ -1,0 +1,132 @@
+TEAMSTATNAME03|Kickouts||kickouts|
+TEAMSTATNAME02|
+TEAMSTATNAME01|
+TEAMSTATNAME04|Marks||marks|
+TEAMSTATNAME05|
+TEAMSTATNAME06|
+TEAMSTATNAME08|
+TEAMSTATNAME07|Inside45||inside_45|
+TEAMSTATNAME09|Possessions||possessions|
+TEAMSTATNAME10|Shots||shots|
+TEAMSTATNAME11|Scores||scores|
+TEAMSTATNAME12|Goals||goals|
+TEAMSTATNAME13|Wides||wides|
+TEAMSTATNAME14|Yellow cards||yellow_cards|
+TEAMSTATNAME15|Red cards||red_cards|
+TEAMSTATNAME16|Black cards||black_cards|
+TEAMSTATNAME17|
+TEAMSTATNAME18|
+TEAMSTATNAME19|
+TEAMSTATNAME20|
+TEAMSTATNAME21|
+TEAMSTATNAME22|Frees won||frees_won|
+TEAMSTATNAME23|Frees conceded||frees_conceded|
+TEAMSTATNAME24|
+TEAMSTATNAME25|
+TEAMSTATNAME26|Blocks||blocks|
+TEAMSTATNAME27|
+TEAMSTATNAME28|Scores from dead ball||scores_from_dead_ball|
+TEAMSTATNAME29|Points from frees||points_from_frees|
+TEAMSTATNAME31|Turnovers Won||turnovers_won|
+TEAMSTATNAME35|Own Kickouts Won||own_kickouts_won|
+TEAMSTATNAME36|Scoring Chances from Play||scoring_chances_from_play|
+TEAMSTATNAME37|Scores from Play||scores_from_play|
+TEAMSTATNAME39|Scoring Chances from Placed Ball||scoring_chances_from_placed_ball|
+TEAMSTATNAME40|Scores from Placed Ball||scores_from_placed_ball|
+TEAMSTATNAME41|Goals||goals|
+TEAMSTATNAME42|Points||points|
+PLAYERSTATNAME01|Possessions|POS|possessions|
+PLAYERSTATNAME02|Turnovers won|TO WON|turnovers_won|
+PLAYERSTATNAME03|Unforced errors|UF-TO|unforced_errors|
+PLAYERSTATNAME04|Assists|ASS|assists|
+PLAYERSTATNAME05|
+PLAYERSTATNAME06|Shots|SHTS|shots|
+PLAYERSTATNAME07|Goals|G|goals|
+PLAYERSTATNAME08|Points|P|points|
+PLAYERSTATNAME09|Interceptions|INTER|interceptions|
+PLAYERSTATNAME10|Frees conceded|FREE CON|frees_conceded|
+PLAYERSTATNAME11|Kick passes|KICK P|kick_passes|
+PLAYERSTATNAME12|Hand passes|HAND P|hand_passes|
+PLAYERSTATNAME13|Tackles|TACK|tackles|
+PLAYERSTATNAME14|Kickouts won|KO WON|kickouts_won|
+PLAYERSTATNAME15|Carries into contact|CARR|carries_into_contact|
+PLAYERSTATNAME16|
+PLAYERSTATNAME17|
+PLAYERSTATNAME18|
+PLAYERSTATNAME19|Marks|MAR|marks|
+PLAYERSTATNAME20|
+PLAYERSTATNAME21|
+PLAYERSTATNAME22|Goals from penalties|G PEN|goals_from_penalties|
+PLAYERSTATNAME23|Points from penalties|P PEN|points_from_penalties|
+PLAYERSTATNAME24|Goals from frees|G FREE|goals_from_frees|
+PLAYERSTATNAME25|Points from frees|P FREE|points_from_frees|
+PLAYERSTATNAME26|Goals from 45|G 45|goals_from_45|
+PLAYERSTATNAME27|Points from 45|P 45|points_from_45|
+PLAYERSTATNAME28|Goals from sideline|G SL|goals_from_sideline|
+PLAYERSTATNAME29|Points from sideline|P 45|points_from_sideline|
+PLAYERSTATNAME30|
+PENALTYNAME01|Offside
+PENALTYNAME02|Not Rolling Away
+PENALTYNAME03|Hands In Ruck
+PENALTYNAME04|Off Feet
+PENALTYNAME05|Standing Up
+PENALTYNAME06|Binding
+PENALTYNAME07|Dangerous Tackle
+PENALTYNAME08|Obstruction
+PENALTYNAME09|Throwing Into Touch
+PENALTYNAME10|Puching Or Striking
+PENALTYNAME11|Stamping Or Trampling
+PENALTYNAME12|Tripping
+PENALTYNAME13|Kicking
+PENALTYNAME14|Tackling The Jumper In The Air
+PENALTYNAME15|Lifting
+PENALTYNAME16|Charging
+PENALTYNAME17|Dangerous Play
+PENALTYNAME18|Retaliation
+PENALTYNAME19|Late-Charging
+PENALTYNAME20|Intentionally Offending
+PENALTYNAME21|Time-Wasting
+PENALTYNAME22|Throwing Into Touch
+PENALTYNAME23|Running In Front of a Ball Carrier
+PENALTYNAME24|Ball Carrier Running Into Team-Mate
+PENALTYNAME25|Blocking The Tackler
+PENALTYNAME26|
+PENALTYNAME27|
+PENALTYNAME28|
+PENALTYNAME29|
+PENALTYNAME30|
+BUTTON01|Kickouts|TEAMSTAT|1|Blue
+BUTTON02|Yellow Cards|TEAMSTAT|14|Blue
+BUTTON03|Red Cards|TEAMSTAT|15|Blue
+BUTTON04|Tackles|PLAYERTOTALSTAT|13|Blue
+BUTTON05|
+BUTTON06|
+BUTTON07|Top 3 Scorers|TOP3|31|Green
+BUTTON08|Top 3 Possessions|TOP3|1|Green
+BUTTON09|
+BUTTON10|
+BUTTON11|Home Kickouts|KICKOUTS|1|Gold
+BUTTON12|Away Kickouts|KICKOUTS|2|Gold
+BUTTON13|
+BUTTON14|
+BUTTON15|Home Frees|FREES|1|Gold
+BUTTON16|Away Frees|FREES|2|Gold
+BUTTON17|
+BUTTON18|
+BUTTON19|
+BUTTON20|
+BUTTON21|
+BUTTON22|
+BUTTON23|
+BUTTON24|
+BUTTON25|
+BUTTON26|
+BUTTON27|
+BUTTON28|
+BUTTON29|
+BUTTON30|
+BUTTON31|
+BUTTON32|
+BUTTON33|
+BUTTON34|GFX OFF|GFXOFF||Red
+

@@ -42,6 +42,7 @@ Public Class clsConfig
     Private bAllowDeleteData As Boolean = True
     Private bAutoConnectToSportServer As Boolean = True
     Private iNumberOfAreas As Integer = 3
+    Private testgit2 As Boolean
 
 
     Private iPeriodDurationNormal As Integer = 40
@@ -49,6 +50,7 @@ Public Class clsConfig
     Public Property UseRBStatNames As Boolean = False
     Public Property UseRBLiveMatch As Boolean = False
     Public Property UseRBMatchSync As Boolean = False   'hard coded to user
+    'test git
 
     Public Property PeriodDurationExtra() As Integer
         Get

@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("MatchLog8")> 
+<Assembly: AssemblyTitle("MatchLogGAA")>
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Piranha Graphics Limited")> 
-<Assembly: AssemblyProduct("MatchLog")>
-<Assembly: AssemblyCopyright("Piranha Graphics Limited 2019 - 2022")>
+<Assembly: AssemblyCompany("Piranha Graphics Limited")>
+<Assembly: AssemblyProduct("MatchLogGAA")>
+<Assembly: AssemblyCopyright("Piranha Graphics Limited 2022")>
 <Assembly: AssemblyTrademark("")> 
 <Assembly: CLSCompliant(True)> 
 

@@ -1,0 +1,95 @@
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.Form1.resources
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.exe.config
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.exe
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.pdb
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.xml
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.Resources.resources
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\MatchLog.exe
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\MatchLog.xml
+C:\Users\David  Crawley\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\MatchLog.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.exe.config
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\MatchLog.exe
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\MatchLog.xml
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\MatchLog.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.exe
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\bin\MatchLog.xml
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.Form1.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.Resources.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\bin\MatchLog8.exe.config
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\bin\MatchLog8.exe
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\bin\MatchLog8.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\bin\MatchLog8.xml
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\TeamLog.Form1.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\TeamLog.Resources.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\MatchLog8.exe
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\MatchLog8.xml
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\TeamLog8\obj\Debug\MatchLog8.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.exe.config
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\MatchLog8.exe
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\MatchLog8.xml
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\MatchLog8.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.exe
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.pdb
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.xml
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.Form1.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.Resources.resources
+C:\Users\Piranha\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\bin\MatchLog8.exe.config
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\MatchLog8.exe
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\MatchLog8.xml
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\MatchLog8.pdb
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\bin\MatchLog8.exe
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\bin\MatchLog8.pdb
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\bin\MatchLog8.xml
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\TeamLog.Form1.resources
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\TeamLog.Resources.resources
+C:\Users\david_000\Dropbox\VS2008_Projects_DB\Projects\MatchLog8\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.exe.config
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\MatchLog8.exe
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\MatchLog8.xml
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\MatchLog8.pdb
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.exe
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.pdb
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\bin\MatchLog8.xml
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.Form1.resources
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.Resources.resources
+C:\Users\david_000\Documents\Visual Studio 2008\Projects\MatchLog8\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\bin\MatchLog8.exe.config
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\MatchLog8.exe
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\MatchLog8.xml
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\MatchLog8.pdb
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\bin\MatchLog8.exe
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\bin\MatchLog8.pdb
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\bin\MatchLog8.xml
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\TeamLog.Form1.resources
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\TeamLog.Resources.resources
+C:\Users\david_000\Documents\Visual Studio 2013\Projects\MatchLog8\obj\Debug\TeamLog.vbproj.GenerateResource.Cache
+C:\Users\david\source\repos\MatchLog8\bin\MatchLog8.exe.config
+C:\Users\david\source\repos\MatchLog8\bin\MatchLog8.exe
+C:\Users\david\source\repos\MatchLog8\bin\MatchLog8.pdb
+C:\Users\david\source\repos\MatchLog8\bin\MatchLog8.xml
+C:\Users\david\source\repos\MatchLog8\obj\Debug\TeamLog.Form1.resources
+C:\Users\david\source\repos\MatchLog8\obj\Debug\TeamLog.frmSetup.resources
+C:\Users\david\source\repos\MatchLog8\obj\Debug\TeamLog.Resources.resources
+C:\Users\david\source\repos\MatchLog8\obj\Debug\TeamLog.vbproj.GenerateResource.cache
+C:\Users\david\source\repos\MatchLog8\obj\Debug\MatchLog8.exe
+C:\Users\david\source\repos\MatchLog8\obj\Debug\MatchLog8.xml
+C:\Users\david\source\repos\MatchLog8\obj\Debug\MatchLog8.pdb
+C:\Users\david\source\repos\MatchLog8\obj\Debug\TeamLog.vbproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\MatchLog8\obj\Debug\TeamLog.vbproj.AssemblyReference.cache
