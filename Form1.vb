@@ -9823,7 +9823,7 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'test git dual repositories
+        'git export HP-DEV2
         ParseCommandLineArgs()
         InitClasses()
         Config.ReadSetup()
@@ -9882,7 +9882,7 @@ Public Class Form1
         Config.NumberOfAreas = 3
         Select Case Config.UserName
             Case "GAA STATS"
-            Case "SKY2018 GAA", "GAA 2022", "SKY GAA", "RTE GAA", "TG4 GAA" '???????????
+            Case "SKY2018 GAA", "GAA 2022", "SKY GAA", "RTE GAA", "TG4 GAA"
                 'force
                 Config.UseRBLiveMatch = True
                 Config.UseRBStatNames = True
@@ -9893,7 +9893,7 @@ Public Class Form1
     End Sub
     Sub SetEnables()
         Select Case Config.UserName
-            Case "GAA 2022", "TG4 GAA"
+            Case "GAA 2022"
                 panelGAA.Visible = True
                 picBoxGAALogo.Visible = True
                 panelGAA.BringToFront()
@@ -9919,7 +9919,7 @@ Public Class Form1
                 groupPossession.Height = 114
                 'Label8.Visible = False
                 'Label9.Visible = False
-            Case "SKY GAA", "RTE GAA"
+            Case "SKY GAA", "RTE GAA", "TG4 GAA"
                 groupRemotePossession.Visible = False
                 groupPossession.Visible = Config.LogPossession
                 groupViewTime.Visible = Config.LogPossession
@@ -11243,7 +11243,7 @@ Public Class Form1
             Me.Invoke(d, New Object() {})
         Else
             Select Case Config.UserName
-                Case "GAA 2022", "TG4 GAA"
+                Case "GAA 2022", "TG4 GAA", "RTE GAA"
                     lablRemoteHomePossessionSL.Text = RemoteData.HomePossession
                     lablRemoteAwayPossessionSL.Text = RemoteData.AwayPossession
                     Select Case RemoteData.CurrentPossessionTeam
@@ -11295,7 +11295,7 @@ Public Class Form1
                     End Select
                     lablHomeScoreSL.Text = RemoteData.HomeScore
                     lablAwayScoreSL.Text = RemoteData.AwayScore
-                Case "SKY GAA", "RTE GAA"   '????????????????????
+                Case "SKY GAA"   '????????????????????
                     Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
                     Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
 
@@ -11400,7 +11400,7 @@ Public Class Form1
     End Sub
     Sub LogPossession(ByVal iTeam As Integer)
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA"
+            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
                 Dim lastPossession As Integer = 0
                 Dim senderTag As Integer = iTeam
                 'Use MatchPad syntax. RB calculates percentages.
@@ -11428,7 +11428,7 @@ Public Class Form1
     End Sub
     Sub LogArea(ByVal iTeam As Integer)
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA"
+            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
                 SendData("MATCHPAD|LOGACTIONAREA|" + LiveMatch.MatchID.ToString + "|" + iTeam.ToString + "|")
             Case Else
                 Select Case LiveMatch.Period
