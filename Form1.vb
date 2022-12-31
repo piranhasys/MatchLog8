@@ -8979,20 +8979,20 @@ Public Class Form1
             Select Case dataArray(0)
                 Case "CONNECTED"
                     Select Case Config.UserName
-                        Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
-                            If (MatchSynced = False) Then
-                                'startup
-                                SendData("MATCHLOG|REQUESTMATCHSYNC|" + Config.PCName + "|")
-                            End If
-                            'check for messages in queue:
-                            SendQueue() 'may connect to restarted SS before RB so keep queue until acks received
-                        Case Else
+                        Case "GAA STATS"
                             If Config.UseRBLiveMatch Then
                                 SendData("MATCHPAD|REQUESTLIVEMATCHDETAILS|")
                             End If
                             If Config.UseRBStatNames Then
                                 SendData("MATCHLOG|REQUESTLIVESTATNAMES|")
                             End If
+                        Case Else
+                            If (MatchSynced = False) Then
+                                'startup
+                                SendData("MATCHLOG|REQUESTMATCHSYNC|" + Config.PCName + "|")
+                            End If
+                            'check for messages in queue:
+                            SendQueue() 'may connect to restarted SS before RB so keep queue until acks received
                     End Select
                 Case "MATCHLIST"
                     If dataArray(1) = dtSelDate Then
@@ -9137,23 +9137,25 @@ Public Class Form1
                             ShowTeamStats()
                         Case "POSSESSION"
                             Select Case Config.UserName
-                                Case "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
+                                Case "GAA STATS"
+                                Case Else
                                     If LiveMatch.MatchID = Val(dataArray(2)) Then
                                         LiveMatch.Period = Val(dataArray(3))
                                         Utils.AssignRemoteGAAPossessionDataString(strMessage)
                                         ShowRemotePossession()
                                     End If
-                                Case Else
-                                    If LiveMatch.MatchID = Val(dataArray(3)) Then
-                                        LiveMatch.Period = Val(dataArray(4))
-                                        Utils.AssignRemoteDataString(strMessage)
-                                        ShowRemotePossession()
-                                        ShowDirection()
-                                    End If
+                                    'Case Else
+                                    '    If LiveMatch.MatchID = Val(dataArray(3)) Then
+                                    '        LiveMatch.Period = Val(dataArray(4))
+                                    '        Utils.AssignRemoteDataString(strMessage)
+                                    '        ShowRemotePossession()
+                                    '        ShowDirection()
+                                    '    End If
                             End Select
                         Case "LOCALMATCHTIME"
                             Select Case Config.UserName
-                                Case "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
+                                Case "GAA STATS"
+                                Case Else
                                     'MATCHDATA|LOCALMATCHTIME|32488|1|00:00|0:00|0:00|20|15|RUNNING|
                                     If LiveMatch.MatchID = Val(dataArray(2)) Then
                                         LiveMatch.Period = Val(dataArray(3))
@@ -9175,13 +9177,13 @@ Public Class Form1
                         Case "SCOREUPDATE"
                             'MATCHDATA|SCOREUPDATE|49233|5|4|0|5^4|
                             Select Case Config.UserName
-                                Case "SKYSUPERLEAGUE", "PRO14", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
+                                Case "GAA STATS"
+                                Case Else
                                     If LiveMatch.MatchID = Val(dataArray(2)) Then
                                         RemoteData.HomeScore = dataArray(3)
                                         RemoteData.AwayScore = dataArray(4)
                                         ShowRemotePossession()
                                     End If
-                                Case Else
                             End Select
                         Case Else
                             'MessageBox.Show(strMessage)
@@ -9855,22 +9857,21 @@ Public Class Form1
         ShowPlayerSummaryStats(1)
         ShowPlayerSummaryStats(2)
         ShowDirection()
-        Me.Text = $"MatchLogGAA by PIRANHA Systems v {Application.ProductVersion}        User: {Config.UserName}"
+        Me.Text = $"MatchLogGAA by PIRANHA Systems v {Application.ProductVersion}"
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "RTE GAA", "TG4 GAA"
+            Case "GAA STATS"
+                'If Config.UseRBStatNames Then
+                '    Me.Text += "        User: {Config.UserName}       Stat Names: ReportBuilder"
+                '    btnFetchStatNames.Visible = True
+                'Else
+                Me.Text += $"        User: {Config.UserName}       Stat Names file: {Config.StatnamesFilename}"
+                'End If
+                btnFetchLiveMatch.Visible = Config.UseRBLiveMatch   'forced false
+            Case Else
                 Me.Text += $"       Tablet Name: {Config.PCName}"
                 btnMatchSync.Visible = True
                 btnFetchRBStats.Visible = False 'now uses MATCHSYNC data
                 btnFetchStatNames.Visible = False
-            Case Else
-                'GAA STATS
-                If Config.UseRBStatNames Then
-                    Me.Text += "       Stat Names: ReportBuilder"
-                    btnFetchStatNames.Visible = True
-                Else
-                    Me.Text += $"       Stat Names file: {Config.StatnamesFilename}"
-                End If
-                btnFetchLiveMatch.Visible = Config.UseRBLiveMatch
         End Select
         btnSetup.Visible = Not (Config.UseRBLiveMatch)
         If Config.AutoConectToSportServer = True Then
@@ -9882,13 +9883,13 @@ Public Class Form1
         Config.NumberOfAreas = 3
         Select Case Config.UserName
             Case "GAA STATS"
-            Case "SKY2018 GAA", "GAA 2022", "SKY GAA", "RTE GAA", "TG4 GAA"
-                'force
+                Config.UseRBLiveMatch = False
+                Config.UseRBStatNames = False
+                Config.UseRBMatchSync = False
+            Case Else
                 Config.UseRBLiveMatch = True
                 Config.UseRBStatNames = True
                 Config.UseRBMatchSync = True
-            Case Else
-                Config.NumberOfAreas = 3
         End Select
     End Sub
     Sub SetEnables()
@@ -9919,7 +9920,7 @@ Public Class Form1
                 groupPossession.Height = 114
                 'Label8.Visible = False
                 'Label9.Visible = False
-            Case "SKY GAA", "RTE GAA", "TG4 GAA"
+            Case Else
                 groupRemotePossession.Visible = False
                 groupPossession.Visible = Config.LogPossession
                 groupViewTime.Visible = Config.LogPossession
@@ -9947,7 +9948,7 @@ Public Class Form1
                         groupActionAreasRugby.Visible = False
                         groupActionAreasSoccer.Visible = Config.LogPossession
                 End Select
-            Case Else
+                'Case Else
                 'groupRemotePossession.Visible = False
                 'groupPossession.Visible = Config.LogPossession
                 'groupViewTime.Visible = Config.LogPossession
@@ -11243,7 +11244,8 @@ Public Class Form1
             Me.Invoke(d, New Object() {})
         Else
             Select Case Config.UserName
-                Case "GAA 2022", "TG4 GAA", "RTE GAA"
+                Case "GAA STATS"
+                Case Else
                     lablRemoteHomePossessionSL.Text = RemoteData.HomePossession
                     lablRemoteAwayPossessionSL.Text = RemoteData.AwayPossession
                     Select Case RemoteData.CurrentPossessionTeam
@@ -11295,20 +11297,20 @@ Public Class Form1
                     End Select
                     lablHomeScoreSL.Text = RemoteData.HomeScore
                     lablAwayScoreSL.Text = RemoteData.AwayScore
-                Case "SKY GAA"   '????????????????????
-                    Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
-                    Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
+                    'Case "SKY GAA"   '????????????????????
+                    '    Me.lablRemoteMatchTime.Text = RemoteData.PeriodTime
+                    '    Me.lablRemoteInPlay.Text = RemoteData.PeriodInPlay
 
-                    Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
-                    Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
+                    '    Me.lablRemoteHomeTeam.Text = LiveMatch.HomeShortName
+                    '    Me.lablRemoteAwayTeam.Text = LiveMatch.AwayShortName
 
-                    Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
-                    Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
+                    '    Me.lablRemoteHomePossession.Text = RemoteData.HomePossession
+                    '    Me.lablRemoteAwayPossession.Text = RemoteData.AwayPossession
 
-                    Me.lablRemoteAreaS1.Text = RemoteData.Area1
-                    Me.lablRemoteAreaS2.Text = RemoteData.Area2
-                    Me.lablRemoteAreaS3.Text = RemoteData.Area3
-                Case Else
+                    '    Me.lablRemoteAreaS1.Text = RemoteData.Area1
+                    '    Me.lablRemoteAreaS2.Text = RemoteData.Area2
+                    '    Me.lablRemoteAreaS3.Text = RemoteData.Area3
+                    'Case Else
 
             End Select
         End If
@@ -11400,12 +11402,7 @@ Public Class Form1
     End Sub
     Sub LogPossession(ByVal iTeam As Integer)
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
-                Dim lastPossession As Integer = 0
-                Dim senderTag As Integer = iTeam
-                'Use MatchPad syntax. RB calculates percentages.
-                SendData("MATCHPAD|LOGPOSSESSION|" + LiveMatch.MatchID.ToString + "|" + senderTag.ToString + "|")
-            Case Else
+            Case "GAA STATS"
                 Select Case LiveMatch.Period
                     Case 1, 3, 5, 7
                         MatchPossession(iCurrentPeriod).AllocatePossession()
@@ -11420,6 +11417,11 @@ Public Class Form1
                     Case Else
 
                 End Select
+            Case Else
+                Dim lastPossession As Integer = 0
+                Dim senderTag As Integer = iTeam
+                'Use MatchPad syntax. RB calculates percentages.
+                SendData("MATCHPAD|LOGPOSSESSION|" + LiveMatch.MatchID.ToString + "|" + senderTag.ToString + "|")
         End Select
     End Sub
     Private Sub BtnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAreaS1.Click, btnAreaS2.Click, btnAreaS3.Click, lablAreaS1.Click, lablAreaS2.Click, lablAreaS3.Click, btnAreaR1.Click, btnAreaR2.Click, btnAreaR3.Click, btnAreaR4.Click
@@ -11428,9 +11430,7 @@ Public Class Form1
     End Sub
     Sub LogArea(ByVal iTeam As Integer)
         Select Case Config.UserName
-            Case "SKYSUPERLEAGUE", "SKY2018 GAA", "GAA 2022", "SKY GAA", "TG4 GAA", "RTE GAA"
-                SendData("MATCHPAD|LOGACTIONAREA|" + LiveMatch.MatchID.ToString + "|" + iTeam.ToString + "|")
-            Case Else
+            Case "GAA STATS"
                 Select Case LiveMatch.Period
                     Case 1, 3, 5, 7
                         MatchPossession(iCurrentPeriod).AllocateArea()
@@ -11438,6 +11438,8 @@ Public Class Form1
                         ShowPossession()
                     Case Else
                 End Select
+            Case Else
+                SendData("MATCHPAD|LOGACTIONAREA|" + LiveMatch.MatchID.ToString + "|" + iTeam.ToString + "|")
         End Select
     End Sub
     Private Sub btnPeriodEnable_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPeriodEnable.Click
