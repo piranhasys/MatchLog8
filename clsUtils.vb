@@ -813,6 +813,7 @@ Public Class clsUtils
         For inc As Integer = 1 To strRBTeamStatJSONName.GetUpperBound(0)
             If strRBTeamStatJSONName(inc) <> "" Then
                 returnValue = True
+                Exit For
             End If
         Next
         Return returnValue

@@ -9894,7 +9894,7 @@ Public Class Form1
     End Sub
     Sub SetEnables()
         Select Case Config.UserName
-            Case "GAA 2022"
+            Case "GAA 2022", "GAA"
                 panelGAA.Visible = True
                 picBoxGAALogo.Visible = True
                 panelGAA.BringToFront()
@@ -11694,8 +11694,10 @@ Public Class Form1
                 ShowConnectionStatus(0)
             End If
         End If
-        If Not (MatchSynced) Then
-            SendData($"MATCHLOG|REQUESTMATCHSYNC|{My.Computer.Name}-StatViewer|")
+        If Config.UseRBMatchSync Then
+            If Not (MatchSynced) Then
+                SendData($"MATCHLOG|REQUESTMATCHSYNC|{My.Computer.Name}-StatViewer|")
+            End If
         End If
 
     End Sub
