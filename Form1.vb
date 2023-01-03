@@ -9883,8 +9883,8 @@ Public Class Form1
         Config.NumberOfAreas = 3
         Select Case Config.UserName
             Case "GAA STATS"
-                Config.UseRBLiveMatch = False
-                Config.UseRBStatNames = False
+                Config.UseRBLiveMatch = True
+                Config.UseRBStatNames = True
                 Config.UseRBMatchSync = False
             Case Else
                 Config.UseRBLiveMatch = True
@@ -13082,6 +13082,7 @@ Public Class Form1
         If dataString.Contains("|") Then
             Dim splitText() As String = dataString.Split("|")
             If splitText.GetUpperBound(0) > 5 Then
+                'JSON names:
                 If splitText(5).Contains("^") Then
                     Dim playerSplit() As String = splitText(5).Split("^")
                     For inc As Integer = 1 To playerSplit.GetUpperBound(0)
@@ -13091,13 +13092,17 @@ Public Class Form1
                     Next
                 End If
                 If splitText(6).Contains("^") Then
+                    JSONTeamStats.statList.Clear()
                     Dim teamSplit() As String = splitText(6).Split("^")
                     For inc As Integer = 1 To teamSplit.GetUpperBound(0)
                         If inc <= strRBTeamStatJSONName.GetUpperBound(0) Then
                             strRBTeamStatJSONName(inc) = teamSplit(inc)
+                            strTeamStatJSONName(inc) = teamSplit(inc)   'as read from file
+                            JSONTeamStats.statList.Add(New clsJSONTeamStat(teamSplit(inc)))   'as read from file
                         End If
                     Next
                 End If
+                'GUI names:
                 If Config.UseRBStatNames Then
                     If splitText(2).Contains("^") Then
                         Dim playerSplit() As String = splitText(2).Split("^")
